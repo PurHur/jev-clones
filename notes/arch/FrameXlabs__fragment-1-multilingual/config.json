@@ -1,0 +1,37 @@
+{
+ "d_model": 256,
+ "n_layers": 6,
+ "n_heads": 8,
+ "ff": 1024,
+ "max_len": 128,
+ "vocab_size": 24000,
+ "n_langs": 204,
+ "categories": [
+  "entertainment",
+  "geography",
+  "health",
+  "politics",
+  "science/technology",
+  "sports",
+  "travel"
+ ],
+ "temperature": [
+  0.8502490520477295,
+  7.1096930503845215,
+  8.0
+ ],
+ "crit_topic": {
+  "entertainment": "topics about entertainment",
+  "geography": "topics about geography",
+  "health": "topics about health",
+  "politics": "topics about politics",
+  "science/technology": "topics about science/technology",
+  "sports": "topics about sports",
+  "travel": "topics about travel"
+ },
+ "crit_sent": [
+  "negative sentiment",
+  "neutral sentiment",
+  "positive sentiment"
+ ]
+}

@@ -1,0 +1,44 @@
+{
+ "_id": "6ab6e1bbbbea089f82db4f0e",
+ "id": "sanghwa-na/bobcat-1",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.8-27B"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "language": [
+   "ko",
+   "en"
+  ],
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "lora",
+   "peft",
+   "typed-decisions",
+   "calibration",
+   "classification",
+   "reranking",
+   "guardrails"
+  ],
+  "datasets": [
+   "klue/klue",
+   "kakaobrain/kor_nli",
+   "e9t/nsmc",
+   "AmazonScience/massive",
+   "PolyAI/banking77",
+   "google/boolq",
+   "allenai/ai2_arc",
+   "nvidia/HelpSteer2",
+   "nvidia/HelpSteer3"
+  ]
+ },
+ "lastModified": "2026-09-25T21:46:00.000Z",
+ "downloads": 39,
+ "gated": false,
+ "createdAt": "2026-09-25T21:03:55.000Z"
+}

@@ -1,0 +1,80 @@
+{
+ "_id": "6abcbca199c1d2625c34287e",
+ "id": "eulogik/nirnay-450m",
+ "config": {
+  "model_type": "nirnay",
+  "architectures": [
+   "NirnayTrainModel"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "convaiinnovations/laya",
+  "language": [
+   "en"
+  ],
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "banking77",
+   "intent-classification",
+   "intent-detection",
+   "calibrated-decisions",
+   "calibration",
+   "decision-model",
+   "system-one",
+   "laya",
+   "small-language-model",
+   "edge-ai",
+   "on-device",
+   "guardrails",
+   "triage",
+   "lora",
+   "rlcd",
+   "transformers",
+   "safetensors",
+   "pytorch"
+  ],
+  "datasets": [
+   "polyai/banking77"
+  ],
+  "model-index": [
+   {
+    "name": "nirnay-450m",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Banking77 Intent Classification"
+      },
+      "dataset": {
+       "name": "Banking77 test split",
+       "type": "polyai/banking77"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8792,
+        "verified": false
+       },
+       {
+        "type": "brier",
+        "value": 0.2083,
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "name": "ECE (fitted)",
+        "value": 0.0454,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-06T07:43:08.000Z",
+ "downloads": 9,
+ "gated": false,
+ "createdAt": "2026-09-30T07:39:13.000Z"
+}

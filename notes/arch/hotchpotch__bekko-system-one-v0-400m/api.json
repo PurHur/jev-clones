@@ -1,0 +1,25 @@
+{
+ "_id": "6abbaa0b190e3e69989d3dfd",
+ "id": "hotchpotch/bekko-system-one-v0-400m",
+ "config": {},
+ "cardData": {
+  "base_model": [
+   "cross-encoder/ettin-reranker-400m-v1"
+  ],
+  "language": [
+   "en"
+  ],
+  "library_name": "sentence-transformers",
+  "tags": [
+   "modernbert",
+   "typed-decisions",
+   "classification",
+   "scoring",
+   "custom-code"
+  ]
+ },
+ "lastModified": "2026-09-30T20:19:00.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-29T12:07:39.000Z"
+}

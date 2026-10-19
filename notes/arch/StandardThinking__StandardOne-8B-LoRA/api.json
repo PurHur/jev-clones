@@ -1,0 +1,45 @@
+{
+ "_id": "6ab4e93328d04ea8a69694ec",
+ "id": "StandardThinking/StandardOne-8B-LoRA",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "base_model": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "license": "apache-2.0",
+  "pipeline_tag": "text-generation",
+  "language": [
+   "en",
+   "ja",
+   "zh",
+   "es",
+   "fr",
+   "de",
+   "pt",
+   "ru",
+   "ko"
+  ],
+  "tags": [
+   "mistral3",
+   "decision-model",
+   "typed-decisions",
+   "jev",
+   "jevbench",
+   "calibration",
+   "decode-free",
+   "multilingual",
+   "vision-language",
+   "lora",
+   "peft"
+  ]
+ },
+ "lastModified": "2026-10-04T14:40:45.000Z",
+ "downloads": 91,
+ "gated": false,
+ "createdAt": "2026-09-24T09:11:15.000Z"
+}

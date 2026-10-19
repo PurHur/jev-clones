@@ -1,0 +1,39 @@
+{
+ "_id": "6ac0ffd9ba7bf169f747c79f",
+ "id": "nickprock/archai-jev-zagreus-0.4b-ita",
+ "config": {
+  "architectures": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama",
+  "tokenizer_config": {
+   "bos_token": "<|begin_of_text|>",
+   "eos_token": "<|end_of_text|>"
+  }
+ },
+ "cardData": {
+  "base_model": "mii-llm/zagreus-0.4B-ita",
+  "library_name": "transformers",
+  "language": [
+   "it"
+  ],
+  "tags": [
+   "system-one",
+   "decision-engine",
+   "decision-index",
+   "classification",
+   "lora",
+   "gguf"
+  ]
+ },
+ "lastModified": "2026-10-12T08:29:29.000Z",
+ "downloads": 1256,
+ "gated": false,
+ "createdAt": "2026-10-03T13:15:05.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 437760960
+  },
+  "total": 437760960
+ }
+}

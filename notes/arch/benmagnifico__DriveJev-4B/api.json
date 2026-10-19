@@ -1,0 +1,26 @@
+{
+ "_id": "6abf952f47ac038b7216dcc8",
+ "id": "benmagnifico/DriveJev-4B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen-Drive-1.0-4B",
+  "base_model_relation": "finetune",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "autonomous-driving",
+   "driving-policy",
+   "vision-language-model",
+   "decision-model",
+   "closed-loop",
+   "simulation",
+   "jevpilot"
+  ]
+ },
+ "lastModified": "2026-10-03T10:03:49.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-02T11:27:43.000Z"
+}

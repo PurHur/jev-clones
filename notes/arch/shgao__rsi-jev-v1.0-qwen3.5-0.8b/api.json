@@ -1,0 +1,20 @@
+{
+ "_id": "6ab4963c33ecb3e010f4d44d",
+ "id": "shgao/rsi-jev-v1.0-qwen3.5-0.8b",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-0.8B-Base",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "rsi-jev",
+   "typed-decisions",
+   "decision-model",
+   "jev"
+  ]
+ },
+ "lastModified": "2026-09-25T19:33:08.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-24T03:17:16.000Z"
+}

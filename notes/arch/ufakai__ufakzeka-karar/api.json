@@ -1,0 +1,185 @@
+{
+ "_id": "6abe84612ac3b7e9ef583a77",
+ "id": "ufakai/ufakzeka-karar",
+ "config": {
+  "tokenizer_config": {
+   "eos_token": "<|endoftext|>",
+   "pad_token": "<|pad|>",
+   "chat_template": "{% for m in messages %}{{ '<|im_start|>' + m['role'] + '\\n' + (m['content'] | trim) + '<|im_end|>\\n' }}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\\n' }}{% endif %}"
+  }
+ },
+ "cardData": {
+  "language": [
+   "tr"
+  ],
+  "license": "apache-2.0",
+  "pipeline_tag": "text-classification",
+  "base_model": "ufakai/ufakzeka-1-base",
+  "base_model_relation": "finetune",
+  "tags": [
+   "turkish",
+   "typed-decisions",
+   "calibration",
+   "selective-prediction",
+   "text-classification",
+   "multiple-choice",
+   "cpu"
+  ],
+  "datasets": [
+   "ogozcelik/turkish-fake-news-detection",
+   "clips/mqa",
+   "icgcihan/Turkish_Constutional_Court_Decisions",
+   "3nesdeniz/turkish-prompt-injection-1k",
+   "3nesdeniz/turkish-conversation-prompt-injection",
+   "3nesdeniz/guardrail-hard-negatives",
+   "beratcmn/turkish-prompt-injections",
+   "PaDaS-Lab/webfaq",
+   "PaDaS-Lab/webfaq-retrieval",
+   "AmazonScience/massive",
+   "coltekin/offenseval2020_tr"
+  ],
+  "model-index": [
+   {
+    "name": "ufakzeka-karar",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Typed decisions (choice, score, yes or no)"
+      },
+      "dataset": {
+       "type": "ufakai/HakemBench",
+       "name": "HakemBench v1.0, open set",
+       "config": "items",
+       "split": "test"
+      },
+      "metrics": [
+       {
+        "type": "composite",
+        "name": "Composite (geometric mean of decision quality, calibration, selective)",
+        "value": 0.66,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Decision quality axis (macro F1, mean over tracks; intelligence in the board files)",
+        "value": 0.705,
+        "verified": false
+       },
+       {
+        "type": "calibration",
+        "name": "Calibration axis (1 minus normalised Brier)",
+        "value": 0.482,
+        "verified": false
+       },
+       {
+        "type": "selective",
+        "name": "Selective axis (1 minus normalised AUGRC)",
+        "value": 0.848,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, dogrulama (fact-check triage)",
+        "value": 0.64,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, dogrulama (fact-check triage)",
+        "value": 0.437,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, egitim (education)",
+        "value": 0.787,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, egitim (education)",
+        "value": 0.802,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, guvenlik (guardrails; shaped by reading the test results)",
+        "value": 0.77,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, guvenlik (guardrails; shaped by reading the test results)",
+        "value": 0.764,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, hukuk (legal routing)",
+        "value": 0.782,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, hukuk (legal routing)",
+        "value": 0.754,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, moderasyon (moderation; shaped by reading the test results)",
+        "value": 0.952,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, moderasyon (moderation; shaped by reading the test results)",
+        "value": 0.951,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, spam (spam and phishing)",
+        "value": 0.806,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, spam (spam and phishing)",
+        "value": 0.746,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy, sss (customer support; shaped by reading the test results)",
+        "value": 0.569,
+        "verified": false
+       },
+       {
+        "type": "f1",
+        "name": "Macro F1, sss (customer support; shaped by reading the test results)",
+        "value": 0.479,
+        "verified": false
+       }
+      ],
+      "source": {
+       "name": "HakemBench public board",
+       "url": "https://huggingface.co/datasets/ufakai/HakemBench"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-07T14:04:17.000Z",
+ "downloads": 42,
+ "gated": false,
+ "createdAt": "2026-10-01T16:03:45.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 182494466
+  },
+  "total": 182494466
+ }
+}

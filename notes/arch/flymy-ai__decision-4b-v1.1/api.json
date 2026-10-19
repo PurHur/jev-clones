@@ -1,0 +1,25 @@
+{
+ "_id": "6ab5e2cb5fc6ac8aa678b120",
+ "id": "flymy-ai/decision-4b-v1.1",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "library_name": "peft",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "lora",
+   "peft",
+   "typed-decisions",
+   "calibration",
+   "jevbench",
+   "qwen3.5"
+  ]
+ },
+ "lastModified": "2026-09-25T02:56:13.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-25T02:56:11.000Z"
+}

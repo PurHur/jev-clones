@@ -1,0 +1,37 @@
+{
+ "_id": "6ab288e3d59a22585912653e",
+ "id": "Hanno-Labs/bosun-v3.1-0.6b",
+ "config": {
+  "architectures": [
+   "BosunForDecision"
+  ],
+  "auto_map": {
+   "AutoConfig": "configuration_bosun.BosunConfig",
+   "AutoModelForCausalLM": "modeling_bosun.BosunForDecision"
+  },
+  "model_type": "bosun"
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-0.6B",
+  "base_model_relation": "adapter",
+  "library_name": "transformers",
+  "pipeline_tag": "text-generation",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "bosun",
+   "decision-model",
+   "typed-decisions",
+   "peft",
+   "lora",
+   "qwen3",
+   "base_model:adapter:Qwen/Qwen3-0.6B"
+  ]
+ },
+ "lastModified": "2026-10-09T19:02:12.000Z",
+ "downloads": 1412,
+ "gated": false,
+ "createdAt": "2026-09-22T13:55:47.000Z"
+}

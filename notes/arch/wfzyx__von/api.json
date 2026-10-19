@@ -1,0 +1,47 @@
+{
+ "_id": "6aaea7e5d52789a8f422c683",
+ "id": "wfzyx/von",
+ "config": {
+  "architectures": [
+   "ModernBertModel"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": [
+   "answerdotai/ModernBERT-large"
+  ],
+  "pipeline_tag": "zero-shot-classification",
+  "library_name": "von-sdk",
+  "tags": [
+   "system-one",
+   "decision-model",
+   "option-marker",
+   "modernbert",
+   "calibrated",
+   "jevbench",
+   "non-autoregressive"
+  ]
+ },
+ "lastModified": "2026-10-02T04:54:56.000Z",
+ "downloads": 118261,
+ "gated": false,
+ "createdAt": "2026-09-19T15:19:01.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 394781696
+  },
+  "total": 394781696
+ }
+}

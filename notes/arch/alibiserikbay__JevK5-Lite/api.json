@@ -1,0 +1,44 @@
+{
+ "_id": "6ab615dc6dc1ea6a1287734a",
+ "id": "alibiserikbay/JevK5-Lite",
+ "config": {
+  "architectures": [
+   "DebertaV2Model"
+  ],
+  "model_type": "deberta-v2",
+  "tokenizer_config": {
+   "bos_token": "[CLS]",
+   "cls_token": "[CLS]",
+   "eos_token": "[SEP]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "microsoft/deberta-v3-large",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "text-classification",
+   "zero-shot-classification",
+   "multi-label-classification",
+   "jevk5",
+   "cpu"
+  ]
+ },
+ "lastModified": "2026-09-25T06:39:06.000Z",
+ "downloads": 214,
+ "gated": false,
+ "createdAt": "2026-09-25T06:34:04.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 433912832
+  },
+  "total": 433912832
+ }
+}

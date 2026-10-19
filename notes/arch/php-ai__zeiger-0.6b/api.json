@@ -1,0 +1,31 @@
+{
+ "_id": "6ab0ffe070eddc93921a7ff3",
+ "id": "php-ai/zeiger-0.6b",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-sa-4.0",
+  "base_model": "Qwen/Qwen3-0.6B-Base",
+  "language": [
+   "en",
+   "de"
+  ],
+  "tags": [
+   "web-agents",
+   "browser-automation",
+   "element-grounding",
+   "decision-model",
+   "long-context"
+  ],
+  "library_name": "zeiger"
+ },
+ "lastModified": "2026-09-22T13:49:59.000Z",
+ "downloads": 33,
+ "gated": false,
+ "createdAt": "2026-09-21T09:58:56.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 613907457
+  },
+  "total": 613907457
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "format_version": 1,
+ "model_id": "ufakzeka-karar",
+ "source_run": "r5b-base-s1",
+ "backbone": {
+  "repo": "ufakai/ufakzeka-1-base",
+  "revision": "f9e11eea28cbb2ba953a5628f972d416fe0c3cfe"
+ },
+ "backbone_config": {
+  "vocab_size": 40960,
+  "n_layer": 24,
+  "d_model": 768,
+  "n_head": 12,
+  "n_kv_head": 4,
+  "d_ff": 2048,
+  "head_dim": 64,
+  "max_positions": 4096,
+  "rope_theta": 100000.0,
+  "norm_eps": 1e-05,
+  "softcap": 30.0
+ },
+ "causal": true,
+ "pooling": "mean",
+ "layout": "blind",
+ "max_prefix_tokens": 448,
+ "max_option_tokens": 48,
+ "options_per_pass": 10,
+ "dtype": "float32"
+}

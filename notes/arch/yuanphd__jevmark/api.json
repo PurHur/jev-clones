@@ -1,0 +1,31 @@
+{
+ "_id": "6ac2a5a4b76bf65920b36845",
+ "id": "yuanphd/jevmark",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": [
+   "Qwen/Qwen3-0.6B-Base",
+   "Qwen/Qwen3-1.7B-Base"
+  ],
+  "library_name": "peft",
+  "datasets": [
+   "clinc/clinc_oos",
+   "SetFit/sst5",
+   "legacy-datasets/banking77"
+  ],
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "decision-model",
+   "calibration",
+   "lora",
+   "qwen3"
+  ]
+ },
+ "lastModified": "2026-10-04T20:07:51.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-04T19:14:44.000Z"
+}

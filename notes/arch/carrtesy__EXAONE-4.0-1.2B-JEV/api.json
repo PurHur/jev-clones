@@ -1,0 +1,45 @@
+{
+ "_id": "6abf348ba3c83f127056ae77",
+ "id": "carrtesy/EXAONE-4.0-1.2B-JEV",
+ "config": {
+  "architectures": [
+   "Exaone4ForCausalLM"
+  ],
+  "model_type": "exaone4",
+  "tokenizer_config": {
+   "bos_token": "[BOS]",
+   "eos_token": "[|endofturn|]",
+   "pad_token": "[PAD]",
+   "unk_token": "[UNK]"
+  },
+  "chat_template_jinja": "{%- if not skip_think is defined %}\n  {%- set skip_think = true %}\n{%- endif %}\n\n{%- set role_indicators = {\n    'user': '[|user|]\\n',\n    'assistant': '[|assistant|]\\n',\n    'system': '[|system|]\\n',\n    'tool': '[|tool|]\\n'\n} %}\n{%- set end_of_turn = '[|endofturn|]\\n' %}\n\n\n{%- macro available_tools(tools) %}\n    {{- \"# Available Tools\" }}\n    {{- \"\\nYou can use none, one, or multiple of the following tools by calling them as functions to help with the user\u2019s query.\" }}\n    {{- \"\\nHere are the tools available to you in JSON format within <tool> and </tool> tags:\\n\" }}\n    {%- for tool in tools %}\n        {{- \"<tool>\" }}\n        {{- tool | tojson(ensure_ascii=False) | safe }}\n        {{- \"</tool>\\n\" }}\n    {%- endfor %}\n\n    {{- \"\\nFor each function call you want to make, return a JSON object with function name and arguments within <tool_call> and </tool_call> tags, like:\" }}\n    {{- \"\\n<tool_call>{\\\"name\\\": function_1_name, \\\"arguments\\\": {argument_1_name: argument_1_value, argument_2_name: argument_2_value}}</tool_call>\" }}\n    {{- \"\\n<tool_call>{\\\"name\\\": function_2_name, \\\"arguments\\\": {...}}</tool_call>\\n...\" }}\n    {{- \"\\nNote that if no argument name is specified for a tool, you can just print the argument value directly, without the argument name or JSON formatting.\" }}\n{%- endmacro %}\n\n\n{%- set ns = namespace(last_query_index = messages|length - 1) %}\n{%- for message in messages %}\n    {%- if message.role == \"user\" and message.content is string %}\n        {%- set ns.last_query_index = loop.index0 -%}\n    {%- endif %}\n{%- endfor %}\n\n{%- for i in range(messages | length) %}\n    {%- set msg = messages[i] %}\n    {%- set role = msg.role %}\n    {%- if role not in role_indicators %}\n        {{- raise_exception('Unknown role: ' ~ role) }}\n    {%- endif %}\n    \n    {%- if i == 0 %}\n        {%- if role == 'system' %}\n            {{- role_indicators['system'] }}\n            {{- msg.content }}\n            {%- if tools is defined and tools %}\n                {{- \"\\n\\n\" }}{{- available_tools(tools) }}\n            {%- endif %}\n            {{- end_of_turn -}}\n            {%- continue %}\n        {%- elif tools is defined and tools %}            \n            {{- role_indicators['system'] }}\n            {{- available_tools(tools) }}\n            {{- end_of_turn -}}            \n        {%- endif %}\n    {%- endif %}\n\n    {%- if role == 'assistant' %}\n        {{- role_indicators['assistant'] }}\n\n        {%- if msg.content %}        \n            {%- if \"</think>\" in msg.content %}\n                {%- set content = msg.content.split('</think>')[-1].strip() %}\n                {%- set reasoning_content = msg.content.split('</think>')[0].strip() %}\n                {%- if reasoning_content.startswith(\"<think>\") %}\n                    {%- set reasoning_content = reasoning_content[9:].strip() %}\n                {%- endif %}\n            {%- else %}\n                {%- set content = msg.content %}\n            {%- endif %}\n\n            {%- if msg.reasoning_content %}\n                {%- set reasoning_content = msg.reasoning_content %}\n            {%- endif %}\n\n            {%- if (not skip_think and loop.last) and reasoning_content is defined %}\n                {{- \"<think>\\n\" }}\n                {{- reasoning_content}}\n                {{- \"\\n</think>\\n\\n\" }}\n            {%- else %}\n                {{- \"<think>\\n\\n</think>\\n\\n\" }}\n            {%- endif %}\n            {{- content }}\n        {%- endif %}\n\n        {%- if msg.tool_calls %}\n            {%- if msg.content %}\n                {{- \"\\n\" }}\n            {%- else %}\n                {{- \"<think>\\n\\n</think>\\n\\n\" }}\n            {%- endif %}\n            {%- for tool_call in msg.tool_calls %}\n                {%- if tool_call.function is defined %}\n                    {%- set tool_call = tool_call.function %}\n                {%- endif %}\n\n                {%- if tool_call.arguments is defined %}\n                    {%- set arguments = tool_call.arguments %}\n                {%- elif tool_call.parameters is defined %}\n                    {%- set arguments = tool_call.parameters %}\n                {%- else %}\n                    {{- raise_exception('arguments or parameters are mandatory: ' ~ tool_call) }}\n                {%- endif %}\n\n                {{- \"<tool_call>\" }}{\"name\": \"{{- tool_call.name }}\", \"arguments\": {{ arguments | tojson(ensure_ascii=False) | safe }}}{{- \"</tool_call>\" }}\n\n                {%- if not loop.last %}\n                    {{- \"\\n\" }}\n                {%- endif %}\n\n            {%- endfor %}\n        {%- endif %}\n        {{- end_of_turn -}}\n\n    {%- elif role == \"tool\" %}\n        {%- if i == 0 or messages[i - 1].role != \"tool\" %}\n            {{- role_indicators['tool'] }}\n        {%- endif %}\n        {%- if msg.content is defined %}            \n            {{- \"<tool_result>\" }}{\"result\": {{ msg.content | tojson(ensure_ascii=False) | safe }}}{{- \"</tool_result>\" }}            \n        {%- endif %}\n        {%- if loop.last or messages[i + 1].role != \"tool\" %}\n            {{- end_of_turn -}}\n        {%- else %}\n            {{- \"\\n\" }}\n        {%- endif %}\n\n    {%- else %}\n        {{- role_indicators[role] }}\n        {{- msg.content }}\n        {{- end_of_turn -}}\n    {%- endif %}\n{% endfor %}\n\n\n{%- if add_generation_prompt %}\n    {{- role_indicators['assistant'] }}\n    {%- if enable_thinking is defined and enable_thinking is true %}\n        {{- \"<think>\\n\" }}\n    {%- else %}\n        {{- \"<think>\\n\\n</think>\\n\\n\" }}\n    {%- endif %}\n{%- endif %}"
+ },
+ "cardData": {
+  "license": "other",
+  "license_name": "exaone",
+  "license_link": "LICENSE",
+  "base_model": "LGAI-EXAONE/EXAONE-4.0-1.2B",
+  "language": [
+   "en"
+  ],
+  "library_name": "transformers",
+  "pipeline_tag": "text-generation",
+  "tags": [
+   "exaone",
+   "decision-model",
+   "system-one",
+   "jev",
+   "calibrated"
+  ]
+ },
+ "lastModified": "2026-10-04T12:40:19.000Z",
+ "downloads": 624,
+ "gated": false,
+ "createdAt": "2026-10-02T04:35:23.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 1279391488
+  },
+  "total": 1279391488
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "_id": "6ab8c00e0e32dd23e04ac235",
+ "id": "guanxuyu/visual-jev-browser-4b",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "/mnt/local_data/vjb/models/Qwen3-VL-4B-Instruct",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "mit",
+  "base_model": "Qwen/Qwen3-VL-4B-Instruct",
+  "library_name": "peft",
+  "pipeline_tag": "image-text-to-text",
+  "tags": [
+   "web-agent",
+   "browser-use",
+   "gui-agent",
+   "lora",
+   "qwen3-vl",
+   "mind2web",
+   "miniwob"
+  ],
+  "language": [
+   "en"
+  ]
+ },
+ "lastModified": "2026-09-27T07:05:16.000Z",
+ "downloads": 62,
+ "gated": false,
+ "createdAt": "2026-09-27T07:04:46.000Z"
+}

@@ -1,0 +1,28 @@
+{
+ "_id": "6aaffbad6233099f290b61c8",
+ "id": "altslate/certo-decision-model",
+ "config": {
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "mit",
+  "library_name": "pytorch",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-making",
+   "calibration",
+   "certo",
+   "modernbert"
+  ]
+ },
+ "lastModified": "2026-09-21T16:11:42.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-20T15:28:45.000Z"
+}

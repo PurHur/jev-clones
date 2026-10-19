@@ -1,0 +1,145 @@
+{
+ "_id": "6ab68ba6a4416b13aebb214e",
+ "id": "Tamkimd/tamev-nano-tinybert",
+ "config": {
+  "model_type": "tamev",
+  "auto_map": {
+   "AutoConfig": "configuration_tamev.TamevConfig",
+   "AutoModel": "modeling_tamev.TamevModel",
+   "AutoModelForSequenceClassification": "modeling_tamev.TamevForDecision"
+  },
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "thumbnail": "https://huggingface.co/Tamkimd/tamev-nano-tinybert/resolve/main/banner.png",
+  "language": [
+   "en"
+  ],
+  "base_model": "huawei-noah/TinyBERT_General_4L_312D",
+  "base_model_relation": "finetune",
+  "datasets": [
+   "legacy-datasets/banking77",
+   "google/boolq",
+   "fancyzhx/ag_news",
+   "nyu-mll/multi_nli",
+   "SetFit/sst5",
+   "Yelp/yelp_review_full",
+   "CogComp/trec",
+   "fancyzhx/dbpedia_14",
+   "SetFit/amazon_reviews_multi_en",
+   "stanfordnlp/imdb"
+  ],
+  "tags": [
+   "decision-model",
+   "decision-engine",
+   "llm-router",
+   "router",
+   "option-selection",
+   "intent-routing",
+   "tool-call-gating",
+   "agent-routing",
+   "system-one",
+   "multiple-choice",
+   "multiclass-classification",
+   "safety-guardrails",
+   "guardrails",
+   "calibration",
+   "probability-calibration",
+   "temperature-scaling",
+   "brier-score",
+   "expected-calibration-error",
+   "typesafe",
+   "jev-alternative",
+   "kev-alternative",
+   "edge-ai",
+   "offline-inference",
+   "safetensors",
+   "tinybert",
+   "permutation-invariant",
+   "permutation-equivariant",
+   "onnx",
+   "onnxruntime",
+   "cpu-inference",
+   "onnx-int8",
+   "quantized",
+   "mlx",
+   "mps",
+   "torchscript",
+   "apple-silicon",
+   "metal"
+  ],
+  "metrics": [
+   "accuracy",
+   "brier_score",
+   "expected_calibration_error"
+  ],
+  "model-index": [
+   {
+    "name": "TAMEV-Nano-TinyBERT",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "System One typed decision (choice / noul / score)"
+      },
+      "dataset": {
+       "type": "custom",
+       "name": "TAMEV held-out set (n=19,999 balanced typed-decision items; exact-match leakage checks against the training, validation and calibration splits are all zero)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "name": "Top-1 Accuracy (95% CI 0.8040-0.8145)",
+        "value": 0.8093,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Top-3 Accuracy",
+        "value": 0.9807,
+        "verified": false
+       },
+       {
+        "type": "expected_calibration_error",
+        "name": "Expected Calibration Error (95% CI 0.0034-0.0101)",
+        "value": 0.0041,
+        "verified": false
+       },
+       {
+        "type": "brier_score",
+        "name": "Brier score",
+        "value": 0.2576,
+        "verified": false
+       },
+       {
+        "type": "latency",
+        "name": "Median inference latency (ms), documented predict_decision helper, a single CPU thread",
+        "value": 14.41,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-04T02:22:01.000Z",
+ "downloads": 614,
+ "gated": false,
+ "createdAt": "2026-09-25T14:56:38.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 14390184
+  },
+  "total": 14390184
+ }
+}

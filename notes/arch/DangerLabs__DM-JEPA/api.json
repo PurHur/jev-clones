@@ -1,0 +1,36 @@
+{
+ "_id": "6ac2bdd314c9b196f049c65b",
+ "id": "DangerLabs/DM-JEPA",
+ "config": {
+  "model_type": "dm_jepa",
+  "architectures": [
+   "DMJEPA"
+  ]
+ },
+ "cardData": {
+  "language": [
+   "en"
+  ],
+  "license": "mit",
+  "tags": [
+   "decision-making",
+   "jepa",
+   "system-1",
+   "decision-intelligence",
+   "non-autoregressive",
+   "fast-inference",
+   "modernbert"
+  ],
+  "pipeline_tag": "feature-extraction"
+ },
+ "lastModified": "2026-10-05T05:40:29.000Z",
+ "downloads": 185,
+ "gated": false,
+ "createdAt": "2026-10-04T20:57:55.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 308272641
+  },
+  "total": 308272641
+ }
+}

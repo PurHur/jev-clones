@@ -1,0 +1,63 @@
+{
+ "_id": "6ab8c770206f30c91b632879",
+ "id": "manjunathshiva/opendecider-nano",
+ "config": {
+  "architectures": [
+   "ModernBertModel"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "jhu-clsp/ettin-encoder-400m",
+  "library_name": "opendecider",
+  "pipeline_tag": "zero-shot-classification",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "opendecider",
+   "decision-model",
+   "system-one",
+   "calibrated-decisions",
+   "typed-decisions",
+   "classification",
+   "routing",
+   "scoring",
+   "guardrails",
+   "moderation",
+   "distillation",
+   "commercial-use"
+  ],
+  "datasets": [
+   "LocalLLaMA/typed-decisions",
+   "knowledgator/gliclass-v2.0",
+   "clinc/clinc_oos",
+   "google-research-datasets/go_emotions",
+   "rajpurkar/squad_v2",
+   "alisawuffles/WANLI",
+   "fancyzhx/dbpedia_14",
+   "google/civil_comments",
+   "ucirvine/sms_spam",
+   "google-research-datasets/paws",
+   "hotpotqa/hotpot_qa"
+  ]
+ },
+ "lastModified": "2026-10-10T15:37:47.000Z",
+ "downloads": 6940,
+ "gated": false,
+ "createdAt": "2026-09-27T07:36:16.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 394781696
+  },
+  "total": 394781696
+ }
+}

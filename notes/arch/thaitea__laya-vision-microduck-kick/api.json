@@ -1,0 +1,38 @@
+{
+ "_id": "6ab701e77ee0273c017754f3",
+ "id": "thaitea/laya-vision-microduck-kick",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-nc-sa-4.0",
+  "base_model": "thaitea/laya-vision",
+  "library_name": "laya",
+  "pipeline_tag": "visual-question-answering",
+  "datasets": [
+   "HuggingFaceM4/the_cauldron",
+   "MMInstruction/VLFeedback"
+  ],
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "laya",
+   "calibration",
+   "decision-model",
+   "vision",
+   "smolvlm",
+   "robotics",
+   "imitation-learning",
+   "games"
+  ]
+ },
+ "lastModified": "2026-09-25T23:21:28.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-25T23:21:11.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 201161350
+  },
+  "total": 201161350
+ }
+}

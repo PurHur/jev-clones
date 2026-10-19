@@ -1,0 +1,41 @@
+{
+ "_id": "6aad78aa3084702d3ecb0933",
+ "id": "convaiinnovations/laya-typed-decisions",
+ "config": {
+  "model_type": "laya",
+  "architectures": [
+   "LayaTypedDecisions"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "transformers",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "laya",
+   "system-one",
+   "calibrated-decisions",
+   "rlcd",
+   "typed-decisions",
+   "classification",
+   "agent-observability",
+   "invoice-processing",
+   "security-incidents",
+   "customer-service",
+   "commercial-use"
+  ]
+ },
+ "lastModified": "2026-10-03T18:00:10.000Z",
+ "downloads": 3166,
+ "gated": false,
+ "createdAt": "2026-09-18T17:45:14.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 421293830
+  },
+  "total": 421293830
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "_id": "6ab6e187206f30c91bf9327f",
+ "id": "NAME0x0/Jevlet",
+ "config": {},
+ "cardData": {
+  "language": "en",
+  "license": "mit",
+  "library_name": "pytorch",
+  "base_model": "BAAI/bge-small-en-v1.5",
+  "pipeline_tag": "text-classification",
+  "datasets": [
+   "WillHeld/top_v2",
+   "mteb/amazon_massive_intent",
+   "clinc/clinc_oos",
+   "mteb/banking77",
+   "google/boolq",
+   "nyu-mll/multi_nli"
+  ],
+  "tags": [
+   "jevlet",
+   "decision-model",
+   "calibration",
+   "system-one",
+   "intent-classification",
+   "slot-filling",
+   "desktop-assistant",
+   "windows",
+   "bge-small",
+   "typed-questions"
+  ]
+ },
+ "lastModified": "2026-09-26T20:19:52.000Z",
+ "downloads": 46,
+ "gated": false,
+ "createdAt": "2026-09-25T21:03:03.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 33508992
+  },
+  "total": 33508992
+ }
+}

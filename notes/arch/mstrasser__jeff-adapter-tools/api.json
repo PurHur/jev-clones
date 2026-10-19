@@ -1,0 +1,30 @@
+{
+ "_id": "6ac3d60cff94a737e7357e99",
+ "id": "mstrasser/jeff-adapter-tools",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "mstrasser/jeff-base"
+  }
+ },
+ "cardData": {
+  "base_model": "mstrasser/jeff-base",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "jeff",
+   "lora",
+   "decision-model",
+   "routing",
+   "calibration"
+  ]
+ },
+ "lastModified": "2026-10-06T20:01:58.000Z",
+ "downloads": 201,
+ "gated": false,
+ "createdAt": "2026-10-05T16:53:32.000Z"
+}

@@ -1,0 +1,46 @@
+{
+ "_id": "6ab1005f5e5ed00ff40072c7",
+ "id": "HopitAI/hopper",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.5-4B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "other",
+  "license_name": "research-and-demo",
+  "license_link": "https://github.com/hopit-ai/hopper/blob/main/MODEL_CARD.md",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "library_name": "peft",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "lora",
+   "peft",
+   "base_model:adapter:Qwen/Qwen3.5-4B",
+   "qwen3.5",
+   "decision-making",
+   "calibration",
+   "jevbench"
+  ],
+  "datasets": [
+   "allenai/ai2_arc",
+   "tau/commonsense_qa",
+   "cais/mmlu",
+   "stanfordnlp/snli",
+   "nyu-mll/multi_nli",
+   "tals/vitaminc",
+   "google/boolq",
+   "rajpurkar/squad_v2",
+   "clinc/clinc_oos",
+   "fancyzhx/dbpedia_14",
+   "nvidia/HelpSteer2"
+  ]
+ },
+ "lastModified": "2026-10-05T01:58:32.000Z",
+ "downloads": 1008,
+ "gated": false,
+ "createdAt": "2026-09-21T10:01:03.000Z"
+}

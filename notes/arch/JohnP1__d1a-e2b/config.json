@@ -1,0 +1,12 @@
+{
+ "tokenizer_config": {
+  "bos_token": "<bos>",
+  "eos_token": "<eos>",
+  "mask_token": "<mask>",
+  "pad_token": "<pad>",
+  "unk_token": "<unk>"
+ },
+ "peft": {
+  "task_type": "FEATURE_EXTRACTION"
+ }
+}

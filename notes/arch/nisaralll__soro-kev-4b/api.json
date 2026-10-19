@@ -1,0 +1,33 @@
+{
+ "_id": "6ad32752ef8adec90a879cdb",
+ "id": "nisaralll/soro-kev-4b",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3-4B",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "base_model": [
+   "Qwen/Qwen3-4B"
+  ],
+  "datasets": [
+   "nisaralll/soro-universal-tool-harness"
+  ],
+  "tags": [
+   "mcp",
+   "tool-calling",
+   "agent-harness",
+   "decision-model",
+   "pointer-network",
+   "conformal-prediction"
+  ]
+ },
+ "lastModified": "2026-10-18T18:49:23.000Z",
+ "downloads": 54,
+ "gated": false,
+ "createdAt": "2026-10-17T07:44:18.000Z"
+}

@@ -1,0 +1,28 @@
+{
+ "_id": "6abbae364694aadd7369fe69",
+ "id": "emrevrg/AUBIN-31B",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "google/gemma-4-31B-it",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "google/gemma-4-31B-it",
+  "library_name": "peft",
+  "tags": [
+   "decision-model",
+   "typed-decisions",
+   "calibrated",
+   "lora",
+   "aubin",
+   "norovox",
+   "open-weights"
+  ]
+ },
+ "lastModified": "2026-10-04T16:14:27.000Z",
+ "downloads": 112,
+ "gated": false,
+ "createdAt": "2026-09-29T12:25:26.000Z"
+}

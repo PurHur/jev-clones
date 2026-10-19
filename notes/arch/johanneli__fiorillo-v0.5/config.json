@@ -1,0 +1,39 @@
+{
+ "name": "Fiorillo v0.5",
+ "repository": "johanneli/fiorillo-v0.5",
+ "license": "apache-2.0",
+ "about": "A description of this release's parts. predict_v0_5.py does not read this file; the model card (README.md) explains each part, and SHA256SUMS.txt lists every file's SHA-256.",
+ "base_model": {
+  "repo": "Qwen/Qwen3-4B-Base",
+  "revision": "906bfd4b4dc7f14ee4320094d8b41684abff8539"
+ },
+ "inference_script": "predict_v0_5.py",
+ "questions": {
+  "evidence_effect": {
+   "specialist": "s9_ei_wavg",
+   "readers": [
+    "evidence_effect/s9_ei_wavg/"
+   ],
+   "calibration": "evidence_effect/calibration.json",
+   "max_len": 6144,
+   "swap_averaging": false,
+   "passage_selection": "evidence_effect/passage_selection/"
+  },
+  "pubmedqa_answer": {
+   "specialist": "s7_b3",
+   "readers": [
+    "pubmedqa_answer/s7_b3/"
+   ],
+   "calibration": "pubmedqa_answer/calibration.json"
+  },
+  "readmit_window": {
+   "specialist": "readmission_pool_v2",
+   "pool": "readmit_window/pool.json",
+   "members_with_weight": {
+    "xgboost_tuned": "readmit_window/xgboost_tuned.json",
+    "catboost_tuned": "readmit_window/catboost_tuned.cbm"
+   },
+   "recode_tables": "readmit_window/recode_tables.json"
+  }
+ }
+}

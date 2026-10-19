@@ -1,0 +1,26 @@
+{
+ "_id": "6ac0b5b1f74b466ebbe84744",
+ "id": "emrevrg/AUBIN-12B-v3b",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "google/gemma-4-12B-it",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "google/gemma-4-12B-it",
+  "library_name": "peft",
+  "tags": [
+   "aubin",
+   "norovox",
+   "decision-model",
+   "calibrated",
+   "lora"
+  ]
+ },
+ "lastModified": "2026-10-04T16:14:44.000Z",
+ "downloads": 54,
+ "gated": false,
+ "createdAt": "2026-10-03T07:58:41.000Z"
+}

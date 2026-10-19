@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "google/gemma-4-E4B-it",
+  "task_type": "CAUSAL_LM"
+ }
+}

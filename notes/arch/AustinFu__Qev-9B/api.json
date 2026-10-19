@@ -1,0 +1,33 @@
+{
+ "_id": "6abbe021cc65e2cffae99840",
+ "id": "AustinFu/Qev-9B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-9B-Base",
+  "base_model_relation": "adapter",
+  "datasets": [
+   "AustinFu/Qev-train"
+  ],
+  "language": [
+   "en",
+   "zh"
+  ],
+  "tags": [
+   "qev",
+   "qwen3_5",
+   "lora",
+   "decision-model",
+   "choice",
+   "noul",
+   "score"
+  ],
+  "metrics": [
+   "accuracy"
+  ]
+ },
+ "lastModified": "2026-10-04T01:29:24.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-29T15:58:25.000Z"
+}

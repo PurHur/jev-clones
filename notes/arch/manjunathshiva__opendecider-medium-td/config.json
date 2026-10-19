@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "Qwen/Qwen3-30B-A3B-Instruct-2507",
+  "task_type": "CAUSAL_LM"
+ }
+}

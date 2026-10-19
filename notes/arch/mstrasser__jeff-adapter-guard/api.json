@@ -1,0 +1,38 @@
+{
+ "_id": "6ac3d599e74738c85150ab39",
+ "id": "mstrasser/jeff-adapter-guard",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "mstrasser/jeff-base"
+  }
+ },
+ "cardData": {
+  "base_model": "mstrasser/jeff-base",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "jeff",
+   "lora",
+   "decision-model",
+   "safety",
+   "calibration"
+  ],
+  "datasets": [
+   "deepset/prompt-injections",
+   "Lakera/gandalf_ignore_instructions",
+   "Lakera/mosscap_prompt_injection",
+   "TrustAIRLab/in-the-wild-jailbreak-prompts",
+   "databricks/databricks-dolly-15k",
+   "OpenAssistant/oasst2"
+  ]
+ },
+ "lastModified": "2026-10-06T20:01:49.000Z",
+ "downloads": 184,
+ "gated": false,
+ "createdAt": "2026-10-05T16:51:37.000Z"
+}

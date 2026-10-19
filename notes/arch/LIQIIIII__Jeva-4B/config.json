@@ -1,0 +1,6 @@
+{
+ "model_name": "Jeva-4B",
+ "configuration_file": "config.yaml",
+ "inference_entrypoint": "jeva.Jeva.from_pretrained",
+ "decision_arch": "matrix_stack"
+}

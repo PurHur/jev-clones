@@ -1,0 +1,145 @@
+{
+ "_id": "6ab68babb7ecf53c4b36c7f0",
+ "id": "Tamkimd/tamev-micro-minilm",
+ "config": {
+  "model_type": "tamev",
+  "auto_map": {
+   "AutoConfig": "configuration_tamev.TamevConfig",
+   "AutoModel": "modeling_tamev.TamevModel",
+   "AutoModelForSequenceClassification": "modeling_tamev.TamevForDecision"
+  },
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "thumbnail": "https://huggingface.co/Tamkimd/tamev-micro-minilm/resolve/main/banner.png",
+  "language": [
+   "en"
+  ],
+  "base_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "base_model_relation": "finetune",
+  "datasets": [
+   "legacy-datasets/banking77",
+   "google/boolq",
+   "fancyzhx/ag_news",
+   "nyu-mll/multi_nli",
+   "SetFit/sst5",
+   "Yelp/yelp_review_full",
+   "CogComp/trec",
+   "fancyzhx/dbpedia_14",
+   "SetFit/amazon_reviews_multi_en",
+   "stanfordnlp/imdb"
+  ],
+  "tags": [
+   "decision-model",
+   "decision-engine",
+   "llm-router",
+   "router",
+   "option-selection",
+   "intent-routing",
+   "tool-call-gating",
+   "agent-routing",
+   "system-one",
+   "multiple-choice",
+   "multiclass-classification",
+   "safety-guardrails",
+   "guardrails",
+   "calibration",
+   "probability-calibration",
+   "temperature-scaling",
+   "brier-score",
+   "expected-calibration-error",
+   "typesafe",
+   "jev-alternative",
+   "kev-alternative",
+   "edge-ai",
+   "offline-inference",
+   "safetensors",
+   "minilm",
+   "permutation-invariant",
+   "permutation-equivariant",
+   "onnx",
+   "onnxruntime",
+   "cpu-inference",
+   "onnx-int8",
+   "quantized",
+   "mlx",
+   "mps",
+   "torchscript",
+   "apple-silicon",
+   "metal"
+  ],
+  "metrics": [
+   "accuracy",
+   "brier_score",
+   "expected_calibration_error"
+  ],
+  "model-index": [
+   {
+    "name": "TAMEV-Micro-MiniLM",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "System One typed decision (choice / noul / score)"
+      },
+      "dataset": {
+       "type": "custom",
+       "name": "TAMEV held-out set (n=19,999 balanced typed-decision items; exact-match leakage checks against the training, validation and calibration splits are all zero)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "name": "Top-1 Accuracy (95% CI 0.8172-0.8277)",
+        "value": 0.8223,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Top-3 Accuracy",
+        "value": 0.9851,
+        "verified": false
+       },
+       {
+        "type": "expected_calibration_error",
+        "name": "Expected Calibration Error (95% CI 0.0182-0.0269)",
+        "value": 0.0224,
+        "verified": false
+       },
+       {
+        "type": "brier_score",
+        "name": "Brier score",
+        "value": 0.2405,
+        "verified": false
+       },
+       {
+        "type": "latency",
+        "name": "Median inference latency (ms), documented predict_decision helper, a single CPU thread",
+        "value": 7.29,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-04T02:22:12.000Z",
+ "downloads": 690,
+ "gated": false,
+ "createdAt": "2026-09-25T14:56:43.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 22762368
+  },
+  "total": 22762368
+ }
+}

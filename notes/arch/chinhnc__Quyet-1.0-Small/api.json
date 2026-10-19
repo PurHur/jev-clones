@@ -1,0 +1,38 @@
+{
+ "_id": "6ac0be561f2153fa7171e1f8",
+ "id": "chinhnc/Quyet-1.0-Small",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": "<bos>",
+   "cls_token": "<bos>",
+   "eos_token": "<eos>",
+   "mask_token": "<mask>",
+   "pad_token": "<pad>",
+   "sep_token": "<eos>",
+   "unk_token": "<unk>",
+   "use_default_system_prompt": false
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "quyet",
+  "base_model": "aisingapore/SEA-LION-ModernBERT-300M",
+  "base_model_relation": "finetune",
+  "tags": [
+   "quyet",
+   "decision-model",
+   "calibrated",
+   "classification"
+  ]
+ },
+ "lastModified": "2026-10-10T02:28:15.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-03T08:35:34.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 327609601
+  },
+  "total": 327609601
+ }
+}

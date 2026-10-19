@@ -1,0 +1,64 @@
+{
+ "_id": "6ac6f5cc5be985dedb9b9b71",
+ "id": "corners-ai/CoCo-Decision-DS-4B",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.5-4B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "ko",
+   "en"
+  ],
+  "tags": [
+   "lora",
+   "decision-model",
+   "calibration",
+   "disaster-safety",
+   "emergency-response"
+  ],
+  "model-index": [
+   {
+    "name": "CoCo-Decision-DS-4B",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Decision (System One)"
+      },
+      "dataset": {
+       "name": "JevBench public",
+       "type": "jevbench",
+       "split": "public"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.879,
+        "name": "Accuracy",
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "value": 0.079,
+        "name": "ECE (15 bins)",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-08T01:51:53.000Z",
+ "downloads": 36,
+ "gated": false,
+ "createdAt": "2026-10-08T01:45:48.000Z"
+}

@@ -1,0 +1,39 @@
+{
+ "schema": "jevforge-checkpoint-v1",
+ "base_model": "/root/autodl-tmp/jevforge-v2/base",
+ "hidden_size": 1024,
+ "max_length": 32768,
+ "temperature": {
+  "choice": 1.085,
+  "noul": 1.2835,
+  "score": 1.0785
+ },
+ "best_step": 1125,
+ "dev_ce": 0.7247652377663044,
+ "selection_metric": "equal-task equal-source normalized cross entropy",
+ "args": {
+  "architecture_changed": false,
+  "initialization": "fresh pretrained Qwen/Qwen3.5-0.8B; random shared scalar head, seed42",
+  "epochs": 1,
+  "train_decisions": 36000,
+  "context_limit": 32768,
+  "whole_question_token_budget": 48000,
+  "effective_questions_per_update": 32,
+  "steps": 1125,
+  "warmup_steps": 33,
+  "head_only_steps": 12,
+  "backbone_lr": 2e-05,
+  "head_lr": 0.0002,
+  "brier_weight": 0.5,
+  "gradient_clip": 1.0,
+  "precision": "FP32 master parameters/gradients/AdamW state; BF16 autocast activations; native BF16 export/inference parity checked separately",
+  "validation_schedule": "original running job first dev at562; resume then checks at600,700,800,900,1000,1125",
+  "checkpoint_selection": "independent development equal-task equal-source normalized cross entropy",
+  "kernel_meta": {
+   "convolution_backend": "causal-conv1d-cuda",
+   "delta_rule_backend": "fla.ops.gated_delta_rule.chunk",
+   "hub_kernels": false
+  },
+  "no_test_labels_used": true
+ }
+}

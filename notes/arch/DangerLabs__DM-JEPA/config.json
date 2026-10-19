@@ -1,0 +1,25 @@
+{
+ "model_type": "dm_jepa",
+ "architectures": [
+  "DMJEPA"
+ ],
+ "name": "DM-JEPA 1.1",
+ "organization": "Danger Labs",
+ "description": "Decision-Making Joint-Embedding Predictive Architecture (System 1 Non-Autoregressive Decision Engine)",
+ "backbone_model": "answerdotai/ModernBERT-base",
+ "d_model": 768,
+ "latent_predictor": {
+  "num_steps": 4,
+  "nhead": 8,
+  "d_ff": 2048,
+  "dropout": 0.1
+ },
+ "scorer": {
+  "init_temperature": 10.05
+ },
+ "max_state_length": 16384,
+ "max_option_length": 512,
+ "system_1_latency_ms": 34.3,
+ "torch_dtype": "float32",
+ "version": "1.1"
+}

@@ -1,0 +1,56 @@
+{
+ "_id": "6acc9f26eb7016a886e5d5f3",
+ "id": "sthanika-ai/Sieve-31B",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "google/gemma-4-31B-it",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "language": "en",
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "google/gemma-4-31B-it",
+  "base_model_relation": "adapter",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "sieve",
+   "decision-model",
+   "calibration",
+   "lora",
+   "multiple-choice",
+   "gemma4",
+   "decision-index"
+  ],
+  "model-index": [
+   {
+    "name": "Sieve-31B",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "typed decision (choice / noul / score)"
+      },
+      "dataset": {
+       "type": "mixed",
+       "name": "Decision Index 0.3 public suite (140,178 scored requests; the index averages 37 benchmarks)"
+      },
+      "metrics": [
+       {
+        "type": "decision_index",
+        "value": 62.52,
+        "name": "Decision Index 0.3, public index (chance-corrected; our own run)",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-14T10:34:06.000Z",
+ "downloads": 139,
+ "gated": false,
+ "createdAt": "2026-10-12T08:49:42.000Z"
+}

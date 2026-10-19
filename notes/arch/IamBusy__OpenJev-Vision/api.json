@@ -1,0 +1,24 @@
+{
+ "_id": "6aae719aafd69b39ea9c1d2a",
+ "id": "IamBusy/OpenJev-Vision",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "source-specific-research-licenses",
+  "license_link": "https://huggingface.co/IamBusy/OpenJev-Vision-v0.1/blob/main/LICENSES.md",
+  "library_name": "openjev",
+  "tags": [
+   "openjev",
+   "image-classification",
+   "uncertainty",
+   "research"
+  ],
+  "datasets": [
+   "IamBusy/OpenJev-Vision-Research-v0.1"
+  ]
+ },
+ "lastModified": "2026-09-19T11:34:11.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-19T11:27:22.000Z"
+}

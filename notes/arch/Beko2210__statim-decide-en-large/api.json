@@ -1,0 +1,205 @@
+{
+ "_id": "6ab94a9137a71bb7d3dc745d",
+ "id": "Beko2210/statim-decide-en-large",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "statim-weights",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-en-large/blob/main/LICENSE-MODEL.md",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "pipeline_tag": "zero-shot-classification",
+  "base_model": "convaiinnovations/laya",
+  "datasets": [
+   "PolyAI/banking77",
+   "AmazonScience/massive",
+   "LocalLLaMA/typed-decisions",
+   "tasksource/tasksource-jev-typed-decisions",
+   "nvidia/Nemotron-Safety-Guard-Dataset-v3",
+   "l3cube-pune/IndicGuard",
+   "PolyAI/minds14",
+   "benayas/snips"
+  ],
+  "tags": [
+   "statim",
+   "gguf",
+   "decision-making",
+   "text-classification",
+   "zero-shot-classification",
+   "ModernBERT-large"
+  ],
+  "model-index": [
+   {
+    "name": "statim-decide-en-large",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "typed-decisions (test split, first 2,000 decisions; its train split is replay data)",
+       "type": "LocalLLaMA/typed-decisions"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.768,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Banking77 (test split, first 2,000 rows, all 77 intents in one question)",
+       "type": "PolyAI/banking77"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.928,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "MASSIVE intents (English) (150 seeded stratified English test rows)",
+       "type": "AmazonScience/massive"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8667,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "AG News (zero-shot (never trained on), first 2,000 test rows)",
+       "type": "fancyzhx/ag_news"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.939,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "DAIR Emotion (zero-shot, first 2,000 test rows)",
+       "type": "dair-ai/emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.588,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "HWU64 intents (English, 150 rows; rows overlapping MASSIVE removed)",
+       "type": "hwu64"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8333,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "SIB-200 topics (English, 150 rows; zero-shot)",
+       "type": "Davlan/sib200"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.7133,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Sentiment (English, 150 rows; zero-shot)",
+       "type": "tyqiangz/multilingual-sentiments"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.6733,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "HateCheck (English, 150 rows; zero-shot)",
+       "type": "mteb/multi-hatecheck"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.78,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Belebele reading (English, 150 rows; zero-shot)",
+       "type": "facebook/belebele"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.4533,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-03T13:43:36.000Z",
+ "downloads": 106,
+ "gated": false,
+ "createdAt": "2026-09-27T16:55:45.000Z"
+}

@@ -1,0 +1,33 @@
+{
+ "_id": "6abfe9831f2153fa715908c7",
+ "id": "cortex-agent-llc/kodiak-v0.2-1b",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": "en",
+  "library_name": "kodiak",
+  "inference": false,
+  "tags": [
+   "kodiak",
+   "decision-model",
+   "calibration",
+   "abstention",
+   "encoder",
+   "modernbert",
+   "classification",
+   "tool-use",
+   "hallucination-detection"
+  ],
+  "base_model": "jhu-clsp/ettin-encoder-1b"
+ },
+ "lastModified": "2026-10-03T00:22:55.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-02T17:27:31.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 1044119556
+  },
+  "total": 1044119556
+ }
+}

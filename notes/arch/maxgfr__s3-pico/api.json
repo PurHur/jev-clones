@@ -1,0 +1,27 @@
+{
+ "_id": "6acf2bcc5e3438e7c38a028e",
+ "id": "maxgfr/s3-pico",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "ternary",
+   "early-exit",
+   "games",
+   "rust",
+   "wasm",
+   "skycmd"
+  ]
+ },
+ "lastModified": "2026-10-14T07:14:23.000Z",
+ "downloads": 22,
+ "gated": false,
+ "createdAt": "2026-10-14T07:14:20.000Z"
+}

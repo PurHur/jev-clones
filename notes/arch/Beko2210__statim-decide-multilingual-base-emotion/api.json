@@ -1,0 +1,170 @@
+{
+ "_id": "6abbc65ee4ff78a5026af11c",
+ "id": "Beko2210/statim-decide-multilingual-base-emotion",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "statim-weights",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-multilingual-base-emotion/blob/main/LICENSE-MODEL.md",
+  "base_model": "Beko2210/statim-decide-multilingual-base",
+  "base_model_relation": "adapter",
+  "library_name": "gguf",
+  "language": [
+   "de",
+   "en",
+   "es",
+   "fr",
+   "hi",
+   "pt",
+   "ru",
+   "zh"
+  ],
+  "tags": [
+   "statim",
+   "lora",
+   "adapter",
+   "gguf",
+   "emotion"
+  ],
+  "pipeline_tag": "zero-shot-classification",
+  "model-index": [
+   {
+    "name": "statim-decide-multilingual-base-emotion",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion de (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.46,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion en (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.62,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion es (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.58,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion fr (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.7867,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion hi (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8267,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion pt (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.54,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion ru (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.72,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "emotion zh (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.56,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-03T13:43:32.000Z",
+ "downloads": 32,
+ "gated": false,
+ "createdAt": "2026-09-29T14:08:30.000Z"
+}

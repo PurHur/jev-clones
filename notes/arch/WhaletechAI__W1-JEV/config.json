@@ -1,0 +1,17 @@
+{
+ "model": {
+  "vocab_size": 64512,
+  "hidden_size": 2048,
+  "attn_dim": 3072,
+  "ffn_dim": 7168,
+  "depth": 48,
+  "num_heads": 24,
+  "head_dim": 128,
+  "max_seq_len": 4096,
+  "timestep_freq_dim": 256,
+  "rope_theta": 10000.0,
+  "cond_dim": 256,
+  "dropout": 0.0,
+  "attn_dropout": 0.0
+ }
+}

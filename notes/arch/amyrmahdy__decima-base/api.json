@@ -1,0 +1,50 @@
+{
+ "_id": "6ac204c1daa11b99c2e76928",
+ "id": "amyrmahdy/decima-base",
+ "config": {
+  "model_type": "decima",
+  "architectures": [
+   "Decima"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en",
+   "fa",
+   "ar",
+   "ru",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "tr",
+   "hi",
+   "zh",
+   "ja",
+   "ko",
+   "ur",
+   "vi",
+   "th"
+  ],
+  "library_name": "onnx",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "decision-model",
+   "system-one",
+   "jev",
+   "jev-alternative",
+   "typed-decisions",
+   "calibration",
+   "multilingual",
+   "onnx",
+   "int8",
+   "cpu"
+  ],
+  "base_model": "jhu-clsp/mmBERT-base"
+ },
+ "lastModified": "2026-10-19T11:42:08.000Z",
+ "downloads": 120,
+ "gated": false,
+ "createdAt": "2026-10-04T07:48:17.000Z"
+}

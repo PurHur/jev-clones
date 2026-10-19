@@ -1,0 +1,20 @@
+{
+ "model_type": "gliner2",
+ "library_name": "gliner2",
+ "base_model": "fastino/GLiNER2.5-Decide",
+ "pipeline_tag": "text-classification",
+ "haruspex": {
+  "contract": [
+   "/v1/evaluate",
+   "/v1/systemone"
+  ],
+  "decision_types": [
+   "boolean",
+   "choice",
+   "score"
+  ],
+  "adapter": "final",
+  "calibrator": "calibrator.json",
+  "cve_routing": true
+ }
+}

@@ -1,0 +1,40 @@
+{
+ "_id": "6ac11422f4f1ce50a99931a8",
+ "id": "systemonedev/kenning-large-v0.4",
+ "config": {
+  "architectures": [
+   "DebertaV2ForSequenceClassification"
+  ],
+  "model_type": "deberta-v2",
+  "tokenizer_config": {
+   "bos_token": "[CLS]",
+   "cls_token": "[CLS]",
+   "eos_token": "[SEP]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "MoritzLaurer/deberta-v3-large-zeroshot-v2.0-c",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "system-one",
+   "kenning",
+   "decision-model",
+   "calibrated"
+  ]
+ },
+ "lastModified": "2026-10-05T00:44:28.000Z",
+ "downloads": 81,
+ "gated": false,
+ "createdAt": "2026-10-03T14:41:38.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 435063810
+  },
+  "total": 435063810
+ }
+}

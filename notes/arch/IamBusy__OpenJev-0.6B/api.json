@@ -1,0 +1,33 @@
+{
+ "_id": "6aae6381d43a267baef560e5",
+ "id": "IamBusy/OpenJev-0.6B",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3-0.6B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "language": [
+   "en",
+   "zh"
+  ],
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-0.6B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "inference": false,
+  "tags": [
+   "openjev",
+   "lora",
+   "custom-code",
+   "experimental",
+   "probabilistic-decisions"
+  ]
+ },
+ "lastModified": "2026-09-19T10:50:24.000Z",
+ "downloads": 206,
+ "gated": false,
+ "createdAt": "2026-09-19T10:27:13.000Z"
+}

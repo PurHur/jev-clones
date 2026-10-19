@@ -1,0 +1,26 @@
+{
+ "_id": "6abb34d74f2c2ba183866df3",
+ "id": "cortex-agent-llc/kodiak-large-v2-ensemble-preview",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": "en",
+  "library_name": "kodiak",
+  "inference": false,
+  "tags": [
+   "kodiak",
+   "decision-model",
+   "calibration",
+   "abstention",
+   "encoder",
+   "modernbert",
+   "ensemble",
+   "research-preview"
+  ],
+  "base_model": "answerdotai/ModernBERT-large"
+ },
+ "lastModified": "2026-09-29T03:56:13.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-29T03:47:35.000Z"
+}

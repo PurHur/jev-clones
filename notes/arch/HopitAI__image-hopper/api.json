@@ -1,0 +1,19 @@
+{
+ "_id": "6ac22a909199d121c6d7cb27",
+ "id": "HopitAI/image-hopper",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "pipeline_tag": "image-text-to-text",
+  "tags": [
+   "image-decisions",
+   "calibration",
+   "multiple-choice"
+  ]
+ },
+ "lastModified": "2026-10-07T10:53:14.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-04T10:29:36.000Z"
+}

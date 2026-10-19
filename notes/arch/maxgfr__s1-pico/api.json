@@ -1,0 +1,27 @@
+{
+ "_id": "6acf2c0fc7708d288bed9c37",
+ "id": "maxgfr/s1-pico",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "modernbert",
+   "llama.cpp",
+   "games",
+   "rust",
+   "wasm",
+   "skycmd"
+  ]
+ },
+ "lastModified": "2026-10-14T07:15:30.000Z",
+ "downloads": 24,
+ "gated": false,
+ "createdAt": "2026-10-14T07:15:27.000Z"
+}

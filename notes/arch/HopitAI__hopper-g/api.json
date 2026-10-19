@@ -1,0 +1,26 @@
+{
+ "_id": "6ab809a9a4416b13ae0b65bf",
+ "id": "HopitAI/hopper-g",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.5-4B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "other",
+  "license_name": "research-and-demo",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "library_name": "peft",
+  "tags": [
+   "decision",
+   "classification",
+   "calibration",
+   "lora"
+  ]
+ },
+ "lastModified": "2026-09-28T14:18:06.000Z",
+ "downloads": 195,
+ "gated": false,
+ "createdAt": "2026-09-26T18:06:33.000Z"
+}

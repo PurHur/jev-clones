@@ -1,0 +1,34 @@
+{
+ "_id": "6ab5125623516c440ac6cff4",
+ "id": "FrameXlabs/fragment-1-multilingual",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "multilingual"
+  ],
+  "tags": [
+   "typed-decision",
+   "text-classification",
+   "topic-classification",
+   "sentiment-analysis",
+   "language-identification",
+   "calibrated-probabilities",
+   "sib-200"
+  ],
+  "metrics": [
+   "accuracy",
+   "ece"
+  ]
+ },
+ "lastModified": "2026-09-26T06:19:53.000Z",
+ "downloads": 27,
+ "gated": false,
+ "createdAt": "2026-09-24T12:06:46.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 11036112
+  },
+  "total": 11036112
+ }
+}

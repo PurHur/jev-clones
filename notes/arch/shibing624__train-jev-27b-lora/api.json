@@ -1,0 +1,35 @@
+{
+ "_id": "6ad1e61b17c74ef66487c10d",
+ "id": "shibing624/train-jev-27b-lora",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.8-27B",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "datasets": [
+   "SargeDev/jev-distill-corpus-v3",
+   "openai/gsm8k",
+   "google-research-datasets/paws",
+   "deepmind/aqua_rat",
+   "allenai/qasc",
+   "nvidia/HelpSteer2"
+  ],
+  "tags": [
+   "decision-model",
+   "typed-decisions",
+   "system-one",
+   "lora",
+   "knowledge-distillation"
+  ]
+ },
+ "lastModified": "2026-10-19T02:02:28.000Z",
+ "downloads": 60,
+ "gated": false,
+ "createdAt": "2026-10-16T08:53:47.000Z"
+}

@@ -1,0 +1,27 @@
+{
+ "_id": "6abc5e20475081a4a7d2fed3",
+ "id": "AustinFu/Qev-2B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "base_model_relation": "adapter",
+  "datasets": [
+   "AustinFu/Qev-train"
+  ],
+  "language": [
+   "en",
+   "zh"
+  ],
+  "tags": [
+   "qev",
+   "lora",
+   "knowledge-distillation",
+   "decision-model"
+  ]
+ },
+ "lastModified": "2026-09-30T15:13:47.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-30T00:56:00.000Z"
+}

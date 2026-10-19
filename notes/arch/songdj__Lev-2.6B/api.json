@@ -1,0 +1,36 @@
+{
+ "_id": "6acefb146164a34201c16dc4",
+ "id": "songdj/Lev-2.6B",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": "<|endoftext|>",
+   "eos_token": "<|endoftext|>",
+   "pad_token": null,
+   "unk_token": "<|endoftext|>"
+  },
+  "chat_template_jinja": "{%- if messages[0]['role'] == 'system' -%}{{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}{%- else -%}{{- '<|im_start|>system\\nYou are a helpful assistant.<|im_end|>\\n' }}{%- endif -%}{%- for message in messages -%}{%- if message.role == 'system' and loop.first -%}{# Skip #}{%- else -%}{{- '<|im_start|>' + message['role'] + '\\n' + message['content'] + '<|im_end|>' + '\\n' }}{%- endif -%}{%- endfor -%}{%- if add_generation_prompt -%}{{- '<|im_start|>assistant\\n' }}{%- endif -%}",
+  "peft": {
+   "base_model_name_or_path": "ByteDance/Ouro-2.6B",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "ByteDance/Ouro-2.6B",
+  "base_model_relation": "adapter",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "decision-model",
+   "system-1.5",
+   "looped-transformer",
+   "lora"
+  ]
+ },
+ "lastModified": "2026-10-16T20:45:58.000Z",
+ "downloads": 52,
+ "gated": false,
+ "createdAt": "2026-10-14T03:46:28.000Z"
+}

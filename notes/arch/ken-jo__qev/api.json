@@ -1,0 +1,38 @@
+{
+ "_id": "6abe56131608910da57db949",
+ "id": "ken-jo/qev",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "base_model_relation": "adapter",
+  "library_name": "pytorch",
+  "pipeline_tag": "image-text-to-text",
+  "language": [
+   "multilingual"
+  ],
+  "tags": [
+   "multilingual",
+   "multimodal",
+   "dynamic-classification",
+   "qwen3_5",
+   "calibrated-decisions",
+   "classification",
+   "structured-output",
+   "custom-runtime"
+  ],
+  "datasets": [
+   "ken-jo/qev-data",
+   "LocalLLaMA/typed-decisions",
+   "stanfordnlp/snli",
+   "PolyAI/banking77",
+   "AI-Lab-Makerere/beans",
+   "garythung/trashnet"
+  ],
+  "inference": false
+ },
+ "lastModified": "2026-10-08T13:24:09.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-01T12:46:11.000Z"
+}

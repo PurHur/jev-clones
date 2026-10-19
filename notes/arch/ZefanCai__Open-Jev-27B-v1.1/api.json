@@ -1,0 +1,25 @@
+{
+ "_id": "6ab31656b0834e81b40913ce",
+ "id": "ZefanCai/Open-Jev-27B-v1.1",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "datasets": [
+   "ZefanCai/Open-Jev-v1.1"
+  ],
+  "tags": [
+   "open-jev",
+   "qwen3.8",
+   "lora",
+   "non-generative",
+   "typed-decisions"
+  ]
+ },
+ "lastModified": "2026-09-23T07:45:56.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-22T23:59:18.000Z"
+}

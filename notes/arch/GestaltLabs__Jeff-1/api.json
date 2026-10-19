@@ -1,0 +1,29 @@
+{
+ "_id": "6aae95200b7db407b23181fc",
+ "id": "GestaltLabs/Jeff-1",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3-4B-Instruct-2507",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "lora",
+   "fact-checking",
+   "calibration",
+   "typed-decisions"
+  ]
+ },
+ "lastModified": "2026-09-19T14:36:46.000Z",
+ "downloads": 2220,
+ "gated": false,
+ "createdAt": "2026-09-19T13:58:56.000Z"
+}

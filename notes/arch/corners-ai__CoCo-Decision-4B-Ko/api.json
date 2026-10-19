@@ -1,0 +1,116 @@
+{
+ "_id": "6abb0b41384eaafafd826bc7",
+ "id": "corners-ai/CoCo-Decision-4B-Ko",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.5-4B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "ko",
+   "en"
+  ],
+  "tags": [
+   "lora",
+   "decision-model",
+   "calibration",
+   "system-one",
+   "intent-classification"
+  ],
+  "model-index": [
+   {
+    "name": "CoCo-Decision-4B-Ko",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Decision (System One)"
+      },
+      "dataset": {
+       "name": "JevBench public",
+       "type": "jevbench",
+       "split": "public"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.87,
+        "name": "Accuracy",
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "value": 0.07,
+        "name": "ECE (15 bins)",
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Intent and scenario classification"
+      },
+      "dataset": {
+       "name": "MASSIVE ko-KR (600-answer test sample)",
+       "type": "AmazonScience/massive",
+       "config": "ko-KR",
+       "split": "test"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.915,
+        "name": "Accuracy",
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "value": 0.023,
+        "name": "ECE (15 bins)",
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Intent and scenario classification"
+      },
+      "dataset": {
+       "name": "MASSIVE en-US (600-answer test sample)",
+       "type": "AmazonScience/massive",
+       "config": "en-US",
+       "split": "test"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.933,
+        "name": "Accuracy",
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "value": 0.03,
+        "name": "ECE (15 bins)",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-02T01:14:36.000Z",
+ "downloads": 158,
+ "gated": false,
+ "createdAt": "2026-09-29T00:50:09.000Z"
+}

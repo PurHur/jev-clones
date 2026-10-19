@@ -1,0 +1,38 @@
+{
+ "_id": "6ac8233cfc8d02452feec777",
+ "id": "systemonedev/kenning-large-v0.6",
+ "config": {
+  "architectures": [
+   "ModernBertForSequenceClassification"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "tasksource/ModernBERT-large-nli",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "system-one",
+   "kenning",
+   "decision-model",
+   "calibrated"
+  ]
+ },
+ "lastModified": "2026-10-09T00:53:08.000Z",
+ "downloads": 64,
+ "gated": false,
+ "createdAt": "2026-10-08T23:11:56.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 395834371
+  },
+  "total": 395834371
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "_id": "6ab18ee0d3c13d51f890f360",
+ "id": "Contrastive-LM/CLM-v0.1-8B",
+ "config": {
+  "model_type": "clm"
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-8B",
+  "pipeline_tag": "text-ranking",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "contrastive-learning",
+   "verifier",
+   "reranker",
+   "agents",
+   "clm"
+  ],
+  "library_name": "contrastive-lm"
+ },
+ "lastModified": "2026-09-24T21:37:19.000Z",
+ "downloads": 4989,
+ "gated": false,
+ "createdAt": "2026-09-21T20:09:04.000Z"
+}

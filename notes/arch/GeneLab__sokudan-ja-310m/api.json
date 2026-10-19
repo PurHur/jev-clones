@@ -1,0 +1,48 @@
+{
+ "_id": "6ab140f851dbcc15e9733690",
+ "id": "GeneLab/sokudan-ja-310m",
+ "config": {
+  "model_type": "sokudan",
+  "architectures": [
+   "SokudanJointModel"
+  ],
+  "tokenizer_config": {
+   "bos_token": "<s>",
+   "cls_token": "<cls>",
+   "eos_token": "</s>",
+   "mask_token": "<mask>",
+   "pad_token": "<pad>",
+   "sep_token": "<sep>",
+   "unk_token": "<unk>",
+   "use_default_system_prompt": false
+  }
+ },
+ "cardData": {
+  "language": [
+   "ja"
+  ],
+  "license": "apache-2.0",
+  "library_name": "transformers",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "japanese",
+   "system-one",
+   "calibrated-decisions",
+   "classification",
+   "routing",
+   "ordinal",
+   "model-soup"
+  ],
+  "base_model": "sbintuitions/modernbert-ja-310m"
+ },
+ "lastModified": "2026-09-29T06:54:34.000Z",
+ "downloads": 306,
+ "gated": false,
+ "createdAt": "2026-09-21T14:36:40.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 314614274
+  },
+  "total": 314614274
+ }
+}

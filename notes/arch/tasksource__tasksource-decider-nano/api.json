@@ -1,0 +1,42 @@
+{
+ "_id": "6aba06c30154a6bb4d05e61e",
+ "id": "tasksource/tasksource-decider-nano",
+ "config": {
+  "architectures": [
+   "ModernBertModel"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "transformers",
+  "base_model": "cross-encoder/ettin-reranker-150m-v1",
+  "datasets": [
+   "tasksource/tasksource-jev-typed-decisions",
+   "tasksource/synthetic-typed-decisions"
+  ],
+  "tags": [
+   "typed-decisions",
+   "decision-index",
+   "decision-model",
+   "cross-encoder"
+  ]
+ },
+ "lastModified": "2026-10-11T06:07:45.000Z",
+ "downloads": 445,
+ "gated": false,
+ "createdAt": "2026-09-28T06:18:43.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 149015041
+  },
+  "total": 149015041
+ }
+}

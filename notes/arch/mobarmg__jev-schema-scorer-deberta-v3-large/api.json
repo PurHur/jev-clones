@@ -1,0 +1,44 @@
+{
+ "_id": "6aac405165a6e6b6778ad261",
+ "id": "mobarmg/jev-schema-scorer-deberta-v3-large",
+ "config": {
+  "architectures": [
+   "DebertaV2ForSequenceClassification"
+  ],
+  "model_type": "deberta-v2",
+  "tokenizer_config": {
+   "bos_token": "[CLS]",
+   "cls_token": "[CLS]",
+   "eos_token": "[SEP]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "language": "en",
+  "license": "mit",
+  "library_name": "transformers",
+  "base_model": "microsoft/deberta-v3-large",
+  "pipeline_tag": "text-classification",
+  "inference": false,
+  "tags": [
+   "deberta-v3",
+   "schema-conditioned",
+   "candidate-scoring",
+   "zero-shot-classification",
+   "structured-output"
+  ]
+ },
+ "lastModified": "2026-09-19T00:57:17.000Z",
+ "downloads": 508,
+ "gated": false,
+ "createdAt": "2026-09-17T19:32:33.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 435062785
+  },
+  "total": 435062785
+ }
+}

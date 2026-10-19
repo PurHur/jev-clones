@@ -1,0 +1,34 @@
+{
+ "_id": "6ab9a94deaeed75d3ac64742",
+ "id": "johanneli/fiorillo-v0.1",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "convaiinnovations/laya",
+  "library_name": "laya",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "laya",
+   "medical",
+   "typed-decisions",
+   "calibrated-probabilities",
+   "pubmedqa",
+   "hospital-readmission"
+  ],
+  "datasets": [
+   "qiaojin/PubMedQA"
+  ]
+ },
+ "lastModified": "2026-10-04T07:59:43.000Z",
+ "downloads": 11,
+ "gated": "auto",
+ "createdAt": "2026-09-27T23:39:57.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 421293830
+  },
+  "total": 421293830
+ }
+}

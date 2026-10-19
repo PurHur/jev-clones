@@ -1,0 +1,50 @@
+{
+ "_id": "6aad0bffba8ccff01b560ba3",
+ "id": "com-kotobalabs/open-jev-deberta-v3-large",
+ "config": {
+  "architectures": [
+   "DebertaV2Model"
+  ],
+  "model_type": "deberta-v2",
+  "tokenizer_config": {
+   "bos_token": "[CLS]",
+   "cls_token": "[CLS]",
+   "eos_token": "[SEP]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "microsoft/deberta-v3-large",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "tags": [
+   "typed-decisions",
+   "calibrated",
+   "decision-model",
+   "open-jev",
+   "deberta-v3"
+  ],
+  "datasets": [
+   "mteb/banking77",
+   "SetFit/sst5",
+   "google/boolq"
+  ]
+ },
+ "lastModified": "2026-09-24T23:50:11.000Z",
+ "downloads": 3579,
+ "gated": false,
+ "createdAt": "2026-09-18T10:01:35.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 434012160
+  },
+  "total": 434012160
+ }
+}

@@ -1,0 +1,67 @@
+{
+ "_id": "6ace70587f6e99607854a8e7",
+ "id": "tardellirs/crivo-400m",
+ "config": {
+  "architectures": [
+   "ModernBertModel"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "cc-by-nc-4.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "cross-encoder/ettin-reranker-400m-v1",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "tags": [
+   "decision-model",
+   "jev-style",
+   "typed-decisions",
+   "system-one",
+   "decision-index",
+   "calibration",
+   "modernbert",
+   "ettin",
+   "cross-encoder",
+   "zero-shot-classification",
+   "classification",
+   "calibrated-probabilities",
+   "routing",
+   "multiple-choice",
+   "tool-selection",
+   "jev"
+  ],
+  "datasets": [
+   "hotchpotch/bekko-system-one-dataset-v0",
+   "tasksource/procedural-typed-decisions",
+   "tasksource/tasksource-jev-typed-decisions",
+   "NousResearch/hermes-function-calling-v1",
+   "Team-ACE/ToolACE",
+   "glaiveai/glaive-function-calling-v2",
+   "causalNLP/cladder",
+   "galileo-ai/ragbench",
+   "theatticusproject/cuad",
+   "facebook/anli",
+   "nvidia/When2Call"
+  ]
+ },
+ "lastModified": "2026-10-13T17:55:11.000Z",
+ "downloads": 32,
+ "gated": false,
+ "createdAt": "2026-10-13T17:54:32.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 395838465
+  },
+  "total": 395838465
+ }
+}

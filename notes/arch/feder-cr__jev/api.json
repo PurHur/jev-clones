@@ -1,0 +1,29 @@
+{
+ "_id": "6ac8e704810f0294258e88ef",
+ "id": "feder-cr/jev",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "gguf",
+   "openvino",
+   "llama.cpp",
+   "decision-model",
+   "yes-no",
+   "zero-shot-classification",
+   "cpu",
+   "local",
+   "on-device",
+   "jev"
+  ]
+ },
+ "lastModified": "2026-10-09T16:47:00.000Z",
+ "downloads": 383,
+ "gated": false,
+ "createdAt": "2026-10-09T13:07:16.000Z"
+}

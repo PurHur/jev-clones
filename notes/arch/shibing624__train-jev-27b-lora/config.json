@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "Qwen/Qwen3.8-27B",
+  "task_type": "FEATURE_EXTRACTION"
+ }
+}

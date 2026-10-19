@@ -1,0 +1,22 @@
+{
+ "_id": "6aae7085592c12005675fe41",
+ "id": "AndeyTait/JevForge-0.8B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "library_name": "pytorch",
+  "tags": [
+   "jevforge",
+   "decision-model",
+   "candidate-ranking",
+   "choice",
+   "noul",
+   "score"
+  ]
+ },
+ "lastModified": "2026-10-16T15:13:32.000Z",
+ "downloads": 161,
+ "gated": false,
+ "createdAt": "2026-09-19T11:22:45.000Z"
+}

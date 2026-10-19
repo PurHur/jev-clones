@@ -1,0 +1,77 @@
+{
+ "format": "bongard-v1.3",
+ "head_rank": 256,
+ "source": {
+  "model": "google/t5gemma-2-4b-4b",
+  "revision": "487d4acf21a4d70c70bf534265b5263c9424979e",
+  "config.json_sha256": "c07de62e6d0efa9cfed751f476ea729887cb919689f20baab270e8859fb4b64d",
+  "tokenizer.json_sha256": "4c76318660cc87c3029535cc1596717df67132d231ce4ecf088ba2a8ec07c098"
+ },
+ "torch": "2.14.0+cu130",
+ "transformers": "5.17.0",
+ "compiler": {
+  "compiler_version": "judgment-compiler-v1.3",
+  "tokenizer_sha256": "ba9f7b15f7996fac4f40cfd8b2121112b59c5a309df762838850b78c4cc59525",
+  "markers": {
+   "candidate_end": 6,
+   "decision_end": 7
+  },
+  "spellings": {
+   "candidate_end": "<unused0>",
+   "decision_end": "<unused1>"
+  },
+  "control_ids": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   105,
+   106,
+   255999,
+   256000,
+   256001
+  ],
+  "encoder_questions": true
+ },
+ "image_processor": {
+  "do_convert_rgb": true,
+  "do_normalize": true,
+  "do_rescale": true,
+  "do_resize": true,
+  "image_mean": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "image_processor_type": "Gemma3ImageProcessor",
+  "image_seq_length": 256,
+  "image_std": [
+   0.5,
+   0.5,
+   0.5
+  ],
+  "resample": 2,
+  "rescale_factor": 0.00392156862745098,
+  "size": {
+   "height": 896,
+   "width": 896
+  }
+ },
+ "limits": {
+  "max_sequence_tokens": 32768,
+  "max_request_tokens": 64000
+ },
+ "attention": "sdpa",
+ "parameter_dtype": "bfloat16",
+ "embedding_scales": {
+  "encoder": 50.5,
+  "decoder": 50.5
+ },
+ "model_type": "bongard",
+ "architectures": [
+  "JudgmentModel"
+ ],
+ "is_encoder_decoder": true,
+ "dtype": "bfloat16"
+}

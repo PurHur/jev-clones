@@ -1,0 +1,149 @@
+{
+ "_id": "6ab8fda7523bc89cc377ca9c",
+ "id": "AgentBull/bongard-mini",
+ "config": {
+  "model_type": "bongard",
+  "architectures": [
+   "JudgmentModel"
+  ]
+ },
+ "cardData": {
+  "model_name": "Bongard-mini",
+  "pipeline_tag": "zero-shot-classification",
+  "library_name": "bongard",
+  "language": [
+   "en",
+   "zh",
+   "multilingual"
+  ],
+  "license": "gemma",
+  "base_model": "google/t5gemma-2-4b-4b",
+  "base_model_relation": "finetune",
+  "tags": [
+   "system-one",
+   "system-1",
+   "jev-like",
+   "t5",
+   "t5gemma2",
+   "encoder-decoder",
+   "machine-intuition",
+   "multimodal",
+   "judgment",
+   "classification",
+   "calibration"
+  ],
+  "metrics": [
+   "accuracy",
+   "f1"
+  ],
+  "model-index": [
+   {
+    "name": "Bongard-mini",
+    "results": [
+     {
+      "task": {
+       "type": "zero-shot-classification",
+       "name": "Probabilistic judgment"
+      },
+      "dataset": {
+       "type": "Hanno-Labs/decision-bench",
+       "name": "DecisionBench 1.0 (23,900 decisions)",
+       "split": "eval"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "name": "Accuracy (%, official runner; all 23,900 rows, no errors or truncation)",
+        "value": 78.05,
+        "verified": false
+       },
+       {
+        "type": "accuracy",
+        "name": "Accuracy (%, official runner; 20,959 rows with no detected source-text overlap)",
+        "value": 77.73,
+        "verified": false
+       }
+      ],
+      "source": {
+       "name": "AgentBull official-runner evaluation (2026-09-30)",
+       "url": "https://huggingface.co/AgentBull/bongard-mini#benchmarks"
+      }
+     },
+     {
+      "task": {
+       "type": "zero-shot-classification",
+       "name": "Probabilistic judgment"
+      },
+      "dataset": {
+       "type": "LocalLLaMA/typed-decisions",
+       "name": "typed-decisions (400 cases, 2,000 decisions)",
+       "split": "test"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "name": "Top-label agreement with teacher (%)",
+        "value": 59.4,
+        "verified": false
+       },
+       {
+        "type": "soft_accuracy",
+        "name": "Soft accuracy against teacher distribution",
+        "value": 0.518,
+        "verified": false
+       },
+       {
+        "type": "kl_divergence",
+        "name": "KL from teacher distribution (lower is better)",
+        "value": 0.256,
+        "verified": false
+       },
+       {
+        "type": "brier_score",
+        "name": "Brier score against teacher distribution (lower is better)",
+        "value": 0.132,
+        "verified": false
+       }
+      ],
+      "source": {
+       "name": "AgentBull release evaluation (2026-09-29)",
+       "url": "https://huggingface.co/AgentBull/bongard-mini#benchmarks"
+      }
+     },
+     {
+      "task": {
+       "type": "visual-question-answering",
+       "name": "Multimodal candidate judgment"
+      },
+      "dataset": {
+       "type": "mohit67890/imajev-bench",
+       "name": "ImajevBench v2.0-lite (dev + calibration, 254 public-gold items)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "name": "Accuracy (%, unknown option; all cyclic option orders averaged)",
+        "value": 66.9,
+        "verified": false
+       }
+      ],
+      "source": {
+       "name": "AgentBull release evaluation (2026-09-29)",
+       "url": "https://huggingface.co/AgentBull/bongard-mini#benchmarks"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-09-30T08:18:31.000Z",
+ "downloads": 79,
+ "gated": false,
+ "createdAt": "2026-09-27T11:27:35.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 7510242160
+  },
+  "total": 7510242160
+ }
+}

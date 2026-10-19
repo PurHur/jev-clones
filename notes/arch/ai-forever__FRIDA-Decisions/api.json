@@ -1,0 +1,50 @@
+{
+ "_id": "6abf649cce6196fc0bfa3b80",
+ "id": "ai-forever/FRIDA-Decisions",
+ "config": {
+  "architectures": [
+   "T5EncoderModel"
+  ],
+  "model_type": "t5",
+  "tokenizer_config": {
+   "bos_token": "<s>",
+   "cls_token": "<s>",
+   "eos_token": "</s>",
+   "mask_token": "<mask>",
+   "pad_token": "<pad>",
+   "sep_token": "</s>",
+   "unk_token": "<unk>"
+  }
+ },
+ "cardData": {
+  "license": "mit",
+  "language": [
+   "ru",
+   "en"
+  ],
+  "base_model": "ai-forever/FRIDA",
+  "base_model_relation": "finetune",
+  "pipeline_tag": "text-classification",
+  "library_name": "frida-decisions",
+  "tags": [
+   "decisions",
+   "routing",
+   "intent-classification",
+   "guardrails",
+   "zero-shot-classification",
+   "reranking",
+   "encoder",
+   "russian"
+  ]
+ },
+ "lastModified": "2026-10-10T11:36:17.000Z",
+ "downloads": 1296,
+ "gated": false,
+ "createdAt": "2026-10-02T08:00:28.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 823401216
+  },
+  "total": 823401216
+ }
+}

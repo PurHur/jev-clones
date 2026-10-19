@@ -1,0 +1,20 @@
+{
+ "_id": "6ac60283f2f3ebc442ee3407",
+ "id": "yunqu/mentat-sys1-v0.2",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "tags": [
+   "system-1",
+   "decision-model",
+   "typesafe",
+   "peft"
+  ]
+ },
+ "lastModified": "2026-10-07T09:20:59.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-07T08:27:47.000Z"
+}

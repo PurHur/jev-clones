@@ -1,0 +1,29 @@
+{
+ "_id": "6ac031296258f4fab91373bc",
+ "id": "chaoliangUNSW/Jev-Style-Cascade-9B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "jev-style",
+  "base_model": [
+   "chaoliangUNSW/Jev-Style-2B-Decision-v3",
+   "alibiserikbay/JevK5-9B"
+  ],
+  "tags": [
+   "decision-model",
+   "typed-decisions",
+   "system-one",
+   "cascade",
+   "calibration",
+   "jev-style"
+  ],
+  "language": [
+   "en"
+  ],
+  "pipeline_tag": "text-classification"
+ },
+ "lastModified": "2026-10-02T23:41:45.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-02T22:33:13.000Z"
+}

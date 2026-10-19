@@ -1,0 +1,31 @@
+{
+ "_id": "6ab85e9a88cbe1b2170c8ed1",
+ "id": "cortex-agent-llc/kodiak-large-v2-preview",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": "en",
+  "library_name": "kodiak",
+  "inference": false,
+  "tags": [
+   "kodiak",
+   "decision-model",
+   "calibration",
+   "abstention",
+   "encoder",
+   "modernbert",
+   "research-preview"
+  ],
+  "base_model": "answerdotai/ModernBERT-large"
+ },
+ "lastModified": "2026-09-27T03:55:14.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-27T00:08:58.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 400031748
+  },
+  "total": 400031748
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "_id": "6acf2c164a2e25efd50f59f1",
+ "id": "maxgfr/s2-nano",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "ternary",
+   "early-exit",
+   "games",
+   "rust",
+   "wasm",
+   "skycmd"
+  ]
+ },
+ "lastModified": "2026-10-14T07:15:37.000Z",
+ "downloads": 23,
+ "gated": false,
+ "createdAt": "2026-10-14T07:15:34.000Z"
+}

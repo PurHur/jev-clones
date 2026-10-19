@@ -1,0 +1,23 @@
+{
+ "_id": "6ac90d523fde8c2869248bfc",
+ "id": "LIQIIIII/Jeva-4B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "jeva",
+   "system-one",
+   "decision-making",
+   "candidate-selection",
+   "scoring",
+   "decision-model"
+  ]
+ },
+ "lastModified": "2026-10-18T10:52:29.000Z",
+ "downloads": 1327,
+ "gated": false,
+ "createdAt": "2026-10-09T15:50:42.000Z"
+}

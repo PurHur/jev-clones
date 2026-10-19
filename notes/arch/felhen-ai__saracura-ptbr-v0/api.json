@@ -1,0 +1,35 @@
+{
+ "_id": "6ac0d69a1f3373c388104192",
+ "id": "felhen-ai/saracura-ptbr-v0",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "laya",
+  "base_model": "convaiinnovations/laya-multilingual",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "pt"
+  ],
+  "tags": [
+   "laya",
+   "mmbert",
+   "typed-decisions",
+   "portuguese",
+   "pt-br"
+  ],
+  "datasets": [
+   "felhen-ai/ptbr-typed-decisions-bench",
+   "telepatia-ai/typed-decisions-pt-es"
+  ]
+ },
+ "lastModified": "2026-10-08T10:47:23.000Z",
+ "downloads": 54,
+ "gated": false,
+ "createdAt": "2026-10-03T10:19:06.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 321908998
+  },
+  "total": 321908998
+ }
+}

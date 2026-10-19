@@ -1,0 +1,35 @@
+{
+ "_id": "6ac0bfb81f2153fa71721ba4",
+ "id": "chinhnc/Quyet-1.0-Small-EN",
+ "config": {
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "quyet",
+  "base_model": "answerdotai/ModernBERT-base",
+  "base_model_relation": "finetune",
+  "tags": [
+   "quyet",
+   "decision-model",
+   "calibrated",
+   "classification"
+  ]
+ },
+ "lastModified": "2026-10-10T02:28:20.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-03T08:41:28.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 153304705
+  },
+  "total": 153304705
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "_id": "6abbe2ca4b0fb947927ea424",
+ "id": "Beko2210/statim-decide-multilingual-base-safety",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "statim-weights",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-multilingual-base-safety/blob/main/LICENSE-MODEL.md",
+  "base_model": "Beko2210/statim-decide-multilingual-base",
+  "base_model_relation": "adapter",
+  "library_name": "gguf",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "statim",
+   "lora",
+   "adapter",
+   "gguf",
+   "safety"
+  ],
+  "pipeline_tag": "zero-shot-classification",
+  "model-index": [
+   {
+    "name": "statim-decide-multilingual-base-safety",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "safety en (n=1350 fresh: draw 1500, skip 150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "safety"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8059,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-03T13:43:35.000Z",
+ "downloads": 31,
+ "gated": false,
+ "createdAt": "2026-09-29T16:09:46.000Z"
+}

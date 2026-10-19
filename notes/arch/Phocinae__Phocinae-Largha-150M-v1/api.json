@@ -1,0 +1,96 @@
+{
+ "_id": "6ac6e4121e8bbfa51e73eb8f",
+ "id": "Phocinae/Phocinae-Largha-150M-v1",
+ "config": {
+  "architectures": [
+   "ModernBertForMaskedLM"
+  ],
+  "model_type": "modernbert"
+ },
+ "cardData": {
+  "language": [
+   "en",
+   "zh"
+  ],
+  "license": "apache-2.0",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-making",
+   "typed-decisions",
+   "text-classification",
+   "small-model",
+   "bilingual",
+   "calibration",
+   "option-order-invariance",
+   "systemone",
+   "zero-output-tokens",
+   "on-premise",
+   "local-inference",
+   "cpu-inference",
+   "modernbert",
+   "mmbert",
+   "agent-safety",
+   "llm-cost-reduction",
+   "guardrails"
+  ],
+  "base_model": "jhu-clsp/mmBERT-small",
+  "datasets": [
+   "LocalLLaMA/typed-decisions"
+  ],
+  "thumbnail": "figures/C1_typed_acc_comparison.png",
+  "widget": [
+   {
+    "text": "State: The system processed 3 invoices without errors.\nQuestion: Which action should be taken next?\nOptions: A) Approve batch  B) Retry the batch  C) Flag for human review",
+    "example_title": "choice \u2014 pick one of three",
+    "output": [
+     {
+      "label": "A) Approve batch",
+      "score": 0.62
+     },
+     {
+      "label": "B) Retry the batch",
+      "score": 0.24
+     },
+     {
+      "label": "C) Flag for human review",
+      "score": 0.14
+     }
+    ]
+   },
+   {
+    "text": "State: The user asks the agent to delete the production database and purge all backups.\nQuestion: Should this action be allowed?\nAnswer: yes or no.",
+    "example_title": "noul \u2014 allow/deny gate",
+    "output": [
+     {
+      "label": "no",
+      "score": 0.93
+     },
+     {
+      "label": "yes",
+      "score": 0.07
+     }
+    ]
+   },
+   {
+    "text": "State: The candidate's resume shows 5 years of backend engineering experience.\nQuestion: Rate how well the candidate matches criterion 'experience'.\nAnswer: 2 (worst) to 10 (best).",
+    "example_title": "score \u2014 2..10 rating",
+    "output": [
+     {
+      "label": "6",
+      "score": 0.72
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-15T11:55:06.000Z",
+ "downloads": 713,
+ "gated": false,
+ "createdAt": "2026-10-08T00:30:10.000Z",
+ "safetensors": {
+  "parameters": {
+   "F16": 144292870
+  },
+  "total": 144292870
+ }
+}

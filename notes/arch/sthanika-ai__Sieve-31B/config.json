@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "google/gemma-4-31B-it",
+  "task_type": "FEATURE_EXTRACTION"
+ }
+}

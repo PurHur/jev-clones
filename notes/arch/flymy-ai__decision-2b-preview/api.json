@@ -1,0 +1,21 @@
+{
+ "_id": "6ab316f6730388cfe7ae935c",
+ "id": "flymy-ai/decision-2b-preview",
+ "config": {},
+ "cardData": {
+  "base_model": "openbmb/MiniCPM5-2B",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "typed-decisions",
+   "lora",
+   "native-probabilities",
+   "research-preview"
+  ]
+ },
+ "lastModified": "2026-09-23T00:02:05.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-23T00:01:58.000Z"
+}

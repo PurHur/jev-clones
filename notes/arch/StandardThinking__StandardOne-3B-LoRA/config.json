@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+  "task_type": "CAUSAL_LM"
+ }
+}

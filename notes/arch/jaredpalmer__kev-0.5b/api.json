@@ -1,0 +1,85 @@
+{
+ "_id": "6aad9cf196dfe31da4964992",
+ "id": "jaredpalmer/kev-0.5b",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": null,
+   "eos_token": "<|endoftext|>",
+   "pad_token": "<|endoftext|>",
+   "unk_token": null
+  },
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen2.5-0.5B",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "language": "en",
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "Qwen/Qwen2.5-0.5B",
+  "base_model_relation": "adapter",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "calibration",
+   "lora",
+   "multiple-choice",
+   "typesafe",
+   "prototype"
+  ],
+  "datasets": [
+   "legacy-datasets/banking77",
+   "google/boolq",
+   "fancyzhx/ag_news",
+   "nyu-mll/multi_nli",
+   "SetFit/sst5",
+   "Yelp/yelp_review_full"
+  ],
+  "metrics": [
+   "accuracy",
+   "expected_calibration_error",
+   "nll"
+  ],
+  "model-index": [
+   {
+    "name": "Kev-0.5B",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "typed decision (choice / noul / score)"
+      },
+      "dataset": {
+       "type": "mixed",
+       "name": "held-out split of the six training sources (1,350 questions)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.799,
+        "verified": false
+       },
+       {
+        "type": "expected_calibration_error",
+        "value": 0.065,
+        "name": "ECE (10 bins)",
+        "verified": false
+       },
+       {
+        "type": "expected_calibration_error",
+        "value": 0.031,
+        "name": "ECE after temperature scaling (T=1.47)",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-09-20T23:49:07.000Z",
+ "downloads": 1924,
+ "gated": false,
+ "createdAt": "2026-09-18T20:20:01.000Z"
+}

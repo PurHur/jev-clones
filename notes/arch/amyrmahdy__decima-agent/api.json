@@ -1,0 +1,41 @@
+{
+ "_id": "6ac204c2aadad5e0494dec34",
+ "id": "amyrmahdy/decima-agent",
+ "config": {
+  "model_type": "decima",
+  "architectures": [
+   "Decima"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "onnx",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "decision-model",
+   "system-one",
+   "jev",
+   "jev-alternative",
+   "claude-code",
+   "hooks",
+   "agents",
+   "guardrails",
+   "secret-detection",
+   "knowledge-graph",
+   "entity-resolution",
+   "tool-routing",
+   "onnx",
+   "int8",
+   "cpu",
+   "local-first"
+  ],
+  "base_model": "amyrmahdy/decima-base"
+ },
+ "lastModified": "2026-10-19T11:42:07.000Z",
+ "downloads": 144,
+ "gated": false,
+ "createdAt": "2026-10-04T07:48:18.000Z"
+}

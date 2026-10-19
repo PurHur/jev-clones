@@ -1,0 +1,23 @@
+{
+ "_id": "6ac4d1a25c1b6a7c70d7e5b6",
+ "id": "EldanRing/Winnow-E2B",
+ "config": {},
+ "cardData": {
+  "base_model": "google/gemma-4-E2B-it",
+  "base_model_relation": "finetune",
+  "license": "apache-2.0",
+  "library_name": "gguf",
+  "pipeline_tag": "image-text-to-text",
+  "tags": [
+   "winnow",
+   "gemma4",
+   "local-inference",
+   "gguf",
+   "decision-model"
+  ]
+ },
+ "lastModified": "2026-10-13T14:26:54.000Z",
+ "downloads": 1608,
+ "gated": false,
+ "createdAt": "2026-10-06T10:46:58.000Z"
+}

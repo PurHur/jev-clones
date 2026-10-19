@@ -1,0 +1,35 @@
+{
+ "_id": "6acefb1574ea7a8736a53ee8",
+ "id": "songdj/Lev-3B",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": "<s>",
+   "eos_token": "</s>",
+   "pad_token": "<unk>",
+   "unk_token": "<unk>"
+  },
+  "peft": {
+   "base_model_name_or_path": "Nanbeige/Nanbeige4.2-3B-Base",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "Nanbeige/Nanbeige4.2-3B-Base",
+  "base_model_relation": "adapter",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "decision-model",
+   "system-1.5",
+   "looped-transformer",
+   "lora"
+  ]
+ },
+ "lastModified": "2026-10-16T20:45:58.000Z",
+ "downloads": 47,
+ "gated": false,
+ "createdAt": "2026-10-14T03:46:29.000Z"
+}

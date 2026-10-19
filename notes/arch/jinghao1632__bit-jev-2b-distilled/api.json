@@ -1,0 +1,42 @@
+{
+ "_id": "6ab94547ff5de70b9f595fb9",
+ "id": "jinghao1632/bit-jev-2b-distilled",
+ "config": {
+  "architectures": [
+   "BitNetModel"
+  ],
+  "auto_map": {
+   "AutoConfig": "configuration_bitnet.BitNetConfig",
+   "AutoModelForCausalLM": "modeling_bitnet.BitNetForCausalLM"
+  },
+  "model_type": "bitnet",
+  "quantization_config": {
+   "modules_to_not_convert": [],
+   "quant_method": "bitnet"
+  },
+  "tokenizer_config": {
+   "bos_token": "<|begin_of_text|>",
+   "eos_token": "<|eot_id|>"
+  },
+  "chat_template_jinja": "{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = message['role'] | capitalize + ': '+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{% if add_generation_prompt %}{{ 'Assistant: ' }}{% endif %}"
+ },
+ "cardData": {
+  "base_model": [
+   "microsoft/bitnet-b1.58-2B-4T-bf16"
+  ],
+  "library_name": "bit-jev",
+  "tags": [
+   "bitnet",
+   "structured-decision",
+   "pointer-head",
+   "cpu-inference",
+   "gpu-inference",
+   "knowledge-distillation",
+   "yelp"
+  ]
+ },
+ "lastModified": "2026-09-30T03:55:13.000Z",
+ "downloads": 2721,
+ "gated": false,
+ "createdAt": "2026-09-27T16:33:11.000Z"
+}

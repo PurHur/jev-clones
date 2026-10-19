@@ -1,0 +1,40 @@
+{
+ "_id": "6ab23b040904bf41777069ed",
+ "id": "FrameXlabs/fragment-1",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "fragment",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "fragment-1",
+   "system-one",
+   "decision-model",
+   "calibrated-decisions",
+   "rlcd",
+   "typed-decisions",
+   "non-autoregressive",
+   "classification",
+   "scoring",
+   "routing",
+   "tiny-model",
+   "from-scratch"
+  ],
+  "datasets": [
+   "stanfordnlp/sst2",
+   "fancyzhx/ag_news",
+   "google/boolq",
+   "fancyzhx/yelp_review_full"
+  ]
+ },
+ "lastModified": "2026-09-22T22:26:02.000Z",
+ "downloads": 47,
+ "gated": false,
+ "createdAt": "2026-09-22T08:23:32.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 8982785
+  },
+  "total": 8982785
+ }
+}

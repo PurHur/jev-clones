@@ -1,0 +1,39 @@
+{
+ "_id": "6aacc6b34a8e10ba66ac6d0f",
+ "id": "convaiinnovations/laya",
+ "config": {
+  "model_type": "laya",
+  "architectures": [
+   "LayaTypedDecisions"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "transformers",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "laya",
+   "system-one",
+   "calibrated-decisions",
+   "rlcd",
+   "classification",
+   "routing",
+   "scoring",
+   "guardrails",
+   "moderation",
+   "reinforcement-learning",
+   "commercial-use"
+  ]
+ },
+ "lastModified": "2026-10-03T18:00:07.000Z",
+ "downloads": 52203,
+ "gated": false,
+ "createdAt": "2026-09-18T05:05:55.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 3,
+   "F16": 421293827
+  },
+  "total": 421293830
+ }
+}

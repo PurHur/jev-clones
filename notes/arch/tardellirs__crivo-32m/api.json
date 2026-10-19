@@ -1,0 +1,97 @@
+{
+ "_id": "6aca5e2b0fdd3575a6db800d",
+ "id": "tardellirs/crivo-32m",
+ "config": {
+  "architectures": [
+   "ModernBertModel"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "cc-by-nc-4.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "cross-encoder/ettin-reranker-32m-v1",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "tags": [
+   "decision-model",
+   "jev-style",
+   "typed-decisions",
+   "system-one",
+   "decision-index",
+   "knowledge-distillation",
+   "calibration",
+   "modernbert",
+   "ettin",
+   "cross-encoder",
+   "zero-shot-classification",
+   "classification",
+   "calibrated-probabilities",
+   "routing",
+   "multiple-choice",
+   "tool-selection",
+   "jev"
+  ],
+  "datasets": [
+   "hotchpotch/bekko-system-one-dataset-v0",
+   "tasksource/procedural-typed-decisions",
+   "tasksource/tasksource-jev-typed-decisions",
+   "NousResearch/hermes-function-calling-v1",
+   "Team-ACE/ToolACE",
+   "glaiveai/glaive-function-calling-v2",
+   "causalNLP/cladder",
+   "galileo-ai/ragbench",
+   "theatticusproject/cuad",
+   "facebook/anli",
+   "nvidia/When2Call"
+  ],
+  "model-index": [
+   {
+    "name": "Crivo-32M",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Typed decisions (choice / noul / score)"
+      },
+      "dataset": {
+       "name": "Decision Index 0.3",
+       "type": "decision-index"
+      },
+      "metrics": [
+       {
+        "type": "public_index",
+        "value": 27.34,
+        "name": "Public index (self-run, complete public suite; version 2)",
+        "verified": false
+       }
+      ],
+      "source": {
+       "name": "Decision Index 0.3 public suite, official kit",
+       "url": "https://huggingface.co/datasets/tardellirs/decision-index-results/tree/main/runs/crivo-32m-v2"
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-18T08:50:47.000Z",
+ "downloads": 85,
+ "gated": false,
+ "createdAt": "2026-10-10T15:47:55.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 32033665
+  },
+  "total": 32033665
+ }
+}

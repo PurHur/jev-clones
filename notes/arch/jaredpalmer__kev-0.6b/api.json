@@ -1,0 +1,106 @@
+{
+ "_id": "6aade277afd69b39ea81ddf5",
+ "id": "jaredpalmer/kev-0.6b",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": null,
+   "eos_token": "<|endoftext|>",
+   "pad_token": "<|endoftext|>",
+   "unk_token": null
+  },
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3-0.6B-Base",
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "language": "en",
+  "license": "apache-2.0",
+  "library_name": "peft",
+  "base_model": "Qwen/Qwen3-0.6B-Base",
+  "base_model_relation": "adapter",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "calibration",
+   "lora",
+   "multiple-choice",
+   "typesafe",
+   "decision-model"
+  ],
+  "datasets": [
+   "legacy-datasets/banking77",
+   "google/boolq",
+   "fancyzhx/ag_news",
+   "nyu-mll/multi_nli",
+   "SetFit/sst5",
+   "Yelp/yelp_review_full",
+   "CogComp/trec",
+   "fancyzhx/dbpedia_14",
+   "SetFit/amazon_reviews_multi_en",
+   "stanfordnlp/imdb"
+  ],
+  "metrics": [
+   "accuracy",
+   "brier_score",
+   "expected_calibration_error"
+  ],
+  "model-index": [
+   {
+    "name": "Kev-0.6B (Qwen3)",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "typed decision (choice / noul / score)"
+      },
+      "dataset": {
+       "type": "mixed",
+       "name": "decision-v4 development (1,204 records; ten trained public sources + programmatic policy pairs)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.801,
+        "verified": false
+       },
+       {
+        "type": "expected_calibration_error",
+        "value": 0.086,
+        "name": "ECE, raw probabilities",
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "typed decision",
+       "out-of-domain": null
+      },
+      "dataset": {
+       "type": "mixed",
+       "name": "transfer-v4 development (764 records; six never-trained sources + held-out policy structures)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.62,
+        "verified": false
+       },
+       {
+        "type": "brier_score",
+        "value": 0.536,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-09-20T23:46:31.000Z",
+ "downloads": 2105,
+ "gated": false,
+ "createdAt": "2026-09-19T01:16:39.000Z"
+}

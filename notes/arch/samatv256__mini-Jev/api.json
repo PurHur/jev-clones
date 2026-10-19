@@ -1,0 +1,34 @@
+{
+ "_id": "6ab077e6a587030ee9923622",
+ "id": "samatv256/mini-Jev",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-0.6B",
+  "library_name": "custom",
+  "datasets": [
+   "samatv256/jev-decisions-v1"
+  ],
+  "tags": [
+   "mini-jev",
+   "decision-model",
+   "tool-selection",
+   "tool-use",
+   "agents",
+   "action-selection",
+   "decision-making",
+   "finite-choice",
+   "qwen3"
+  ]
+ },
+ "lastModified": "2026-10-02T23:10:39.000Z",
+ "downloads": 1717,
+ "gated": false,
+ "createdAt": "2026-09-21T00:18:46.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 262657
+  },
+  "total": 262657
+ }
+}

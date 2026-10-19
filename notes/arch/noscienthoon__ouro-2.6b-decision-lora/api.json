@@ -1,0 +1,24 @@
+{
+ "_id": "6aae9a360b7db407b2327223",
+ "id": "noscienthoon/ouro-2.6b-decision-lora",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "ByteDance/Ouro-2.6B",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "calibrated",
+   "lora",
+   "typesafe-eval"
+  ],
+  "language": [
+   "en"
+  ]
+ },
+ "lastModified": "2026-09-19T23:59:38.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-19T14:20:38.000Z"
+}

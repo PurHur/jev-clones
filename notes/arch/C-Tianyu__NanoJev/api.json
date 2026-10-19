@@ -1,0 +1,25 @@
+{
+ "_id": "6aac18aecc029b68a5adb56a",
+ "id": "C-Tianyu/NanoJev",
+ "config": {},
+ "cardData": {
+  "language": [
+   "en"
+  ],
+  "base_model": "Qwen/Qwen3-0.6B",
+  "library_name": "pytorch",
+  "tags": [
+   "nanojev",
+   "decision-model",
+   "reinforcement-learning-environment",
+   "supervised-fine-tuning",
+   "maze",
+   "snake",
+   "vizdoom"
+  ]
+ },
+ "lastModified": "2026-09-20T10:19:01.000Z",
+ "downloads": 8298,
+ "gated": false,
+ "createdAt": "2026-09-17T16:43:26.000Z"
+}

@@ -1,0 +1,12 @@
+{
+ "tokenizer_config": {
+  "bos_token": null,
+  "eos_token": "<|endoftext|>",
+  "pad_token": "<|endoftext|>",
+  "unk_token": null
+ },
+ "peft": {
+  "base_model_name_or_path": "Qwen/Qwen3.5-0.8B-Base",
+  "task_type": "FEATURE_EXTRACTION"
+ }
+}

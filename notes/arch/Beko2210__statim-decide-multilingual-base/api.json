@@ -1,0 +1,221 @@
+{
+ "_id": "6ab94283380cbd8c03e29c0a",
+ "id": "Beko2210/statim-decide-multilingual-base",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "statim-weights",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-multilingual-base/blob/main/LICENSE-MODEL.md",
+  "language": [
+   "ar",
+   "de",
+   "en",
+   "es",
+   "fr",
+   "hi",
+   "it",
+   "ja",
+   "pl",
+   "ru",
+   "tr",
+   "zh",
+   "id",
+   "ms",
+   "pt",
+   "nl",
+   "fa"
+  ],
+  "library_name": "gguf",
+  "pipeline_tag": "zero-shot-classification",
+  "base_model": "convaiinnovations/laya-multilingual",
+  "datasets": [
+   "PolyAI/banking77",
+   "AmazonScience/massive",
+   "LocalLLaMA/typed-decisions",
+   "tasksource/tasksource-jev-typed-decisions",
+   "nvidia/Nemotron-Safety-Guard-Dataset-v3",
+   "l3cube-pune/IndicGuard",
+   "PolyAI/minds14",
+   "benayas/snips"
+  ],
+  "tags": [
+   "statim",
+   "gguf",
+   "decision-making",
+   "text-classification",
+   "zero-shot-classification",
+   "mmBERT-base"
+  ],
+  "model-index": [
+   {
+    "name": "statim-decide-multilingual-base",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "typed-decisions (test split, first 2,000 decisions; its train split is replay data)",
+       "type": "LocalLLaMA/typed-decisions"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.775,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Banking77 (test split, first 2,000 rows, all 77 intents in one question)",
+       "type": "PolyAI/banking77"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9185,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "MASSIVE intents (mean over 12 languages, 150 seeded stratified test rows each)",
+       "type": "AmazonScience/massive"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8161,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "AG News (zero-shot (never trained on), first 2,000 test rows)",
+       "type": "fancyzhx/ag_news"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.921,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "DAIR Emotion (zero-shot, first 2,000 test rows)",
+       "type": "dair-ai/emotion"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.5305,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "HWU64 intents (English, 150 rows; rows overlapping MASSIVE removed)",
+       "type": "hwu64"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8533,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "SIB-200 topics (zero-shot, mean over 4 languages, 150 rows each)",
+       "type": "Davlan/sib200"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.7967,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Sentiment (zero-shot, mean over 12 languages, 150 rows each)",
+       "type": "tyqiangz/multilingual-sentiments"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.6311,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "HateCheck (zero-shot, mean over 11 languages, 150 rows each)",
+       "type": "mteb/multi-hatecheck"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.6461,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "Belebele reading (zero-shot, mean over 4 languages, 150 rows each)",
+       "type": "facebook/belebele"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.28,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-06T23:34:41.000Z",
+ "downloads": 309,
+ "gated": false,
+ "createdAt": "2026-09-27T16:21:23.000Z"
+}

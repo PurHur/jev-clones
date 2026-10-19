@@ -1,0 +1,38 @@
+{
+ "_id": "6ab0c7ad006ffa71636ca545",
+ "id": "PsiACE/Dohnuts-0.1.0-0.8B",
+ "config": {},
+ "cardData": {
+  "library_name": "dohnuts",
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "base_model_relation": "adapter",
+  "license": "cc-by-nc-sa-4.0",
+  "tags": [
+   "dohnuts",
+   "decision-model",
+   "multimodal",
+   "rlcd",
+   "lora",
+   "research"
+  ],
+  "datasets": [
+   "AmazonScience/massive",
+   "google/boolq",
+   "fancyzhx/ag_news",
+   "dair-ai/emotion",
+   "PolyAI/banking77",
+   "facebook/xnli",
+   "HuggingFaceM4/A-OKVQA",
+   "derek-thomas/ScienceQA",
+   "lmms-lab-encoder/VQAv2",
+   "LocalLLaMA/typed-decisions",
+   "microsoft/wiki_qa",
+   "UCLNLP/sharc",
+   "ucirvine/sms_spam"
+  ]
+ },
+ "lastModified": "2026-09-21T08:13:19.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-21T05:59:09.000Z"
+}

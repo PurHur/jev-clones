@@ -1,0 +1,37 @@
+{
+ "_id": "6ac3bb44a027308efce4417a",
+ "id": "nickprock/archai-jev-nesso-4b-ita",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "mii-1.0",
+  "license_link": "LICENSE",
+  "base_model": "mii-llm/nesso-4B",
+  "library_name": "peft",
+  "tags": [
+   "system-one",
+   "decision-engine",
+   "italian",
+   "qlora",
+   "gguf",
+   "brier-score",
+   "calibration",
+   "quantized"
+  ],
+  "datasets": [
+   "Paul/hatecheck-italian",
+   "evalitahf/hatespeech_detection",
+   "RiTA-nlp/ai2_arc_ita",
+   "evalitahf/sentiment_analysis",
+   "evalitahf/textual_entailment"
+  ],
+  "language": [
+   "it"
+  ],
+  "pipeline_tag": "text-generation"
+ },
+ "lastModified": "2026-10-08T07:37:57.000Z",
+ "downloads": 238,
+ "gated": false,
+ "createdAt": "2026-10-05T14:59:16.000Z"
+}

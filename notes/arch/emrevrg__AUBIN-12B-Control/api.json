@@ -1,0 +1,27 @@
+{
+ "_id": "6ac08fa0a1a4ec7a5cf06bdf",
+ "id": "emrevrg/AUBIN-12B-Control",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "google/gemma-4-12B-it",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "google/gemma-4-12B-it",
+  "library_name": "peft",
+  "tags": [
+   "aubin",
+   "norovox",
+   "realtime-control",
+   "game-agent",
+   "lora",
+   "calibrated"
+  ]
+ },
+ "lastModified": "2026-10-04T16:14:40.000Z",
+ "downloads": 85,
+ "gated": false,
+ "createdAt": "2026-10-03T05:16:16.000Z"
+}

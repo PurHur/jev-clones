@@ -1,0 +1,45 @@
+{
+ "_id": "6ac0d02517c08e6d36c729af",
+ "id": "Remek/basal-1.5-mini",
+ "config": {
+  "architectures": [
+   "LlamaForCausalLM"
+  ],
+  "model_type": "llama",
+  "tokenizer_config": {
+   "bos_token": "<s>",
+   "eos_token": "<|im_end|>",
+   "pad_token": "</s>",
+   "unk_token": "<unk>",
+   "use_default_system_prompt": false
+  },
+  "chat_template_jinja": "{{bos_token}}{% for message in messages %}{{'<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>' + '\n'}}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\n' }}{% endif %}"
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "pl",
+   "en"
+  ],
+  "base_model": "speakleash/Bielik-1.5B-v3.0-Instruct",
+  "library_name": "transformers",
+  "pipeline_tag": "text-generation",
+  "tags": [
+   "typed-decisions",
+   "decision-making",
+   "classification",
+   "calibration",
+   "polish"
+  ]
+ },
+ "lastModified": "2026-10-03T19:54:20.000Z",
+ "downloads": 734,
+ "gated": false,
+ "createdAt": "2026-10-03T09:51:33.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 1596507648
+  },
+  "total": 1596507648
+ }
+}

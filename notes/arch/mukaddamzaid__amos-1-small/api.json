@@ -1,0 +1,26 @@
+{
+ "_id": "6acd01012cedd831d0edc021",
+ "id": "mukaddamzaid/amos-1-small",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": [
+   "Qwen/Qwen3.5-2B"
+  ],
+  "tags": [
+   "system-one",
+   "decisions",
+   "classification",
+   "calibration",
+   "vision",
+   "decision-model"
+  ]
+ },
+ "lastModified": "2026-10-16T15:31:48.000Z",
+ "downloads": 131,
+ "gated": false,
+ "createdAt": "2026-10-12T15:47:13.000Z"
+}

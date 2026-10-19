@@ -1,0 +1,28 @@
+{
+ "_id": "6ab34db21021cd09ad4c4321",
+ "id": "altslate/certo-decision-v2.2",
+ "config": {
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "mit",
+  "library_name": "certo",
+  "tags": [
+   "decision-making",
+   "calibration",
+   "certo",
+   "ettin",
+   "modernbert"
+  ]
+ },
+ "lastModified": "2026-09-23T03:55:43.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-23T03:55:30.000Z"
+}

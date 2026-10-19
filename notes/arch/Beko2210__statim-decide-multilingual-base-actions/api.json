@@ -1,0 +1,23 @@
+{
+ "_id": "6ac7d707f5cc1a0080bc437e",
+ "id": "Beko2210/statim-decide-multilingual-base-actions",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "polyform-noncommercial-1.0.0",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-multilingual-base-actions/blob/main/LICENSE-MODEL.md",
+  "base_model": "Beko2210/statim-decide-multilingual-base",
+  "library_name": "gguf",
+  "tags": [
+   "statim",
+   "lora",
+   "gguf",
+   "decision-making",
+   "games"
+  ]
+ },
+ "lastModified": "2026-10-08T18:19:36.000Z",
+ "downloads": 13,
+ "gated": false,
+ "createdAt": "2026-10-08T17:46:47.000Z"
+}

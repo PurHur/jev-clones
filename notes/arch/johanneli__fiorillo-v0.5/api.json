@@ -1,0 +1,27 @@
+{
+ "_id": "6ac03cedd3166d0404babbb5",
+ "id": "johanneli/fiorillo-v0.5",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-4B-Base",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "medical",
+   "typed-decisions",
+   "calibrated-probabilities",
+   "evidence-inference",
+   "pubmedqa",
+   "hospital-readmission"
+  ],
+  "datasets": [
+   "qiaojin/PubMedQA"
+  ]
+ },
+ "lastModified": "2026-10-03T23:47:49.000Z",
+ "downloads": 40,
+ "gated": false,
+ "createdAt": "2026-10-02T23:23:25.000Z"
+}

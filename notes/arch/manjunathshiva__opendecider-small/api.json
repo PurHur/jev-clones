@@ -1,0 +1,50 @@
+{
+ "_id": "6ab8c77186bfe9fcae0893c0",
+ "id": "manjunathshiva/opendecider-small",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3-4B-Instruct-2507",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+  "library_name": "peft",
+  "pipeline_tag": "zero-shot-classification",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "opendecider",
+   "decision-model",
+   "system-one",
+   "calibrated-decisions",
+   "typed-decisions",
+   "classification",
+   "routing",
+   "scoring",
+   "guardrails",
+   "moderation",
+   "distillation",
+   "lora",
+   "commercial-use"
+  ],
+  "datasets": [
+   "knowledgator/gliclass-v2.0",
+   "clinc/clinc_oos",
+   "google-research-datasets/go_emotions",
+   "rajpurkar/squad_v2",
+   "alisawuffles/WANLI",
+   "fancyzhx/dbpedia_14",
+   "google/civil_comments",
+   "ucirvine/sms_spam",
+   "google-research-datasets/paws",
+   "hotpotqa/hotpot_qa"
+  ]
+ },
+ "lastModified": "2026-10-10T15:37:50.000Z",
+ "downloads": 353,
+ "gated": false,
+ "createdAt": "2026-09-27T07:36:17.000Z"
+}

@@ -1,0 +1,36 @@
+{
+ "_id": "6ab4fe1bb386daf00b9ee518",
+ "id": "0010101010-1/cbjev",
+ "config": {},
+ "cardData": {
+  "license": "gpl-3.0",
+  "language": [
+   "en",
+   "multilingual"
+  ],
+  "library_name": "cbjev",
+  "base_model": "convaiinnovations/laya",
+  "tags": [
+   "cbjev",
+   "laya",
+   "decision-model",
+   "classification",
+   "zero-shot-classification",
+   "calibration",
+   "modernbert",
+   "mmbert",
+   "jev"
+  ],
+  "pipeline_tag": "zero-shot-classification"
+ },
+ "lastModified": "2026-09-24T10:42:15.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-24T10:40:27.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 421029889
+  },
+  "total": 421029889
+ }
+}

@@ -1,0 +1,12 @@
+{
+ "tokenizer_config": {
+  "bos_token": "<bos>",
+  "cls_token": "<bos>",
+  "eos_token": "<eos>",
+  "mask_token": "<mask>",
+  "pad_token": "<pad>",
+  "sep_token": "<eos>",
+  "unk_token": "<unk>",
+  "use_default_system_prompt": false
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "_id": "6ab4153efdec85ba0ec848ce",
+ "id": "Reza2kn/Bev",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "llama.cpp",
+  "pipeline_tag": "text-generation",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_model_relation": "quantized",
+  "language": [
+   "en",
+   "fa"
+  ],
+  "tags": [
+   "gguf",
+   "ternary",
+   "bonsai",
+   "decision-making",
+   "structured-output",
+   "zero-shot"
+  ]
+ },
+ "lastModified": "2026-09-23T18:37:26.000Z",
+ "downloads": 255,
+ "gated": false,
+ "createdAt": "2026-09-23T18:06:54.000Z"
+}

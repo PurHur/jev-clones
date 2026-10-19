@@ -1,0 +1,26 @@
+{
+ "_id": "6abe788c0c7e29ebbd3648e3",
+ "id": "kouhxp/gutsy",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "tags": [
+   "decision-model",
+   "classification",
+   "calibration",
+   "jev-compatible",
+   "llama.cpp",
+   "gguf"
+  ],
+  "pipeline_tag": "text-classification"
+ },
+ "lastModified": "2026-10-05T13:29:55.000Z",
+ "downloads": 493,
+ "gated": false,
+ "createdAt": "2026-10-01T15:13:16.000Z"
+}

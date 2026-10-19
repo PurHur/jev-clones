@@ -1,0 +1,27 @@
+{
+ "_id": "6ab3f350aa3f0d87226f8ada",
+ "id": "TokenRhythm/NeoHorse-Jev-4B",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "pipeline_tag": "text-classification",
+  "library_name": "pytorch",
+  "base_model": [
+   "TokenRhythm/NeoHorse-1-4B"
+  ],
+  "base_model_relation": "finetune",
+  "tags": [
+   "agentic",
+   "decision-model",
+   "typed-decisions",
+   "structured-prediction",
+   "non-generative",
+   "multimodal",
+   "vision-language"
+  ]
+ },
+ "lastModified": "2026-09-28T09:21:16.000Z",
+ "downloads": 2898,
+ "gated": false,
+ "createdAt": "2026-09-23T15:42:08.000Z"
+}

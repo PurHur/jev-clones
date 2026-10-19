@@ -1,0 +1,12 @@
+{
+ "tokenizer_config": {
+  "bos_token": "<s>",
+  "eos_token": "</s>",
+  "pad_token": "<unk>",
+  "unk_token": "<unk>"
+ },
+ "peft": {
+  "base_model_name_or_path": "Nanbeige/Nanbeige4.2-3B-Base",
+  "task_type": "FEATURE_EXTRACTION"
+ }
+}

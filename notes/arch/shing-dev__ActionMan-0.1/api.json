@@ -1,0 +1,44 @@
+{
+ "_id": "6ad07b02c5f9d898505d9b0b",
+ "id": "shing-dev/ActionMan-0.1",
+ "config": {
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "other",
+  "license_name": "actionman-research-preview",
+  "license_link": "LICENSE",
+  "library_name": "pytorch",
+  "base_model": "answerdotai/ModernBERT-large",
+  "tags": [
+   "action-model",
+   "function-calling",
+   "tool-calling",
+   "tool-use",
+   "non-autoregressive",
+   "masked-diffusion",
+   "modernbert"
+  ],
+  "datasets": [
+   "Salesforce/xlam-function-calling-60k",
+   "Team-ACE/ToolACE",
+   "NousResearch/hermes-function-calling-v1"
+  ]
+ },
+ "lastModified": "2026-10-16T15:51:45.000Z",
+ "downloads": 22,
+ "gated": false,
+ "createdAt": "2026-10-15T07:04:34.000Z",
+ "safetensors": {
+  "parameters": {
+   "BF16": 462296336
+  },
+  "total": 462296336
+ }
+}

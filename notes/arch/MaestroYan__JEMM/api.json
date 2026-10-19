@@ -1,0 +1,19 @@
+{
+ "_id": "6ab7ff1c122ef418c3c6032b",
+ "id": "MaestroYan/JEMM",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.8-27B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "library_name": "peft"
+ },
+ "lastModified": "2026-09-26T18:08:35.000Z",
+ "downloads": 535,
+ "gated": false,
+ "createdAt": "2026-09-26T17:21:32.000Z"
+}

@@ -1,0 +1,40 @@
+{
+ "_id": "6ab5fb587af45f80cef11187",
+ "id": "CaoHaoWei/Jev-LCT-Adapters",
+ "config": {},
+ "cardData": {
+  "language": [
+   "en",
+   "zh"
+  ],
+  "license": "apache-2.0",
+  "tags": [
+   "decision-model",
+   "system-one",
+   "looped-transformer",
+   "uncertainty-calibration",
+   "adapters",
+   "qwen",
+   "jev"
+  ],
+  "datasets": [
+   "banking77",
+   "ai2_arc",
+   "truthful_qa",
+   "boolq",
+   "mmlu"
+  ],
+  "metrics": [
+   "accuracy",
+   "ece",
+   "brier_score",
+   "auroc"
+  ],
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers"
+ },
+ "lastModified": "2026-09-26T03:06:57.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-25T04:40:56.000Z"
+}

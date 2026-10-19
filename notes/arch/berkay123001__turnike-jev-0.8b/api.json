@@ -1,0 +1,41 @@
+{
+ "_id": "6acec8e19ae86ab1bdd8bc39",
+ "id": "berkay123001/turnike-jev-0.8b",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "Qwen/Qwen3.5-0.8B",
+   "task_type": "CAUSAL_LM"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-0.8B",
+  "base_model_relation": "adapter",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "tr",
+   "en"
+  ],
+  "library_name": "peft",
+  "tags": [
+   "text-classification",
+   "decision",
+   "decision-model",
+   "typed-decisions",
+   "calibrated-probabilities",
+   "system-one",
+   "jev",
+   "jevbench",
+   "noul",
+   "choice",
+   "score",
+   "turkish",
+   "lora",
+   "multiple-choice"
+  ]
+ },
+ "lastModified": "2026-10-14T09:10:28.000Z",
+ "downloads": 21,
+ "gated": false,
+ "createdAt": "2026-10-14T00:12:17.000Z"
+}

@@ -1,0 +1,48 @@
+{
+ "_id": "6ab5429e0b0766f2b13570c2",
+ "id": "fastino/GLiNER2.5-multi-Decide",
+ "config": {
+  "architectures": [
+   "Gliner2ForSchemaExtraction"
+  ],
+  "model_type": "gliner2",
+  "tokenizer_config": {
+   "bos_token": "[CLS]",
+   "cls_token": "[CLS]",
+   "eos_token": "[SEP]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "library_name": "transformers",
+  "license": "apache-2.0",
+  "language": [
+   "multilingual",
+   "en"
+  ],
+  "pipeline_tag": "schema-extraction",
+  "tags": [
+   "gliner2",
+   "Text classification",
+   "Intent classification",
+   "Sentiment Analysis",
+   "Topic classification",
+   "Named Entity Recognition",
+   "decision-model"
+  ],
+  "base_model": "fastino/gliner2.5-multi-v1"
+ },
+ "lastModified": "2026-10-08T19:42:04.000Z",
+ "downloads": 19223,
+ "gated": false,
+ "createdAt": "2026-09-24T15:32:46.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 287355159
+  },
+  "total": 287355159
+ }
+}

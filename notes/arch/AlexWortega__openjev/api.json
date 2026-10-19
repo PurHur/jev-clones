@@ -1,0 +1,26 @@
+{
+ "_id": "6aaadf068d41d592e97cfb4c",
+ "id": "AlexWortega/openjev",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "pipeline_tag": "text-classification",
+  "library_name": "transformers",
+  "tags": [
+   "nli",
+   "cross-encoder",
+   "qwen3.5",
+   "reranker",
+   "text-classification",
+   "image-text-to-text"
+  ],
+  "language": [
+   "en"
+  ]
+ },
+ "lastModified": "2026-10-01T09:47:38.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-16T18:25:10.000Z"
+}

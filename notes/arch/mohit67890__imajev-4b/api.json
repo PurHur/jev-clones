@@ -1,0 +1,31 @@
+{
+ "_id": "6ab4a1bb70e946806e7bbd57",
+ "id": "mohit67890/imajev-4b",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "/workspace/hf/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "library_name": "peft",
+  "pipeline_tag": "image-text-to-text",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "typed-decisions",
+   "jev",
+   "decision-model",
+   "vision-language",
+   "calibrated-probabilities",
+   "lora",
+   "mlx"
+  ]
+ },
+ "lastModified": "2026-10-10T19:10:17.000Z",
+ "downloads": 3304,
+ "gated": false,
+ "createdAt": "2026-09-24T04:06:19.000Z"
+}

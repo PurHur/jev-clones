@@ -1,0 +1,27 @@
+{
+ "_id": "6ac00e1221c71376e87de292",
+ "id": "mukaddamzaid/amos-1-mini",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": [
+   "jhu-clsp/ettin-encoder-400m",
+   "google/siglip2-base-patch16-224"
+  ],
+  "tags": [
+   "system-one",
+   "decisions",
+   "classification",
+   "calibration",
+   "vision",
+   "decision-model"
+  ]
+ },
+ "lastModified": "2026-10-16T15:31:51.000Z",
+ "downloads": 139,
+ "gated": false,
+ "createdAt": "2026-10-02T20:03:30.000Z"
+}

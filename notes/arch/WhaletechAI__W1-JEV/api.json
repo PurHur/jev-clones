@@ -1,0 +1,25 @@
+{
+ "_id": "6ab61f89e885795cb8cd7c0e",
+ "id": "WhaletechAI/W1-JEV",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": "<|endoftext|>",
+   "eos_token": "<|endoftext|>",
+   "mask_token": "<mask>",
+   "pad_token": "<|padding|>",
+   "unk_token": "<unk>"
+  }
+ },
+ "cardData": {
+  "tags": [
+   "diffusion",
+   "pytorch",
+   "structured-prediction",
+   "w1-jev"
+  ]
+ },
+ "lastModified": "2026-09-28T07:22:07.000Z",
+ "downloads": 4187,
+ "gated": false,
+ "createdAt": "2026-09-25T07:15:21.000Z"
+}

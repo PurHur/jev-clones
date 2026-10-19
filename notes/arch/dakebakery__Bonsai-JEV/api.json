@@ -1,0 +1,37 @@
+{
+ "_id": "6ad0123704566565e8bc91f0",
+ "id": "dakebakery/Bonsai-JEV",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "llama.cpp",
+  "pipeline_tag": "text-classification",
+  "base_model": [
+   "prism-ml/Ternary-Bonsai-2-27B-gguf"
+  ],
+  "base_model_relation": "adapter",
+  "datasets": [
+   "SargeDev/jev-distill-corpus-v3"
+  ],
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "system-one",
+   "decision",
+   "calibrated-probabilities",
+   "jev",
+   "bonsai",
+   "ternary",
+   "gguf",
+   "llama-cpp",
+   "lora",
+   "vision",
+   "on-device"
+  ]
+ },
+ "lastModified": "2026-10-17T02:33:41.000Z",
+ "downloads": 2249,
+ "gated": false,
+ "createdAt": "2026-10-14T23:37:27.000Z"
+}

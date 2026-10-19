@@ -1,0 +1,160 @@
+{
+ "_id": "6abd0c90d7023102b3ed7837",
+ "id": "CountingSheep/vev-9b-lora",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-nc-4.0",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "image-text-to-text",
+  "language": [
+   "en",
+   "zh"
+  ],
+  "datasets": [
+   "CountingSheep/vev-anchor-v3"
+  ],
+  "tags": [
+   "decision-model",
+   "judgment",
+   "classification",
+   "vision-language",
+   "jev",
+   "systemone",
+   "qwen3.5",
+   "lora",
+   "vev"
+  ],
+  "model-index": [
+   {
+    "name": "vev-9b-lora",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "judgekit (Chinese)",
+       "type": "judgekit"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9385,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "JevBench (public subset)",
+       "type": "jevbench"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8225,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "nimble",
+       "type": "nimble"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.7469,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "kev transfer-v4",
+       "type": "kev_transfer_v4"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.7814,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "visual-question-answering",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "MMBench-EN",
+       "type": "mmbench_en"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9021,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "visual-question-answering",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "POPE",
+       "type": "pope"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8971,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "visual-question-answering",
+       "name": "Judgment"
+      },
+      "dataset": {
+       "name": "MMStar",
+       "type": "mmstar"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.6742,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-05T12:27:34.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-30T13:20:16.000Z"
+}

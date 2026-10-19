@@ -1,0 +1,39 @@
+{
+ "_id": "6ab4b689dde0b92006019579",
+ "id": "thaitea/laya-vision-201m",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-nc-sa-4.0",
+  "base_model": "HuggingFaceTB/SmolVLM-256M-Instruct",
+  "library_name": "laya",
+  "pipeline_tag": "visual-question-answering",
+  "datasets": [
+   "HuggingFaceM4/the_cauldron",
+   "MMInstruction/VLFeedback",
+   "HuggingFaceM4/A-OKVQA",
+   "derek-thomas/ScienceQA",
+   "lmms-lab-encoder/VQAv2"
+  ],
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "laya",
+   "calibration",
+   "decision-model",
+   "vision",
+   "smolvlm",
+   "games"
+  ]
+ },
+ "lastModified": "2026-09-24T05:35:10.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-24T05:35:05.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 201161350
+  },
+  "total": 201161350
+ }
+}

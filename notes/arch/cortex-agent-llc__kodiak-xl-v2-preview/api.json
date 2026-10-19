@@ -1,0 +1,31 @@
+{
+ "_id": "6abc3714858e372b9282f047",
+ "id": "cortex-agent-llc/kodiak-xl-v2-preview",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": "en",
+  "library_name": "kodiak",
+  "inference": false,
+  "tags": [
+   "kodiak",
+   "decision-model",
+   "calibration",
+   "abstention",
+   "encoder",
+   "modernbert",
+   "research-preview"
+  ],
+  "base_model": "jhu-clsp/ettin-encoder-1b"
+ },
+ "lastModified": "2026-09-29T22:17:52.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-29T22:09:24.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 1044119556
+  },
+  "total": 1044119556
+ }
+}

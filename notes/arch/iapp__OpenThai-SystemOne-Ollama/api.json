@@ -1,0 +1,29 @@
+{
+ "_id": "6abdb4eccf42e94de0a4ff59",
+ "id": "iapp/OpenThai-SystemOne-Ollama",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "th",
+   "en"
+  ],
+  "base_model": "iapp/OpenThai-SystemOne",
+  "base_model_relation": "finetune",
+  "library_name": "gguf",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "system-one",
+   "decision-model",
+   "thai",
+   "qwen3.5",
+   "gguf",
+   "ollama",
+   "llama.cpp"
+  ]
+ },
+ "lastModified": "2026-10-01T02:48:51.000Z",
+ "downloads": 604,
+ "gated": false,
+ "createdAt": "2026-10-01T01:18:36.000Z"
+}

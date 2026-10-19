@@ -1,0 +1,31 @@
+{
+ "_id": "6acf2bf7f8a6bb8076194acc",
+ "id": "maxgfr/s5-lite",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "cross-encoder/ettin-reranker-17m-v1",
+  "library_name": "gguf",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "zero-shot-classification",
+   "calibration",
+   "rust",
+   "wasm",
+   "skycmd"
+  ],
+  "datasets": [
+   "LocalLLaMA/typed-decisions"
+  ]
+ },
+ "lastModified": "2026-10-14T07:15:15.000Z",
+ "downloads": 56,
+ "gated": false,
+ "createdAt": "2026-10-14T07:15:03.000Z"
+}

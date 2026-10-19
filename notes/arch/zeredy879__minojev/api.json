@@ -1,0 +1,26 @@
+{
+ "_id": "6aacdd8da95024c85a36fc62",
+ "id": "zeredy879/minojev",
+ "config": {},
+ "cardData": {
+  "library_name": "minojev",
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3-1.7B",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "decision-model",
+   "structured-output",
+   "probability-calibration",
+   "generation-free",
+   "head-training",
+   "system-one"
+  ],
+  "pipeline_tag": "text-classification"
+ },
+ "lastModified": "2026-09-20T08:41:36.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-18T06:43:25.000Z"
+}

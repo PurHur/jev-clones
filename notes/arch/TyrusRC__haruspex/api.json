@@ -1,0 +1,76 @@
+{
+ "_id": "6ac9020d40d3356db8c178a5",
+ "id": "TyrusRC/haruspex",
+ "config": {
+  "model_type": "gliner2"
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "library_name": "gliner2",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "decision-model",
+   "calibration",
+   "selective-prediction",
+   "conformal-prediction",
+   "abstention",
+   "risk-aware",
+   "security",
+   "cybersecurity",
+   "security-operations",
+   "soc",
+   "pentest",
+   "red-team",
+   "blue-team",
+   "gliner2"
+  ],
+  "base_model": "fastino/GLiNER2.5-Decide",
+  "metrics": [
+   "accuracy"
+  ],
+  "model-index": [
+   {
+    "name": "haruspex",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Security decision (boolean / choice / score)"
+      },
+      "dataset": {
+       "type": "custom",
+       "name": "web held-out (156 rows)"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8718,
+        "name": "accuracy",
+        "verified": false
+       },
+       {
+        "type": "ece",
+        "value": 0.1076,
+        "name": "ECE",
+        "verified": false
+       },
+       {
+        "type": "brier",
+        "value": 0.1071,
+        "name": "BRIER",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-17T14:58:50.000Z",
+ "downloads": 60,
+ "gated": false,
+ "createdAt": "2026-10-09T15:02:37.000Z"
+}

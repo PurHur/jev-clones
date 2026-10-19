@@ -1,0 +1,26 @@
+{
+ "calibration": {
+  "questions": 94505,
+  "sources": {
+   "/content/jevlet_data/commands_v6/dev.jsonl": "df7087f4a5823bfa546cea67213d8aa63bff470512b3987b4618b267741fdbc9",
+   "/content/jevlet_data/real_commands/dev.jsonl": "40c4ea4cf6348f7bc93090f2b8c09543065c488212089138f8da34bfc83461fd"
+  }
+ },
+ "model_config": {
+  "attention_topology": "block_bidir",
+  "backbone": "BAAI/bge-small-en-v1.5",
+  "decision_head": "pointer",
+  "family": "pretrained",
+  "gradient_checkpointing": false,
+  "max_option_tokens": 40,
+  "max_packed_len": 1024,
+  "max_question_tokens": 64,
+  "max_state_tokens": 224,
+  "option_pool": "mean"
+ },
+ "temperatures": {
+  "choice": 1.4180543422698975,
+  "default": 1.1358089447021484,
+  "noul": 1.0306620597839355
+ }
+}

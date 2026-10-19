@@ -1,0 +1,22 @@
+{
+ "_id": "6ac706cd0d028fddf0d671f0",
+ "id": "resident-labs/tilde-8b-a1b",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "base_model": "inclusionAI/Ling-3.0-tiny-base",
+  "base_model_relation": "finetune",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "judge",
+   "classification",
+   "calibrated",
+   "moe"
+  ]
+ },
+ "lastModified": "2026-10-11T22:49:55.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-08T02:58:21.000Z"
+}

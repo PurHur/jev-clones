@@ -1,0 +1,31 @@
+{
+ "_id": "6abe3c6757bc0c309b989451",
+ "id": "pritamdeka/S1-PubMedBERT",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-nc-2.0",
+  "language": [
+   "en"
+  ],
+  "base_model": "pritamdeka/S-PubMedBert-MS-MARCO",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "biomedical",
+   "typed-decisions",
+   "system-one",
+   "decision-model",
+   "calibration",
+   "sbert2s1"
+  ]
+ },
+ "lastModified": "2026-10-12T08:49:11.000Z",
+ "downloads": 14,
+ "gated": false,
+ "createdAt": "2026-10-01T10:56:39.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 124451593
+  },
+  "total": 124451593
+ }
+}

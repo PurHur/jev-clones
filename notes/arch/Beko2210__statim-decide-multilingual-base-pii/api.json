@@ -1,0 +1,221 @@
+{
+ "_id": "6abbc652cc82ae441ebf831b",
+ "id": "Beko2210/statim-decide-multilingual-base-pii",
+ "config": {},
+ "cardData": {
+  "license": "other",
+  "license_name": "statim-weights",
+  "license_link": "https://huggingface.co/Beko2210/statim-decide-multilingual-base-pii/blob/main/LICENSE-MODEL.md",
+  "base_model": "Beko2210/statim-decide-multilingual-base",
+  "base_model_relation": "adapter",
+  "library_name": "gguf",
+  "language": [
+   "ar",
+   "de",
+   "en",
+   "es",
+   "fr",
+   "it",
+   "ja",
+   "nl",
+   "ru",
+   "sv",
+   "zh"
+  ],
+  "tags": [
+   "statim",
+   "lora",
+   "adapter",
+   "gguf",
+   "pii"
+  ],
+  "pipeline_tag": "zero-shot-classification",
+  "model-index": [
+   {
+    "name": "statim-decide-multilingual-base-pii",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii ar (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9067,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii de (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8667,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii en (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9267,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii es (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8933,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii fr (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.94,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii it (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.92,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii ja (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9267,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii nl (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8667,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii ru (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9467,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii sv (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.8733,
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification"
+      },
+      "dataset": {
+       "name": "pii zh (n=150, seed=20260927, z=2.0, alpha=0.05)",
+       "type": "pii"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9467,
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-10-03T13:43:29.000Z",
+ "downloads": 34,
+ "gated": false,
+ "createdAt": "2026-09-29T14:08:18.000Z"
+}

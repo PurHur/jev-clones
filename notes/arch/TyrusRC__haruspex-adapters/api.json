@@ -1,0 +1,24 @@
+{
+ "_id": "6ad5e0ddb5a5d3139ae72a71",
+ "id": "TyrusRC/haruspex-adapters",
+ "config": {},
+ "cardData": {
+  "language": "en",
+  "license": "apache-2.0",
+  "tags": [
+   "security",
+   "pentest",
+   "vulnerability-detection",
+   "gliner",
+   "decision-model",
+   "praetor"
+  ],
+  "base_model": "fastino/GLiNER2.5-Decide",
+  "library_name": "gliner2",
+  "pipeline_tag": "text-classification"
+ },
+ "lastModified": "2026-10-19T10:39:05.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-19T09:20:29.000Z"
+}

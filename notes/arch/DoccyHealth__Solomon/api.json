@@ -1,0 +1,23 @@
+{
+ "_id": "6ab08aa8ca2e79259048e40c",
+ "id": "DoccyHealth/Solomon",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "lora",
+   "document-question-answering",
+   "structured-decisions",
+   "calibration",
+   "synthetic-evaluation"
+  ]
+ },
+ "lastModified": "2026-09-21T10:29:06.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-21T01:38:48.000Z"
+}

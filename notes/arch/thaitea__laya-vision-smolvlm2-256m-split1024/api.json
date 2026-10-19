@@ -1,0 +1,34 @@
+{
+ "_id": "6ab2fb4fcd83850711c64bc3",
+ "id": "thaitea/laya-vision-smolvlm2-256m-split1024",
+ "config": {},
+ "cardData": {
+  "license": "cc-by-nc-4.0",
+  "base_model": "HuggingFaceTB/SmolVLM2-256M-Video-Instruct",
+  "library_name": "laya",
+  "pipeline_tag": "visual-question-answering",
+  "datasets": [
+   "HuggingFaceM4/the_cauldron"
+  ],
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "laya",
+   "calibration",
+   "decision-model",
+   "vision",
+   "smolvlm"
+  ]
+ },
+ "lastModified": "2026-09-22T23:26:37.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-22T22:03:59.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 236562310
+  },
+  "total": 236562310
+ }
+}

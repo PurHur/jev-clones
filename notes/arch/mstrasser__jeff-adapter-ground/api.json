@@ -1,0 +1,34 @@
+{
+ "_id": "6ac3d58a4567a92325c6cf7a",
+ "id": "mstrasser/jeff-adapter-ground",
+ "config": {
+  "peft": {
+   "base_model_name_or_path": "mstrasser/jeff-base"
+  }
+ },
+ "cardData": {
+  "base_model": "mstrasser/jeff-base",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "jeff",
+   "lora",
+   "decision-model",
+   "retrieval",
+   "calibration"
+  ],
+  "datasets": [
+   "rajpurkar/squad_v2",
+   "hotpotqa/hotpot_qa"
+  ]
+ },
+ "lastModified": "2026-10-06T20:01:48.000Z",
+ "downloads": 181,
+ "gated": false,
+ "createdAt": "2026-10-05T16:51:22.000Z"
+}

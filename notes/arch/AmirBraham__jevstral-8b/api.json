@@ -1,0 +1,27 @@
+{
+ "_id": "6ac209405d7b067feb963c7f",
+ "id": "AmirBraham/jevstral-8b",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": "en",
+  "library_name": "peft",
+  "base_model": "mistralai/Ministral-3-8B-Base-2512",
+  "base_model_relation": "adapter",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "calibration",
+   "lora",
+   "multiple-choice",
+   "ministral"
+  ],
+  "datasets": [
+   "jaredpalmer/kev-suites"
+  ]
+ },
+ "lastModified": "2026-10-05T07:10:54.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-10-04T08:07:28.000Z"
+}

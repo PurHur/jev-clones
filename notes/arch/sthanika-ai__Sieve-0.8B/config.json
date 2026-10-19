@@ -1,0 +1,20 @@
+{
+ "base_model": "Qwen/Qwen3.5-0.8B-Base",
+ "read_layer": 16,
+ "list_options": true,
+ "temperature": 1.1208,
+ "architecture": "sieve-hybrid-fork",
+ "max_len": 32768,
+ "temperature_source": "one temperature fitted by NLL on a 10,013-question calibration split (every track, never trained on); on a 2,388-question validation split it lowers ECE from 0.0293 to 0.0240; accuracy unchanged",
+ "full_weights": "full_weights.safetensors",
+ "training": {
+  "data": "190,296 questions from 155 decision tracks (public + synthetic decision mix, one epoch)",
+  "train_max_len": 8192,
+  "method": "full fine-tune of blocks 1-16 (332M parameters, fp32) + scalar head; embeddings frozen",
+  "lr": 5e-06,
+  "schedule": "3% warmup, cosine to 10%",
+  "epochs": 1,
+  "batch": 32,
+  "steps": 5947
+ }
+}

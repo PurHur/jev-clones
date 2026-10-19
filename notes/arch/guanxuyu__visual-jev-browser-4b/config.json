@@ -1,0 +1,6 @@
+{
+ "peft": {
+  "base_model_name_or_path": "/mnt/local_data/vjb/models/Qwen3-VL-4B-Instruct",
+  "task_type": "CAUSAL_LM"
+ }
+}

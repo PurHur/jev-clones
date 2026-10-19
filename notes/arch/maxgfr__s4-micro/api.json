@@ -1,0 +1,28 @@
+{
+ "_id": "6acf2c09f6cc0bfa915e807b",
+ "id": "maxgfr/s4-micro",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "ternary",
+   "early-exit",
+   "rust",
+   "wasm",
+   "skycmd",
+   "experimental"
+  ]
+ },
+ "lastModified": "2026-10-14T07:15:23.000Z",
+ "downloads": 27,
+ "gated": false,
+ "createdAt": "2026-10-14T07:15:21.000Z"
+}

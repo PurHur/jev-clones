@@ -1,0 +1,38 @@
+{
+ "_id": "6ab6141390ae4b7b556cdd13",
+ "id": "moganai/lavoir-tr",
+ "config": {
+  "model_type": "lavoir"
+ },
+ "cardData": {
+  "language": [
+   "tr",
+   "en"
+  ],
+  "license": "cc-by-nc-4.0",
+  "datasets": [
+   "moganai/lavoir-dialogues-tr"
+  ],
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "lavoir",
+   "laya",
+   "turkish",
+   "value-of-information",
+   "clarifying-questions",
+   "calibrated-decisions",
+   "routing",
+   "customer-support"
+  ]
+ },
+ "lastModified": "2026-09-25T07:31:42.000Z",
+ "downloads": 31,
+ "gated": false,
+ "createdAt": "2026-09-25T06:26:27.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 163939598
+  },
+  "total": 163939598
+ }
+}

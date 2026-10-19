@@ -1,0 +1,24 @@
+{
+ "_id": "6ab9456c40a9cf5637e902b7",
+ "id": "shenjunhao/OpenJev-4B",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "language": [
+   "en",
+   "zh"
+  ],
+  "tags": [
+   "openjev",
+   "decision-making",
+   "open-vocabulary",
+   "reinforcement-learning",
+   "safetensors"
+  ]
+ },
+ "lastModified": "2026-09-29T15:04:46.000Z",
+ "downloads": 0,
+ "gated": false,
+ "createdAt": "2026-09-27T16:33:48.000Z"
+}

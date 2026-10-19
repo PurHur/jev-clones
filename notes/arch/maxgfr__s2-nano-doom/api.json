@@ -1,0 +1,28 @@
+{
+ "_id": "6acf2c1f6a88cb7907df6a5a",
+ "id": "maxgfr/s2-nano-doom",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en"
+  ],
+  "library_name": "gguf",
+  "tags": [
+   "gguf",
+   "decision-model",
+   "system-one",
+   "ternary",
+   "early-exit",
+   "games",
+   "doom",
+   "rust",
+   "wasm",
+   "skycmd"
+  ]
+ },
+ "lastModified": "2026-10-14T07:15:46.000Z",
+ "downloads": 23,
+ "gated": false,
+ "createdAt": "2026-10-14T07:15:43.000Z"
+}

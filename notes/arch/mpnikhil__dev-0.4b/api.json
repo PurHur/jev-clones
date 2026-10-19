@@ -1,0 +1,117 @@
+{
+ "_id": "6ab06dc2023e8bf73e6af973",
+ "id": "mpnikhil/dev-0.4b",
+ "config": {
+  "architectures": [
+   "ModernBertForMaskedLM"
+  ],
+  "model_type": "modernbert"
+ },
+ "cardData": {
+  "language": [
+   "en"
+  ],
+  "license": "apache-2.0",
+  "library_name": "transformers",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "decision-model",
+   "modernbert",
+   "routing",
+   "classification",
+   "verification",
+   "brier-score",
+   "calibration",
+   "bidirectional"
+  ],
+  "datasets": [
+   "PolyAI/banking77",
+   "google/boolq",
+   "code_search_net",
+   "yelp_review_full"
+  ],
+  "metrics": [
+   "accuracy",
+   "brier_score",
+   "ece",
+   "ndcg"
+  ],
+  "model-index": [
+   {
+    "name": "dev-0.4b",
+    "results": [
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "77-Way Intent Routing"
+      },
+      "dataset": {
+       "name": "Banking77",
+       "type": "PolyAI/banking77"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.9133,
+        "name": "Top-1 Accuracy",
+        "verified": false
+       },
+       {
+        "type": "recall_at_3",
+        "value": 0.9867,
+        "name": "Top-3 Recall",
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "Boolean Verification"
+      },
+      "dataset": {
+       "name": "Google BoolQ",
+       "type": "google/boolq"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.852,
+        "name": "Accuracy",
+        "verified": false
+       }
+      ]
+     },
+     {
+      "task": {
+       "type": "text-classification",
+       "name": "5-Star Graded Scoring"
+      },
+      "dataset": {
+       "name": "Yelp Review Full",
+       "type": "yelp_review_full"
+      },
+      "metrics": [
+       {
+        "type": "accuracy",
+        "value": 0.6267,
+        "name": "Exact Accuracy",
+        "verified": false
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "lastModified": "2026-09-22T00:00:22.000Z",
+ "downloads": 227,
+ "gated": false,
+ "createdAt": "2026-09-20T23:35:30.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 396880897
+  },
+  "total": 396880897
+ }
+}

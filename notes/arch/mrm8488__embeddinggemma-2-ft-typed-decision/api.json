@@ -1,0 +1,54 @@
+{
+ "_id": "6acc001d0fdd3575a6227195",
+ "id": "mrm8488/embeddinggemma-2-ft-typed-decision",
+ "config": {
+  "architectures": [
+   "GemmaDecisionModel"
+  ],
+  "auto_map": {
+   "AutoConfig": "configuration_gemmadecision.GemmaDecisionConfig",
+   "AutoModel": "modeling_gemmadecision.GemmaDecisionModel"
+  },
+  "model_type": "gemma_decision",
+  "tokenizer_config": {
+   "bos_token": "<bos>",
+   "eos_token": "<eos>",
+   "mask_token": "<mask>",
+   "pad_token": "<pad>",
+   "unk_token": "<unk>"
+  },
+  "chat_template_jinja": "{%- for msg in messages if msg.get('role') == 'system' -%}{%- if msg.get('content') is string -%}{{ msg['content'] }}{%- else -%}{%- for item in msg['content'] if item.get('type') == 'text' -%}{{ item['text'] }}{%- endfor -%}{%- endif -%}{%- endfor -%}{%- for msg in messages if msg.get('role') != 'system' -%}{%- if msg.get('content') is string -%}{{ msg['content'] }}{%- else -%}{%- set existing_text = msg['content'] | selectattr('type', 'equalto', 'text') | map(attribute='text') | join -%}{%- set has_manual_placeholders = ('<|image|>' in existing_text) or ('<|video|>' in existing_text) or ('<|audio|>' in existing_text) -%}{%- for item in msg['content'] -%}{%- if item.get('type') == 'text' -%}{{ item['text'] }}{%- elif not has_manual_placeholders and item.get('type') == 'image' -%}<|image|>{%- elif not has_manual_placeholders and item.get('type') == 'video' -%}<|video|>{%- elif not has_manual_placeholders and item.get('type') == 'audio' -%}<|audio|>{%- endif -%}{%- endfor -%}{%- endif -%}{%- endfor -%}"
+ },
+ "cardData": {
+  "library_name": "transformers",
+  "license": "apache-2.0",
+  "base_model": "google/embeddinggemma-2",
+  "datasets": [
+   "LocalLLaMA/typed-decisions"
+  ],
+  "language": [
+   "en",
+   "multilingual"
+  ],
+  "tags": [
+   "typed-decisions",
+   "structured-decisions",
+   "calibration",
+   "embeddinggemma",
+   "custom_code",
+   "decision-model"
+  ],
+  "pipeline_tag": "text-classification",
+  "thumbnail": "https://huggingface.co/mrm8488/embeddinggemma-2-ft-typed-decision/resolve/main/eg2td.png"
+ },
+ "lastModified": "2026-10-13T17:52:04.000Z",
+ "downloads": 1172,
+ "gated": false,
+ "createdAt": "2026-10-11T21:31:09.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 272120348
+  },
+  "total": 272120348
+ }
+}

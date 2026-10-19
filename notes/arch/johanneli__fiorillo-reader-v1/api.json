@@ -1,0 +1,43 @@
+{
+ "_id": "6abb207d06a864deb065eb88",
+ "id": "johanneli/fiorillo-reader-v1",
+ "config": {
+  "architectures": [
+   "ModernBertForMaskedLM"
+  ],
+  "model_type": "modernbert",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "convaiinnovations/laya",
+  "base_model_relation": "finetune",
+  "library_name": "transformers",
+  "pipeline_tag": "fill-mask",
+  "language": [
+   "en"
+  ],
+  "tags": [
+   "modernbert",
+   "fill-mask",
+   "biomedical",
+   "medical"
+  ]
+ },
+ "lastModified": "2026-09-29T03:04:12.000Z",
+ "downloads": 19,
+ "gated": false,
+ "createdAt": "2026-09-29T02:20:45.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 395881664
+  },
+  "total": 395881664
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "_id": "6abd1ec5a155a7de05b23be2",
+ "id": "JohnP1/d1a-e4b",
+ "config": {
+  "tokenizer_config": {
+   "bos_token": "<bos>",
+   "eos_token": "<eos>",
+   "mask_token": "<mask>",
+   "pad_token": "<pad>",
+   "unk_token": "<unk>"
+  },
+  "peft": {
+   "task_type": "FEATURE_EXTRACTION"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "google/gemma-4-E4B",
+  "base_model_relation": "adapter",
+  "library_name": "peft",
+  "pipeline_tag": "text-classification",
+  "language": [
+   "en",
+   "ja"
+  ],
+  "datasets": [
+   "JohnP1/d1a-ja-jglue",
+   "JohnP1/d1a-routing"
+  ],
+  "tags": [
+   "d1a",
+   "decision-model",
+   "calibration",
+   "lora",
+   "gemma4",
+   "typesafe",
+   "system-one",
+   "pull-requests"
+  ]
+ },
+ "lastModified": "2026-10-17T13:58:52.000Z",
+ "downloads": 150,
+ "gated": false,
+ "createdAt": "2026-09-30T14:37:57.000Z"
+}
