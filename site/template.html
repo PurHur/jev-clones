@@ -161,6 +161,22 @@ article.md blockquote { margin: 12px 0; padding: 4px 14px; border-left: 3px soli
 .zg ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
 .zg li { color: var(--ink-2); }
 .zg li b { color: var(--ink); }
+.nextcards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 900px) { .nextcards { grid-template-columns: 1fr; } }
+.nc { border: 1px solid var(--line); border-radius: var(--r); padding: 16px; background: var(--panel); min-width: 0; scroll-margin-top: 70px; }
+.nc.flash { outline: 2px solid var(--accent); }
+.nc .top { display: flex; gap: 10px; align-items: baseline; }
+.nc .rk { font: 700 22px/1 var(--f-display); color: var(--accent); min-width: 28px; }
+.nc h3 { font: 700 16px/1.25 var(--f-display); margin: 0; text-wrap: balance; }
+.nc .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+.pill { font: 600 11.5px/1 var(--f-body); padding: 5px 8px; border-radius: 99px; background: var(--panel-2); color: var(--ink-2); border: 1px solid var(--line); }
+.pill.g3 { background: color-mix(in srgb, var(--good) 16%, var(--panel)); color: var(--ink); border-color: color-mix(in srgb, var(--good) 40%, var(--line)); }
+.pill.new { background: var(--accent-soft); color: var(--ink); }
+.nc p { margin: 6px 0; font-size: 13.5px; color: var(--ink-2); }
+.nc p b { color: var(--ink); font-weight: 600; }
+.nc .from { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.cellmark { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; white-space: nowrap; }
+.cellmark i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
 footer { color: var(--ink-3); font-size: 12.5px; padding-block: 0 30px; }
 @media (prefers-reduced-motion: reduce) { #drawer, #tip { transition: none; } }
 </style>
@@ -177,6 +193,7 @@ footer { color: var(--ink-3); font-size: 12.5px; padding-block: 0 30px; }
   <button role="tab" data-tab="arch" aria-selected="false">Architecture</button>
   <button role="tab" data-tab="calib" aria-selected="false">Calibration &amp; training</button>
   <button role="tab" data-tab="eco" aria-selected="false">Ecosystem</button>
+  <button role="tab" data-tab="next" aria-selected="false">Zeiger next</button>
   <button role="tab" data-tab="profiles" aria-selected="false">Profiles</button>
 </div></nav>
 <main><div class="wrap">
@@ -345,6 +362,35 @@ footer { color: var(--ink-3); font-size: 12.5px; padding-block: 0 30px; }
       <li><b>CPU tier:</b> Crivo-150M's distillation recipe and Decima's order-free, linear-cost scoring.</li>
       <li><b>Stay clean:</b> no Jev-distilled data and no benchmark train splits.</li>
     </ol>
+  </div>
+</section>
+
+<section class="view" id="v-next" hidden>
+  <div class="card c7">
+    <h2>What to try first</h2>
+    <p class="sub">Each dot is an architecture decision taken from the clones, placed by expected gain for Zeiger against cost. Top left first. Click a dot to jump to its card.</p>
+    <div class="legend" id="lg-next"></div>
+    <div class="chart" id="nextmap"></div>
+  </div>
+  <div class="card c5">
+    <h2>Which weakness each decision attacks</h2>
+    <p class="sub">Zeiger's measured problems (laya-browser roadmap), with the summed expected gain of the decisions aimed at each.</p>
+    <div class="chart" id="nextfind"></div>
+    <div id="findlist" class="sub" style="margin-top:10px"></div>
+  </div>
+  <div class="card">
+    <h2>Which base models each decision works on</h2>
+    <p class="sub">Most decisions carry over to any backbone; the ones that don't decide which base models stay worth trying.</p>
+    <div class="tbl-wrap"><table id="basegrid"></table></div>
+  </div>
+  <div class="card">
+    <h2>Ranked decisions</h2>
+    <p class="sub">Builds on the laya-browser roadmap of 22 Sep (R4, T3, A1 … refer to it). The same list is in ZEIGER_NEXT.md.</p>
+    <div class="controls">
+      <div class="seg" id="nf-cost" role="group" aria-label="Cost"></div>
+      <div class="seg" id="nf-base" role="group" aria-label="Base model"></div>
+    </div>
+    <div id="nextcards" class="nextcards"></div>
   </div>
 </section>
 
@@ -855,7 +901,7 @@ function drawEco() {
 
 /* ---------- Profiles ---------- */
 const ORDER = [
-  ["Start here", ["COMPARISON.md", "jev-reference.md", "zeiger.md"]],
+  ["Start here", ["COMPARISON.md", "ZEIGER_NEXT.md", "jev-reference.md", "zeiger.md"]],
   ["Companies", ["pplx-decider.md", "vllm-sr.md", "cloudflare-clef.md", "liquid-d1.md", "amazon-strands-decider.md", "ibm-granite-decision.md", "intern-decision.md", "h2o-lightning.md", "together-tev1.md", "meta-encoder.md", "misc-company-clones.md", "bespoke-nimble.md", "posthog-jeeves.md", "standardone.md"]],
   ["Community", ["kev.md", "laya.md", "vegaml.md", "autotrust-jev.md", "mapika-decider.md", "webjev.md", "von.md", "openjev.md", "nanojev.md", "lev.md", "clm.md"]],
   ["Groups", ["label-set-encoders.md", "group-multimodal.md", "group-small-encoders.md", "group-language.md", "hf-jev-model-type.md"]],
@@ -887,7 +933,77 @@ function showProfile(f) {
   if (drawn.profiles) el.scrollIntoView({ block: "start", behavior: "instant" in document.documentElement.style ? "instant" : "auto" });
 }
 
-const DRAW = { overview: drawOverview, board: drawBoard, arch: drawArch, calib: drawCalib, eco: drawEco, profiles: drawProfiles };
+/* ---------- Zeiger next ---------- */
+const NX = DATA.next, ND = [...NX.decisions].sort((a, b) => a.rank - b.rank);
+const GAINL = { 1: "small", 2: "medium", 3: "large" }, COSTL = { 0: "evaluation only", 1: "low", 2: "medium", 3: "high" };
+const MARKC = { yes: ["--good", "yes"], adapt: ["--warn", "with changes"], no: ["--crit", "no"], "n/a": ["--none", "n/a"] };
+let nCost = "all", nBase = "all";
+const isNew = d => /^new/.test(d.roadmap);
+function drawNext() {
+  legend("lg-next", [{ label: "New idea", c: "--s1" }, { label: "Extends an existing roadmap item", c: "--s3" }]);
+  // impact / cost map
+  const w = widthOf("nextmap"), m = { t: 16, r: 20, b: 40, l: 70 };
+  const f = frame("nextmap", w, 380, m);
+  const x = d3.scalePoint().domain([0, 1, 2, 3]).range([0, f.iw]).padding(0.5);
+  const y = d3.scalePoint().domain([1, 2, 3]).range([f.ih, 0]).padding(0.5);
+  f.g.append("rect").attr("x", x(0) - x.step() / 2).attr("y", y(3) - y.step() / 2).attr("width", x.step() * 2).attr("height", y.step() * 2).attr("fill", "color-mix(in srgb, var(--good) 10%, transparent)").attr("rx", 8);
+  f.g.append("text").attr("x", x(0) - x.step() / 2 + 8).attr("y", y(3) - y.step() / 2 + 14).attr("class", "muted").text("do first");
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).tickFormat(d => COSTL[d]).tickSizeOuter(0));
+  f.g.append("g").attr("class", "axis").call(d3.axisLeft(y).tickFormat(d => GAINL[d] + " gain").tickSizeOuter(0));
+  f.g.append("text").attr("x", f.iw).attr("y", f.ih + 34).attr("text-anchor", "end").attr("class", "muted").text("cost →");
+  const groups = d3.groups(ND, d => d.cost + "-" + d.gain);
+  const pts = [];
+  groups.forEach(([, ds]) => ds.forEach((d, i) => {
+    const n = ds.length, cols = Math.min(n, 3), row = Math.floor(i / cols), col = i % cols;
+    pts.push({ d, cx: x(d.cost) + (col - (cols - 1) / 2) * 34, cy: y(d.gain) + (row - (Math.ceil(n / cols) - 1) / 2) * 30 });
+  }));
+  const g = f.g.selectAll("g.pt").data(pts).join("g").attr("class", "pt").attr("transform", p => `translate(${p.cx},${p.cy})`).style("cursor", "pointer")
+    .on("mousemove", (ev, p) => showTip(ev, `<b>${p.d.rank}. ${esc(p.d.title)}</b>${rows([["Gain", GAINL[p.d.gain]], ["Cost", COSTL[p.d.cost]], ["Effort", p.d.effort], ["Roadmap", p.d.roadmap]])}<div style="margin-top:6px;color:var(--ink-2)">${esc(p.d.why.slice(0, 200))}</div>`))
+    .on("mouseleave", hideTip).on("click", (ev, p) => jumpCard(p.d.id));
+  g.append("circle").attr("r", 13).attr("fill", p => `var(${isNew(p.d) ? "--s1" : "--s3"})`).attr("stroke", "var(--panel)").attr("stroke-width", 2);
+  g.append("text").attr("text-anchor", "middle").attr("dy", "0.35em").style("fill", "#fff").style("font", "700 11px var(--f-mono)").text(p => p.d.rank);
+  // findings coverage
+  const F2 = Object.entries(NX.findings).map(([k, v]) => ({ k, v, ds: ND.filter(d => d.attacks.includes(k)) }));
+  hbars("nextfind", F2.map(o => ({ label: o.k, value: d3.sum(o.ds, d => d.gain), display: `${o.ds.length} decisions`, c: "--s1",
+    tip: `<b>${o.k}</b><div style="color:var(--ink-2);margin:4px 0">${esc(o.v)}</div>${esc(o.ds.map(d => d.rank + ". " + d.title).join("; "))}` })), { left: 40 });
+  document.getElementById("findlist").innerHTML = F2.map(o => `<div><b style="color:var(--ink)">${o.k}</b> ${esc(o.v)}</div>`).join("");
+  // base grid
+  const bases = NX.bases;
+  document.getElementById("basegrid").innerHTML = `<thead><tr><th>Decision</th>${bases.map(b => `<th title="${esc(b.kind)}">${esc(b.name)}<div style="font-weight:400;text-transform:none;letter-spacing:0">${esc(b.kind)}</div></th>`).join("")}<th>Note</th></tr></thead>
+    <tbody>${ND.map(d => `<tr data-id="${d.id}"><td style="min-width:230px"><span class="nm">${d.rank}. ${esc(d.title)}</span></td>${bases.map(b => { const [c, l] = MARKC[d.bases[b.id]]; return `<td><span class="cellmark"><i style="background:var(${c})"></i>${l}</span></td>`; }).join("")}<td style="color:var(--ink-2);min-width:240px">${esc(d.note)}</td></tr>`).join("")}</tbody>`;
+  document.querySelectorAll("#basegrid tbody tr").forEach(tr => tr.onclick = () => jumpCard(tr.dataset.id));
+  // filters
+  const costs = [["all", "Any cost"], ["0", "No training"], ["1", "Low"], ["2", "Medium"], ["3", "High"]];
+  document.getElementById("nf-cost").innerHTML = costs.map(([k, l]) => `<button aria-pressed="${k === nCost}" data-k="${k}">${l}</button>`).join("");
+  document.querySelectorAll("#nf-cost button").forEach(b => b.onclick = () => { nCost = b.dataset.k; drawNextControls(); renderCards(); });
+  document.getElementById("nf-base").innerHTML = [["all", "Any base"], ...bases.map(b => [b.id, b.name])].map(([k, l]) => `<button aria-pressed="${k === nBase}" data-k="${k}">${esc(l)}</button>`).join("");
+  document.querySelectorAll("#nf-base button").forEach(b => b.onclick = () => { nBase = b.dataset.k; drawNextControls(); renderCards(); });
+  renderCards();
+}
+function drawNextControls() {
+  document.querySelectorAll("#nf-cost button").forEach(b => b.setAttribute("aria-pressed", b.dataset.k === nCost));
+  document.querySelectorAll("#nf-base button").forEach(b => b.setAttribute("aria-pressed", b.dataset.k === nBase));
+}
+function renderCards() {
+  const list = ND.filter(d => (nCost === "all" || String(d.cost) === nCost) && (nBase === "all" || ["yes", "adapt"].includes(d.bases[nBase])));
+  const el = document.getElementById("nextcards");
+  el.innerHTML = list.map(d => `<div class="nc" id="nc-${d.id}">
+    <div class="top"><span class="rk">${d.rank}</span><h3>${esc(d.title)}</h3></div>
+    <div class="meta"><span class="pill ${d.gain === 3 ? "g3" : ""}">${GAINL[d.gain]} gain</span><span class="pill">cost: ${COSTL[d.cost]}</span><span class="pill">${esc(d.effort)}</span><span class="pill ${isNew(d) ? "new" : ""}">${esc(d.roadmap)}</span>${d.attacks.map(a => `<span class="pill" title="${esc(NX.findings[a])}">${a}</span>`).join("")}</div>
+    <p><b>What they do.</b> ${esc(d.what)}</p>
+    <p><b>Why it should help Zeiger.</b> ${esc(d.why)}</p>
+    <p><b>What we would change.</b> ${esc(d.change)}</p>
+    <p><b>Base models.</b> ${esc(d.note)}</p>
+    <div class="from">${d.from.map(([n, f]) => `<button class="chip" data-f="${f}">${esc(n)} →</button>`).join("")}</div></div>`).join("") || `<p class="sub">No decision matches these filters.</p>`;
+  el.querySelectorAll(".chip[data-f]").forEach(c => c.onclick = () => { openTab("profiles"); showProfile(c.dataset.f); });
+}
+function jumpCard(id) {
+  if (nCost !== "all" || nBase !== "all") { nCost = nBase = "all"; drawNextControls(); renderCards(); }
+  const el = document.getElementById("nc-" + id); if (!el) return;
+  el.scrollIntoView({ block: "start" }); el.classList.add("flash"); setTimeout(() => el.classList.remove("flash"), 1600);
+}
+
+const DRAW = { next: drawNext, overview: drawOverview, board: drawBoard, arch: drawArch, calib: drawCalib, eco: drawEco, profiles: drawProfiles };
 document.getElementById("foot").textContent = `Built ${DATA.built} from github.com/PurHur/jev-clones · ${DATA.snapshot} · ${M.length} profiled models, ${B.length} board entrants, ${F.length} families`;
 let start = (location.hash || "").slice(1);
 if (!DRAW[start]) { try { start = localStorage.getItem("atlas-tab") || "overview"; } catch (e) { start = "overview"; } }

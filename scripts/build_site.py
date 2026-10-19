@@ -115,6 +115,38 @@ def arch_stats() -> dict:
             "lora": sorted(lora.items(), key=lambda kv: int(kv[0]))}
 
 
+GAIN = {1: "small", 2: "medium", 3: "large"}
+COST = {0: "evaluation only", 1: "low", 2: "medium", 3: "high"}
+MARK = {"yes": "yes", "adapt": "with changes", "no": "no", "n/a": "n/a"}
+
+
+def write_next_md(nxt: dict) -> None:
+    """ZEIGER_NEXT.md, generated from data/zeiger_next.json (edit the JSON, not the Markdown)."""
+    bases = nxt["bases"]
+    out = ["# Zeiger next: architecture decisions worth trying", "",
+           f"Written {nxt['written']} from the clone profiles in `clones/`. Generated from `data/zeiger_next.json` by "
+           "`scripts/build_site.py`; edit the JSON. Builds on the laya-browser roadmap of 22 Sep (ids like R4, T3, A1 refer to it).", "",
+           f"**Baseline.** {nxt['baseline']}", "", "**Findings these attack** (from the laya-browser roadmap):", ""]
+    out += [f"- **{k}** {v}" for k, v in nxt["findings"].items()]
+    out += ["", "## Ranked list", "", "| # | Decision | Attacks | Gain | Cost | Effort | Roadmap |", "|---:|---|---|---|---|---|---|"]
+    for d in sorted(nxt["decisions"], key=lambda d: d["rank"]):
+        out.append(f"| {d['rank']} | [{d['title']}](#{d['id']}) | {', '.join(d['attacks'])} | {GAIN[d['gain']]} | "
+                   f"{COST[d['cost']]} | {d['effort']} | {d['roadmap']} |")
+    out += ["", "## Which base models each decision works on", "",
+            "| Decision | " + " | ".join(f"{b['name']} ({b['kind']})" for b in bases) + " |",
+            "|---|" + "---|" * len(bases)]
+    for d in sorted(nxt["decisions"], key=lambda d: d["rank"]):
+        out.append(f"| {d['rank']}. {d['title']} | " + " | ".join(MARK[d['bases'][b['id']]] for b in bases) + " |")
+    for d in sorted(nxt["decisions"], key=lambda d: d["rank"]):
+        src = ", ".join(f"[{n}](clones/{f})" for n, f in d["from"])
+        out += ["", f"<a id=\"{d['id']}\"></a>", f"## {d['rank']}. {d['title']}", "", f"**From:** {src}", "",
+                f"**What they do.** {d['what']}", "", f"**Why it should help Zeiger.** {d['why']}", "",
+                f"**What we would change.** {d['change']}", "",
+                f"Attacks {', '.join(d['attacks'])} · expected gain {GAIN[d['gain']]} · cost {COST[d['cost']]} · "
+                f"{d['effort']} · roadmap: {d['roadmap']}", "", f"_Base models:_ {d['note']}"]
+    (ROOT / "ZEIGER_NEXT.md").write_text("\n".join(out) + "\n")
+
+
 def main() -> None:
     models = json.loads((ROOT / "data/models.json").read_text())
     fam = families()
@@ -136,9 +168,12 @@ def main() -> None:
         elif m.get("di") is not None:
             m["di_source"] = "self-reported"
             m["di_rank"] = None
+    nxt = json.loads((ROOT / "data/zeiger_next.json").read_text())
+    write_next_md(nxt)
     profiles = {p.name: p.read_text() for p in sorted((ROOT / "clones").glob("*.md"))}
     profiles["COMPARISON.md"] = (ROOT / "COMPARISON.md").read_text()
-    data = {"models": models, "board": brd, "families": fam, "arch": arch_stats(), "profiles": profiles,
+    profiles["ZEIGER_NEXT.md"] = (ROOT / "ZEIGER_NEXT.md").read_text()
+    data = {"next": nxt, "models": models, "board": brd, "families": fam, "arch": arch_stats(), "profiles": profiles,
             "snapshot": "Decision Index 0.3.2, snapshot 2026-10-16", "built": "2026-10-19"}
     template = (ROOT / "site/template.html").read_text()
     blob = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")

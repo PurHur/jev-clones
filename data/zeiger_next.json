@@ -1,0 +1,180 @@
+{
+ "written": "2026-10-19",
+ "baseline": "Zeiger round 17: Qwen3-0.6B-Base, full fine-tune, causal backbone, one sequence per question, option markers + 2-layer set head, chunked 2k long context, temperature per option count. Short 0.900, whole pages 0.793, general 0.807 (Jev 0.850), sorting/relations 0.620, multi-step logic 0.248.",
+ "findings": {
+  "F1": "Recipe plateau: rounds 12–18 trade skills instead of adding them (round 18 +1.7 whole pages, −2.7 short)",
+  "F3": "Goal-level instructions on whole pages: 0.378 (right element in top 50 for 95%, top 1 for 38%)",
+  "F4": "Options far apart on a page cannot be compared (org chart 1 hop 0.85 close vs 0.21 spread)",
+  "F5": "Precondition shortcut: clicks the named button even when disabled (0% from depth 1)",
+  "F6": "GPU time is the scarce resource: 2 rounds per night, 26% padding",
+  "FG": "General decisions 0.807 vs Jev 0.850; calibration breaks on unfamiliar questions (logic ECE 0.37)"
+ },
+ "bases": [
+  {"id": "dense", "name": "Qwen3 0.6B / 1.7B", "kind": "dense causal decoder (today)"},
+  {"id": "hybrid", "name": "Qwen3.5 0.8B / 2B / 4B", "kind": "DeltaNet + full-attention hybrid"},
+  {"id": "encoder", "name": "EuroBERT-610m / mmBERT / Ettin", "kind": "bidirectional encoder"},
+  {"id": "gemma", "name": "Gemma 4 E2B / E4B", "kind": "sliding + full attention"}
+ ],
+ "decisions": [
+  {
+   "id": "kl-anchor", "rank": 1, "title": "KL anchor to the previous champion",
+   "from": [["Amazon Strands decider", "amazon-strands-decider.md"]],
+   "what": "Strands trains every release with a KL term (weight 0.3) pulling the student's option distribution towards a frozen earlier release (hobson-v19). The KL is over option slots, so it even works across tokenizers.",
+   "why": "Our rounds trade skills: each round improves one slice and forgets another. Anchoring on the champion's distributions makes the next round add instead of trade.",
+   "change": "Add KL(student ‖ champion) over the option logits at weight 0.1–0.3 to train.py. Champion logits can be precomputed once per round file.",
+   "attacks": ["F1"], "gain": 3, "cost": 1, "effort": "1 round", "roadmap": "new (complements R2/R3)",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Architecture-agnostic: it only needs option logits from both models."
+  },
+  {
+   "id": "edit-pairs", "rank": 2, "title": "Minimal edit pairs that flip the answer",
+   "from": [["Bespoke Nimble", "bespoke-nimble.md"]],
+   "what": "Nimble's main idea is in the data: pairs of examples where an edit of at most 8 words to one fact flips the label, so the model cannot answer from the surface.",
+   "why": "The precondition shortcut is exactly this failure: the model clicks the button the instruction names even when it is disabled. Pairs that differ only in 'disabled', 'required field empty' or 'checkbox unticked' teach the fact that matters.",
+   "change": "Generate pairs from crawled forms: same page and instruction, flip one precondition attribute in the element table, label moves from the target to the blocking element (or none).",
+   "attacks": ["F5", "F3"], "gain": 3, "cost": 1, "effort": "data, 1 round", "roadmap": "new (sharpens D5)",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Pure data; no model change."
+  },
+  {
+   "id": "memory-head", "rank": 3, "title": "Head that reads every chunk's tokens, not only the markers",
+   "from": [["Cloudflare Clef", "cloudflare-clef.md"]],
+   "what": "Clef's ~128M head first lets every option cross-attend to the whole prompt's hidden states (memory), then runs 4 layers over the options. Options get evidence from anywhere in the input, not only from their own position.",
+   "why": "Facts spread across chunks fail because options in different chunks only meet through one marker vector each. Cross-attention from each option to the token states of all chunks lets a count, a maximum or a 2-hop chain see the evidence directly.",
+   "change": "Keep the chunked backbone. In the head, add cross-attention from option vectors to all chunk token states (or to a few pooled summary tokens per chunk for memory), then the existing set layers. Keep Clef's question isolation problem out: one question per head pass.",
+   "attacks": ["F4", "F3"], "gain": 3, "cost": 2, "effort": "new head, 1–2 rounds", "roadmap": "extends R4",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Head-only change; cost grows with options × memory tokens, not with page length squared."
+  },
+  {
+   "id": "shared-page", "rank": 4, "title": "Encode the page once, one row per question",
+   "from": [["Kev 1.0", "kev.md"], ["Liquid d1-3B", "liquid-d1.md"], ["Mapika decider", "mapika-decider.md"], ["WebJev", "webjev.md"]],
+   "what": "Kev 1.0, Strands, decider and d1 compute the state once, cache it, and continue each question as its own branch. Isolation is exact and the state is paid for once. d1 shows that conv layers need only the last 2 inputs; Kev 1.0 copies DeltaNet recurrent state per branch.",
+   "why": "jevpilot asks several questions about one page (which element, which operation, is the step done). Today each question re-encodes up to 32k tokens. WebJev's split into an operation question plus a target question only becomes cheap with a shared page.",
+   "change": "Put the page first, cache its KV once per chunk, then append each question's instruction + options as a branch. With pure attention (Qwen3) this is a KV fork or kev gen-1's block-causal mask.",
+   "attacks": ["F6", "F3"], "gain": 2, "cost": 2, "effort": "engine + 1 round", "roadmap": "new",
+   "bases": {"dense": "yes", "hybrid": "adapt", "encoder": "no", "gemma": "yes"},
+   "note": "Hybrid: copy the DeltaNet recurrent and conv state per branch (Kev 1.0 shared_prefix.py). Encoder: impossible, the page would depend on the question."
+  },
+  {
+   "id": "order-free", "rank": 5, "title": "Order-free set module",
+   "from": [["OpenJev (ejhshen)", "openjev.md"], ["Standard One SH", "standardone.md"], ["Juspay Xor", "misc-company-clones.md"]],
+   "what": "ejhshen/OpenJev feeds option vectors to a set transformer with no positional information, then a bilinear scorer: option order cannot change the answer. Xor gets the same effect at 2× cost by scoring the original and reversed order and merging.",
+   "why": "Our set head is already a transformer over markers. Removing any position signal there is nearly free, and the causal backbone's left-to-right bias is then the only order effect left, measurable with Xor's two-order trick.",
+   "change": "Strip position from the head input (no learned position, shuffle option order in training), add a reversed-order eval to measure residual bias.",
+   "attacks": ["F3"], "gain": 1, "cost": 1, "effort": "head, 1 round", "roadmap": "extends T3",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Free with an encoder backbone, where options already see each other both ways."
+  },
+  {
+   "id": "wise-ft", "rank": 6, "title": "Interpolate towards the base: scaled fine-tune delta",
+   "from": [["interfaze lev", "lev.md"], ["Kev-27B", "kev.md"], ["Strands seed soup", "amazon-strands-decider.md"]],
+   "what": "lev serves its LoRA at 0.25 of full strength and gains 0.689 → 0.743 on S1Bench (0.728 when tuned only on held-out families). Kev-27B averages its full fine-tune 0.85/0.15 with its LoRA version (WiSE-FT). Strands concatenates three seed LoRAs so the update is their exact mean.",
+   "why": "Our general and unfamiliar-question scores lag, and calibration collapses out of distribution. Pulling the fine-tuned weights part of the way back to the base usually trades a little in-domain accuracy for a lot of robustness.",
+   "change": "Evaluate θ = base + α·(champion − base) for α in 0.5…1.0 on the frozen and sealed tests. No training. The backbone mixes; the head stays at full strength.",
+   "attacks": ["FG", "F1"], "gain": 2, "cost": 0, "effort": "eval only", "roadmap": "extends T1",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "One evening of evaluation."
+  },
+  {
+   "id": "calibration", "rank": 7, "title": "Input-dependent temperature, certified thresholds",
+   "from": [["Von", "von.md"], ["Amazon Strands decider", "amazon-strands-decider.md"], ["basal-1.5", "group-language.md"], ["pplx-decider", "pplx-decider.md"]],
+   "what": "Von sets the temperature from entropy, state length and option count. Strands fits one temperature per question type against ECE rather than NLL. basal publishes confidence thresholds certified at 1% and 5% error. Perplexity only keeps a checkpoint whose dev ECE and Brier are within 0.01 of a reference.",
+   "why": "Our short ECE is 0.029, whole pages 0.047, logic 0.37. A temperature that sees page length, option count and entropy fixes the spread; a certified threshold is exactly what jevpilot's 'act or hand off' gate (T5) needs.",
+   "change": "Fit T(features) on val; publish per-type certified thresholds with the checkpoint; add an ECE/Brier guard to promotion.",
+   "attacks": ["FG"], "gain": 2, "cost": 0, "effort": "fit + eval", "roadmap": "extends T6",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Post-hoc; ships in config.json next to temperature_by_options."
+  },
+  {
+   "id": "noncausal-layers", "rank": 8, "title": "Bidirectional full-attention layers in a hybrid",
+   "from": [["vLLM-SR d3", "vllm-sr.md"], ["pplx-decider v1.1+", "pplx-decider.md"], ["H2O lightning", "h2o-lightning.md"]],
+   "what": "d3 (#2 on the board) and pplx-decider v1.1+ switch only the full-attention layers of Qwen3.5 to noncausal (padding mask only) with a forward hook; DeltaNet layers stay causal. Options and the state then see each other both ways in a quarter of the layers.",
+   "why": "Ettin shows an encoder beats a decoder at equal size, but switching to a full encoder costs our chunking and long context. This keeps the Qwen3.5 hybrid (262k native, our 4B track) and still lets options see later options.",
+   "change": "On the Qwen3.5 track: mask hook on full-attention layers only. Costs prefix caching (decision 4) for the noncausal part, so pair it with one question per row.",
+   "attacks": ["F3", "F4"], "gain": 2, "cost": 2, "effort": "1 round on the 0.8B", "roadmap": "extends A1",
+   "bases": {"dense": "adapt", "hybrid": "yes", "encoder": "n/a", "gemma": "adapt"},
+   "note": "Dense Qwen3: all layers would go bidirectional (A1, breaks our mask-free flash path). Encoder: already bidirectional."
+  },
+  {
+   "id": "decision-query", "rank": 9, "title": "Decision-token query next to the markers",
+   "from": [["kev", "kev.md"], ["Amazon Strands decider", "amazon-strands-decider.md"], ["vLLM-SR Decision 2.0", "vllm-sr.md"]],
+   "what": "kev and Strands put a decision token after all options; its hidden state, which has read every option, is the query of a pointer head against each option's end token. Decision 2.0 adds an MLP term to the bilinear score.",
+   "why": "In a causal backbone our first options never see later ones. A decision token placed after the options of each chunk sees them all; using it as the query (or as an extra input to the set head) gives every score a view of the whole option list.",
+   "change": "Append a decision token per chunk; feed its state into the set head and add a bilinear(query, marker) term to the scorer.",
+   "attacks": ["F3"], "gain": 1, "cost": 1, "effort": "head, 1 round", "roadmap": "new",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Small change; most useful while the backbone stays causal."
+  },
+  {
+   "id": "teachers", "rank": 10, "title": "Distil from permissive top clones, soft targets",
+   "from": [["pplx-decider", "pplx-decider.md"], ["vLLM-SR d3", "vllm-sr.md"], ["Kev-27B", "kev.md"], ["Mapika decider", "mapika-decider.md"]],
+   "what": "pplx-decider (65.6) and d3 (66.3) weights are Apache-2.0, Kev-27B Apache-2.0, decider Apache-2.0 (some training data CC BY-SA / NC). Perplexity trains on soft annotator distributions; Laya found its RL term adds nothing over soft cross-entropy.",
+   "why": "General decisions are 4 points behind Jev, and we already distil Kev-8B. A 27B teacher at 65+ on the board is a much stronger general teacher, with licences that allow it, unlike distilling Jev.",
+   "change": "Label the general pool with d3-flash (9B) or pplx-decider (27B, fits 128 GB unified memory in bf16) by day; train on their full distributions.",
+   "attacks": ["FG"], "gain": 2, "cost": 2, "effort": "labels + rounds", "roadmap": "extends D1",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Check each teacher's data licences before publishing a student; never use Jev-distilled teachers (AutoTrust)."
+  },
+  {
+   "id": "head-port", "rank": 11, "title": "One head, a linear port per backbone",
+   "from": [["vegaml", "vegaml.md"]],
+   "what": "vegaml's vega-U shares one 14.3M engine across readers from 0.8B to 27B; each backbone attaches through its own linear port, without retraining the engine.",
+   "why": "A backbone bake-off (A2) currently starts every candidate's head from scratch. Moving our trained set head through a learned port gives each new backbone a warm head, so 150-step bake-off runs measure the backbone, not head warm-up.",
+   "change": "Train a linear port (d_backbone → 1024) for each candidate with the head frozen for the first steps, then unfreeze.",
+   "attacks": ["F6"], "gain": 1, "cost": 1, "effort": "bake-off tooling", "roadmap": "extends A2",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "The enabler for trying the other base models quickly."
+  },
+  {
+   "id": "shortlist", "rank": 12, "title": "Cacheable shortlist, then cross-attending rerank",
+   "from": [["Meta MetaEncoder", "meta-encoder.md"], ["Contrastive-LM CLM", "clm.md"], ["Decima (small encoders)", "group-small-encoders.md"]],
+   "what": "MetaEncoder and CLM embed state and candidates separately and score by cosine, so candidate embeddings can be cached. Decima scores every option independently at linear cost on one CPU core.",
+   "why": "On goal-level whole pages the right element is in our top 50 for 95% of questions but first for 38%. A cheap first stage keeps 32–64 candidates; the full model then reads only those, with more context per option.",
+   "change": "Stage 1: Zeiger's own pass (or a small bi-encoder) keeps the top 32. Stage 2: re-ask on those with nearby text and section headings.",
+   "attacks": ["F3"], "gain": 2, "cost": 1, "effort": "inference + eval", "roadmap": "extends T2",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Stage 1 can be the current model; no new training needed to test it."
+  },
+  {
+   "id": "looped", "rank": 13, "title": "Looped depth: more compute for hard questions",
+   "from": [["OpenLAIR lev (looped)", "lev.md"]],
+   "what": "OpenLAIR's lev runs one checkpoint at loop depth 1 to 4 on Ouro looped backbones; Lev-2.6B goes from 63.2% to 76.2% on JevBench with more loops.",
+   "why": "Multi-step logic sits at chance (0.248) and goal-level questions need inference steps. Adaptive depth spends compute only on the hard questions.",
+   "change": "Experiment only: one round on Ouro-1.4B with our head, compare depth 1 vs 4 on the logic and goal-level slices.",
+   "attacks": ["F5", "F4"], "gain": 2, "cost": 3, "effort": "new backbone", "roadmap": "new",
+   "bases": {"dense": "no", "hybrid": "no", "encoder": "no", "gemma": "no"},
+   "note": "Needs a looped base (Ouro / Nanbeige); check the base licence first. Long-context behaviour unknown (2k–64k)."
+  },
+  {
+   "id": "web-format", "rank": 14, "title": "WebJev's step format and data",
+   "from": [["WebJev-35B-A3B", "webjev.md"]],
+   "what": "WebJev asks a 'which operation' question (incl. DONE) and then one 'which target' question per allowed operation, with richer element fields; ~64k verified live-web decisions; speaks jev-ultrafast's format with a 125-task live benchmark.",
+   "why": "Zeiger answers only 'which element'. An explicit operation/DONE question covers jevpilot's 'is this step finished' need, and the 125-task benchmark measures task success, not just top-1.",
+   "change": "Add the operation question type to our data and serve.py; adopt the jev-ultrafast wire format; run their benchmark weekly (M7).",
+   "attacks": ["F3"], "gain": 2, "cost": 1, "effort": "data + serving", "roadmap": "extends R6, M7",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "yes", "gemma": "yes"},
+   "note": "Check WebJev's dataset licence before training on it."
+  },
+  {
+   "id": "lmhead-init", "rank": 15, "title": "Start yes/no and score readouts from LM-head rows",
+   "from": [["pplx-decider", "pplx-decider.md"], ["AutoTrust", "autotrust-jev.md"], ["Cloudflare Clef", "cloudflare-clef.md"]],
+   "what": "pplx-decider and AutoTrust initialise their readout rows from the base model's LM-head rows for the code tokens; Clef adds a word-similarity prior from LM-head rows to its learned score.",
+   "why": "Our noul and score questions go through the same marker head as choices, starting from zero. An LM-head prior ('true', 'false', digits) gives them a sensible start; this matters most when switching backbones.",
+   "change": "Add a prior term: dot(option marker state, LM-head row of the option's label word), learned scale.",
+   "attacks": ["FG"], "gain": 1, "cost": 1, "effort": "head, 1 round", "roadmap": "new",
+   "bases": {"dense": "yes", "hybrid": "yes", "encoder": "adapt", "gemma": "yes"},
+   "note": "Encoders have an MLM head instead; the same trick works with its rows."
+  },
+  {
+   "id": "small-tier", "rank": 16, "title": "Distilled small encoder for a CPU tier",
+   "from": [["Crivo-150M", "group-small-encoders.md"], ["Von", "von.md"]],
+   "what": "Crivo-150M (from an Ettin 150M reranker) scores 22.2 on the board, above 0.6–0.8B decoders such as Kev-0.8B (13.7). Von runs ModernBERT-large at ~0.1 s on CPU.",
+   "why": "Zeiger on CPU takes 340 ms at 10 options and 4.9 s at 150. A distilled 150M encoder student of the champion could serve CPU-only users, with Zeiger as the fallback.",
+   "change": "Distil the champion's distributions into Ettin-150M / mmBERT-base with chunking; target short questions first.",
+   "attacks": ["F6"], "gain": 1, "cost": 2, "effort": "new student", "roadmap": "new",
+   "bases": {"dense": "n/a", "hybrid": "n/a", "encoder": "yes", "gemma": "n/a"},
+   "note": "A deployment tier, not a better Zeiger."
+  }
+ ]
+}
