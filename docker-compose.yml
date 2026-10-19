@@ -1,0 +1,10 @@
+services:
+  atlas:
+    image: nginx:1.27-alpine
+    container_name: jev-clone-atlas
+    restart: unless-stopped
+    ports:
+      - "8620:80"
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+    mem_limit: 128m

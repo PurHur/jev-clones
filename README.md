@@ -16,3 +16,10 @@ Layout:
 - `notes/` – raw research notes
 - `notes/discovery.md` – all candidates found (HF + GitHub), `notes/hf-sweep.md` – big-lab HF sweep,
   `notes/arch/arch_table.tsv` – config fields of 479 HF repos (`scripts/hf_arch.py`)
+
+## Dashboard
+
+**Jev Clone Atlas** at http://localhost:8620 (`docker compose up -d`, nginx serving `site/`). Rebuild after changing
+data or profiles: `python3 -I scripts/build_site.py` (curated facts in `data/models.json`, board dates via
+`scripts/board_dates.py`). Six views: overview, leaderboard, architecture matrix, calibration & training,
+ecosystem, profile reader.

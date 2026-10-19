@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jev Clone Atlas</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: sticky tab bar over one scrolling column of panels; charts in a 12-col grid that collapses to one column. */
+:root {
+  --bg: #f6f7f9; --panel: #ffffff; --panel-2: #eef1f5; --line: #dde2ea; --grid: #e8ecf1;
+  --ink: #12161d; --ink-2: #4b5462; --ink-3: #7a8494;
+  --accent: #2f5bd3; --accent-soft: #e3eafb;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --none: #b8bfca;
+  --good: #1f8a4c; --warn: #b7791f; --crit: #c53030;
+  --f-display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1217; --panel: #171b22; --panel-2: #1e232c; --line: #2a313c; --grid: #232933;
+  --ink: #edf0f4; --ink-2: #b4bcc8; --ink-3: #848e9c;
+  --accent: #7c9cf0; --accent-soft: #1f2a44;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260;
+  --good: #48bb78; --warn: #ecc94b; --crit: #fc8181; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0f1217; --panel: #171b22; --panel-2: #1e232c; --line: #2a313c; --grid: #232933;
+  --ink: #edf0f4; --ink-2: #b4bcc8; --ink-3: #848e9c;
+  --accent: #7c9cf0; --accent-soft: #1f2a44;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260;
+  --good: #48bb78; --warn: #ecc94b; --crit: #fc8181; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 400 15px/1.55 var(--f-body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--panel); }
+.wrap { max-width: 1320px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { background: var(--panel); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 22px 0; }
+.eyebrow { font: 600 11px/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+h1 { font: 800 clamp(26px, 4vw, 40px)/1.05 var(--f-display); letter-spacing: -.02em; margin: 8px 0 6px; text-wrap: balance; }
+h1 .wire { font-family: var(--f-mono); font-weight: 400; font-size: .5em; color: var(--accent); letter-spacing: 0; vertical-align: middle; }
+.lede { color: var(--ink-2); max-width: 70ch; margin: 0 0 16px; }
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--panel); border-bottom: 1px solid var(--line); }
+nav.tabs .wrap { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+nav.tabs button { font: 600 14px/1 var(--f-display); color: var(--ink-2); background: none; border: 0; border-bottom: 2px solid transparent; padding: 14px 12px 12px; cursor: pointer; white-space: nowrap; }
+nav.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+nav.tabs button:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+main .wrap { padding-block: 22px 60px; }
+section.view { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; min-width: 0; grid-column: span 12; }
+.c4 { grid-column: span 4; } .c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c7 { grid-column: span 7; } .c8 { grid-column: span 8; } .c3 { grid-column: span 3; }
+@media (max-width: 980px) { .c3, .c4, .c5, .c6, .c7, .c8 { grid-column: span 12; } }
+.card h2 { font: 700 17px/1.25 var(--f-display); margin: 0 0 4px; text-wrap: balance; }
+.card .sub { color: var(--ink-3); font-size: 13px; margin: 0 0 12px; }
+.card .src { color: var(--ink-3); font: 400 11px/1.4 var(--f-mono); margin-top: 10px; }
+.stats { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; grid-column: span 12; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; }
+.stat .label { color: var(--ink-3); font-size: 13px; }
+.stat .value { font: 700 30px/1.1 var(--f-display); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.stat .note { color: var(--ink-2); font-size: 12.5px; margin-top: 2px; }
+.findings { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+@media (max-width: 760px) { .findings { grid-template-columns: 1fr; } }
+.finding { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; }
+.finding .k { font: 600 12px/26px var(--f-mono); color: var(--accent); background: var(--accent-soft); border-radius: 6px; text-align: center; }
+.finding p { margin: 0; color: var(--ink-2); font-size: 14px; }
+.finding b { color: var(--ink); font-weight: 600; }
+/* isolation pattern cards */
+.patterns { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 980px) { .patterns { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .patterns { grid-template-columns: 1fr; } }
+.pat { border: 1px solid var(--line); border-radius: var(--r); padding: 14px; background: var(--panel-2); min-width: 0; }
+.pat .head { display: flex; align-items: center; gap: 8px; }
+.pat .letter { width: 26px; height: 26px; border-radius: 6px; display: grid; place-items: center; font: 700 13px var(--f-mono); color: #fff; }
+.pat h3 { font: 700 14.5px/1.2 var(--f-display); margin: 0; }
+.pat p { font-size: 13px; color: var(--ink-2); margin: 8px 0; }
+.pat svg { width: 100%; height: auto; display: block; margin: 6px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip { font: 500 12px/1 var(--f-body); padding: 5px 8px; border-radius: 99px; background: var(--panel); border: 1px solid var(--line); color: var(--ink); cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--ink-3); }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: none; display: inline-block; }
+/* controls */
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 12px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: 600 12.5px/1 var(--f-body); background: var(--panel); color: var(--ink-2); border: 0; padding: 8px 11px; cursor: pointer; border-right: 1px solid var(--line); }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--ink); }
+input[type=search], select { font: 400 14px var(--f-body); color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--ink-2); margin-bottom: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.chart { width: 100%; overflow-x: auto; }
+.chart svg { display: block; }
+.chart text { fill: var(--ink-2); font: 400 11px var(--f-body); }
+.chart .axis path, .chart .axis line { stroke: var(--line); }
+.chart .gridline line { stroke: var(--grid); }
+.chart .gridline path { display: none; }
+.chart .lbl { fill: var(--ink); font-weight: 600; }
+.chart .muted { fill: var(--ink-3); }
+.board-scroll { max-height: 640px; overflow-y: auto; border-top: 1px solid var(--line); }
+/* tooltip */
+#tip { position: fixed; pointer-events: none; z-index: 50; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; font-size: 12.5px; box-shadow: 0 6px 24px rgba(0,0,0,.14); max-width: 300px; opacity: 0; transition: opacity .08s; }
+#tip b { font-family: var(--f-display); font-size: 13.5px; }
+#tip .row { display: flex; justify-content: space-between; gap: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+#tip .row span:last-child { color: var(--ink); }
+/* matrix table */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 600 11px/1.2 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); background: var(--panel-2); position: sticky; top: 0; cursor: pointer; white-space: nowrap; }
+th[aria-sort] { color: var(--ink); }
+tbody tr { cursor: pointer; }
+tbody tr:hover td { background: var(--panel-2); }
+td.num { font-variant-numeric: tabular-nums; text-align: right; font-family: var(--f-mono); font-size: 12px; }
+td .nm { font-weight: 600; color: var(--ink); }
+td .org { color: var(--ink-3); font-size: 12px; }
+.tag { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; white-space: nowrap; }
+.grp { font: 600 10.5px/1 var(--f-mono); letter-spacing: .05em; text-transform: uppercase; padding: 3px 6px; border-radius: 4px; background: var(--panel-2); color: var(--ink-2); }
+.grp.ours { background: var(--accent-soft); color: var(--accent); }
+/* heat grid */
+.heat { display: grid; gap: 3px; font-size: 12px; }
+.heat .cell { border-radius: 5px; min-height: 44px; padding: 6px; display: flex; flex-direction: column; justify-content: space-between; cursor: default; }
+.heat .hd { color: var(--ink-3); font: 600 10.5px/1.2 var(--f-mono); text-transform: uppercase; letter-spacing: .05em; display: flex; align-items: end; padding: 4px; }
+.heat .n { font: 700 16px var(--f-display); }
+.heat .who { font-size: 10.5px; line-height: 1.25; }
+/* profiles */
+.reader { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 16px; grid-column: span 12; }
+@media (max-width: 860px) { .reader { grid-template-columns: 1fr; } }
+.plist { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 8px; max-height: 80vh; overflow-y: auto; align-self: start; position: sticky; top: 60px; }
+@media (max-width: 860px) { .plist { position: static; max-height: 300px; } }
+.plist button { display: flex; width: 100%; text-align: left; gap: 8px; align-items: center; border: 0; background: none; padding: 7px 8px; border-radius: 6px; font: 400 13.5px var(--f-body); color: var(--ink-2); cursor: pointer; }
+.plist button[aria-current="true"] { background: var(--accent-soft); color: var(--ink); font-weight: 600; }
+.plist .gh { font: 600 10.5px var(--f-mono); color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; padding: 10px 8px 4px; }
+article.md { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 26px; min-width: 0; }
+article.md h1 { font-size: 26px; }
+article.md h2 { font: 700 19px/1.3 var(--f-display); margin: 26px 0 8px; padding-top: 12px; border-top: 1px solid var(--line); }
+article.md h3 { font: 700 15.5px/1.3 var(--f-display); margin: 18px 0 6px; }
+article.md p, article.md li { max-width: 78ch; color: var(--ink-2); }
+article.md strong { color: var(--ink); }
+article.md code { font: 400 12.5px var(--f-mono); background: var(--panel-2); padding: 1px 4px; border-radius: 4px; }
+article.md pre { background: var(--panel-2); padding: 12px; border-radius: 8px; overflow-x: auto; font-size: 12px; line-height: 1.45; }
+article.md pre code { background: none; padding: 0; }
+article.md table { font-size: 12.5px; display: block; overflow-x: auto; }
+article.md a { color: var(--accent); }
+article.md blockquote { margin: 12px 0; padding: 4px 14px; border-left: 3px solid var(--accent); background: var(--panel-2); border-radius: 0 6px 6px 0; }
+/* drawer */
+#drawer { position: fixed; inset: 0 0 0 auto; width: min(560px, 100vw); background: var(--panel); border-left: 1px solid var(--line); z-index: 40; transform: translateX(100%); transition: transform .18s ease; overflow-y: auto; padding: calc(18px + env(safe-area-inset-top, 0px)) max(20px, env(safe-area-inset-right, 0px)) 30px 22px; box-shadow: -10px 0 40px rgba(0,0,0,.12); }
+#drawer.open { transform: none; }
+#drawer .close { position: absolute; top: calc(12px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px)); border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; padding: 6px 10px; cursor: pointer; font: 600 13px var(--f-body); }
+#drawer h2 { font: 800 22px/1.15 var(--f-display); margin: 6px 0 4px; padding-right: 70px; }
+#drawer dl { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px 12px; font-size: 13.5px; margin: 16px 0; }
+#drawer dt { color: var(--ink-3); }
+#drawer dd { margin: 0; color: var(--ink); }
+#drawer dd small { color: var(--ink-3); display: block; }
+.btn { font: 600 13px var(--f-body); border: 1px solid var(--accent); color: var(--accent); background: none; border-radius: 8px; padding: 8px 12px; cursor: pointer; }
+.zg ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.zg li { color: var(--ink-2); }
+.zg li b { color: var(--ink); }
+footer { color: var(--ink-3); font-size: 12.5px; padding-block: 0 30px; }
+@media (prefers-reduced-motion: reduce) { #drawer, #tip { transition: none; } }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="eyebrow">Jev clone survey · as of 19 Oct 2026</div>
+  <h1>Jev Clone Atlas <span class="wire">POST /v1/systemone</span></h1>
+  <p class="lede">Open replications of TypeSafe's Jev decision model: a state plus typed questions (noul, choice, score) go in, calibrated probabilities come out, nothing is decoded. Compare their architectures, scores and the ecosystem around them.</p>
+</div></header>
+<nav class="tabs" aria-label="Views"><div class="wrap" role="tablist">
+  <button role="tab" data-tab="overview" aria-selected="true">Overview</button>
+  <button role="tab" data-tab="board" aria-selected="false">Leaderboard</button>
+  <button role="tab" data-tab="arch" aria-selected="false">Architecture</button>
+  <button role="tab" data-tab="calib" aria-selected="false">Calibration &amp; training</button>
+  <button role="tab" data-tab="eco" aria-selected="false">Ecosystem</button>
+  <button role="tab" data-tab="profiles" aria-selected="false">Profiles</button>
+</div></nav>
+<main><div class="wrap">
+
+<section class="view" id="v-overview">
+  <div class="stats" id="stats"></div>
+  <div class="card c7">
+    <h2>What the survey found</h2>
+    <p class="sub">Each point is backed by a profile in the Profiles tab.</p>
+    <div class="findings" id="findings"></div>
+  </div>
+  <div class="card c5">
+    <h2>Open clones overtook Jev within a month</h2>
+    <p class="sub">Every board entrant by the date its HF repo was created; the solid line is the best open score so far. Colored dots are profiled models.</p>
+    <div class="chart" id="race"></div>
+  </div>
+  <div class="card">
+    <h2>How several questions share one state</h2>
+    <p class="sub">The biggest architectural split. Jev documents that the state is read once and each question is isolated. Click a model to see its details.</p>
+    <div class="patterns" id="patterns"></div>
+  </div>
+  <div class="card c6">
+    <h2>Size buys score</h2>
+    <p class="sub">Decision Index score against parameters (log scale), every board entry with a known size. Hover for details.</p>
+    <div class="legend" id="lg-size"></div>
+    <div class="chart" id="size"></div>
+    <div class="src" id="src-size"></div>
+  </div>
+  <div class="card c6">
+    <h2>Release wave</h2>
+    <p class="sub">First upload per model family against total downloads (log scale). 197 families since Jev launched.</p>
+    <div class="legend" id="lg-wave"></div>
+    <div class="chart" id="wave"></div>
+    <div class="src">notes/families.json · discovery sweep</div>
+  </div>
+</section>
+
+<section class="view" id="v-board" hidden>
+  <div class="card c8">
+    <h2>Decision Index leaderboard</h2>
+    <p class="sub">Colored bars are models profiled here, by multi-question pattern; grey bars are other entrants. Jev is outlined.</p>
+    <div class="controls">
+      <div class="seg" id="bf-kind" role="group" aria-label="Training kind"></div>
+      <input type="search" id="bf-q" placeholder="Filter by name, org or base" aria-label="Filter leaderboard">
+    </div>
+    <div class="legend" id="lg-board"></div>
+    <div class="board-scroll"><div class="chart" id="boardchart"></div></div>
+    <div class="src" id="src-board"></div>
+  </div>
+  <div class="card c4">
+    <h2>Which base model wins</h2>
+    <p class="sub">Entries per base model and their best score. Bases with at least 3 entries.</p>
+    <div class="chart" id="bases"></div>
+  </div>
+  <div class="card c6">
+    <h2>Fine-tune method</h2>
+    <p class="sub">Score distribution per training kind. Each dot is one entry; the bar marks the median.</p>
+    <div class="chart" id="kinds"></div>
+  </div>
+  <div class="card c6">
+    <h2>Best score per size class</h2>
+    <p class="sub">Top entry in each parameter band. Sub-1B models stay far behind.</p>
+    <div class="chart" id="bands"></div>
+  </div>
+  <div class="card">
+    <h2>Board vs self-reported</h2>
+    <p class="sub">Profiled models with a score. Grey bars are self-reported numbers from model cards; they are not comparable with the board.</p>
+    <div class="chart" id="selfrep"></div>
+  </div>
+</section>
+
+<section class="view" id="v-arch" hidden>
+  <div class="card">
+    <h2>Architecture matrix</h2>
+    <p class="sub">Every profiled model on one row. Sort by any column, filter by group or pattern, click a row for details.</p>
+    <div class="controls">
+      <div class="seg" id="mf-group" role="group" aria-label="Group"></div>
+      <div class="seg" id="mf-pat" role="group" aria-label="Pattern"></div>
+      <input type="search" id="mf-q" placeholder="Search models" aria-label="Search models">
+    </div>
+    <div class="tbl-wrap"><table id="matrix"></table></div>
+  </div>
+  <div class="card c7">
+    <h2>Readout × multi-question pattern</h2>
+    <p class="sub">How the hidden state becomes probabilities, against how questions share the state.</p>
+    <div class="heat" id="heat"></div>
+  </div>
+  <div class="card c5">
+    <h2>Readout heads</h2>
+    <p class="sub">What each family puts on top of the backbone.</p>
+    <div class="chart" id="readouts"></div>
+  </div>
+  <div class="card c6">
+    <h2>Options per question</h2>
+    <p class="sub">Largest option set each model accepts (log scale). Zeiger is the only one past Jev's 255.</p>
+    <div class="chart" id="opts"></div>
+  </div>
+  <div class="card c6">
+    <h2>Attention in the backbone</h2>
+    <p class="sub">Causal decoders dominate; several labs switch full-attention layers to bidirectional.</p>
+    <div class="chart" id="attn"></div>
+  </div>
+</section>
+
+<section class="view" id="v-calib" hidden>
+  <div class="card c7">
+    <h2>Skill against calibration</h2>
+    <p class="sub">Decision Index score against expected calibration error (lower is better), board entries with ECE. Top left is the target.</p>
+    <div class="legend" id="lg-ece"></div>
+    <div class="chart" id="ece"></div>
+  </div>
+  <div class="card c5">
+    <h2>Calibration schemes</h2>
+    <p class="sub">How profiled models turn logits into probabilities they stand behind.</p>
+    <div class="chart" id="calibs"></div>
+    <div class="sub" style="margin-top:12px">Misleading numbers: AutoTrust's ECE 0.0007 measures agreement with Jev (0.07–0.085 against ground truth). H2O's default never returns a yes/no probability between 0.2 and 0.8. Laya applied T = 0.10 unclamped until 21 Sep.</div>
+  </div>
+  <div class="card c6">
+    <h2>Training signal</h2>
+    <p class="sub">Where the labels come from. Distilling Jev outputs is forbidden by TypeSafe's agreement §2.3(b).</p>
+    <div class="chart" id="signals"></div>
+  </div>
+  <div class="card c6">
+    <h2>ECE distribution on the board</h2>
+    <p class="sub">Calibration error of all entries with a value, in bins of 0.02. Jev 1.14 sits at 0.080.</p>
+    <div class="chart" id="ecehist"></div>
+  </div>
+</section>
+
+<section class="view" id="v-eco" hidden>
+  <div class="card c6">
+    <h2>Backbones under the clones</h2>
+    <p class="sub">Text model type in the config of each HF repo found (repos with a readable config).</p>
+    <div class="chart" id="backbones"></div>
+    <div class="src" id="src-arch"></div>
+  </div>
+  <div class="card c6">
+    <h2>Layer mix</h2>
+    <p class="sub">Attention layout of those configs. Recurrent DeltaNet layers cannot honour a block-causal mask, which pushed clones to cached prefixes.</p>
+    <div class="chart" id="mix"></div>
+  </div>
+  <div class="card c6">
+    <h2>LoRA rank</h2>
+    <p class="sub">Rank in each adapter_config.json found.</p>
+    <div class="chart" id="lora"></div>
+  </div>
+  <div class="card c6">
+    <h2>Families by kind</h2>
+    <p class="sub">Who builds Jev clones.</p>
+    <div class="chart" id="fkinds"></div>
+  </div>
+  <div class="card">
+    <h2>Most downloaded families</h2>
+    <p class="sub">Total HF downloads across a family's repos. AutoTrust (distilled from Jev) leads by an order of magnitude.</p>
+    <div class="chart" id="topdl"></div>
+  </div>
+  <div class="card zg">
+    <h2>What this means for Zeiger</h2>
+    <p class="sub">From COMPARISON.md §10.</p>
+    <ol>
+      <li><b>Keep chunked long context and the option set module.</b> No other clone handles pages with more than 255 elements.</li>
+      <li><b>Move to a shared state cache, one row per question.</b> Qwen3-0.6B is pure attention, so a KV fork or kev's block-causal mask works without DeltaNet complications.</li>
+      <li><b>Test order bias cheaply.</b> Drop positions in the set module (ejhshen/OpenJev) or average two option orders (Xor).</li>
+      <li><b>Richer calibration.</b> Per-type temperatures (Strands) or input-dependent ones (Von) next to our option-count buckets; basal's certified thresholds fit the jevpilot action gate.</li>
+      <li><b>From WebJev:</b> jev-ultrafast's wire format and 125-task live benchmark, a separate operation/DONE question, richer element fields, hard negatives.</li>
+      <li><b>CPU tier:</b> Crivo-150M's distillation recipe and Decima's order-free, linear-cost scoring.</li>
+      <li><b>Stay clean:</b> no Jev-distilled data and no benchmark train splits.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="view" id="v-profiles" hidden>
+  <div class="reader">
+    <nav class="plist" id="plist" aria-label="Profiles"></nav>
+    <article class="md" id="md"></article>
+  </div>
+</section>
+
+<footer><div class="wrap" id="foot"></div></footer>
+</div></main>
+
+<aside id="drawer" aria-hidden="true" aria-label="Model details"><button class="close" id="dclose">Close</button><div id="dbody"></div></aside>
+<div id="tip" role="tooltip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+const M = DATA.models, B = DATA.board, F = DATA.families, A = DATA.arch;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+const PAT = {
+  A: { name: "Packed + block-causal mask", short: "Packed mask", c: "--s1",
+       text: "All questions in one sequence; a mask lets each question see only the state and itself." },
+  B: { name: "Cached state, one row per question", short: "Cached state", c: "--s2",
+       text: "The state is encoded once; each question continues a copy of its cache. Exact isolation." },
+  C: { name: "One full sequence per question", short: "Per question", c: "--s3",
+       text: "Exact isolation, but the state is re-encoded for every question." },
+  D: { name: "Joint questions, no isolation", short: "Joint", c: "--s4",
+       text: "Questions see each other on purpose. Helps related questions, hurts independent ones." },
+};
+const READ = {
+  "lm-labels": "LM-head label tokens", "code-matrix": "Separate code matrix", "pointer": "Pointer head",
+  "marker-set": "Markers + set module", "scalar": "Scalar per candidate", "bi-encoder": "Bi-encoder cosine", "exotic": "Other",
+};
+const CAL = { none: "None / T = 1", global: "One global temperature", "per-type": "Per question type",
+  "per-options": "Per option count", input: "Input-dependent", certified: "Certified thresholds", unknown: "Unknown" };
+const SIG = { labels: "Human / public / programmatic", teacher: "Another LLM as teacher", rlcd: "RL with scoring rules (RLCD-like)",
+  jev: "Distilled from Jev", undisclosed: "Undisclosed" };
+const GROUP = { reference: "Reference", ours: "Ours", lab: "Company", community: "Community" };
+const KINDS = [
+  { key: "full", label: "Full fine-tune", c: "--s1", test: k => k === "full fine-tune" },
+  { key: "lora", label: "LoRA / head", c: "--s2", test: k => /lora|head|adapter/i.test(k) },
+  { key: "other", label: "Hosted / inference technique", c: "--s3", test: k => !/full fine-tune|lora|head|adapter/i.test(k) },
+];
+const kindOf = k => KINDS.find(x => x.test(k || "")) || KINDS[2];
+const isJev = b => b.kind === "hosted API" && /\bjev\b/i.test(b.name);
+const fmt = d3.format(",");
+const compact = n => n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? Math.round(n / 1e3) + "K" : String(n);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const profiledByUrl = new Map();
+M.forEach(m => { if (m.di_source === "board") profiledByUrl.set(m.board_name, m); });
+
+/* tooltip */
+const tip = document.getElementById("tip");
+function showTip(ev, html) {
+  tip.innerHTML = html; tip.style.opacity = 1;
+  const pad = 14, r = tip.getBoundingClientRect();
+  let x = ev.clientX + pad, y = ev.clientY + pad;
+  if (x + r.width > innerWidth - 8) x = ev.clientX - r.width - pad;
+  if (y + r.height > innerHeight - 8) y = ev.clientY - r.height - pad;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+const hideTip = () => { tip.style.opacity = 0; };
+const rows = pairs => pairs.filter(p => p[1] !== null && p[1] !== undefined && p[1] !== "").map(([k, v]) => `<div class="row"><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join("");
+function boardTip(b) {
+  return `<b>${esc(b.name)}</b>${rows([["Rank", "#" + b.rank], ["Score", b.score.toFixed(2)], ["ECE", b.ece?.toFixed(3)],
+    ["Params", b.params ? b.params + "B" : null], ["Kind", b.kind], ["Org", b.org], ["Base", b.base]])}`;
+}
+
+/* tabs */
+const tabs = [...document.querySelectorAll("nav.tabs button")];
+const drawn = {};
+function openTab(name, push = true) {
+  tabs.forEach(t => t.setAttribute("aria-selected", t.dataset.tab === name));
+  document.querySelectorAll("section.view").forEach(s => { s.hidden = s.id !== "v-" + name; });
+  if (!drawn[name]) { drawn[name] = true; (DRAW[name] || (() => {}))(); }
+  if (push) { try { history.replaceState(null, "", "#" + name); } catch (e) {} }
+  try { localStorage.setItem("atlas-tab", name); } catch (e) {}
+}
+tabs.forEach(t => t.addEventListener("click", () => openTab(t.dataset.tab)));
+
+/* generic chart helpers */
+function frame(el, w, h, m) {
+  const host = typeof el === "string" ? document.getElementById(el) : el;
+  host.innerHTML = "";
+  const W = Math.max(w, 300);
+  const svg = d3.select(host).append("svg").attr("viewBox", `0 0 ${W} ${h}`).attr("width", "100%").attr("preserveAspectRatio", "xMinYMin meet");
+  return { svg, W, H: h, m, iw: W - m.l - m.r, ih: h - m.t - m.b, g: svg.append("g").attr("transform", `translate(${m.l},${m.t})`) };
+}
+const widthOf = id => Math.max(320, document.getElementById(id).clientWidth || 600);
+function legend(id, items) {
+  document.getElementById(id).innerHTML = items.map(i => `<span><i class="dot" style="background:var(${i.c});${i.ring ? "box-shadow:0 0 0 2px var(--ink) inset;background:var(--panel)" : ""}"></i>${esc(i.label)}</span>`).join("");
+}
+function hbars(id, data, opts = {}) {
+  // data: [{label, value, c, tip, sub}]
+  const w = widthOf(id), rowH = opts.rowH || 26, m = { t: 6, r: 56, b: 22, l: opts.left || 170 };
+  const f = frame(id, w, data.length * rowH + m.t + m.b, m);
+  const max = opts.max || d3.max(data, d => d.value) || 1;
+  const x = (opts.log ? d3.scaleLog().domain([opts.min || 1, max * 1.3]) : d3.scaleLinear().domain([0, max * 1.05])).range([0, f.iw]);
+  const y = d3.scaleBand().domain(data.map((d, i) => i)).range([0, f.ih]).padding(0.3);
+  f.g.append("g").attr("class", "gridline").call(d3.axisTop(x).ticks(opts.log ? 4 : 5, opts.log ? "~s" : undefined).tickSize(-f.ih).tickFormat("")).attr("transform", "translate(0,0)");
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).ticks(opts.log ? 4 : 5, opts.log ? "~s" : undefined).tickSizeOuter(0));
+  const bh = Math.min(18, y.bandwidth());
+  const row = f.g.selectAll("g.r").data(data).join("g").attr("class", "r").attr("transform", (d, i) => `translate(0,${y(i) + (y.bandwidth() - bh) / 2})`);
+  const x0 = opts.log ? x(opts.min || 1) : 0;
+  row.append("path").attr("d", d => { const L = Math.max(2, x(Math.max(d.value, opts.min || 0.0001)) - x0); const r = Math.min(4, L / 2); return `M${x0},0h${L - r}a${r},${r} 0 0 1 ${r},${r}v${bh - 2 * r}a${r},${r} 0 0 1 ${-r},${r}h${-(L - r)}z`; })
+    .attr("fill", d => `var(${d.c || "--s1"})`)
+    .attr("stroke", d => d.outline ? "var(--ink)" : null).attr("stroke-width", d => d.outline ? 1.5 : null);
+  row.append("text").attr("x", -8).attr("y", bh / 2).attr("dy", "0.35em").attr("text-anchor", "end").attr("class", d => d.strong ? "lbl" : null)
+    .text(d => d.label.length > (opts.trunc || 28) ? d.label.slice(0, (opts.trunc || 28) - 1) + "…" : d.label);
+  row.append("text").attr("x", d => Math.max(x(Math.max(d.value, opts.min || 0.0001)), x0) + 6).attr("y", bh / 2).attr("dy", "0.35em").attr("class", "muted")
+    .text(d => d.display ?? (opts.fmt ? opts.fmt(d.value) : fmt(d.value)));
+  row.append("rect").attr("x", -m.l).attr("y", -4).attr("width", f.W).attr("height", bh + 8).attr("fill", "transparent")
+    .style("cursor", d => d.onClick ? "pointer" : null)
+    .on("mousemove", (ev, d) => d.tip && showTip(ev, d.tip)).on("mouseleave", hideTip)
+    .on("click", (ev, d) => d.onClick && d.onClick());
+  return f;
+}
+
+/* drawer */
+const drawer = document.getElementById("drawer");
+function openModel(id) {
+  const m = M.find(x => x.id === id); if (!m) return;
+  const p = PAT[m.pattern];
+  document.getElementById("dbody").innerHTML = `
+    <div class="eyebrow">${esc(GROUP[m.group])} · ${esc(m.org)}</div>
+    <h2>${esc(m.name)}</h2>
+    <p style="color:var(--ink-2);margin:6px 0 0">${esc(m.summary)}</p>
+    <dl>
+      <dt>Backbone</dt><dd>${esc(m.backbone)}${m.params ? `<small>${m.params}B parameters</small>` : ""}</dd>
+      <dt>Attention</dt><dd>${esc(m.attention)}</dd>
+      <dt>Questions</dt><dd><span class="tag"><i class="dot" style="background:var(${p.c})"></i>${p.name}</span><small>${esc(m.pattern_note)}</small></dd>
+      <dt>Readout</dt><dd>${esc(READ[m.readout])}<small>${esc(m.readout_note)}</small></dd>
+      <dt>Calibration</dt><dd>${esc(CAL[m.calibration])}<small>${esc(m.calibration_note)}</small></dd>
+      <dt>Training signal</dt><dd>${esc(SIG[m.signal])}<small>${esc(m.signal_note)}</small></dd>
+      <dt>Context</dt><dd>${esc(m.ctx)}</dd>
+      <dt>Max options</dt><dd>${m.max_options ? fmt(m.max_options) : "n/a"}</dd>
+      <dt>Decision Index</dt><dd>${m.di != null ? `${m.di.toFixed(2)}${m.di_rank ? ` · rank #${m.di_rank}` : ""}<small>${m.di_source === "board" ? "board, " + esc(DATA.snapshot) : "self-reported on the model card"}</small>` : "not scored"}</dd>
+      <dt>ECE</dt><dd>${m.ece != null ? m.ece.toFixed(3) : "n/a"}</dd>
+      <dt>Released</dt><dd>${esc(m.released || "n/a")}</dd>
+      ${m.downloads != null ? `<dt>Family downloads</dt><dd>${fmt(m.downloads)}</dd>` : ""}
+      <dt>Licence</dt><dd>${esc(m.licence)}</dd>
+    </dl>
+    <button class="btn" id="dprofile">Read the full profile</button>`;
+  document.getElementById("dprofile").onclick = () => { closeDrawer(); openTab("profiles"); showProfile(m.profile); };
+  drawer.classList.add("open"); drawer.setAttribute("aria-hidden", "false");
+  document.getElementById("dclose").focus();
+}
+function closeDrawer() { drawer.classList.remove("open"); drawer.setAttribute("aria-hidden", "true"); }
+document.getElementById("dclose").onclick = closeDrawer;
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+
+/* ---------- Overview ---------- */
+function drawOverview() {
+  const jev = B.find(b => b.slug === "jev-1.14.0");
+  const above = B.filter(b => b.score > jev.score).length;
+  const stats = [
+    ["Model families", F.length, "since Jev launched 15 Sep"],
+    ["HF repos scanned", "1,320", `${A.repos} with config fields pulled`],
+    ["Profiled in depth", M.length, "architecture read from code"],
+    ["Board entrants", B.length, DATA.snapshot.replace("Decision Index ", "DI ")],
+    ["Open models above Jev", above, `Jev 1.14 ranks #${jev.rank} at ${jev.score}`],
+  ];
+  document.getElementById("stats").innerHTML = stats.map(s => `<div class="stat"><div class="label">${s[0]}</div><div class="value">${typeof s[1] === "number" ? fmt(s[1]) : s[1]}</div><div class="note">${esc(s[2])}</div></div>`).join("");
+  const finds = [
+    ["1", "<b>Labs shipped clones within weeks.</b> Perplexity, vLLM-SR, Cloudflare, Amazon, Liquid, IBM, InternLM, Ant, H2O and Together all released Jev-style models. Google, Microsoft, NVIDIA and Mistral only supply backbones."],
+    ["2", "<b>Isolation is the main split.</b> Cached-state rows (Kev 1.0, Strands, Liquid d1) match Jev; Perplexity v1.2 and Clef drop isolation on purpose."],
+    ["3", "<b>Qwen3.5/3.8 hybrids dominate.</b> Their DeltaNet layers cannot follow a packed mask, so the field moved to cached prefixes."],
+    ["4", "<b>The top is 26–31B.</b> StartLux, d3 and pplx-decider beat Jev 1.14. Sub-1B models score under 25."],
+    ["5", "<b>Read published ECE carefully.</b> AutoTrust's 0.0007 measures agreement with Jev; several temperatures are tuned to a benchmark."],
+    ["6", "<b>Zeiger is the only clone past 255 options.</b> WebJev, the other browser model, caps a page at 250 elements."],
+  ];
+  document.getElementById("findings").innerHTML = finds.map(f => `<div class="finding"><span class="k">${f[0]}</span><p>${f[1]}</p></div>`).join("");
+  drawPatterns(); drawRace(); drawSize(); drawWave();
+}
+
+function patternSvg(k) {
+  const col = `var(${PAT[k].c})`, st = "var(--ink-3)", fill = "var(--panel)";
+  const box = (x, y, w, label, c) => `<rect x="${x}" y="${y}" width="${w}" height="20" rx="4" fill="${c || fill}" stroke="${st}" stroke-width="1"/><text x="${x + w / 2}" y="${y + 13.5}" text-anchor="middle" font-size="10" fill="${c ? "#fff" : "var(--ink-2)"}" font-family="var(--f-mono)">${label}</text>`;
+  if (k === "A") return `<svg viewBox="0 0 220 64">${box(4, 22, 76, "state")}${box(84, 22, 40, "q1", col)}${box(128, 22, 40, "q2", col)}${box(172, 22, 40, "q3", col)}<path d="M104 18 C 104 6, 42 6, 42 18" fill="none" stroke="${st}"/><path d="M148 18 C 148 4, 42 4, 42 18" fill="none" stroke="${st}" stroke-dasharray="0"/><text x="148" y="58" font-size="9.5" text-anchor="middle" fill="var(--ink-3)">q's never see each other</text></svg>`;
+  if (k === "B") return `<svg viewBox="0 0 220 64">${box(4, 22, 76, "state")}<path d="M80 32 H96 M96 12 V52 M96 12 H112 M96 32 H112 M96 52 H112" fill="none" stroke="${st}"/>${box(112, 2, 40, "q1", col)}${box(112, 22, 40, "q2", col)}${box(112, 42, 40, "q3", col)}<text x="186" y="35" font-size="9.5" text-anchor="middle" fill="var(--ink-3)">cache fork</text></svg>`;
+  if (k === "C") return `<svg viewBox="0 0 220 64">${box(4, 2, 70, "state")}${box(78, 2, 34, "q1", col)}${box(4, 22, 70, "state")}${box(78, 22, 34, "q2", col)}${box(4, 42, 70, "state")}${box(78, 42, 34, "q3", col)}<text x="168" y="35" font-size="9.5" text-anchor="middle" fill="var(--ink-3)">state × 3</text></svg>`;
+  return `<svg viewBox="0 0 220 64">${box(4, 22, 70, "state")}${box(78, 22, 40, "q1", col)}${box(122, 22, 40, "q2", col)}${box(166, 22, 40, "q3", col)}<path d="M98 46 C 98 58, 142 58, 142 46 M142 46 C 142 58, 186 58, 186 46" fill="none" stroke="${col}" stroke-width="1.5"/><path d="M98 18 C 98 6, 186 6, 186 18" fill="none" stroke="${col}" stroke-width="1.5"/></svg>`;
+}
+function drawPatterns() {
+  document.getElementById("patterns").innerHTML = Object.entries(PAT).map(([k, p]) => {
+    const ms = M.filter(m => m.pattern === k);
+    return `<div class="pat"><div class="head"><span class="letter" style="background:var(${p.c})">${k}</span><h3>${p.name}</h3></div>
+      ${patternSvg(k)}<p>${p.text}</p>
+      <div class="chips">${ms.map(m => `<button class="chip" data-id="${m.id}">${esc(m.name)}</button>`).join("")}</div></div>`;
+  }).join("");
+  document.querySelectorAll("#patterns .chip").forEach(c => c.onclick = () => openModel(c.dataset.id));
+}
+
+function drawRace() {
+  const pts = B.filter(b => b.created && b.created >= "2026-09-10").map(b => ({ ...b, date: new Date(b.created), pm: profiledByUrl.get(b.name) }))
+    .sort((a, b) => a.date - b.date);
+  const jev = B.find(b => b.slug === "jev-1.14.0");
+  const w = widthOf("race"), m = { t: 14, r: 16, b: 28, l: 34 };
+  const f = frame("race", w, 290, m);
+  const x = d3.scaleTime().domain([new Date("2026-09-14"), new Date("2026-10-18")]).range([0, f.iw]);
+  const y = d3.scaleLinear().domain([0, 75]).range([f.ih, 0]);
+  f.g.append("g").attr("class", "gridline").call(d3.axisLeft(y).ticks(5).tickSize(-f.iw).tickFormat(""));
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.timeFormat("%d %b")).tickSizeOuter(0));
+  f.g.append("g").attr("class", "axis").call(d3.axisLeft(y).ticks(5).tickSizeOuter(0));
+  let best = -1; const steps = [];
+  pts.forEach(p => { if (p.score > best) { best = p.score; steps.push(p); } });
+  const stepData = [...steps, { date: new Date("2026-10-18"), score: best }];
+  f.g.append("path").attr("d", d3.line().curve(d3.curveStepAfter).x(d => x(d.date)).y(d => y(d.score))(stepData)).attr("fill", "none").attr("stroke", "var(--ink)").attr("stroke-width", 2);
+  f.g.append("line").attr("x1", 0).attr("x2", f.iw).attr("y1", y(jev.score)).attr("y2", y(jev.score)).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
+  f.g.append("text").attr("x", 4).attr("y", y(jev.score) + 14).attr("class", "lbl").text(`Jev 1.14 · ${jev.score}`);
+  f.g.selectAll("circle").data(pts).join("circle").attr("cx", d => x(d.date)).attr("cy", d => y(d.score)).attr("r", d => d.pm ? 5 : 3.5)
+    .attr("fill", d => d.pm ? `var(${PAT[d.pm.pattern].c})` : "var(--none)").attr("stroke", "var(--panel)").attr("stroke-width", 1.5)
+    .style("cursor", d => d.pm ? "pointer" : null)
+    .on("mousemove", (ev, d) => showTip(ev, boardTip(d) + rows([["Repo created", d.created]])))
+    .on("mouseleave", hideTip).on("click", (ev, d) => d.pm && openModel(d.pm.id));
+  const top = steps[steps.length - 1];
+  f.g.append("text").attr("x", x(top.date) - 6).attr("y", y(top.score) - 9).attr("text-anchor", "end").attr("class", "lbl").text(top.name);
+}
+
+function drawSize() {
+  legend("lg-size", [...KINDS.map(k => ({ label: k.label, c: k.c })), { label: "Jev (hosted, size unknown)", c: "--ink", ring: true }]);
+  const pts = B.filter(b => b.params);
+  const w = widthOf("size"), m = { t: 12, r: 18, b: 34, l: 38 };
+  const f = frame("size", w, 330, m);
+  const x = d3.scaleLog().domain([0.1, 50]).range([0, f.iw]);
+  const y = d3.scaleLinear().domain([0, 75]).range([f.ih, 0]);
+  f.g.append("g").attr("class", "gridline").call(d3.axisLeft(y).ticks(5).tickSize(-f.iw).tickFormat(""));
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).tickValues([0.1, 0.3, 1, 3, 10, 30]).tickFormat(d => d + "B").tickSizeOuter(0));
+  f.g.append("g").attr("class", "axis").call(d3.axisLeft(y).ticks(5).tickSizeOuter(0));
+  f.g.append("text").attr("x", f.iw).attr("y", f.ih + 30).attr("text-anchor", "end").attr("class", "muted").text("parameters");
+  const jev = B.find(b => b.slug === "jev-1.14.0");
+  f.g.append("line").attr("x1", 0).attr("x2", f.iw).attr("y1", y(jev.score)).attr("y2", y(jev.score)).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
+  f.g.append("text").attr("x", 4).attr("y", y(jev.score) - 6).attr("class", "lbl").text("Jev 1.14");
+  f.g.selectAll("circle").data(pts).join("circle").attr("cx", d => x(Math.max(0.1, d.params))).attr("cy", d => y(d.score)).attr("r", 4.5)
+    .attr("fill", d => `var(${kindOf(d.kind).c})`).attr("fill-opacity", .85).attr("stroke", "var(--panel)").attr("stroke-width", 1.5)
+    .on("mousemove", (ev, d) => showTip(ev, boardTip(d))).on("mouseleave", hideTip);
+  document.getElementById("src-size").textContent = `${pts.length} entries with a parameter count · ${DATA.snapshot}`;
+}
+
+function drawWave() {
+  const groups = [
+    { label: "Company / lab", c: "--s1", test: k => k === "LAB" },
+    { label: "Independent", c: "--s2", test: k => k === "IND" },
+    { label: "Small / multimodal / language / task", c: "--s3", test: k => ["SMALL", "MM", "LANG", "TASK"].includes(k) },
+    { label: "Reference (kev, Laya, Zeiger)", c: "--ink", test: k => k === "REF" },
+  ];
+  legend("lg-wave", groups);
+  const pts = F.filter(f => f.first && f.first >= "2026-09-10" && f.dl > 0).map(f => ({ ...f, date: new Date(f.first), g: groups.find(g => g.test(f.kind)) || groups[1] }));
+  const w = widthOf("wave"), m = { t: 12, r: 18, b: 30, l: 44 };
+  const f = frame("wave", w, 330, m);
+  const x = d3.scaleTime().domain([new Date("2026-09-13"), new Date("2026-10-19")]).range([0, f.iw]);
+  const y = d3.scaleLog().domain([1, 6e6]).range([f.ih, 0]);
+  f.g.append("g").attr("class", "gridline").call(d3.axisLeft(y).tickValues([10, 1e3, 1e5]).tickSize(-f.iw).tickFormat(""));
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).ticks(5).tickFormat(d3.timeFormat("%d %b")).tickSizeOuter(0));
+  f.g.append("g").attr("class", "axis").call(d3.axisLeft(y).tickValues([1, 10, 100, 1e3, 1e4, 1e5, 1e6]).tickFormat(d => compact(d)).tickSizeOuter(0));
+  f.g.append("line").attr("x1", x(new Date("2026-09-15"))).attr("x2", x(new Date("2026-09-15"))).attr("y1", 0).attr("y2", f.ih).attr("stroke", "var(--ink-3)").attr("stroke-dasharray", "3 3");
+  f.g.append("text").attr("x", x(new Date("2026-09-15")) + 4).attr("y", 10).attr("class", "muted").text("Jev launch");
+  f.g.selectAll("circle").data(pts).join("circle").attr("cx", d => x(d.date)).attr("cy", d => y(d.dl)).attr("r", 4.5)
+    .attr("fill", d => `var(${d.g.c})`).attr("fill-opacity", .85).attr("stroke", "var(--panel)").attr("stroke-width", 1.5)
+    .on("mousemove", (ev, d) => showTip(ev, `<b>${esc(d.name)}</b>${rows([["First upload", d.first], ["Downloads", fmt(d.dl)], ["Repos", d.repos], ["Kind", d.g.label]])}<div style="margin-top:6px;color:var(--ink-2)">${esc(d.arch.slice(0, 160))}</div>`))
+    .on("mouseleave", hideTip);
+  const top = pts.sort((a, b) => b.dl - a.dl)[0];
+  f.g.append("text").attr("x", x(top.date) + 8).attr("y", y(top.dl) + 4).attr("class", "lbl").text("AutoTrust JEV/GEV");
+}
+
+/* ---------- Leaderboard ---------- */
+let bKind = "all", bQ = "";
+function drawBoard() {
+  const seg = document.getElementById("bf-kind");
+  seg.innerHTML = [["all", "All"], ...KINDS.map(k => [k.key, k.label])].map(([k, l]) => `<button aria-pressed="${k === bKind}" data-k="${k}">${l}</button>`).join("");
+  seg.querySelectorAll("button").forEach(b => b.onclick = () => { bKind = b.dataset.k; drawBoard(); });
+  const q = document.getElementById("bf-q");
+  q.oninput = () => { bQ = q.value.toLowerCase(); renderBoard(); };
+  legend("lg-board", [...Object.entries(PAT).map(([k, p]) => ({ label: `${k} · ${p.short}`, c: p.c })), { label: "Other entrant", c: "--none" }]);
+  renderBoard();
+  if (!drawn.boardExtras) { drawn.boardExtras = true; drawBases(); drawKinds(); drawBands(); drawSelfrep(); }
+}
+function renderBoard() {
+  const list = B.filter(b => (bKind === "all" || kindOf(b.kind).key === bKind) &&
+    (!bQ || `${b.name} ${b.org} ${b.base}`.toLowerCase().includes(bQ)));
+  const data = list.map(b => {
+    const pm = profiledByUrl.get(b.name), jev = isJev(b);
+    return { label: `#${b.rank}  ${b.name}`, value: b.score, display: b.score.toFixed(2),
+      c: jev ? "--panel-2" : pm ? PAT[pm.pattern].c : "--none", outline: jev, strong: jev || !!pm,
+      tip: boardTip(b) + (pm ? `<div style="margin-top:6px;color:var(--ink-2)">Profiled · ${PAT[pm.pattern].name}. Click for details.</div>` : ""),
+      onClick: pm ? () => openModel(pm.id) : null };
+  });
+  document.getElementById("boardchart").innerHTML = "";
+  if (!data.length) { document.getElementById("boardchart").innerHTML = `<p class="sub" style="padding:12px 0">No entrant matches this filter.</p>`; return; }
+  hbars("boardchart", data, { left: 250, trunc: 40, max: 72, rowH: 22 });
+  document.getElementById("src-board").textContent = `${list.length} of ${B.length} entrants · ${DATA.snapshot}`;
+}
+function drawBases() {
+  const by = d3.groups(B.filter(b => b.base), b => b.base).filter(([, v]) => v.length >= 3)
+    .map(([k, v]) => ({ base: k, n: v.length, best: d3.max(v, d => d.score) })).sort((a, b) => b.best - a.best);
+  hbars("bases", by.map(d => ({ label: d.base.replace(/^[^/]+\//, ""), value: d.best, display: `${d.best.toFixed(1)} · ${d.n}×`, c: "--s1",
+    tip: `<b>${esc(d.base)}</b>${rows([["Entries", d.n], ["Best score", d.best.toFixed(2)]])}` })), { left: 150, max: 72, trunc: 22 });
+}
+function drawKinds() {
+  const w = widthOf("kinds"), m = { t: 10, r: 14, b: 30, l: 128 };
+  const f = frame("kinds", w, 210, m);
+  const x = d3.scaleLinear().domain([0, 72]).range([0, f.iw]);
+  const y = d3.scaleBand().domain(KINDS.map(k => k.key)).range([0, f.ih]).padding(.25);
+  f.g.append("g").attr("class", "gridline").call(d3.axisBottom(x).ticks(5).tickSize(f.ih).tickFormat(""));
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).ticks(5).tickSizeOuter(0));
+  KINDS.forEach(k => {
+    const vals = B.filter(b => kindOf(b.kind).key === k.key);
+    const cy = y(k.key) + y.bandwidth() / 2;
+    f.g.append("text").attr("x", -8).attr("y", cy).attr("dy", ".35em").attr("text-anchor", "end").text(`${k.label} (${vals.length})`).call(t => t.node().textContent.length > 24 && t.text(`${k.label.split(" /")[0]} (${vals.length})`));
+    f.g.selectAll(null).data(vals).join("circle").attr("cx", d => x(d.score)).attr("cy", (d, i) => cy + ((i * 7) % 21) - 10).attr("r", 3.5)
+      .attr("fill", `var(${k.c})`).attr("fill-opacity", .75).on("mousemove", (ev, d) => showTip(ev, boardTip(d))).on("mouseleave", hideTip);
+    const med = d3.median(vals, d => d.score);
+    if (med != null) f.g.append("line").attr("x1", x(med)).attr("x2", x(med)).attr("y1", cy - 15).attr("y2", cy + 15).attr("stroke", "var(--ink)").attr("stroke-width", 2);
+  });
+}
+function drawBands() {
+  const bands = [[0, 1, "< 1B"], [1, 3, "1–3B"], [3, 6, "3–6B"], [6, 15, "6–15B"], [15, 25, "15–25B"], [25, 40, "25–40B"]];
+  const data = bands.map(([lo, hi, l]) => {
+    const v = B.filter(b => b.params != null && b.params >= lo && b.params < hi);
+    const top = v.sort((a, b) => b.score - a.score)[0];
+    return top && { label: l, value: top.score, display: `${top.score.toFixed(1)} · ${top.name.slice(0, 26)}`, c: "--s1", tip: boardTip(top) + rows([["Entries in band", v.length]]) };
+  }).filter(Boolean);
+  const jev = B.find(b => b.slug === "jev-1.14.0");
+  data.push({ label: "Jev 1.14", value: jev.score, display: jev.score.toFixed(2), c: "--panel-2", outline: true, strong: true, tip: boardTip(jev) });
+  hbars("bands", data, { left: 70, max: 72 });
+}
+function drawSelfrep() {
+  const list = M.filter(m => m.di != null && m.id !== "jev").sort((a, b) => b.di - a.di);
+  hbars("selfrep", list.map(m => ({ label: m.name, value: m.di, display: `${m.di.toFixed(1)}${m.di_source === "board" ? "" : " · self"}`,
+    c: m.di_source === "board" ? PAT[m.pattern].c : "--none", tip: `<b>${esc(m.name)}</b>${rows([["Score", m.di], ["Source", m.di_source], ["Pattern", PAT[m.pattern].short]])}`,
+    onClick: () => openModel(m.id) })), { left: 190, max: 72, trunc: 26 });
+}
+
+/* ---------- Architecture ---------- */
+let mGroup = "all", mPat = "all", mQ = "", mSort = { key: "di", dir: -1 };
+const COLS = [
+  { key: "name", label: "Model" }, { key: "group", label: "Group" }, { key: "params", label: "Params", num: true },
+  { key: "pattern", label: "Questions" }, { key: "attention", label: "Attention" }, { key: "readout", label: "Readout" },
+  { key: "calibration", label: "Calibration" }, { key: "signal", label: "Signal" }, { key: "max_options", label: "Options", num: true },
+  { key: "di", label: "DI", num: true }, { key: "ece", label: "ECE", num: true },
+];
+function drawArch() {
+  const g = document.getElementById("mf-group");
+  g.innerHTML = [["all", "All"], ...Object.entries(GROUP)].map(([k, l]) => `<button aria-pressed="${k === mGroup}" data-k="${k}">${l}</button>`).join("");
+  g.querySelectorAll("button").forEach(b => b.onclick = () => { mGroup = b.dataset.k; drawArchControls(); renderMatrix(); });
+  const p = document.getElementById("mf-pat");
+  p.innerHTML = [["all", "Any pattern"], ...Object.entries(PAT).map(([k, v]) => [k, `${k} · ${v.short}`])].map(([k, l]) => `<button aria-pressed="${k === mPat}" data-k="${k}">${l}</button>`).join("");
+  p.querySelectorAll("button").forEach(b => b.onclick = () => { mPat = b.dataset.k; drawArchControls(); renderMatrix(); });
+  document.getElementById("mf-q").oninput = e => { mQ = e.target.value.toLowerCase(); renderMatrix(); };
+  renderMatrix();
+  if (!drawn.archExtras) { drawn.archExtras = true; drawHeat(); drawReadouts(); drawOpts(); drawAttn(); }
+}
+function drawArchControls() {
+  document.querySelectorAll("#mf-group button").forEach(b => b.setAttribute("aria-pressed", b.dataset.k === mGroup));
+  document.querySelectorAll("#mf-pat button").forEach(b => b.setAttribute("aria-pressed", b.dataset.k === mPat));
+}
+function renderMatrix() {
+  const list = M.filter(m => (mGroup === "all" || m.group === mGroup) && (mPat === "all" || m.pattern === mPat) &&
+    (!mQ || `${m.name} ${m.org} ${m.backbone}`.toLowerCase().includes(mQ)));
+  const val = (m, k) => k === "readout" ? READ[m.readout] : k === "calibration" ? CAL[m.calibration] : k === "signal" ? SIG[m.signal] : m[k];
+  list.sort((a, b) => {
+    const x = val(a, mSort.key), y = val(b, mSort.key);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (x > y ? 1 : x < y ? -1 : 0) * mSort.dir;
+  });
+  const t = document.getElementById("matrix");
+  t.innerHTML = `<thead><tr>${COLS.map(c => `<th data-k="${c.key}" ${mSort.key === c.key ? `aria-sort="${mSort.dir > 0 ? "ascending" : "descending"}"` : ""}>${c.label}${mSort.key === c.key ? (mSort.dir > 0 ? " ↑" : " ↓") : ""}</th>`).join("")}</tr></thead>
+  <tbody>${list.map(m => `<tr data-id="${m.id}">
+    <td><div class="nm">${esc(m.name)}</div><div class="org">${esc(m.org)}</div></td>
+    <td><span class="grp ${m.group === "ours" ? "ours" : ""}">${GROUP[m.group]}</span></td>
+    <td class="num">${m.params != null ? m.params : "–"}</td>
+    <td><span class="tag"><i class="dot" style="background:var(${PAT[m.pattern].c})"></i>${m.pattern} · ${PAT[m.pattern].short}</span></td>
+    <td>${esc(m.attention)}</td><td>${esc(READ[m.readout])}</td><td>${esc(CAL[m.calibration])}</td><td>${esc(SIG[m.signal])}</td>
+    <td class="num">${m.max_options ? fmt(m.max_options) : "–"}</td>
+    <td class="num">${m.di != null ? m.di.toFixed(1) + (m.di_source === "board" ? "" : "*") : "–"}</td>
+    <td class="num">${m.ece != null ? m.ece.toFixed(3) : "–"}</td></tr>`).join("") || `<tr><td colspan="11" style="color:var(--ink-3)">No model matches these filters.</td></tr>`}</tbody>`;
+  t.querySelectorAll("th").forEach(th => th.onclick = () => { const k = th.dataset.k; mSort = { key: k, dir: mSort.key === k ? -mSort.dir : (COLS.find(c => c.key === k).num ? -1 : 1) }; renderMatrix(); });
+  t.querySelectorAll("tbody tr[data-id]").forEach(tr => tr.onclick = () => openModel(tr.dataset.id));
+}
+function drawHeat() {
+  const reads = Object.keys(READ).filter(r => M.some(m => m.readout === r));
+  const pats = Object.keys(PAT);
+  const max = d3.max(reads.flatMap(r => pats.map(p => M.filter(m => m.readout === r && m.pattern === p).length)));
+  const el = document.getElementById("heat");
+  el.style.gridTemplateColumns = `minmax(110px, 1.2fr) repeat(${pats.length}, minmax(0, 1fr))`;
+  let html = `<div class="hd"></div>` + pats.map(p => `<div class="hd"><span><i class="dot" style="background:var(${PAT[p].c});margin-right:5px"></i>${p} · ${PAT[p].short}</span></div>`).join("");
+  reads.forEach(r => {
+    html += `<div class="hd" style="text-transform:none;font-family:var(--f-body);font-size:12.5px;color:var(--ink);letter-spacing:0">${READ[r]}</div>`;
+    pats.forEach(p => {
+      const ms = M.filter(m => m.readout === r && m.pattern === p);
+      const a = ms.length ? 0.12 + 0.6 * ms.length / max : 0;
+      html += `<div class="cell" style="background:color-mix(in srgb, var(--s1) ${Math.round(a * 100)}%, var(--panel-2))" title="${esc(ms.map(m => m.name).join(", "))}">
+        <span class="n" style="color:${a > .45 ? "#fff" : "var(--ink)"}">${ms.length || ""}</span><span class="who" style="color:${a > .45 ? "#fff" : "var(--ink-2)"}">${esc(ms.slice(0, 3).map(m => m.name.split(" (")[0]).join(", "))}${ms.length > 3 ? " …" : ""}</span></div>`;
+    });
+  });
+  el.innerHTML = html;
+}
+function drawReadouts() {
+  const counts = Object.keys(READ).map(r => ({ r, ms: M.filter(m => m.readout === r) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length);
+  hbars("readouts", counts.map(d => ({ label: READ[d.r], value: d.ms.length, c: "--s1",
+    tip: `<b>${READ[d.r]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => m.name).join(", "))}</div>` })), { left: 170 });
+}
+function drawOpts() {
+  const list = M.filter(m => m.max_options).sort((a, b) => b.max_options - a.max_options);
+  const f = hbars("opts", list.map(m => ({ label: m.name, value: m.max_options, c: m.id === "zeiger" ? "--s2" : "--s1", strong: m.id === "zeiger",
+    tip: `<b>${esc(m.name)}</b>${rows([["Max options", fmt(m.max_options)], ["Context", m.ctx]])}`, onClick: () => openModel(m.id) })), { left: 190, log: true, min: 10, max: 1500, trunc: 26, rowH: 22 });
+  const x = d3.scaleLog().domain([10, 1500 * 1.3]).range([0, f.iw]);
+  f.g.append("line").attr("x1", x(255)).attr("x2", x(255)).attr("y1", 0).attr("y2", f.ih).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
+  f.g.append("text").attr("x", x(255) + 4).attr("y", f.ih - 4).attr("class", "lbl").text("Jev limit 255");
+}
+function drawAttn() {
+  const norm = a => /bidirectional encoder/.test(a) ? "Bidirectional encoder" : /noncausal/.test(a) ? "Causal + noncausal full-attn layers" : /conv/.test(a) ? "Causal conv/attention hybrid" : /unknown/.test(a) ? "Unknown (Jev)" : "Causal decoder";
+  const by = d3.rollups(M, v => v, m => norm(m.attention)).sort((a, b) => b[1].length - a[1].length);
+  hbars("attn", by.map(([k, v]) => ({ label: k, value: v.length, c: "--s1", tip: `<b>${esc(k)}</b><div style="color:var(--ink-2);margin-top:4px">${esc(v.map(m => m.name).join(", "))}</div>` })), { left: 220, trunc: 36 });
+}
+
+/* ---------- Calibration & training ---------- */
+function drawCalib() {
+  legend("lg-ece", [...KINDS.map(k => ({ label: k.label, c: k.c }))]);
+  const pts = B.filter(b => b.ece != null);
+  const w = widthOf("ece"), m = { t: 12, r: 18, b: 34, l: 38 };
+  const f = frame("ece", w, 360, m);
+  const x = d3.scaleLinear().domain([0, Math.min(0.3, d3.max(pts, d => d.ece) * 1.05)]).range([0, f.iw]);
+  const y = d3.scaleLinear().domain([0, 75]).range([f.ih, 0]);
+  f.g.append("g").attr("class", "gridline").call(d3.axisLeft(y).ticks(5).tickSize(-f.iw).tickFormat(""));
+  f.g.append("g").attr("class", "axis").attr("transform", `translate(0,${f.ih})`).call(d3.axisBottom(x).ticks(6).tickSizeOuter(0));
+  f.g.append("g").attr("class", "axis").call(d3.axisLeft(y).ticks(5).tickSizeOuter(0));
+  f.g.append("text").attr("x", f.iw).attr("y", f.ih + 30).attr("text-anchor", "end").attr("class", "muted").text("ECE (lower is better)");
+  f.g.selectAll("circle").data(pts.filter(d => d.ece <= x.domain()[1])).join("circle").attr("cx", d => x(d.ece)).attr("cy", d => y(d.score))
+    .attr("r", d => isJev(d) ? 7 : 4.5).attr("fill", d => isJev(d) ? "var(--panel)" : `var(${kindOf(d.kind).c})`).attr("fill-opacity", d => isJev(d) ? 1 : .85)
+    .attr("stroke", d => isJev(d) ? "var(--ink)" : "var(--panel)").attr("stroke-width", d => isJev(d) ? 2 : 1.5)
+    .on("mousemove", (ev, d) => showTip(ev, boardTip(d))).on("mouseleave", hideTip);
+  pts.filter(isJev).forEach((j, i) => f.g.append("text").attr("x", x(j.ece) + 10).attr("y", y(j.score) + (i ? 16 : -6)).attr("class", "lbl").text(j.name.replace("Jev jev-", "Jev ")));
+  const cnt = (k, list) => list.filter(m => m.calibration === k);
+  hbars("calibs", Object.keys(CAL).map(k => ({ k, ms: cnt(k, M) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length)
+    .map(d => ({ label: CAL[d.k], value: d.ms.length, c: "--s1", tip: `<b>${CAL[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.calibration_note ? " (" + m.calibration_note + ")" : ""}`).join("; "))}</div>` })), { left: 170 });
+  hbars("signals", Object.keys(SIG).map(k => ({ k, ms: M.filter(m => m.signal === k) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length)
+    .map(d => ({ label: SIG[d.k], value: d.ms.length, c: d.k === "jev" ? "--s2" : "--s1", tip: `<b>${SIG[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.signal_note ? " (" + m.signal_note + ")" : ""}`).join("; "))}</div>` })), { left: 220, trunc: 34 });
+  // histogram
+  const vals = pts.map(d => d.ece);
+  const bins = d3.bin().domain([0, 0.26]).thresholds(d3.range(0, 0.26, 0.02))(vals.filter(v => v < 0.26));
+  const w2 = widthOf("ecehist"), m2 = { t: 12, r: 14, b: 30, l: 34 };
+  const g = frame("ecehist", w2, 260, m2);
+  const xh = d3.scaleLinear().domain([0, 0.26]).range([0, g.iw]);
+  const yh = d3.scaleLinear().domain([0, d3.max(bins, b => b.length) * 1.1]).range([g.ih, 0]);
+  g.g.append("g").attr("class", "gridline").call(d3.axisLeft(yh).ticks(4).tickSize(-g.iw).tickFormat(""));
+  g.g.append("g").attr("class", "axis").attr("transform", `translate(0,${g.ih})`).call(d3.axisBottom(xh).ticks(6).tickSizeOuter(0));
+  g.g.append("g").attr("class", "axis").call(d3.axisLeft(yh).ticks(4).tickSizeOuter(0));
+  g.g.selectAll("path.bar").data(bins).join("path").attr("class", "bar").attr("fill", "var(--s1)")
+    .attr("d", b => { const x0 = xh(b.x0) + 1, wd = Math.max(1, xh(b.x1) - xh(b.x0) - 2), h = g.ih - yh(b.length), r = Math.min(4, h / 2, wd / 2), y0 = yh(b.length);
+      return h <= 0 ? "" : `M${x0},${g.ih}V${y0 + r}a${r},${r} 0 0 1 ${r},${-r}h${wd - 2 * r}a${r},${r} 0 0 1 ${r},${r}V${g.ih}z`; })
+    .on("mousemove", (ev, b) => showTip(ev, `<b>ECE ${b.x0.toFixed(2)}–${b.x1.toFixed(2)}</b>${rows([["Entries", b.length]])}`)).on("mouseleave", hideTip);
+  const j = B.find(b => b.slug === "jev-1.14.0");
+  g.g.append("line").attr("x1", xh(j.ece)).attr("x2", xh(j.ece)).attr("y1", 0).attr("y2", g.ih).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
+  g.g.append("text").attr("x", xh(j.ece) + 4).attr("y", 10).attr("class", "lbl").text("Jev 1.14");
+}
+
+/* ---------- Ecosystem ---------- */
+function drawEco() {
+  hbars("backbones", A.backbone.map(([k, v]) => ({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` })), { left: 150 });
+  document.getElementById("src-arch").textContent = `${A.with_config} of ${A.repos} repos have a readable config · ${A.noncausal} set is_causal: false · scripts/hf_arch.py`;
+  hbars("mix", A.mix.map(([k, v]) => ({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` })), { left: 180 });
+  hbars("lora", A.lora.map(([k, v]) => ({ label: "r = " + k, value: v, c: "--s1", tip: `<b>LoRA rank ${k}</b>${rows([["Adapters", v]])}` })), { left: 70 });
+  const KN = { LAB: "Company / lab", IND: "Independent", SMALL: "Small encoders", MM: "Multimodal", LANG: "Language-specific", TASK: "Task-specific", REF: "Reference" };
+  hbars("fkinds", d3.rollups(F, v => v.length, f => f.kind).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ label: KN[k] || k, value: v, c: "--s1",
+    tip: `<b>${esc(KN[k] || k)}</b>${rows([["Families", v], ["Downloads", fmt(d3.sum(F.filter(f => f.kind === k), f => f.dl))]])}` })), { left: 140 });
+  const top = [...F].sort((a, b) => b.dl - a.dl).slice(0, 15);
+  hbars("topdl", top.map(f => ({ label: f.name, value: f.dl, display: compact(f.dl), c: f.name.startsWith("JEV-9B") ? "--s2" : "--s1",
+    tip: `<b>${esc(f.name)}</b>${rows([["Downloads", fmt(f.dl)], ["First upload", f.first], ["Maker", f.maker], ["Main repo", f.main]])}<div style="margin-top:6px;color:var(--ink-2)">${esc(f.arch.slice(0, 180))}</div>` })),
+    { left: 260, log: true, min: 1000, max: 5e6, trunc: 44, fmt: compact });
+}
+
+/* ---------- Profiles ---------- */
+const ORDER = [
+  ["Start here", ["COMPARISON.md", "jev-reference.md", "zeiger.md"]],
+  ["Companies", ["pplx-decider.md", "vllm-sr.md", "cloudflare-clef.md", "liquid-d1.md", "amazon-strands-decider.md", "ibm-granite-decision.md", "intern-decision.md", "h2o-lightning.md", "together-tev1.md", "meta-encoder.md", "misc-company-clones.md", "bespoke-nimble.md", "posthog-jeeves.md", "standardone.md"]],
+  ["Community", ["kev.md", "laya.md", "vegaml.md", "autotrust-jev.md", "mapika-decider.md", "webjev.md", "von.md", "openjev.md", "nanojev.md", "lev.md", "clm.md"]],
+  ["Groups", ["label-set-encoders.md", "group-multimodal.md", "group-small-encoders.md", "group-language.md", "hf-jev-model-type.md"]],
+];
+const titleOf = f => (DATA.profiles[f]?.match(/^#\s+(.+)$/m)?.[1] || f).replace(/[`*]/g, "").slice(0, 46);
+function drawProfiles() {
+  const seen = new Set(ORDER.flatMap(o => o[1]));
+  const rest = Object.keys(DATA.profiles).filter(f => !seen.has(f));
+  const groups = rest.length ? [...ORDER, ["Other", rest]] : ORDER;
+  document.getElementById("plist").innerHTML = groups.map(([g, fs]) => `<div class="gh">${g}</div>` +
+    fs.filter(f => DATA.profiles[f]).map(f => `<button data-f="${f}">${esc(titleOf(f))}</button>`).join("")).join("");
+  document.querySelectorAll("#plist button").forEach(b => b.onclick = () => showProfile(b.dataset.f));
+  showProfile(current || "COMPARISON.md");
+}
+let current = null;
+function showProfile(f) {
+  current = f;
+  const el = document.getElementById("md");
+  if (!el) return;
+  const src = DATA.profiles[f] || `Profile ${f} not found.`;
+  el.innerHTML = window.marked ? marked.parse(src) : `<pre>${esc(src)}</pre>`;
+  el.querySelectorAll("a[href]").forEach(a => {
+    const h = a.getAttribute("href");
+    const local = h.match(/^(?:clones\/)?([\w.-]+\.md)$/);
+    if (local && DATA.profiles[local[1]]) { a.onclick = e => { e.preventDefault(); showProfile(local[1]); }; }
+    else a.target = "_blank";
+  });
+  document.querySelectorAll("#plist button").forEach(b => b.setAttribute("aria-current", b.dataset.f === f));
+  if (drawn.profiles) el.scrollIntoView({ block: "start", behavior: "instant" in document.documentElement.style ? "instant" : "auto" });
+}
+
+const DRAW = { overview: drawOverview, board: drawBoard, arch: drawArch, calib: drawCalib, eco: drawEco, profiles: drawProfiles };
+document.getElementById("foot").textContent = `Built ${DATA.built} from github.com/PurHur/jev-clones · ${DATA.snapshot} · ${M.length} profiled models, ${B.length} board entrants, ${F.length} families`;
+let start = (location.hash || "").slice(1);
+if (!DRAW[start]) { try { start = localStorage.getItem("atlas-tab") || "overview"; } catch (e) { start = "overview"; } }
+if (!DRAW[start]) start = "overview";
+openTab(start, false);
+addEventListener("hashchange", () => { const t = location.hash.slice(1); if (DRAW[t]) openTab(t, false); });
+let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => {
+  const active = tabs.find(t => t.getAttribute("aria-selected") === "true").dataset.tab;
+  Object.keys(drawn).forEach(k => delete drawn[k]); drawn[active] = true; DRAW[active]();
+}, 200); });
+</script>
+</body>
+</html>
