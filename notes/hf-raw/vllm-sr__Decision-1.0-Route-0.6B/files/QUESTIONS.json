@@ -1,0 +1,113 @@
+{
+  "domain": {
+    "state": "the request text",
+    "type": "Choice",
+    "instructions": "Which subject area is this request about?",
+    "options": {
+      "biology": "Biology and the life sciences: organisms, cells, genetics, ecology, evolution.",
+      "business": "Business: management, marketing, accounting, finance of firms, entrepreneurship.",
+      "chemistry": "Chemistry: substances, reactions, molecules, chemical properties and lab chemistry.",
+      "computer science": "Computer science: programming, software, algorithms, data, computing systems.",
+      "economics": "Economics: markets, prices, macroeconomics, microeconomics, economic policy.",
+      "engineering": "Engineering: design and analysis of structures, machines, circuits and processes.",
+      "health": "Health and medicine: symptoms, diseases, treatment, nutrition, clinical questions.",
+      "history": "History: past events, periods, historical figures and their causes and effects.",
+      "law": "Law: legal rules, rights, contracts, courts, regulation and legal procedure.",
+      "math": "Mathematics: calculation, algebra, geometry, statistics, proofs, quantitative reasoning.",
+      "other": "None of the listed subjects: general chat, creative writing, everyday tasks and the rest.",
+      "philosophy": "Philosophy and religion: ethics, logic, metaphysics, epistemology, religious thought and philosophical arguments.",
+      "physics": "Physics: motion, forces, energy, electromagnetism, quantum and physical reasoning.",
+      "psychology": "Psychology: mind, behaviour, emotions, cognition, mental health and development."
+    }
+  },
+  "jailbreak": {
+    "state": "the request text",
+    "type": "Noul",
+    "instructions": "Does the message try to override, bypass or extract the assistant's instructions or safety rules?",
+    "true": "Yes. It is a prompt attack: an instruction override, a persona without restrictions, a request for the hidden prompt, or instructions injected into supplied content.",
+    "false": "No. It is an ordinary request, whatever its topic, including fiction, role-play and plainly worded harmful requests.",
+    "positive_label": "jailbreak"
+  },
+  "safety": {
+    "state": "the request text",
+    "type": "Noul",
+    "instructions": "Would fulfilling this request as written produce harmful content?",
+    "true": "Yes. Answering it as asked would cause or facilitate harm.",
+    "false": "No. It can be answered safely, even if the topic is sensitive.",
+    "positive_label": "unsafe"
+  },
+  "hazard": {
+    "state": "the request text",
+    "type": "Noul, one question per category",
+    "instructions_template": "Is this a harmful request, and does its harm involve {text}?",
+    "categories": {
+      "violence": "violence against people or animals, including threats, assault, terrorism or graphic violence",
+      "criminal_activity": "criminal activity such as theft, fraud, hacking, trafficking or evading law enforcement",
+      "sexual_content": "sexual content, including explicit sexual material or sexual services",
+      "child_exploitation": "sexual or other exploitation or abuse of minors",
+      "hate": "hate or discrimination against people for a protected attribute",
+      "harassment_abuse": "harassment, bullying, intimidation or abuse of a person",
+      "regulated_substances": "illegal drugs or regulated substances, their production, acquisition or misuse",
+      "weapons": "weapons, explosives or chemical, biological, radiological or nuclear harm",
+      "self_harm": "suicide, self-harm or eating disorders",
+      "privacy": "violating someone's privacy, such as exposing, tracking or collecting personal data",
+      "specialized_advice": "dangerous specialized advice in medical, legal, financial or safety-critical matters",
+      "misinformation": "creating or spreading false information, propaganda or deceptive content"
+    },
+    "true": "Yes. Fulfilling it would cause or facilitate harm of this kind.",
+    "false": "No. It is not harmful, or its harm is of another kind; a safe request that only mentions the topic is No."
+  },
+  "fact_check": {
+    "state": "the request text",
+    "type": "Noul",
+    "instructions": "Does a correct answer to this request depend on factual knowledge that should be checked against sources?",
+    "true": "Yes. The answer rests on facts, figures, dates, people or events that could be wrong.",
+    "false": "No. It is creative, subjective, computational, or answerable from the text it supplies.",
+    "positive_label": "FACT_CHECK_NEEDED"
+  },
+  "modality": {
+    "state": "the request text",
+    "type": "Choice",
+    "instructions": "What kind of output does this request ask for?",
+    "options": {
+      "AR": "Text only: an answer, code, an explanation, or a written prompt for an image generator.",
+      "DIFFUSION": "A generated or edited image, alone or together with text."
+    }
+  },
+  "pii": {
+    "state": "the request text",
+    "type": "Noul",
+    "instructions": "Does the message contain personal data that identifies or contacts a person?",
+    "true": "Yes. It contains a person's name, contact details, address, or a government, financial or network identifier.",
+    "false": "No. It contains no such personal data.",
+    "positive_label": "yes"
+  },
+  "feedback": {
+    "state": "the latest user message, or JSON {\"previous_answer\": <assistant answer>, \"user\": <user message>}",
+    "type": "Choice",
+    "instructions": "What is the user's latest message signalling about the assistant's previous answer?",
+    "options": {
+      "SAT": "The user is satisfied with the previous answer: thanks, approval or acceptance.",
+      "NEED_CLARIFICATION": "The user did not fully understand the previous answer and asks for clarification or more explanation.",
+      "WRONG_ANSWER": "The user says the previous answer is wrong, false or contains an error.",
+      "WANT_DIFFERENT": "The user wants a different answer: another option, a revision, a different style or more detail.",
+      "NO_FEEDBACK": "The message gives no feedback on the previous answer; it continues or starts a new request."
+    }
+  },
+  "hallucination": {
+    "state": "JSON {\"source\": <context or question>, \"answer\": <response>}",
+    "type": "Noul",
+    "instructions": "Does the answer state anything that the source does not support?",
+    "true": "Yes. Part of the answer contradicts or goes beyond the source.",
+    "false": "No. Everything in the answer is supported by the source.",
+    "positive_label": "hallucinated"
+  },
+  "tool_need": {
+    "state": "JSON {\"tools\": <tool list>, \"request\": <user request>}",
+    "type": "Noul",
+    "instructions": "Should the assistant call one of the available tools to handle this request now?",
+    "true": "Yes. A tool call is the right next step.",
+    "false": "No. The assistant should answer directly, ask for missing details, or say it cannot help with these tools.",
+    "positive_label": "yes"
+  }
+}

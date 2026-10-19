@@ -1,0 +1,179 @@
+import html
+import json
+from pathlib import Path
+
+import gradio as gr
+
+ROOT = Path(__file__).parent
+DATA = ROOT / "data"
+MODEL_REPO = "facebook/meta-encoder"
+MODEL_URL = f"https://huggingface.co/{MODEL_REPO}"
+
+GALLERY = json.load(open(DATA / "gallery.json"))
+
+gr.set_static_paths([str(DATA)])
+
+
+def url(rel):
+    return f"/gradio_api/file={DATA / rel}"
+
+
+def esc(s):
+    return html.escape(str(s)).replace("\n", "<br>")
+
+
+# ---------------------------------------------------------------- static HTML
+
+def header():
+    return f"""
+    <header class='top'>
+      <a class='brand' href='#'>MetaEncoder</a>
+      <nav><a href='{MODEL_URL}' target='_blank'>Model</a></nav>
+    </header>
+    <section class='intro'>
+  <h1>Multimodal System-1 Encoder<br><span>Powered by Natural Language</span></h1>
+  <p>Describe tasks and candidate options using free-form prompts and rich media.
+  One unified model for multimodal decision making and retrieval.</p>
+</section>"""
+
+
+def section_head(line1, line2):
+    return f"<p class='lede'><span>{line1}</span><span>{line2}</span></p>"
+
+
+def state_cell(r, state_text):
+    if r["media"]:
+        return f"<img src='{url(r['media']['file'])}' alt=''>"
+    if state_text:
+        return f"<div class='text-state'>{esc(state_text)}</div>"
+    return ""
+
+
+def prompt_cell(r, query):
+    parts = [f"<h3>{esc(r['task'])}</h3>", f"<p class='src'>{esc(r['source'])}</p>"]
+    if r["instruction"]:
+        parts.append(f"<p class='ctx'>{esc(r['instruction'])}</p>")
+    if query:
+        parts.append(f"<p class='task'>{esc(query)}</p>")
+    return "".join(parts)
+
+
+def example_row(r, outcome, outcome_label):
+    return row(state_cell(r, r["state"]), prompt_cell(r, r["query"]), outcome, outcome_label)
+
+
+def row(state, prompt, outcome, outcome_label):
+    state_col = f"<span class='col'>State</span>{state}" if state else ""
+    return (f"<article class='item'><div class='media'>{state_col}</div>"
+            f"<div class='prompt'><span class='col'>Instruction</span>{prompt}</div>"
+            f"<div class='outcome'><span class='col'>{outcome_label}</span>{outcome}</div>"
+            f"</article>")
+
+
+def table(groups):
+    return "".join(f"<section class='group'><h4 class='group-title'>{name}"
+                   f"<span>{len(rows)} examples</span></h4>{''.join(rows)}</section>"
+                   for name, rows in groups if rows)
+
+
+MODALITY_ORDER = {"video": 0, "image": 1}
+
+
+GROUPS = ("Video", "Image", "Text")
+
+
+def modality(r):
+    kinds = [r["media"]["type"]] if r["media"] else []
+    kinds += [x["type"] for x in r.get("results", [])]
+    return min((MODALITY_ORDER.get(k, 2) for k in kinds), default=2)
+
+
+def by_modality(rows, render):
+    return [(name, [render(r) for r in rows if modality(r) == k]) for k, name in enumerate(GROUPS)]
+
+
+def pct(p):
+    if p >= 0.995:
+        return "&gt;99%"
+    if p < 0.005:
+        return "&lt;1%"
+    return f"{p:.0%}"
+
+
+def option_note(n):
+    return f"All {n} options" if n <= 3 else f"Top 3 of {n:,} options"
+
+
+def option_label(o):
+    detail = f"<small>: {esc(o['detail'])}</small>" if o.get("detail") else ""
+    return esc(o["label"]) + detail
+
+
+def decision_row(r):
+    opts = "".join(
+        f"<li style='--p:{o['prob'] * 100:.1f}%'>"
+        f"<span>{option_label(o)}</span><span>{pct(o['prob'])}</span></li>"
+        for o in r["outcome"])
+    outcome = (f"<ul class='opts'>{opts}</ul>"
+               f"<p class='note'>{option_note(r['n_options'])}</p>")
+    return example_row(r, outcome, "Outcome")
+
+
+def decision_list():
+    return table(by_modality(GALLERY["decisions"], decision_row))
+
+
+def retrieval_row(r):
+    if r["results"][0]["type"] == "text":
+        shown = r["results"][:3]
+        res = "<ol class='docs'>" + "".join(f"<li>{esc(x['text'])}</li>" for x in shown) + "</ol>"
+    else:
+        shown = r["results"]
+        res = ("<div class='res'>" + "".join(f"<img src='{url(x['file'])}' alt=''>" for x in shown)
+               + "</div>")
+    outcome = f"{res}<p class='note'>Top {len(shown)} of {r['corpus_size']:,} candidates</p>"
+    return example_row(r, outcome, "Top results")
+
+
+def retrieval_list():
+    return table(by_modality(GALLERY["retrieval"], retrieval_row))
+
+
+def footer():
+    return (f"<footer class='end'><span>Examples are drawn from the eval sets; outcomes are the "
+            f"model's own scores.</span><a href='{MODEL_URL}' target='_blank'>{MODEL_REPO}</a>"
+            f"</footer>")
+
+
+# ---------------------------------------------------------------- layout
+
+THEME = gr.themes.Base(
+    primary_hue="neutral", neutral_hue="neutral", radius_size=gr.themes.sizes.radius_none,
+    font=["-apple-system", "BlinkMacSystemFont", "SF Pro Text", "Helvetica Neue", "Inter",
+          "sans-serif"],
+).set(body_background_fill="#ffffff", block_background_fill="transparent",
+      block_border_width="0px", block_shadow="none")
+
+FORCE_LIGHT = "() => { document.body.classList.remove('dark'); " \
+              "document.documentElement.classList.remove('dark'); }"
+
+with gr.Blocks(css=open(ROOT / "style.css").read(), theme=THEME, js=FORCE_LIGHT,
+               title="MetaEncoder") as demo:
+    gr.HTML(header())
+    with gr.Column(elem_classes="page"):
+        with gr.Tabs(elem_classes="plain-tabs main-tabs"):
+            with gr.Tab("Decision making"):
+                gr.HTML(section_head(
+                    "Define the task state, instructions, and criteria in text with auxiliary media, "
+                    "alongside a set of multimodal candidates.",
+                    "MetaEncoder performs instruction-following decision-making.")
+                        + decision_list())
+            with gr.Tab("Retrieval"):
+                gr.HTML(section_head(
+                    "Define the query, context, and instructions in text with auxiliary media, "
+                    "alongside a pool of multimodal candidates.",
+                    "MetaEncoder performs instruction-following retrieval.")
+                        + retrieval_list())
+    gr.HTML(footer())
+
+demo.launch()

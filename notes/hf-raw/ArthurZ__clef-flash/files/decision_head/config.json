@@ -1,0 +1,19 @@
+{
+  "architectures": [
+    "ClefDecisionHead"
+  ],
+  "attention_bias": true,
+  "attention_dropout": 0.0,
+  "backbone_hidden_size": 4096,
+  "dtype": "bfloat16",
+  "hidden_act": "gelu",
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 4096,
+  "model_type": "clef",
+  "num_attention_heads": 16,
+  "num_evidence_layers": 2,
+  "num_hidden_layers": 4,
+  "num_key_value_heads": 16,
+  "transformers_version": "5.19.0.dev0"
+}

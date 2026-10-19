@@ -1,0 +1,77 @@
+diff --git a/vllm/v1/core/kv_cache_manager.py b/vllm/v1/core/kv_cache_manager.py
+index 226da3a..f7f3873 100644
+--- a/vllm/v1/core/kv_cache_manager.py
++++ b/vllm/v1/core/kv_cache_manager.py
+@@ -251,6 +251,15 @@ class KVCacheManager:
+         """Whether a local prefix cache lookup may be run for this request."""
+         return self.enable_caching and not request.skip_reading_prefix_cache
+ 
++    def deferred_by_same_step_hit(self, request_id: str) -> bool:
++        """True when the last allocate_slots refusal for this request was a Mamba
++        manager deferring it to the next step (the state block it would reuse is
++        being written in this step), not a shortage of free blocks."""
++        return any(
++            request_id in getattr(manager, "deferred_this_step", ())
++            for manager in self.coordinator.single_type_managers
++        )
++
+     def record_prefix_cache_stats(self, request: Request, num_hits: int) -> None:
+         # Don't count a request that skipped the cache lookup.
+         if not self.log_stats or not self.prefix_cache_lookup_enabled(request):
+diff --git a/vllm/v1/core/sched/scheduler.py b/vllm/v1/core/sched/scheduler.py
+index daf2b31..61c6dc2 100644
+--- a/vllm/v1/core/sched/scheduler.py
++++ b/vllm/v1/core/sched/scheduler.py
+@@ -1171,12 +1171,18 @@ class Scheduler(SchedulerInterface):
+                 )
+ 
+                 if new_blocks is None:
+-                    # The request cannot be scheduled.
+-
+                     # NOTE: we need to untouch the request from the encode cache
+                     # manager
+                     if request.has_encoder_inputs:
+                         self.encoder_cache_manager.free(request)
++                    if self.kv_cache_manager.deferred_by_same_step_hit(request_id):
++                        # A Mamba state block it would reuse is still being
++                        # written in this step: only this request waits for the
++                        # next step; the requests behind it can still run now.
++                        request_queue.pop_request()
++                        step_skipped_waiting.prepend_request(request)
++                        continue
++                    # The request cannot be scheduled: no free blocks.
+                     break
+ 
+                 # KVTransfer: the connector uses this info to determine
+diff --git a/vllm/v1/core/single_type_kv_cache_manager.py b/vllm/v1/core/single_type_kv_cache_manager.py
+index 40027e7..9916dce 100644
+--- a/vllm/v1/core/single_type_kv_cache_manager.py
++++ b/vllm/v1/core/single_type_kv_cache_manager.py
+@@ -1467,6 +1467,9 @@ class MambaManager(SingleTypeKVCacheManager):
+         # Mamba checkpoints follow Eagle's global replay boundary.
+         self.drop_eagle_checkpoint_block = False
+         self.cached_blocks_this_step: set[BlockHashWithGroupId] = set()
++        # requests refused this step because the state block they would reuse is
++        # being written in this step (see get_num_blocks_to_allocate)
++        self.deferred_this_step: set[str] = set()
+         if self.mamba_cache_mode == "align":
+             # Mapping from request ID to the index of the block
+             # allocated in the previous step
+@@ -1729,7 +1732,9 @@ class MambaManager(SingleTypeKVCacheManager):
+             # To put it in the next step, we return num_gpu_blocks + 1 so
+             # that kv_cache_manager will think there is no enough blocks to allocate now
+             # and don't schedule it in the current step.
++            self.deferred_this_step.add(request_id)
+             return self.block_pool.num_gpu_blocks + 1
++        self.deferred_this_step.discard(request_id)
+         if self.mamba_cache_mode != "align":
+             # Allocate extra `num_speculative_blocks` blocks for
+             # speculative decoding (MTP/EAGLE) with linear attention.
+@@ -2034,6 +2039,7 @@ class MambaManager(SingleTypeKVCacheManager):
+                     )
+ 
+     def new_step_starts(self) -> None:
++        self.deferred_this_step.clear()
+         self.cached_blocks_this_step.clear()
+ 
+     def _cache_partial_tail_block(

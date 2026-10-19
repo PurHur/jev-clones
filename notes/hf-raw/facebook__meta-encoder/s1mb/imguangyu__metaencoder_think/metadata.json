@@ -1,0 +1,10 @@
+{
+  "model_id": "imguangyu__metaencoder_think",
+  "display_name": "MetaEncoder-think",
+  "short_name": "MetaEncoder-think",
+  "url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+  "hf_url": "https://huggingface.co/facebook/meta-encoder",
+  "total_params": 59553253376,
+  "active_params": 56860444672,
+  "parameter_count_method": "embedding_excluded_parameters_v1"
+}

@@ -1,0 +1,171 @@
+{
+ "format": "vela2-decoder-release/1",
+ "model_name": "vllm-sr/Vela-2.0-4B",
+ "size": "4B",
+ "exported_utc": "2026-10-03T11:13:09Z",
+ "exporter": "export_vela2_decoder_20261001.py",
+ "base": {
+  "repo_id": "vllm-sr/Decision-2.0-Nox-4B",
+  "revision": "d55528d1635fc474061ec59e31a7c722d3e7ab95",
+  "package": "Decision-2.0-Nox-4B@d55528d1635f",
+  "package_path": "/root/adamko/dev2/pkgs/Decision-2.0-Nox-4B@d55528d1635f",
+  "package_manifest_sha256": "c87715ba9a56cf8e95e97102f9518d9edea7e4282290462f5682d4cef9764133",
+  "decision_config": {
+   "architecture": "qwen3.5-text-endpoints-global-query-shared-bilinear-mlp",
+   "prompt_version": "decision2-segmented-options-global-query-v1",
+   "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+   "head_dim": 256,
+   "training_mode": "materialized-lora",
+   "initialization": "uniform-soup-of-full-checkpoints"
+  },
+  "full_training_source": {
+   "kind": "merged-lora-base",
+   "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+   "source_fingerprint": {
+    "source_name": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "files_sha256": {
+     "config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+     "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+     "model.safetensors-00001-of-00002.safetensors": "df547074dce70532a0493e5433152bd17a65efb89088cfabc2e7e2371a93d712",
+     "model.safetensors-00002-of-00002.safetensors": "590fbaac095dd31db886c322d9d2f7df47777966391acf306ddddc3e4e3a15ef",
+     "model.safetensors.index.json": "eae340074abb0a5f31a6621f7ae8e8248a7c1790df04a722c4e4b70c2a6d1dbb",
+     "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+     "tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+     "tokenizer_config.json": "3891e840d7dc5fca0af33d3a25083a735e36fe06214e3f707024820cb6b9f89c",
+     "video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+     "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+    }
+   }
+  },
+  "decision_head_sha256": "6d753735a9781e4dc5eebc410686814c42368220a60be0979da03b900ffa2c6b"
+ },
+ "training": {
+  "checkpoint": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2/ckpt-003000",
+  "step": 3000,
+  "trainer": "train_vela2_decoder_d3_20261001.py",
+  "args": {
+   "output_dir": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2",
+   "pkg": "/root/adamko/dev2/pkgs/Decision-2.0-Nox-4B@d55528d1635f",
+   "span_variant": "hw",
+   "span_head": "v2",
+   "init_ckpt": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage1/ckpt-004000",
+   "freeze_backbone": true,
+   "only": "pii,pii_v3,pii_replay,halu,toxic,tydiqa_goldp",
+   "repulsion_w": 0.2,
+   "hybrid_rmax": 2048,
+   "max_length": 8192,
+   "batch_size": 16,
+   "token_budget": 16384,
+   "grad_accum": 2,
+   "encoder_lr": 1e-05,
+   "head_lr": 0.0003,
+   "temp": 0.05,
+   "p_abs": 0.3,
+   "steps": 3000,
+   "tier0_weights": "shield=0.4193548387,halu=0.3870967742,toxic=0.0483870968,domain=0.0322580645,feedback=0.0322580645,pii=0.0241935484,pii_replay=0.0080645161,factcheck=0.0161290323,modality=0.0161290323,attack_v8=0.0161290323",
+   "tier1_share": 0.3,
+   "tier1_temp": 0.5,
+   "tier1_cap": "snli,massive",
+   "oasst_flag_keep": 0.25,
+   "no_tier1": false,
+   "label_recipe": "gliner2",
+   "p_anon": 0.5,
+   "drop_max": 0.5,
+   "include_true_p": 0.5,
+   "p_abs_binary": 0.3,
+   "span_readout": "word",
+   "pool_file": "massive=data/massive_full_20260926/train/massive.jsonl,halu=data/halu_fit8k_20260927/halu.jsonl",
+   "extra_pools": "pii_v3=data/pii_v3_20260927/generic/pii_v3.jsonl:0.30",
+   "teacher_file": "data/teacher_v2_20260927/train_clean.jsonl",
+   "teacher_share": 0.25,
+   "teacher_weight": 1.0,
+   "teacher2_file": "",
+   "teacher2_share": 0.0,
+   "teacher3_file": "",
+   "teacher3_share": 0.0,
+   "teacher_soft_mix": 0.0,
+   "carve_dev": true,
+   "seed": 44,
+   "max_steps": 0,
+   "sched_steps": 0,
+   "log_every": 50,
+   "probe_loss": false,
+   "dev_probe": true,
+   "dev_pii": 300,
+   "dev_halu": 200,
+   "grad_ckpt": false,
+   "mem_fraction": 0.0,
+   "prep_only": false,
+   "save": false,
+   "replay_file": "",
+   "replay_teacher": "",
+   "replay_share": 0.075,
+   "replay_brier": 0.5,
+   "replay_kl": 0.5,
+   "save_every": 1000,
+   "save_opt": false,
+   "resume": "",
+   "lr_scale": 1.0,
+   "step_offset": 0
+  },
+  "sources": {
+   "init_ckpt_model_pt": {
+    "path": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage1/ckpt-004000/model.pt",
+    "sha256": "2adf70bca64aa5900f45c7f6b8e9a5a11adf4ab59e6852be8e0f15055ed42227"
+   },
+   "head_pt": {
+    "path": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2/ckpt-003000/head.pt",
+    "sha256": "a60975cb7519430b9f9d0936bbba90b110b42e86d4d597a72b65ef42b36bf44c"
+   }
+  }
+ },
+ "weights": {
+  "mode": "mixed",
+  "n_tensors": 450,
+  "n_params": 4211182082,
+  "n_bf16_tensors": 272,
+  "shards": 3,
+  "bytes": 9704974344,
+  "dropped_tensors": [
+   "log_tau_span",
+   "span_norm.weight",
+   "span_norm.bias",
+   "w_t.weight",
+   "w_t.bias",
+   "w_e.weight",
+   "w_e.bias"
+  ],
+  "names": "backbone.* = Qwen3_5TextModel; head.* = DEV2.0 CandidateHead; set_bias; span2.* = SpanHeadV2"
+ },
+ "calibration": {
+  "cal_dir": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2/ckpt-003000",
+  "pii_cal": "/root/adamko/export/work_4B_nb_20261003/pii_cal/pii_calibration.json",
+  "noul_cal": "/root/adamko/rel_20261003/optcal/out/noul_calibration_NB-4B.json"
+ },
+ "licence_files": [
+  "LICENSE"
+ ],
+ "torch": "2.13.0+rocm7.14.0",
+ "files_sha256": {
+  "LICENSE": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+  "MODIFICATIONS.md": "24eaaeab92ecfb74f6290d395dedc6b1e86ef62ad7b2fd5c9d3518c42557db9d",
+  "PARITY.md": "f6ae581566039b2aab9f648f3cd52353700e3779c5caaf8d6568e29ee672d375",
+  "PARITY_cuda.md": "f6ae581566039b2aab9f648f3cd52353700e3779c5caaf8d6568e29ee672d375",
+  "README.md": "728436b375b5ac181cad64b045c7b5e47697d190258729ea0b2b28303e752785",
+  "calibration.json": "a22e7352db0a52bf16dc23c0bcd2dbe34fa1ceaf972d0a806109165f6828fc05",
+  "card_examples.json": "2e8bba1d21777791765dbb6af12929cd1acb1457ddf2eaa61ee22ccddfdf7256",
+  "config.json": "c0318849c586fe42f98db289c9d959642a8e2020726f2b3cb4685ccfc9912c40",
+  "configuration_vela2.py": "c9a41e434a9d2cfeb3ab6581c00679d241b3468c04d160a811d6fe2c85cd071f",
+  "model-00001-of-00003.safetensors": "32a4c236433eb321eed9c8f1b3c538b1e92c9d10434f881f19297ec31df8a3f2",
+  "model-00002-of-00003.safetensors": "f632598bf50da7f07fca7b6a0588c2b528c05158d03877205450d36dc3ce9662",
+  "model-00003-of-00003.safetensors": "6f59ab795dc73e0fdb5f25cb0522808537097db2b9b0e147fc4c33f12ff90a80",
+  "model.safetensors.index.json": "24e5eea6b54282cdf32a7f8d746f9c7b3f8c2ef66bcd57b333fd0022b7c74ca0",
+  "modeling_vela2.py": "44d75ebd3dd5e777e7a5a3806f819d40f5fc79c2caa36113e79837bd6e476da7",
+  "parity_cuda.json": "ff140a224ee429b48c782d44124a302549a3bc8e6743fc3107aa8adde264c274",
+  "pii_calibration_fit.json": "51b891ab9546857c643d1442e0fe48b08b7719187dadaba27be65530493687dd",
+  "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+  "tokenizer_config.json": "353c083805d863719e54973335a38e252a92e1ac64d32b83bb0b333cc1644ef2",
+  "vela2_inference.py": "04751a45adfe63b88574f882053a5131013a2ba9a778f58d069314ab4189aae9",
+  "vela2_serve.py": "68e1ef278561f452aa0ca6afd6aa288636cecdb0b37fd7f7146a3c9bf17aa787"
+ }
+}

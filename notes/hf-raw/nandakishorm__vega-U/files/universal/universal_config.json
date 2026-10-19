@@ -1,0 +1,931 @@
+{
+  "work_dir": "/kaggle/working",
+  "tmp_dir": "/tmp/vega_u",
+  "data_dir": "/tmp/vega_u_data",
+  "feat_dir": "/tmp/vega_u/feat/_unset",
+  "final_dir": "/kaggle/working/outputs/universal",
+  "min_free_disk_gb": 4.0,
+  "data_budget_gb": 6.0,
+  "seed": 13,
+  "commercial_only": false,
+  "include_email_sources": true,
+  "skip_sources": [],
+  "prepare_threads": 3,
+  "calib_frac": 0.02,
+  "calib_cap_per_source": 1500,
+  "eval_cap_per_source": 2000,
+  "kind_question_prob": 0.25,
+  "caps": {
+    "default_train": 60000,
+    "boolq": 9427,
+    "mnli": 120000,
+    "snli": 60000,
+    "anli": 60000,
+    "vitaminc": 80000,
+    "clinc150": 15250,
+    "helpsteer2": 20324,
+    "civil_comments": 80000,
+    "jailbreak": 3200,
+    "ag_news": 40000,
+    "amazon_reviews": 60000,
+    "go_emotions": 43410,
+    "ms_marco": 80000,
+    "natural_instructions": 150000,
+    "sales": 25000,
+    "jaggedness": 40000,
+    "enron_spam": 31000,
+    "phishing_emails": 17000,
+    "phishing_urls": 40000,
+    "support_tickets": 26000,
+    "bitext_intents": 24000
+  },
+  "ni_max_tasks": 227,
+  "ni_scan_lines": 3000,
+  "ni_holdout_pct": 15,
+  "ni_zs_per_task": 150,
+  "ni_eval_per_task": 60,
+  "sales_chunksize": 2000,
+  "max_len": 1024,
+  "max_len_by_source": {
+    "longctx": 73728,
+    "hardctx": 16384
+  },
+  "max_prefixes": 6,
+  "max_choice_options_train": 20,
+  "backbone": "Qwen/Qwen3.5-4B",
+  "backbone_name": "Qwen/Qwen3.5-4B",
+  "feature_layers": [
+    0.6,
+    0.85
+  ],
+  "option_layers": [
+    0.85
+  ],
+  "opt_max_tokens": 32,
+  "max_options_train": 20,
+  "view_frac_train": 0.25,
+  "view_frac_calib": 0.5,
+  "extract_hours": 2.0,
+  "max_train_items": 700000,
+  "max_train_items_per_source": 80000,
+  "eval_max_per_source": 1000,
+  "eval_zs_max_per_source": 2000,
+  "extract_batch_tokens": 131072,
+  "extract_max_seqs": 512,
+  "extract_buffer_items": 16384,
+  "extract_buffer_tokens": 20000000,
+  "extract_workers": "auto",
+  "latent_dim": 64,
+  "world_dim": 256,
+  "proj_hidden": 2048,
+  "n_steps": 12,
+  "dt_max": 0.5,
+  "settle_eps": 0.01,
+  "force_max": 20.0,
+  "ssm_state": 32,
+  "memory_chunks": 16,
+  "memory_chunk_tokens": 128,
+  "memory_min_tokens": 128,
+  "query_first_max_state": 4096,
+  "prefix_min_tokens": 4096,
+  "extract_first_sources": [
+    "longctx"
+  ],
+  "extract_first_hours": 0.0,
+  "extract_single_tokens": 8192,
+  "dropout": 0.1,
+  "feature_dropout": 0.1,
+  "epochs": 40,
+  "train_minutes": 150,
+  "batch_size": 4096,
+  "lr": 0.001,
+  "weight_decay": 0.02,
+  "warmup_steps": 300,
+  "grad_clip": 1.0,
+  "patience": 5,
+  "log_every": 100,
+  "deep_power": 1.0,
+  "score_sigma": 0.5,
+  "bind_radius": 1.0,
+  "cov_weight": 0.04,
+  "loss_weights": {
+    "capture": 1.0,
+    "bind": 0.05,
+    "lyapunov": 0.1,
+    "settle": 0.0,
+    "variance": 0.2,
+    "counterfactual": 0.2,
+    "dynamics": 0.3,
+    "invariance": 0.5
+  },
+  "balance_noul": true,
+  "balance_noul_max_weight": 4.0,
+  "abstain_risk": 0.1,
+  "dedup_calib": true,
+  "zs_calib_frac": 0.5,
+  "zs_calib_weight": 0.2,
+  "universal": {
+    "d_shared": 1024,
+    "reference": "Qwen3.5-0.8B",
+    "backbones": {
+      "Qwen3.5-0.8B": {
+        "path": "/kaggle/input/notebooks/nandakishorconvai/vega-universal-prep-online-cpu/bundle/models/Qwen3.5-0.8B",
+        "feat_dir": "/tmp/vega_u/feat/Qwen3.5-0.8B"
+      },
+      "gemma-3-1b-it": {
+        "path": "/kaggle/input/notebooks/nandakishorconvai/vega-assets/models/gemma-3-1b-it",
+        "feat_dir": "/tmp/vega_u/feat/gemma-3-1b-it"
+      }
+    },
+    "inv_weight": 1.0,
+    "inv_batch": 3072,
+    "align_records": 60000,
+    "align_rows_cap": 80000,
+    "ridge_rows": 150000,
+    "out_dir": "/kaggle/working/outputs"
+  },
+  "training": {
+    "best_epoch": 8,
+    "best_mean_calib_nll": 0.4893928306203063,
+    "epochs_run": 14,
+    "steps": 2422,
+    "minutes": 10.3,
+    "items": {
+      "Qwen3.5-0.8B": 710138,
+      "gemma-3-1b-it": 708657
+    },
+    "engine_params": 14342512,
+    "history": [
+      {
+        "epoch": 0,
+        "step": 173,
+        "minutes": 0.7,
+        "train": {
+          "inv": 1.3622,
+          "Qwen3.5-0.8B/capture": 0.8507,
+          "Qwen3.5-0.8B/bind": 0.9781,
+          "Qwen3.5-0.8B/lyapunov": 0.0,
+          "Qwen3.5-0.8B/settle": 1.3973,
+          "Qwen3.5-0.8B/variance": 0.8943,
+          "Qwen3.5-0.8B/counterfactual": 0.422,
+          "Qwen3.5-0.8B/dynamics": 0.0297,
+          "Qwen3.5-0.8B/invariance": 0.1519,
+          "Qwen3.5-0.8B/acc_final": 0.6124,
+          "Qwen3.5-0.8B/acc_step0": 0.6165,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.8527,
+          "gemma-3-1b-it/bind": 0.8494,
+          "gemma-3-1b-it/lyapunov": 0.0001,
+          "gemma-3-1b-it/settle": 1.4086,
+          "gemma-3-1b-it/variance": 0.8942,
+          "gemma-3-1b-it/counterfactual": 0.4081,
+          "gemma-3-1b-it/dynamics": 0.028,
+          "gemma-3-1b-it/invariance": 0.1394,
+          "gemma-3-1b-it/acc_final": 0.6045,
+          "gemma-3-1b-it/acc_step0": 0.6074,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7131409941669776,
+            "acc_step0": 0.7182080745697021,
+            "nll_tempered": 0.579997407940063,
+            "ece_tempered": 0.016591496710111432,
+            "temps": [
+              -0.4196593369660777,
+              -0.4436617026443127,
+              -0.5940192376722297
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.6939136241333935,
+            "acc_step0": 0.6934815645217896,
+            "nll_tempered": 0.622859432039281,
+            "ece_tempered": 0.016237266897323764,
+            "temps": [
+              -0.08842684406499543,
+              -0.385140887508771,
+              -0.48055091867681876
+            ]
+          }
+        },
+        "mean_nll": 0.6014
+      },
+      {
+        "epoch": 1,
+        "step": 346,
+        "minutes": 1.5,
+        "train": {
+          "inv": 1.3803,
+          "Qwen3.5-0.8B/capture": 0.6237,
+          "Qwen3.5-0.8B/bind": 0.0511,
+          "Qwen3.5-0.8B/lyapunov": 0.0,
+          "Qwen3.5-0.8B/settle": 1.7991,
+          "Qwen3.5-0.8B/variance": 0.3493,
+          "Qwen3.5-0.8B/counterfactual": 0.0915,
+          "Qwen3.5-0.8B/dynamics": 0.0091,
+          "Qwen3.5-0.8B/invariance": 0.0402,
+          "Qwen3.5-0.8B/acc_final": 0.7114,
+          "Qwen3.5-0.8B/acc_step0": 0.7112,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.6559,
+          "gemma-3-1b-it/bind": 0.0555,
+          "gemma-3-1b-it/lyapunov": 0.0001,
+          "gemma-3-1b-it/settle": 1.8038,
+          "gemma-3-1b-it/variance": 0.3611,
+          "gemma-3-1b-it/counterfactual": 0.0897,
+          "gemma-3-1b-it/dynamics": 0.0092,
+          "gemma-3-1b-it/invariance": 0.0423,
+          "gemma-3-1b-it/acc_final": 0.6891,
+          "gemma-3-1b-it/acc_step0": 0.6878,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7455859536107783,
+            "acc_step0": 0.7475302815437317,
+            "nll_tempered": 0.5351101977497515,
+            "ece_tempered": 0.019538159514153275,
+            "temps": [
+              -0.5308988587916665,
+              -0.35833058201585055,
+              -0.5445242441559836
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.710411061138716,
+            "acc_step0": 0.7109217047691345,
+            "nll_tempered": 0.5890107326665867,
+            "ece_tempered": 0.01557970926946344,
+            "temps": [
+              -0.44226523553350955,
+              -0.2987143657720767,
+              -0.5757618691532499
+            ]
+          }
+        },
+        "mean_nll": 0.5621
+      },
+      {
+        "epoch": 2,
+        "step": 519,
+        "minutes": 2.2,
+        "train": {
+          "inv": 1.3891,
+          "Qwen3.5-0.8B/capture": 0.5838,
+          "Qwen3.5-0.8B/bind": 0.0391,
+          "Qwen3.5-0.8B/lyapunov": 0.0,
+          "Qwen3.5-0.8B/settle": 2.0216,
+          "Qwen3.5-0.8B/variance": 0.2115,
+          "Qwen3.5-0.8B/counterfactual": 0.0571,
+          "Qwen3.5-0.8B/dynamics": 0.0076,
+          "Qwen3.5-0.8B/invariance": 0.037,
+          "Qwen3.5-0.8B/acc_final": 0.7355,
+          "Qwen3.5-0.8B/acc_step0": 0.7322,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.624,
+          "gemma-3-1b-it/bind": 0.0435,
+          "gemma-3-1b-it/lyapunov": 0.0,
+          "gemma-3-1b-it/settle": 2.0217,
+          "gemma-3-1b-it/variance": 0.2267,
+          "gemma-3-1b-it/counterfactual": 0.0571,
+          "gemma-3-1b-it/dynamics": 0.008,
+          "gemma-3-1b-it/invariance": 0.0364,
+          "gemma-3-1b-it/acc_final": 0.7106,
+          "gemma-3-1b-it/acc_step0": 0.7075,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7690358819254866,
+            "acc_step0": 0.7609835863113403,
+            "nll_tempered": 0.5006770676983587,
+            "ece_tempered": 0.01852055595897287,
+            "temps": [
+              -0.48821818202532635,
+              -0.3315439429233382,
+              -0.33669943193127866
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7435826934029892,
+            "acc_step0": 0.738162100315094,
+            "nll_tempered": 0.542833418321719,
+            "ece_tempered": 0.014581336570795411,
+            "temps": [
+              -0.28550221591399305,
+              -0.26023169431389137,
+              -0.2018786625796096
+            ]
+          }
+        },
+        "mean_nll": 0.5218
+      },
+      {
+        "epoch": 3,
+        "step": 692,
+        "minutes": 2.9,
+        "train": {
+          "inv": 1.3852,
+          "Qwen3.5-0.8B/capture": 0.56,
+          "Qwen3.5-0.8B/bind": 0.0352,
+          "Qwen3.5-0.8B/lyapunov": 0.0001,
+          "Qwen3.5-0.8B/settle": 2.1492,
+          "Qwen3.5-0.8B/variance": 0.1578,
+          "Qwen3.5-0.8B/counterfactual": 0.0475,
+          "Qwen3.5-0.8B/dynamics": 0.0065,
+          "Qwen3.5-0.8B/invariance": 0.0344,
+          "Qwen3.5-0.8B/acc_final": 0.749,
+          "Qwen3.5-0.8B/acc_step0": 0.741,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.6044,
+          "gemma-3-1b-it/bind": 0.0392,
+          "gemma-3-1b-it/lyapunov": 0.0001,
+          "gemma-3-1b-it/settle": 2.1436,
+          "gemma-3-1b-it/variance": 0.1697,
+          "gemma-3-1b-it/counterfactual": 0.0473,
+          "gemma-3-1b-it/dynamics": 0.0068,
+          "gemma-3-1b-it/invariance": 0.0322,
+          "gemma-3-1b-it/acc_final": 0.7224,
+          "gemma-3-1b-it/acc_step0": 0.716,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.770116071253216,
+            "acc_step0": 0.7652060985565186,
+            "nll_tempered": 0.49023644222442514,
+            "ece_tempered": 0.015550706196390488,
+            "temps": [
+              -0.3877918389320744,
+              -0.40945427656562466,
+              -0.4356122194969982
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7395761729874109,
+            "acc_step0": 0.7394583225250244,
+            "nll_tempered": 0.5408423329558127,
+            "ece_tempered": 0.013876345438453412,
+            "temps": [
+              -0.29980788863089564,
+              -0.393092145347308,
+              -0.3005348894501998
+            ]
+          }
+        },
+        "mean_nll": 0.5155
+      },
+      {
+        "epoch": 4,
+        "step": 865,
+        "minutes": 3.7,
+        "train": {
+          "inv": 1.389,
+          "Qwen3.5-0.8B/capture": 0.5405,
+          "Qwen3.5-0.8B/bind": 0.0327,
+          "Qwen3.5-0.8B/lyapunov": 0.0002,
+          "Qwen3.5-0.8B/settle": 2.2356,
+          "Qwen3.5-0.8B/variance": 0.1302,
+          "Qwen3.5-0.8B/counterfactual": 0.0425,
+          "Qwen3.5-0.8B/dynamics": 0.0067,
+          "Qwen3.5-0.8B/invariance": 0.0341,
+          "Qwen3.5-0.8B/acc_final": 0.7608,
+          "Qwen3.5-0.8B/acc_step0": 0.7486,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.5852,
+          "gemma-3-1b-it/bind": 0.0376,
+          "gemma-3-1b-it/lyapunov": 0.0001,
+          "gemma-3-1b-it/settle": 2.2177,
+          "gemma-3-1b-it/variance": 0.1423,
+          "gemma-3-1b-it/counterfactual": 0.0425,
+          "gemma-3-1b-it/dynamics": 0.007,
+          "gemma-3-1b-it/invariance": 0.0322,
+          "gemma-3-1b-it/acc_final": 0.7352,
+          "gemma-3-1b-it/acc_step0": 0.726,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7788165052929277,
+            "acc_step0": 0.7685056328773499,
+            "nll_tempered": 0.47748789048527174,
+            "ece_tempered": 0.01341530502756461,
+            "temps": [
+              -0.3159570302448922,
+              -0.37033503572754806,
+              -0.2552788492776244
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7467250623563839,
+            "acc_step0": 0.7372979521751404,
+            "nll_tempered": 0.5324452715197172,
+            "ece_tempered": 0.01636664077611759,
+            "temps": [
+              -0.13421833170991262,
+              -0.36921645852706453,
+              -0.16735858319995847
+            ]
+          }
+        },
+        "mean_nll": 0.505
+      },
+      {
+        "epoch": 5,
+        "step": 1038,
+        "minutes": 4.4,
+        "train": {
+          "inv": 1.3913,
+          "Qwen3.5-0.8B/capture": 0.5217,
+          "Qwen3.5-0.8B/bind": 0.0326,
+          "Qwen3.5-0.8B/lyapunov": 0.0002,
+          "Qwen3.5-0.8B/settle": 2.2538,
+          "Qwen3.5-0.8B/variance": 0.1111,
+          "Qwen3.5-0.8B/counterfactual": 0.0399,
+          "Qwen3.5-0.8B/dynamics": 0.0066,
+          "Qwen3.5-0.8B/invariance": 0.0348,
+          "Qwen3.5-0.8B/acc_final": 0.771,
+          "Qwen3.5-0.8B/acc_step0": 0.7544,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.5696,
+          "gemma-3-1b-it/bind": 0.0363,
+          "gemma-3-1b-it/lyapunov": 0.0002,
+          "gemma-3-1b-it/settle": 2.2399,
+          "gemma-3-1b-it/variance": 0.122,
+          "gemma-3-1b-it/counterfactual": 0.0401,
+          "gemma-3-1b-it/dynamics": 0.007,
+          "gemma-3-1b-it/invariance": 0.0326,
+          "gemma-3-1b-it/acc_final": 0.7439,
+          "gemma-3-1b-it/acc_step0": 0.7312,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7808197655007169,
+            "acc_step0": 0.7694679498672485,
+            "nll_tempered": 0.4793764395217817,
+            "ece_tempered": 0.014916138649569172,
+            "temps": [
+              -0.3149761103393337,
+              -0.3625156849965078,
+              -0.3237005012487742
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7477463322662372,
+            "acc_step0": 0.7411670088768005,
+            "nll_tempered": 0.5313182763020232,
+            "ece_tempered": 0.01062541639163696,
+            "temps": [
+              -0.21204475573524817,
+              -0.37251568245825994,
+              -0.24869230362435998
+            ]
+          }
+        },
+        "mean_nll": 0.5053
+      },
+      {
+        "epoch": 6,
+        "step": 1211,
+        "minutes": 5.1,
+        "train": {
+          "inv": 1.3939,
+          "Qwen3.5-0.8B/capture": 0.5049,
+          "Qwen3.5-0.8B/bind": 0.0326,
+          "Qwen3.5-0.8B/lyapunov": 0.0003,
+          "Qwen3.5-0.8B/settle": 2.3016,
+          "Qwen3.5-0.8B/variance": 0.1009,
+          "Qwen3.5-0.8B/counterfactual": 0.0389,
+          "Qwen3.5-0.8B/dynamics": 0.0069,
+          "Qwen3.5-0.8B/invariance": 0.0356,
+          "Qwen3.5-0.8B/acc_final": 0.7799,
+          "Qwen3.5-0.8B/acc_step0": 0.7598,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.5552,
+          "gemma-3-1b-it/bind": 0.0379,
+          "gemma-3-1b-it/lyapunov": 0.0002,
+          "gemma-3-1b-it/settle": 2.2852,
+          "gemma-3-1b-it/variance": 0.1111,
+          "gemma-3-1b-it/counterfactual": 0.0394,
+          "gemma-3-1b-it/dynamics": 0.0071,
+          "gemma-3-1b-it/invariance": 0.0338,
+          "gemma-3-1b-it/acc_final": 0.7524,
+          "gemma-3-1b-it/acc_step0": 0.7359,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7857493567963548,
+            "acc_step0": 0.7653043270111084,
+            "nll_tempered": 0.4772330615860431,
+            "ece_tempered": 0.016124233184340715,
+            "temps": [
+              -0.2563018873845728,
+              -0.3450082166665293,
+              -0.2649341297766573
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.741441954553489,
+            "acc_step0": 0.7322897911071777,
+            "nll_tempered": 0.5415965310100072,
+            "ece_tempered": 0.00995703781640684,
+            "temps": [
+              -0.05950167422790066,
+              -0.3047375081559974,
+              -0.20212956716026634
+            ]
+          }
+        },
+        "mean_nll": 0.5094
+      },
+      {
+        "epoch": 7,
+        "step": 1384,
+        "minutes": 5.9,
+        "train": {
+          "inv": 1.3971,
+          "Qwen3.5-0.8B/capture": 0.4895,
+          "Qwen3.5-0.8B/bind": 0.0333,
+          "Qwen3.5-0.8B/lyapunov": 0.0003,
+          "Qwen3.5-0.8B/settle": 2.3676,
+          "Qwen3.5-0.8B/variance": 0.0902,
+          "Qwen3.5-0.8B/counterfactual": 0.0375,
+          "Qwen3.5-0.8B/dynamics": 0.0069,
+          "Qwen3.5-0.8B/invariance": 0.0367,
+          "Qwen3.5-0.8B/acc_final": 0.7883,
+          "Qwen3.5-0.8B/acc_step0": 0.766,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.5401,
+          "gemma-3-1b-it/bind": 0.0369,
+          "gemma-3-1b-it/lyapunov": 0.0002,
+          "gemma-3-1b-it/settle": 2.3514,
+          "gemma-3-1b-it/variance": 0.0999,
+          "gemma-3-1b-it/counterfactual": 0.0384,
+          "gemma-3-1b-it/dynamics": 0.0072,
+          "gemma-3-1b-it/invariance": 0.0336,
+          "gemma-3-1b-it/acc_final": 0.7612,
+          "gemma-3-1b-it/acc_step0": 0.7421,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7868295461240843,
+            "acc_step0": 0.7762240767478943,
+            "nll_tempered": 0.47068961022418515,
+            "ece_tempered": 0.019201626494586004,
+            "temps": [
+              -0.20961283334280503,
+              -0.2312550151656311,
+              -0.26174169705967065
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7381424671524245,
+            "acc_step0": 0.73600172996521,
+            "nll_tempered": 0.54057026175243,
+            "ece_tempered": 0.006014784475511015,
+            "temps": [
+              0.07704902299510395,
+              -0.2835056489060332,
+              -0.08571640564046815
+            ]
+          }
+        },
+        "mean_nll": 0.5056
+      },
+      {
+        "epoch": 8,
+        "step": 1557,
+        "minutes": 6.6,
+        "train": {
+          "inv": 1.4032,
+          "Qwen3.5-0.8B/capture": 0.4729,
+          "Qwen3.5-0.8B/bind": 0.0347,
+          "Qwen3.5-0.8B/lyapunov": 0.0004,
+          "Qwen3.5-0.8B/settle": 2.3994,
+          "Qwen3.5-0.8B/variance": 0.0854,
+          "Qwen3.5-0.8B/counterfactual": 0.0379,
+          "Qwen3.5-0.8B/dynamics": 0.0077,
+          "Qwen3.5-0.8B/invariance": 0.0388,
+          "Qwen3.5-0.8B/acc_final": 0.7992,
+          "Qwen3.5-0.8B/acc_step0": 0.7714,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.53,
+          "gemma-3-1b-it/bind": 0.0403,
+          "gemma-3-1b-it/lyapunov": 0.0003,
+          "gemma-3-1b-it/settle": 2.3781,
+          "gemma-3-1b-it/variance": 0.0962,
+          "gemma-3-1b-it/counterfactual": 0.0387,
+          "gemma-3-1b-it/dynamics": 0.0084,
+          "gemma-3-1b-it/invariance": 0.0365,
+          "gemma-3-1b-it/acc_final": 0.7675,
+          "gemma-3-1b-it/acc_step0": 0.7444,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7935267199560069,
+            "acc_step0": 0.7767543196678162,
+            "nll_tempered": 0.4693478547370481,
+            "ece_tempered": 0.0189284197985368,
+            "temps": [
+              -0.2696013129476614,
+              -0.19570444539299997,
+              -0.17621268455093242
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7682306498811792,
+            "acc_step0": 0.7584500312805176,
+            "nll_tempered": 0.5094378065035645,
+            "ece_tempered": 0.016128045480051915,
+            "temps": [
+              -0.21977732534136413,
+              -0.20914511626464266,
+              -0.18248224011631783
+            ]
+          }
+        },
+        "mean_nll": 0.4894
+      },
+      {
+        "epoch": 9,
+        "step": 1730,
+        "minutes": 7.3,
+        "train": {
+          "inv": 1.4132,
+          "Qwen3.5-0.8B/capture": 0.4566,
+          "Qwen3.5-0.8B/bind": 0.0367,
+          "Qwen3.5-0.8B/lyapunov": 0.0004,
+          "Qwen3.5-0.8B/settle": 2.475,
+          "Qwen3.5-0.8B/variance": 0.0781,
+          "Qwen3.5-0.8B/counterfactual": 0.0368,
+          "Qwen3.5-0.8B/dynamics": 0.0074,
+          "Qwen3.5-0.8B/invariance": 0.0395,
+          "Qwen3.5-0.8B/acc_final": 0.81,
+          "Qwen3.5-0.8B/acc_step0": 0.7789,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.5161,
+          "gemma-3-1b-it/bind": 0.0426,
+          "gemma-3-1b-it/lyapunov": 0.0003,
+          "gemma-3-1b-it/settle": 2.4555,
+          "gemma-3-1b-it/variance": 0.0896,
+          "gemma-3-1b-it/counterfactual": 0.0378,
+          "gemma-3-1b-it/dynamics": 0.0079,
+          "gemma-3-1b-it/invariance": 0.0372,
+          "gemma-3-1b-it/acc_final": 0.7774,
+          "gemma-3-1b-it/acc_step0": 0.7517,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7934874403440894,
+            "acc_step0": 0.7780898213386536,
+            "nll_tempered": 0.4689148042500163,
+            "ece_tempered": 0.020400428289070963,
+            "temps": [
+              -0.21149646410591813,
+              -0.15633903936968122,
+              -0.3444080260909557
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7617887935267199,
+            "acc_step0": 0.7539721727371216,
+            "nll_tempered": 0.5144976703052336,
+            "ece_tempered": 0.016923549615883215,
+            "temps": [
+              -0.212721562841228,
+              -0.14687359494665161,
+              -0.3096585728202762
+            ]
+          }
+        },
+        "mean_nll": 0.4917
+      },
+      {
+        "epoch": 10,
+        "step": 1903,
+        "minutes": 8.0,
+        "train": {
+          "inv": 1.4083,
+          "Qwen3.5-0.8B/capture": 0.4392,
+          "Qwen3.5-0.8B/bind": 0.036,
+          "Qwen3.5-0.8B/lyapunov": 0.0005,
+          "Qwen3.5-0.8B/settle": 2.5081,
+          "Qwen3.5-0.8B/variance": 0.0728,
+          "Qwen3.5-0.8B/counterfactual": 0.035,
+          "Qwen3.5-0.8B/dynamics": 0.0076,
+          "Qwen3.5-0.8B/invariance": 0.0406,
+          "Qwen3.5-0.8B/acc_final": 0.821,
+          "Qwen3.5-0.8B/acc_step0": 0.7875,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.4981,
+          "gemma-3-1b-it/bind": 0.0422,
+          "gemma-3-1b-it/lyapunov": 0.0003,
+          "gemma-3-1b-it/settle": 2.489,
+          "gemma-3-1b-it/variance": 0.0831,
+          "gemma-3-1b-it/counterfactual": 0.0357,
+          "gemma-3-1b-it/dynamics": 0.008,
+          "gemma-3-1b-it/invariance": 0.0379,
+          "gemma-3-1b-it/acc_final": 0.7883,
+          "gemma-3-1b-it/acc_step0": 0.7593,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7898933558536442,
+            "acc_step0": 0.7819392085075378,
+            "nll_tempered": 0.4732905236736959,
+            "ece_tempered": 0.019771687449502712,
+            "temps": [
+              -0.2633889476373277,
+              -0.12272392080615818,
+              -0.03831429436043379
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.759215978946128,
+            "acc_step0": 0.7560147047042847,
+            "nll_tempered": 0.528000235166822,
+            "ece_tempered": 0.020095013369222713,
+            "temps": [
+              -0.26675526533083455,
+              -0.14626761717686643,
+              -0.059718306431572915
+            ]
+          }
+        },
+        "mean_nll": 0.5006
+      },
+      {
+        "epoch": 11,
+        "step": 2076,
+        "minutes": 8.8,
+        "train": {
+          "inv": 1.4094,
+          "Qwen3.5-0.8B/capture": 0.426,
+          "Qwen3.5-0.8B/bind": 0.0375,
+          "Qwen3.5-0.8B/lyapunov": 0.0005,
+          "Qwen3.5-0.8B/settle": 2.53,
+          "Qwen3.5-0.8B/variance": 0.069,
+          "Qwen3.5-0.8B/counterfactual": 0.0343,
+          "Qwen3.5-0.8B/dynamics": 0.008,
+          "Qwen3.5-0.8B/invariance": 0.0413,
+          "Qwen3.5-0.8B/acc_final": 0.8283,
+          "Qwen3.5-0.8B/acc_step0": 0.7947,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.487,
+          "gemma-3-1b-it/bind": 0.0429,
+          "gemma-3-1b-it/lyapunov": 0.0003,
+          "gemma-3-1b-it/settle": 2.5117,
+          "gemma-3-1b-it/variance": 0.0792,
+          "gemma-3-1b-it/counterfactual": 0.0349,
+          "gemma-3-1b-it/dynamics": 0.0084,
+          "gemma-3-1b-it/invariance": 0.0387,
+          "gemma-3-1b-it/acc_final": 0.7951,
+          "gemma-3-1b-it/acc_step0": 0.7651,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7880472140935247,
+            "acc_step0": 0.7770489454269409,
+            "nll_tempered": 0.4756915854477547,
+            "ece_tempered": 0.017941348055567307,
+            "temps": [
+              -0.10413006625433661,
+              -0.04327861188947861,
+              -0.17775301570858554
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7598248129308482,
+            "acc_step0": 0.7525188326835632,
+            "nll_tempered": 0.5186215420676461,
+            "ece_tempered": 0.01600415409597351,
+            "temps": [
+              -0.13411069341514475,
+              -0.10475352549594194,
+              -0.24811142634689387
+            ]
+          }
+        },
+        "mean_nll": 0.4972
+      },
+      {
+        "epoch": 12,
+        "step": 2249,
+        "minutes": 9.5,
+        "train": {
+          "inv": 1.41,
+          "Qwen3.5-0.8B/capture": 0.413,
+          "Qwen3.5-0.8B/bind": 0.0393,
+          "Qwen3.5-0.8B/lyapunov": 0.0006,
+          "Qwen3.5-0.8B/settle": 2.5561,
+          "Qwen3.5-0.8B/variance": 0.0652,
+          "Qwen3.5-0.8B/counterfactual": 0.0342,
+          "Qwen3.5-0.8B/dynamics": 0.0078,
+          "Qwen3.5-0.8B/invariance": 0.0426,
+          "Qwen3.5-0.8B/acc_final": 0.836,
+          "Qwen3.5-0.8B/acc_step0": 0.8018,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.4729,
+          "gemma-3-1b-it/bind": 0.0436,
+          "gemma-3-1b-it/lyapunov": 0.0004,
+          "gemma-3-1b-it/settle": 2.5356,
+          "gemma-3-1b-it/variance": 0.0748,
+          "gemma-3-1b-it/counterfactual": 0.0345,
+          "gemma-3-1b-it/dynamics": 0.0082,
+          "gemma-3-1b-it/invariance": 0.0396,
+          "gemma-3-1b-it/acc_final": 0.8032,
+          "gemma-3-1b-it/acc_step0": 0.7725,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7890881238093368,
+            "acc_step0": 0.7842567563056946,
+            "nll_tempered": 0.47687042062965795,
+            "ece_tempered": 0.018049291021870754,
+            "temps": [
+              0.02303884614171237,
+              -0.1010143974129426,
+              -0.11848195416889079
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.760610405169197,
+            "acc_step0": 0.7563485503196716,
+            "nll_tempered": 0.5216184555521551,
+            "ece_tempered": 0.01703463097018601,
+            "temps": [
+              0.017262538037314357,
+              -0.11455060846887065,
+              -0.23690635616577402
+            ]
+          }
+        },
+        "mean_nll": 0.4992
+      },
+      {
+        "epoch": 13,
+        "step": 2422,
+        "minutes": 10.3,
+        "train": {
+          "inv": 1.4057,
+          "Qwen3.5-0.8B/capture": 0.3973,
+          "Qwen3.5-0.8B/bind": 0.0393,
+          "Qwen3.5-0.8B/lyapunov": 0.0006,
+          "Qwen3.5-0.8B/settle": 2.5579,
+          "Qwen3.5-0.8B/variance": 0.0612,
+          "Qwen3.5-0.8B/counterfactual": 0.033,
+          "Qwen3.5-0.8B/dynamics": 0.008,
+          "Qwen3.5-0.8B/invariance": 0.0431,
+          "Qwen3.5-0.8B/acc_final": 0.8443,
+          "Qwen3.5-0.8B/acc_step0": 0.8107,
+          "Qwen3.5-0.8B/steps": 12.0,
+          "gemma-3-1b-it/capture": 0.4581,
+          "gemma-3-1b-it/bind": 0.0431,
+          "gemma-3-1b-it/lyapunov": 0.0004,
+          "gemma-3-1b-it/settle": 2.5381,
+          "gemma-3-1b-it/variance": 0.0699,
+          "gemma-3-1b-it/counterfactual": 0.0337,
+          "gemma-3-1b-it/dynamics": 0.0082,
+          "gemma-3-1b-it/invariance": 0.0398,
+          "gemma-3-1b-it/acc_final": 0.8114,
+          "gemma-3-1b-it/acc_step0": 0.7809,
+          "gemma-3-1b-it/steps": 12.0
+        },
+        "calib": {
+          "Qwen3.5-0.8B": {
+            "acc": 0.7941944733586033,
+            "acc_step0": 0.7887346148490906,
+            "nll_tempered": 0.4757353823148722,
+            "ece_tempered": 0.021933953826415328,
+            "temps": [
+              0.028123004653313584,
+              -0.015520088407945812,
+              -0.08709625863104144
+            ]
+          },
+          "gemma-3-1b-it": {
+            "acc": 0.7692519197910325,
+            "acc_step0": 0.7674057483673096,
+            "nll_tempered": 0.5095210739499605,
+            "ece_tempered": 0.018539531702937168,
+            "temps": [
+              0.013682284645966412,
+              -0.06205007854702674,
+              -0.23182557782232663
+            ]
+          }
+        },
+        "mean_nll": 0.4926
+      }
+    ]
+  }
+}

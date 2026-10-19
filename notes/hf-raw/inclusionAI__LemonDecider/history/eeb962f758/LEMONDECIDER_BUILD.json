@@ -1,0 +1,25 @@
+{
+  "schema": "lemondecider-build-receipt/1",
+  "model_name": "lemondecider-4b-merge50-20261015-v2",
+  "display_name": "LemonDecider 4B (Qwen3.5-4B 公开数据双路线 SFT 50/50 合并)",
+  "compiled_utc": "2026-10-15T07:10:31Z",
+  "base": "Qwen/Qwen3.5-4B",
+  "training": {
+    "routes": 2,
+    "data": "public data sources",
+    "description": "two independent SFT routes from a common Qwen3.5-4B initialization, trained on public data sources"
+  },
+  "merge": {
+    "method": "exact 0.5*A + 0.5*B elementwise tensor merge, FP32 mean, one BF16 cast; FP32 readout preserved",
+    "tensors": 724,
+    "post_merge_training": false
+  },
+  "runtime": "lemonjev-qwen-decision-runtime-v2: noncausal_full_attention, pooling=last, T=1",
+  "weights": {
+    "shards": 2,
+    "note": "serialization files byte-identical to the parent merged package of the same weights (sha256 verified)"
+  },
+  "eval_policy": "No benchmark score is claimed by this package.",
+  "v2_of": "lemondecider-4b-merge50-20261015-v1",
+  "v2_change": "machine-identifier spelling normalized to the LemonDecider form (module filenames, auto_map, protocol and model_type); serialization weights byte-identical"
+}

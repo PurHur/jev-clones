@@ -1,0 +1,47 @@
+{
+  "architecture": "qwen3.5-text-endpoints-global-query-shared-bilinear-mlp",
+  "prompt_version": "decision2-segmented-options-global-query-v1",
+  "base_revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+  "source_prompt_version": "structured-segmented-candidate-endpoints-global-query-v2",
+  "head_dim": 256,
+  "max_options": 255,
+  "text_parameter_count": 1881825088,
+  "parameter_dtype": "float32",
+  "autocast_dtype": "bfloat16",
+  "head_compute_dtype": "float32",
+  "attention": "sdpa",
+  "checkpoint_format": "full",
+  "full_training_source": {
+    "kind": "decision1",
+    "revision": null,
+    "source_fingerprint": {
+      "source_name": "ce0c018a28de16d6639b1cd203b761bf643b89e6",
+      "files_sha256": {
+        "backbone/config.json": "e7bed6f1a1a4d5f029a28040e8687a122b323798d4674666443f6d78e9475a05",
+        "backbone/model.safetensors": "99f97c2564acc1d43b89a1c547b63ce1d87f062637d0a8ed41eb40d752849e36",
+        "config.json": "9821e18a406ca01f48789be7e82c1b0477d8a22db3070c1d4fc4ef17b39d2a09",
+        "decision_config.json": "535a7aa88ca6693f2e6fc2c5721166173931e408eaad3c18dd1c84228cdeeb13",
+        "decision_head.safetensors": "5c3dce45115fba20192c99a32fa89a379c2a6617f02e3647dc8f05e48dcaf215",
+        "temperature.json": "f0cbe7323441ceaf6abc8dd3f9b1832f5d4121a803f18e9643406aadd53c6efc",
+        "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+        "tokenizer_config.json": "bee8eba30f0eb4af73c0fe2cd06d0f89b657d7819941c438157ec42f7c80ea87"
+      }
+    }
+  },
+  "training_mode": "full",
+  "loss_version": "decision2-valid-k-ce-plus-optional-brier-and-replay-kl-v1",
+  "soup": {
+    "method": "uniform weight average (FP32)",
+    "members": [
+      {
+        "path": "/runs/m15/arms/full/m15-2b-RASDML-s1/checkpoint-0001398",
+        "model_sha256": "3b862866d5d12e33c746d45aae34ce87797b90107f6c721308b5f742cad73031"
+      },
+      {
+        "path": "/runs/m15/arms/full/m15-2b-RASDML-s2/checkpoint-0001398",
+        "model_sha256": "ef48c019e0f739675b080c18417a3e03c39974b6a624fef0e85b91c69d625441"
+      }
+    ]
+  },
+  "initialization": "uniform-soup-of-full-checkpoints"
+}

@@ -1,0 +1,45 @@
+{
+  "decision_format": "vllm-sr-decision",
+  "format_version": 1,
+  "model_name": "Decision-1.0-Lux-9B",
+  "runtime_family": "qwen3.5-decision",
+  "model_config": "decision_config.json",
+  "backbone": {
+    "config": "backbone/config.json",
+    "weights": [
+      "backbone/model-00001-of-00004.safetensors",
+      "backbone/model-00002-of-00004.safetensors",
+      "backbone/model-00003-of-00004.safetensors",
+      "backbone/model-00004-of-00004.safetensors"
+    ],
+    "index": "backbone/model.safetensors.index.json"
+  },
+  "tokenizer": {
+    "json": "tokenizer.json",
+    "config": "tokenizer_config.json",
+    "chat_template": "chat_template.jinja"
+  },
+  "decision_weights": {
+    "decision_head": "decision_head.safetensors"
+  },
+  "calibration": {
+    "temperature_file": "temperature.json"
+  },
+  "model_type": "decision1",
+  "architectures": [
+    "Decision1Model"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_decision1.Decision1Config",
+    "AutoModel": "modeling_decision1.Decision1Model"
+  },
+  "custom_pipelines": {
+    "decision": {
+      "impl": "pipeline_decision1.Decision1Pipeline",
+      "pt": [
+        "AutoModel"
+      ],
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,483 @@
+{
+ "ckpt": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_0.8B_s42/stage2/ckpt-003000",
+ "export": "/root/adamko/export/vela2_0.8B_nb_20261003",
+ "device": "cuda",
+ "arms": {
+  "ref_bf16": {
+   "seconds": 36.9,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "ref_fp32_r": {
+   "seconds": 54.3,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "ref_fp32": {
+   "seconds": 9.6,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "exp_bf16": {
+   "seconds": 5.8,
+   "stats": {
+    "windowed_rows": 7,
+    "windows": 30,
+    "units_uncovered": 0
+   }
+  },
+  "exp_fp32": {
+   "seconds": 9.7,
+   "stats": {
+    "windowed_rows": 7,
+    "windows": 30,
+    "units_uncovered": 0
+   }
+  }
+ },
+ "checks": {
+  "rendering": {
+   "rows": 230,
+   "sequences": 260,
+   "mismatch": 0,
+   "parts_mismatch": 0,
+   "blocks_mismatch": 0,
+   "words_mismatch": 0,
+   "windows_count_mismatch": 0,
+   "examples": []
+  },
+  "outputs": {
+   "ref_bf16_vs_exp_bf16": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.0,
+     "max_abs_logit": 0.0,
+     "offs_mismatch": 0,
+     "spanset_diff": 0,
+     "spans": 495,
+     "gate_fired": 0
+    }
+   },
+   "ref_fp32_r_vs_exp_fp32": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.0,
+     "max_abs_logit": 0.0,
+     "offs_mismatch": 0,
+     "spanset_diff": 0,
+     "spans": 495,
+     "gate_fired": 0
+    }
+   },
+   "ref_fp32_vs_exp_fp32": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.0031214980424565664,
+      "max_abs_logit": 0.03817033767700195,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.002130181283858501,
+      "max_abs_logit": 0.021316081285476685,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.003787993028862513,
+      "max_abs_logit": 0.02714681625366211,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.033217515600661274,
+     "max_abs_logit": 0.1682744026184082,
+     "offs_mismatch": 0,
+     "spanset_diff": 5,
+     "spans": 495,
+     "gate_fired": 0
+    }
+   }
+  },
+  "decoder_crosscheck_diff": 0,
+  "bundled_vs_single_fp32": {
+   "rows": 60,
+   "questions": 251,
+   "exact_equal": 0,
+   "max_abs_logit": 0.003404378890991211,
+   "span_rows": 10,
+   "span_exact": 0,
+   "span_max_abs_logit": 0.028329849243164062,
+   "by_source": {
+    "choice:oasst1": 8,
+    "choice:massive": 6,
+    "score:helpsteer2": 10,
+    "set:shield": 26,
+    "constructed:domain+4signals+pii": 10
+   },
+   "decision_flips": 0,
+   "batch_noise_control_max_abs_logit": 0.0047228336334228516,
+   "batch_noise_control_span_max_abs_logit": 0.025118350982666016
+  },
+  "systemone_vs_predict": {
+   "cases": 6,
+   "max_abs_diff": 0.0,
+   "mismatches": 0,
+   "responses": [
+    {
+     "model": "vllm-sr/Vela-2.0-0.8B",
+     "answers": {
+      "modality": {
+       "type": "choice",
+       "choice": "DIFFUSION",
+       "confidence": 0.9976848819484886,
+       "probabilities": {
+        "AR": 0.00087654638874666,
+        "DIFFUSION": 0.9985614283372353,
+        "BOTH": 0.0005620252740182063
+       }
+      },
+      "jailbreak": {
+       "type": "noul",
+       "noul": 0.002108965096273976
+      },
+      "urgency": {
+       "type": "score",
+       "score": 0.325025228507679,
+       "confidence": 0.3420489778507786,
+       "legend": {
+        "0": "Routine",
+        "1": "Needs prompt attention",
+        "2": "Critical"
+       },
+       "probabilities": {
+        "0": 0.7845998642047898,
+        "1": 0.1057750430827415,
+        "2": 0.10962509271246876
+       }
+      }
+     },
+     "usage": {
+      "input_tokens": 399,
+      "output_tokens": 0
+     }
+    },
+    {
+     "model": "vllm-sr/Vela-2.0-0.8B",
+     "answers": {
+      "pii": {
+       "type": "noul",
+       "noul": 0.9965542071469538
+      },
+      "halu": {
+       "type": "noul",
+       "noul": 0.9973442034225971
+      },
+      "domain": {
+       "type": "choice",
+       "choice": "health",
+       "confidence": 0.9287540019302309,
+       "probabilities": {
+        "health": 0.9620548814081522,
+        "math": 0.004644239113926489,
+        "other": 0.033300879477921236
+       }
+      }
+     },
+     "usage": {
+      "input_tokens": 1041,
+      "output_tokens": 0
+     },
+     "spans": {
+      "pii": [
+       {
+        "label": "PERSON",
+        "start": 8,
+        "end": 17,
+        "text": "Tom Baker",
+        "probability": 0.9835846424102783
+       },
+       {
+        "label": "EMAIL_ADDRESS",
+        "start": 19,
+        "end": 40,
+        "text": "tom.baker@example.com",
+        "probability": 0.9854745268821716
+       }
+      ],
+      "halu": [
+       {
+        "label": "unsupported",
+        "start": 19,
+        "end": 29,
+        "text": "to 6 grams",
+        "probability": 0.7781664729118347
+       }
+      ]
+     },
+     "thresholds": {
+      "pii": 0.2914,
+      "halu": 0.35
+     }
+    },
+    {
+     "model": "vllm-sr/Vela-2.0-0.8B",
+     "answers": {
+      "issues.billing": {
+       "type": "noul",
+       "noul": 0.6191081335303668
+      },
+      "issues.shipping": {
+       "type": "noul",
+       "noul": 0.8206821007518557
+      },
+      "issues.login": {
+       "type": "noul",
+       "noul": 0.00013277324667073008
+      }
+     },
+     "usage": {
+      "input_tokens": 133,
+      "output_tokens": 0
+     },
+     "sets": {
+      "issues": {
+       "selected": [
+        "billing",
+        "shipping"
+       ],
+       "probabilities": {
+        "billing": 0.6191081335303668,
+        "shipping": 0.8206821007518557,
+        "login": 0.00013277324667073008
+       }
+      }
+     },
+     "thresholds": {
+      "issues": 0.2
+     }
+    }
+   ],
+   "route": {
+    "ok": true,
+    "rejects_other_model": true
+   }
+  },
+  "shortcuts": {
+   "classify_text": {
+    "label": {
+     "label": "positive",
+     "confidence": 0.9467459138483756
+    }
+   },
+   "extract_entities": {
+    "AGE": [],
+    "CREDIT_CARD": [
+     "4111"
+    ],
+    "DATE_TIME": [],
+    "DOMAIN_NAME": [],
+    "EMAIL_ADDRESS": [
+     "sarah.johnson@gmail.com"
+    ],
+    "GPE": [],
+    "IBAN_CODE": [],
+    "IP_ADDRESS": [],
+    "NRP": [],
+    "ORGANIZATION": [],
+    "PERSON": [
+     "Sarah Johnson"
+    ],
+    "PHONE_NUMBER": [
+     "415-555-0132",
+     "1111 1111 1111"
+    ],
+    "STREET_ADDRESS": [],
+    "TITLE": [],
+    "US_DRIVER_LICENSE": [],
+    "US_SSN": [],
+    "ZIP_CODE": []
+   },
+   "detect_hallucination": {
+    "hallucinated": true,
+    "spans": [
+     {
+      "start": 43,
+      "end": 61,
+      "label": "unsupported",
+      "probability": 0.7355601787567139,
+      "text": "65 W fast charging"
+     }
+    ],
+    "threshold": 0.35
+   },
+   "score_relevance": {
+    "score": 0.9234012125232722,
+    "label": "highly_relevant",
+    "probabilities": {
+     "not_relevant": 0.011184055725334175,
+     "partially_relevant": 0.13082946350278746,
+     "highly_relevant": 0.8579864807718784
+    }
+   }
+  }
+ },
+ "rows": {
+  "choice:domain_dev": 15,
+  "choice:factcheck_dev": 10,
+  "choice:modality_dev": 10,
+  "choice:feedback_dev": 10,
+  "choice:oasst1": 8,
+  "choice:boolq": 8,
+  "choice:snli": 8,
+  "choice:arc": 6,
+  "choice:massive": 6,
+  "score:helpsteer2": 10,
+  "score:jsts": 8,
+  "score:klue_sts": 6,
+  "set:shield": 40,
+  "span:pii_dev": 30,
+  "span:pii_longdev_4096": 4,
+  "span:pii_longdev_8192": 3,
+  "span:halu": 20,
+  "span:toxic": 10,
+  "span:fewnerd": 6,
+  "span:multiconer": 6,
+  "span:tydiqa_goldp": 6
+ }
+}

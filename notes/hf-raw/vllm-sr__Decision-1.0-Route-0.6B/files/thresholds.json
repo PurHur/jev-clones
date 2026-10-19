@@ -1,0 +1,100 @@
+{
+  "jailbreak": {
+    "positive_label": "jailbreak",
+    "fpr_1pct": 0.7597176432609558,
+    "fpr_5pct": 0.05477133393287659,
+    "dev_negatives": 256
+  },
+  "safety": {
+    "positive_label": "unsafe",
+    "fpr_1pct": 0.9587056040763855,
+    "fpr_5pct": 0.7739335894584656,
+    "dev_negatives": 750
+  },
+  "hazard": {
+    "violence": {
+      "fpr_1pct": 0.9214211702346802,
+      "fpr_5pct": 0.7588979005813599,
+      "dev_negatives": 258
+    },
+    "criminal_activity": {
+      "fpr_1pct": 0.9753338098526001,
+      "fpr_5pct": 0.9047263264656067,
+      "dev_negatives": 224
+    },
+    "sexual_content": {
+      "fpr_1pct": 0.8819104433059692,
+      "fpr_5pct": 0.22519809007644653,
+      "dev_negatives": 277
+    },
+    "child_exploitation": {
+      "fpr_1pct": 0.04883844032883644,
+      "fpr_5pct": 0.01129829604178667,
+      "dev_negatives": 295
+    },
+    "hate": {
+      "fpr_1pct": 0.9700897932052612,
+      "fpr_5pct": 0.8096023201942444,
+      "dev_negatives": 276
+    },
+    "harassment_abuse": {
+      "fpr_1pct": 0.7952530980110168,
+      "fpr_5pct": 0.5710030198097229,
+      "dev_negatives": 280
+    },
+    "regulated_substances": {
+      "fpr_1pct": 0.900456428527832,
+      "fpr_5pct": 0.10552678257226944,
+      "dev_negatives": 279
+    },
+    "weapons": {
+      "fpr_1pct": 0.83163982629776,
+      "fpr_5pct": 0.16991069912910461,
+      "dev_negatives": 290
+    },
+    "self_harm": {
+      "fpr_1pct": 0.326712965965271,
+      "fpr_5pct": 0.05985739827156067,
+      "dev_negatives": 286
+    },
+    "privacy": {
+      "fpr_1pct": 0.9580126404762268,
+      "fpr_5pct": 0.159530371427536,
+      "dev_negatives": 280
+    },
+    "specialized_advice": {
+      "fpr_1pct": 0.0025629859883338213,
+      "fpr_5pct": 0.0018217449542135,
+      "dev_negatives": 300
+    },
+    "misinformation": {
+      "fpr_1pct": 0.17667537927627563,
+      "fpr_5pct": 0.06584769487380981,
+      "dev_negatives": 294
+    }
+  },
+  "fact_check": {
+    "positive_label": "FACT_CHECK_NEEDED",
+    "fpr_1pct": 0.9961162805557251,
+    "fpr_5pct": 0.9295073747634888,
+    "dev_negatives": 99
+  },
+  "pii": {
+    "positive_label": "yes",
+    "fpr_1pct": 0.8000161647796631,
+    "fpr_5pct": 0.17948417365550995,
+    "dev_negatives": 754
+  },
+  "hallucination": {
+    "positive_label": "hallucinated",
+    "fpr_1pct": 0.9612104892730713,
+    "fpr_5pct": 0.857408881187439,
+    "dev_negatives": 605
+  },
+  "tool_need": {
+    "positive_label": "yes",
+    "fpr_1pct": 0.9640952348709106,
+    "fpr_5pct": 0.911319375038147,
+    "dev_negatives": 493
+  }
+}

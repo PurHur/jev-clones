@@ -1,0 +1,6 @@
+LemonDecider (LemonJev typed decision engine)
+Copyright 2026 LemonJev Project — LemonDecider
+
+Built on Qwen/Qwen3.5-4B (Apache-2.0).
+Runtime and server code adapted from Apache-2.0 and MIT upstream components
+(see LICENSE and LICENSE.code for terms).

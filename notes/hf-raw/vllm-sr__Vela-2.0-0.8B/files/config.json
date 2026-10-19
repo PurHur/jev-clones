@@ -1,0 +1,123 @@
+{
+ "architectures": [
+  "Vela2DecoderModel"
+ ],
+ "model_type": "vela2-decoder",
+ "format_version": 1,
+ "auto_map": {
+  "AutoConfig": "configuration_vela2.Vela2DecoderConfig",
+  "AutoModel": "modeling_vela2.Vela2DecoderModel"
+ },
+ "model_name": "vllm-sr/Vela-2.0-0.8B",
+ "release_date": "",
+ "description": "Vela 2.0 0.8B: SystemOne Choice / Noul / Score with span and set extensions, 16,384-token input",
+ "backbone_config": {
+  "architectures": [
+   "Qwen3_5TextModel"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "attn_output_gate": true,
+  "bos_token_id": null,
+  "dtype": "float32",
+  "eos_token_id": 248044,
+  "full_attention_interval": 4,
+  "head_dim": 256,
+  "hidden_act": "silu",
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 3584,
+  "layer_types": [
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention",
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention",
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention",
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention",
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention",
+   "linear_attention",
+   "linear_attention",
+   "linear_attention",
+   "full_attention"
+  ],
+  "linear_conv_kernel_dim": 4,
+  "linear_key_head_dim": 128,
+  "linear_num_key_heads": 16,
+  "linear_num_value_heads": 16,
+  "linear_value_head_dim": 128,
+  "mamba_ssm_dtype": "float32",
+  "max_position_embeddings": 262144,
+  "mlp_only_layers": [],
+  "model_type": "qwen3_5_text",
+  "mtp_num_hidden_layers": 1,
+  "mtp_use_dedicated_embeddings": false,
+  "num_attention_heads": 8,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 2,
+  "pad_token_id": null,
+  "partial_rotary_factor": 0.25,
+  "rms_norm_eps": 1e-06,
+  "rope_parameters": {
+   "mrope_interleaved": true,
+   "mrope_section": [
+    11,
+    11,
+    10
+   ],
+   "partial_rotary_factor": 0.25,
+   "rope_theta": 10000000,
+   "rope_type": "default"
+  },
+  "tie_word_embeddings": true,
+  "transformers_version": "5.17.0",
+  "use_cache": false,
+  "vocab_size": 248320
+ },
+ "head_dim": 256,
+ "span_head": {
+  "d": 256,
+  "slots": 64
+ },
+ "pad_token_id": 248044,
+ "max_length": 16384,
+ "span_layout": {
+  "hybrid_rmax": 2048,
+  "window": 1800,
+  "stride": 1536,
+  "window_above": 2048,
+  "window_agg": "mean of word logits; uncovered words -30"
+ },
+ "layout": {
+  "parts": "'Context:\\n' + per part '<segment role=\"R\">\\n' TEXT '\\n</segment>\\n'",
+  "question": "'\\n\\nTask type: T\\nTarget: R\\nQuestion:\\nQ\\nOptions:' + per option '\\n<option>\\n' canonical({key, description}) '\\n</option>' [+ [ABS] option] + suffix ('Select the single option ...' / 'Select every option ...') + '\\nDecision:'",
+  "span": "'\\n\\nTask type: span\\nTarget: R\\nQuestion:\\nQ\\nLabels:' + per label '\\n<label>\\n' canonical(...) '\\n</label>' [layout c: '\\n\\nText:\\n' + the target segment again] + '\\n\\nMark every span ...\\nSpans:'",
+  "readout": "option / label endpoints = last token; question query = the block's last token; span words = first sub-word (layout c: in the repeat)",
+  "forward": "tree: one parts pass per row, every question block continues from it and sees only the parts and itself"
+ },
+ "word_units": "schema_lib_r4 _WORD (GLiNER2 whitespace splitter, CJK per char, r4 URL rule)",
+ "span_decoder": "span_decode_r4.decode_v2(extend=False) over word units",
+ "weights_dtype": {
+  "mode": "mixed",
+  "bf16": "backbone Linear + conv1d weights",
+  "fp32": "everything else",
+  "load": "all parameters FP32",
+  "compute": "bf16 autocast on GPU for the backbone (research eval setting), heads FP32; FP32 also supported; fp16 not supported"
+ },
+ "base_model": "vllm-sr/Decision-2.0-Eos-0.8B@1d380452ef703b283438732ec6393dd11d38ff24 (Decision 2.0; qwen3.5-text-endpoints-global-query-shared-bilinear-mlp; Qwen3.5 base revision 2fc06364715b967f1860aea9cf38778875588b17)",
+ "init": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_0.8B_s42/stage1/ckpt-004000",
+ "checkpoint": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_0.8B_s42/stage2/ckpt-003000",
+ "step": 3000
+}

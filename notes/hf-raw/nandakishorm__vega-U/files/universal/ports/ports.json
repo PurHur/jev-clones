@@ -1,0 +1,32 @@
+{
+  "Qwen3.5-0.8B": {
+    "d_model": 1024,
+    "identity": true
+  },
+  "gemma-3-1b-it": {
+    "d_model": 1152,
+    "identity": false
+  },
+  "Qwen3.5-4B": {
+    "d_model": 2560,
+    "identity": false,
+    "attached": true,
+    "ridge_cosines": [
+      0.887,
+      0.8966
+    ],
+    "refine_steps": 300,
+    "matched_items": 27433
+  },
+  "Qwen3.8-27B": {
+    "d_model": 5120,
+    "identity": false,
+    "attached": true,
+    "ridge_cosines": [
+      0.9293,
+      0.923
+    ],
+    "refine_steps": 300,
+    "matched_items": 38934
+  }
+}

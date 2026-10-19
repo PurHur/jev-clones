@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Liquid AI's zero-shot classification model for text and images, with a guide to running it on Jetson using PyTorch."><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/images/icons/nvidia-logo.png"><link rel="apple-touch-icon" href="/images/icons/nvidia-logo.png"><link rel="canonical" href="https://www.jetson-ai-lab.com/models/d1-3b/"><meta name="generator" content="Astro v5.16.6"><title>d1-3B | Jetson AI Lab</title><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:url" content="https://www.jetson-ai-lab.com/models/d1-3b/"><meta property="og:title" content="d1-3B | Jetson AI Lab"><meta property="og:description" content="Liquid AI's zero-shot classification model for text and images, with a guide to running it on Jetson using PyTorch."><meta property="og:image" content="https://www.jetson-ai-lab.com/images/hero/nvidia-logo.png"><meta property="og:image:alt" content="NVIDIA Jetson AI Lab"><meta property="og:site_name" content="Jetson AI Lab"><meta property="og:locale" content="en_US"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="d1-3B | Jetson AI Lab"><meta name="twitter:description" content="Liquid AI's zero-shot classification model for text and images, with a guide to running it on Jetson using PyTorch."><meta name="twitter:image" content="https://www.jetson-ai-lab.com/images/hero/nvidia-logo.png"><meta name="twitter:image:alt" content="NVIDIA Jetson AI Lab"><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Jetson AI Lab","alternateName":"NVIDIA Jetson AI Lab","url":"https://www.jetson-ai-lab.com/","description":"Guides, models, tutorials, and community resources for running generative AI on NVIDIA Jetson.","publisher":{"@type":"Organization","name":"NVIDIA","url":"https://www.nvidia.com/"},"inLanguage":"en"}</script><!-- Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=G-SXH8S4Y8RW"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SXH8S4Y8RW');
+    </script><!-- ISO download tracking --><script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const links = Array.from(document.querySelectorAll('a[href$=".iso"]'));
+
+        links.forEach(link => {
+          link.addEventListener('click', function (e) {
+            const url = link.href;
+            const openInNewTab = e.metaKey || e.ctrlKey || link.target === '_blank';
+            const fileName = (new URL(url)).pathname.split('/').pop() || 'unknown';
+            if (!openInNewTab) e.preventDefault();
+
+            // Optional: parse your NVIDIA URL for useful params
+            const m = link.pathname.match(/L4T\/(r\d+_Release_v[\d.]+)\/.*jetsoninstaller-([\d.]+)-(r[\d.]+)-([\d-]+)-(arm64)\.iso$/);
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'download_iso_file', {
+                file_extension: 'iso',
+                file_name: fileName,
+                link_url: url,
+                l4t_release_raw: m?.[1] || '',
+                installer_version: m?.[2] || '',
+                l4t_release: m?.[3] || '',
+                build_timestamp: m?.[4] || '',
+                arch: m?.[5] || '',
+                event_callback: function () { if (!openInNewTab) window.location.href = url; },
+                event_timeout: 2000
+              });
+            }
+
+            if (!openInNewTab) setTimeout(() => { window.location.href = url; }, 1000);
+          }, { capture: true });
+        });
+      });
+    </script><!-- OneTrust Cookies Consent Notice - Only on Production --><!-- Excluded on localhost/staging to avoid popup loop on non-production domains --><script>
+      // Only load OneTrust on production domain
+      if (window.location.hostname === 'www.jetson-ai-lab.com' || window.location.hostname === 'jetson-ai-lab.com') {
+        // OneTrust Cookie Consent
+        var script1 = document.createElement('script');
+        script1.src = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
+        script1.type = 'text/javascript';
+        script1.charset = 'UTF-8';
+        script1.setAttribute('data-domain-script', '018e2d65-efdf-7071-b793-f15ccf25c234');
+        document.head.appendChild(script1);
+
+        // OptanonWrapper callback
+        window.OptanonWrapper = function() {
+          var event = new Event('bannerLoaded');
+          window.dispatchEvent(event);
+        };
+
+        // OneTrust custom JS
+        var script2 = document.createElement('script');
+        script2.src = 'https://images.nvidia.com/aem-dam/Solutions/ot-js/ot-custom.js';
+        script2.type = 'text/javascript';
+        document.head.appendChild(script2);
+
+        // Adobe DTM
+        var script3 = document.createElement('script');
+        script3.src = '//assets.adobedtm.com/5d4962a43b79/814eb6e9b4e1/launch-4bc07f1e0b0b.min.js';
+        document.head.appendChild(script3);
+      }
+    </script><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/index.NAJ02wFS.css">
+<style>.code-block-wrapper{position:relative}.code-copy-btn{position:absolute;top:.5rem;right:.5rem;padding:.375rem;color:#e2e8f0;background:#37415180;border:1px solid rgba(75,85,99,1);border-radius:.375rem;cursor:pointer;transition:background .15s,border-color .15s}.code-copy-btn:hover{background:#4b5563cc;border-color:#6b7280}.code-copy-btn.code-copy-done{border-color:#76b900}.prose pre{padding-top:2.25rem}
+.inference-matrix-code-wrap{width:100%;max-width:100%;min-width:0;overflow-x:hidden}.inference-matrix-module-bar,.inference-matrix-engine-bar{overflow-y:hidden}.one-shot-code-wrap{width:100%;max-width:100%;min-width:0;overflow-x:hidden}.one-shot-module-bar{overflow-y:hidden}.device-tabs{margin:1.5rem 0}.device-tab-bar{display:flex;gap:2rem;border-bottom:1px solid #e5e7eb;margin-bottom:1.5rem}.device-tab{padding-bottom:1rem;font-size:1.125rem;font-weight:500;cursor:pointer;border:none;border-bottom:2px solid transparent;background:transparent;color:#6b7280;transition:all .2s}.device-tab.active{color:#76b900;border-bottom-color:#76b900}.device-tab:not(.active):hover{color:#1a1a1a;border-bottom-color:#d1d5db}
+</style></head> <body class="bg-nvidia-white text-nvidia-black"> <!-- Migration Notice Banner --> <div id="migration-notice" class="bg-gradient-to-r from-nvidia-green to-gray-100 text-black px-4 py-3 shadow-lg" style="display: none;"> <div class="max-w-7xl mx-auto flex items-center justify-between gap-4"> <div class="flex items-center gap-3 flex-1"> <span class="text-2xl">🎉</span> <div class="flex-1"> <p class="font-semibold">Welcome to Jetson AI Lab 2.0!</p> <p class="text-sm">We've redesigned the site with curated tutorials. Looking for old content?
+<a href="/archive/index.html" class="underline font-medium hover:text-white">Browse the archive →</a> </p> </div> </div> <button id="dismiss-notice" class="text-black hover:text-white font-bold text-xl px-2 py-1 rounded hover:bg-black/10 transition-colors" aria-label="Dismiss">
+×
+</button> </div> </div> <header class="bg-nvidia-white border-b border-nvidia-gray-200 sticky top-0 z-50"> <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex justify-between h-16"> <div class="flex items-center"> <a href="/" class="flex items-center"> <span class="text-2xl font-nvidia font-bold text-nvidia-black">Jetson AI Lab</span> </a> </div> <div class="hidden md:flex items-center space-x-1"> <a href="/" class="text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200">Home</a> <a href="/models" class="text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200">Models</a> <a href="/tutorials" class="text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200">Tutorials</a> <a href="/projects" class="text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200">Projects</a> <a href="/research" class="text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200">Research Group</a> </div> <div class="md:hidden flex items-center"> <button id="mobile-menu-button" class="text-nvidia-black hover:text-nvidia-green p-2" aria-label="Toggle menu"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> </div> </div> <!-- Mobile menu, hidden by default --> <div id="mobile-menu" class="hidden md:hidden pb-4"> <a href="/" class="block text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-3 text-base font-medium rounded-md transition-colors duration-200">Home</a> <a href="/models" class="block text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-3 text-base font-medium rounded-md transition-colors duration-200">Models</a> <a href="/tutorials" class="block text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-3 text-base font-medium rounded-md transition-colors duration-200">Tutorials</a> <a href="/projects" class="block text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-3 text-base font-medium rounded-md transition-colors duration-200">Projects</a> <a href="/research" class="block text-nvidia-black hover:text-nvidia-green hover:bg-nvidia-gray-50 px-4 py-3 text-base font-medium rounded-md transition-colors duration-200">Research Group</a> </div> </nav> </header> <!-- Mobile Menu Toggle Script --> <script>
+      (function() {
+        var menuButton = document.getElementById('mobile-menu-button');
+        var mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+          menuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+          });
+        }
+      })();
+    </script> <main class="min-h-screen"> <section class="bg-nvidia-black text-nvidia-white py-20"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="grid md:grid-cols-2 gap-12 items-center"> <div> <div class="flex items-center space-x-3 mb-6"> <span class="bg-nvidia-green text-nvidia-black px-4 py-2 rounded-full text-sm font-semibold">New</span> <span class="text-nvidia-gray-300 font-semibold text-lg">Multimodal</span> </div> <h1 class="text-5xl font-bold mb-6">d1-3B</h1> <p class="text-xl text-nvidia-gray-300 mb-8 leading-relaxed"> Liquid AI&#39;s zero-shot classification model for text and images, with a guide to running it on Jetson using PyTorch. </p>  <div class="flex flex-wrap gap-2 mt-2">   <a href="#model-details" class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg border border-[#76b900]/60 text-nvidia-gray-200 hover:bg-[#76b900]/10 hover:text-white transition-colors"> <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-nvidia-green flex-shrink-0" viewBox="0 0 20 20" fill="currentColor"> <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path> </svg>
+Model Details
+</a> </div> </div> <div class="bg-nvidia-gray-800 rounded-xl p-8 border border-nvidia-gray-700"> <div class="divide-y divide-nvidia-gray-700">  <div class="flex justify-between items-start py-3 gap-4"> <span class="text-nvidia-gray-300 font-medium shrink-0">Parameters</span> <span class="font-bold text-nvidia-white text-right">3.12B</span> </div>  <div class="flex justify-between items-center py-3 gap-4"> <span class="text-nvidia-gray-300 font-medium shrink-0">Modalities</span> <div class="flex flex-wrap gap-1.5 justify-end"> <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);color:#94A3B8"> <svg class="w-3 h-3 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg> Text </span><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);color:#94A3B8"> <svg class="w-3 h-3 shrink-0" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg> Image </span> </div> </div>  <div class="flex justify-between items-center py-3 gap-4"> <span class="text-nvidia-gray-300 font-medium shrink-0">Context Length</span> <span class="font-bold text-nvidia-white">32K</span> </div>  <div class="flex justify-between items-start py-3 gap-4"> <span class="text-nvidia-gray-300 font-medium shrink-0">License</span> <span class="font-bold text-nvidia-white text-right">LFM Open License v1.0</span> </div>  <div class="flex justify-between items-center py-3 gap-4"> <span class="text-nvidia-gray-300 font-medium shrink-0">Precision</span> <div class="flex flex-wrap gap-1.5 justify-end"> <span style="background:rgba(0,102,102,0.15);border:1px solid #008080;color:#4DD9D9;padding:0.2rem 0.6rem;border-radius:9999px;font-size:0.78rem;font-weight:600;letter-spacing:0.02em;"> BF16 </span> </div> </div> </div> </div> </div> </div> </section> <section id="model-details" class="py-16 bg-nvidia-white"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex flex-wrap items-center justify-between gap-4 mb-6"> <h2 class="text-3xl font-bold text-nvidia-black">Model Details</h2>  <div class="flex flex-wrap gap-3">  <a href="https://huggingface.co/LiquidAI/d1-3B" target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-100 px-4 pt-2.5 pb-4 font-semibold text-black transition-colors hover:bg-gray-200 after:absolute after:right-4 after:bottom-2 after:left-4 after:h-[3px] after:rounded-full after:bg-[#FFD21E] after:content-['']"> <img src="/images/icons/hf-logo.png" alt="HuggingFace" class="w-5 h-5">
+View on HuggingFace
+</a> </div> </div>  <div class="prose prose-lg text-nvidia-gray-600 max-w-none"> <h2 id="get-started-with-d1-3b-on-jetson">Get started with d1-3B on Jetson</h2>
+<p><a href="https://huggingface.co/LiquidAI/d1-3B">d1-3B</a> is a 3B zero-shot classification model from <a href="https://www.liquid.ai/blog/d1-open">Liquid AI</a>, built on LFM2.5-VL-3B. Given text, images, and a set of questions, it returns structured answers in a single forward pass.</p>
+<p>Describe your task and candidate labels in natural language to route support tickets, classify intent, moderate content, or inspect images. Changing tasks requires changing the questions and labels, without task-specific fine-tuning.</p>
+<p>The model answers three types of questions: <code>noul</code> returns a probability for a yes/no question, <code>choice</code> selects from named options, and <code>score</code> returns a rating across ordered levels. Several questions can share the same input. The model returns decisions directly without generating text.</p>
+<p>This model answers a single question in 16 ms on Jetson AGX Thor, 26 ms on Jetson AGX Orin 64 GB, and 50 ms on Jetson Orin Nano after warmup in <a href="https://huggingface.co/LiquidAI/d1-3B">Liquid’s benchmarks</a>. On AGX Thor, three questions about the same input take 20 ms in one pass.</p>
+<p>See Liquid’s <a href="https://huggingface.co/spaces/LiquidAI/system-one-arcade">Open d1 Arcade</a> for demos of camera games, drawing recognition, and message classification to inspire your own applications.</p>
+<p>This guide uses the BF16 checkpoint to run inference on Jetson. For a smaller model that also accepts audio, see <a href="/models/d1-omni-600M/">d1-omni-600M on Jetson</a>.</p>
+<h2 id="1-prerequisites">1. Prerequisites</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Requirement</th><th>Configuration</th></tr></thead><tbody><tr><td>Hardware</td><td>Jetson AGX Thor, Jetson AGX Orin 64 GB, or Jetson Orin Nano</td></tr><tr><td>System software</td><td><a href="https://developer.nvidia.com/embedded/jetpack/downloads/archive-7.2">JetPack 7.2</a> / Jetson Linux 39.2</td></tr><tr><td>Container</td><td>Docker installed and NVIDIA Container Toolkit configured for GPU access</td></tr></tbody></table>
+<h2 id="2-start-the-container">2. Start the container</h2>
+<p>NVIDIA’s PyTorch container includes PyTorch built for the Jetson GPU.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> --pull</span><span style="color:#9ECBFF"> always</span><span style="color:#79B8FF"> --rm</span><span style="color:#79B8FF"> -it</span><span style="color:#79B8FF"> --runtime</span><span style="color:#9ECBFF"> nvidia</span><span style="color:#79B8FF"> --ipc=host</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -v</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$PWD</span><span style="color:#9ECBFF">":/workspace</span><span style="color:#79B8FF"> -w</span><span style="color:#9ECBFF"> /workspace</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -v</span><span style="color:#9ECBFF"> ~/.cache/huggingface:/root/.cache/huggingface</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#9ECBFF">  nvcr.io/nvidia/pytorch:26.09-py3</span></span></code></pre>
+<p>Run the remaining commands inside the container. Files in <code>/workspace</code> and downloaded models stay on the host; installed packages disappear when this temporary container exits.</p>
+<h2 id="3-install-the-dependencies">3. Install the dependencies</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pip</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> "transformers==5.18.0"</span><span style="color:#9ECBFF"> pillow</span></span></code></pre>
+<p>The remaining dependencies are already installed and configured in the container.</p>
+<h2 id="4-run-inference-and-check-gpu-execution">4. Run inference and check GPU execution</h2>
+<p><code>from_pretrained()</code> downloads the checkpoint on the first run and reuses the mounted Hugging Face cache on later runs.</p>
+<p>Save this as <code>example.py</code>. It is adapted from the “How to use” example in the <a href="https://huggingface.co/LiquidAI/d1-3B">d1-3B model card</a>.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> torch</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> transformers </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> AutoModel</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> transformers.image_utils </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> load_image</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">assert</span><span style="color:#E1E4E8"> torch.cuda.is_available(), </span><span style="color:#9ECBFF">"CUDA is not available"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">model </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> AutoModel.from_pretrained(</span><span style="color:#9ECBFF">"LiquidAI/d1-3B"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">trust_remote_code</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">dtype</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">torch.bfloat16).to(</span><span style="color:#9ECBFF">"cuda"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Text: several named questions over one state, answered in one pass</span></span>
+<span class="line"><span style="color:#E1E4E8">questions </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#9ECBFF">    "refund"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"noul"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "instructions"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Is the customer asking for a refund?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#9ECBFF">    "team"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"choice"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "instructions"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Which team should handle this?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "criteria"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">            "billing"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Charges, refunds, invoices"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            "technical"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"App or site faults"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            "fraud"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Suspected unauthorised use"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#9ECBFF">    "urgency"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#9ECBFF">        "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"score"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "instructions"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"How urgent is this?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "criteria"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"Can wait"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"Today"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"Blocking the customer now"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">    },</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">text_result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> model.system_one(</span><span style="color:#9ECBFF">"I was charged twice this month, please refund one of them."</span><span style="color:#E1E4E8">, questions)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Image: the photo is the whole state</span></span>
+<span class="line"><span style="color:#E1E4E8">image </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> load_image(</span><span style="color:#9ECBFF">"http://images.cocodataset.org/val2017/000000039769.jpg"</span><span style="color:#E1E4E8">)  </span><span style="color:#6A737D"># two cats on a sofa</span></span>
+<span class="line"><span style="color:#E1E4E8">cats </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#9ECBFF">    "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"choice"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    "instructions"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"How many cats are there?"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">    "criteria"</span><span style="color:#E1E4E8">: {</span><span style="color:#9ECBFF">"one"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"One"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"two"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Two"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"more"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Three or more"</span><span style="color:#E1E4E8">},</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">image_result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> model.system_one(</span><span style="color:#79B8FF">None</span><span style="color:#E1E4E8">, {</span><span style="color:#9ECBFF">"cats"</span><span style="color:#E1E4E8">: cats}, </span><span style="color:#FFAB70">images</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[image])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Batch: many requests, packed together with no padding</span></span>
+<span class="line"><span style="color:#E1E4E8">tickets </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"Where is my parcel? It was due Monday."</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"The app crashes when I open settings."</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#E1E4E8">batch_result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> model.system_one_batch([(t, {</span><span style="color:#9ECBFF">"team"</span><span style="color:#E1E4E8">: questions[</span><span style="color:#9ECBFF">"team"</span><span style="color:#E1E4E8">]}) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> t </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> tickets])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"GPU:"</span><span style="color:#E1E4E8">, torch.cuda.get_device_name())</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Refund:"</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">f</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">text_result[</span><span style="color:#9ECBFF">"answers"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"refund"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"noul"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">:.2f</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Team:"</span><span style="color:#E1E4E8">, text_result[</span><span style="color:#9ECBFF">"answers"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"team"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"choice"</span><span style="color:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Urgency:"</span><span style="color:#E1E4E8">, </span><span style="color:#F97583">f</span><span style="color:#9ECBFF">'</span><span style="color:#79B8FF">{</span><span style="color:#E1E4E8">text_result[</span><span style="color:#9ECBFF">"answers"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"urgency"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"score"</span><span style="color:#E1E4E8">]</span><span style="color:#F97583">:.2f</span><span style="color:#79B8FF">}</span><span style="color:#9ECBFF">'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Cats:"</span><span style="color:#E1E4E8">, image_result[</span><span style="color:#9ECBFF">"answers"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"cats"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"choice"</span><span style="color:#E1E4E8">])</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Batch:"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">", "</span><span style="color:#E1E4E8">.join(r[</span><span style="color:#9ECBFF">"answers"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"team"</span><span style="color:#E1E4E8">][</span><span style="color:#9ECBFF">"choice"</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> r </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> batch_result))</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> example.py</span></span></code></pre>
+<p>Example output from a Jetson Thor run of the model-card example, formatted to match the print statements above:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>GPU: NVIDIA Thor</span></span>
+<span class="line"><span>Refund: 0.99</span></span>
+<span class="line"><span>Team: billing</span></span>
+<span class="line"><span>Urgency: 0.76</span></span>
+<span class="line"><span>Cats: two</span></span>
+<span class="line"><span>Batch: technical, technical</span></span></code></pre>
+<p>Values can differ between devices. The GPU name should match your Jetson.</p>
+<h2 id="further-reading">Further reading</h2>
+<ul>
+<li><a href="https://huggingface.co/LiquidAI/d1-3B">d1-3B model card and API examples</a></li>
+<li><a href="https://www.liquid.ai/blog/d1-open">Open d1: Edge decision models for text, vision, and audio</a></li>
+<li><a href="/models/d1-omni-600M/">d1-omni-600M on Jetson</a></li>
+<li><a href="https://huggingface.co/spaces/LiquidAI/system-one-arcade">Open d1 Arcade demos</a></li>
+</ul> </div> </div> </section>  </main> <footer class="bg-nvidia-black text-nvidia-white"> <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8"> <div class="grid grid-cols-1 md:grid-cols-4 gap-12"> <div class="col-span-1 md:col-span-2"> <div class="flex items-center mb-6"> <span class="text-2xl font-nvidia font-bold">Jetson AI Lab</span> </div> <p class="text-nvidia-gray-300 mb-6 text-lg leading-relaxed">
+Experience the latest generative AI models optimized for Jetson.
+              Run locally, without depending on the cloud.
+</p> </div> <div> <h3 class="text-sm font-semibold text-nvidia-gray-300 tracking-wider uppercase mb-6">Resources</h3> <ul class="space-y-3"> <li><a href="/models" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">Models</a></li> <li><a href="/tutorials" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">Tutorials</a></li> <li><a href="/projects" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">Projects</a></li> <li><a href="/research" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">Research Group</a></li> </ul> </div> <div> <h3 class="text-sm font-semibold text-nvidia-gray-300 tracking-wider uppercase mb-6">NVIDIA</h3> <ul class="space-y-3"> <li><a href="https://developer.nvidia.com" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">Developer Portal</a></li> <li><a href="https://www.nvidia.com" class="text-nvidia-gray-300 hover:text-nvidia-white transition-colors duration-200">NVIDIA.com</a></li> </ul> </div> </div> <div class="mt-12 pt-8 border-t border-nvidia-gray-700"> <ul class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-nvidia-gray-400 mb-4"> <li><a href="https://www.nvidia.com/en-us/about-nvidia/privacy-policy/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Privacy Policy</a></li> <li><a href="https://www.nvidia.com/en-us/about-nvidia/privacy-center/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Your Privacy Choices</a></li> <li><a href="https://www.nvidia.com/en-us/about-nvidia/legal-info/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Legal</a></li> <li><a href="https://www.nvidia.com/en-us/about-nvidia/accessibility/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Accessibility</a></li> <li><a href="https://www.nvidia.com/en-us/about-nvidia/company-policies/" target="_self" class="hover:text-nvidia-white transition-colors duration-200">Corporate Policies</a></li> <li><a href="https://www.nvidia.com/en-us/product-security/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Product Security</a></li> <li><a href="https://www.nvidia.com/en-us/contact/" target="_blank" class="hover:text-nvidia-white transition-colors duration-200">Contact</a></li> </ul> <p class="text-nvidia-gray-400 text-sm text-center">
+© 2026 NVIDIA Corporation. All rights reserved.
+</p> </div> </div> </footer> <script type="module" src="/_astro/Layout.astro_astro_type_script_index_0_lang.CTaCgKGL.js"></script> <!-- 6sense Tracking --> <!-- Migration Notice Handler --> <script>
+      // Show migration notice banner if not dismissed
+      (function() {
+        const notice = document.getElementById('migration-notice');
+        const dismissBtn = document.getElementById('dismiss-notice');
+        const storageKey = 'jetson-ai-lab-migration-notice-dismissed';
+
+        // Check if user has dismissed the notice
+        const isDismissed = localStorage.getItem(storageKey);
+
+        if (!isDismissed && notice) {
+          notice.style.display = 'block';
+        }
+
+        // Handle dismiss
+        if (dismissBtn) {
+          dismissBtn.addEventListener('click', function() {
+            localStorage.setItem(storageKey, 'true');
+            notice.style.display = 'none';
+          });
+        }
+      })();
+    </script> <!-- Code block copy-to-clipboard (only for .prose pre; skips blocks that already have a copy button) --> <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var clipboardSvg = '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" /><path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" /></svg>';
+        var checkSvg = '<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>';
+        document.querySelectorAll('.prose pre').forEach(function(pre) {
+          if (pre.closest('.code-block-wrapper')) return;
+          var parent = pre.parentElement;
+          if (parent && parent.querySelector('.copy-btn')) return;
+          var code = pre.querySelector('code');
+          if (code && (code.className && code.className.includes && code.className.includes('no-copy'))) return;
+          if (pre.getAttribute('data-no-copy') !== null) return;
+          if (pre.closest('[data-no-copy]') !== null) return;
+          var prev = pre.previousSibling;
+          while (prev) {
+            if (prev.nodeType === 8 && prev.textContent && prev.textContent.indexOf('no-copy') !== -1) return;
+            if (prev.nodeType === 1) break;
+            prev = prev.previousSibling;
+          }
+          var wrapper = document.createElement('div');
+          wrapper.className = 'code-block-wrapper';
+          pre.parentNode.insertBefore(wrapper, pre);
+          wrapper.appendChild(pre);
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'code-copy-btn';
+          btn.setAttribute('aria-label', 'Copy to clipboard');
+          btn.innerHTML = clipboardSvg;
+          btn.addEventListener('click', function() {
+            var code = pre.querySelector('code');
+            var text = (code ? code.textContent : pre.textContent) || '';
+            navigator.clipboard.writeText(text).then(function() {
+              btn.innerHTML = checkSvg;
+              btn.classList.add('code-copy-done');
+              setTimeout(function() {
+                btn.innerHTML = clipboardSvg;
+                btn.classList.remove('code-copy-done');
+              }, 2000);
+            });
+          });
+          wrapper.insertBefore(btn, pre);
+        });
+      });
+    </script>  <!-- 6sense Tracking --> <script>
+      window._6si = window._6si || [];
+      window._6si.push(['enableEventTracking', true]);
+      window._6si.push(['setToken', 'eb417ec30d332e34d732e2916f185311']);
+      window._6si.push(['setEndpoint', 'b.6sc.co']);
+      window._6si.push(['enableRetargeting', false]);
+
+      window._6si.push(['enableCompanyDetails', true]);
+      window._6si.push(['setEpsilonKey', '6f578ba72568231347d1bddb7102e53695302c28']);
+
+      (function() {
+        var gd = document.createElement('script');
+        gd.type = 'text/javascript';
+        gd.async = true;
+        gd.src = '//j.6sc.co/6si.min.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gd, s);
+      })();
+    </script> <script type="text/javascript">
+      // Only call _satellite if Adobe DTM is loaded (production only)
+      if (typeof _satellite !== 'undefined') {
+        _satellite.pageBottom();
+      }
+    </script> </body> </html> <script type="module">document.querySelectorAll(".device-tabs").forEach(t=>{const a=t.querySelectorAll(".device-tab"),r=t.querySelectorAll(".device-panel");a.forEach(l=>{l.addEventListener("click",()=>{const c=l.getAttribute("data-target");a.forEach(e=>e.classList.toggle("active",e.getAttribute("data-target")===c)),r.forEach(e=>{e.getAttribute("data-panel")===c?e.style.display="":e.style.display="none"})})})});</script> 

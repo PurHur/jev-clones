@@ -1,0 +1,53 @@
+# vega on LocalLLaMA/typed-decisions (test split: 2050 decisions)
+
+Modes (see the dataset card): **generalist** = never trained on these workflows, comparable to Jev; **specialist** = fitted on their train split, comparable to ModernBERT-base. Teacher self-agreement (0.735) is the ceiling; far above ~0.75 means the labeller's quirks were learned.
+
+| model | mode | accuracy | soft acc | Brier | ECE | KL | TV | macro F1 | score MAE | within 1 | ms/case |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| **vega, before fine-tuning** | generalist | 0.506 | 0.329 | 0.652 | 0.125 | 1.657 | 0.671 | 0.566 | - | - | 27 |
+| **vega + typed-decisions adapter (gated), accuracy calibration** (default) | specialist | 0.803 | 0.725 | 0.270 | 0.019 | 0.545 | 0.275 | 0.835 | - | - | 28 |
+| vega + typed-decisions adapter (gated), teacher calibration | specialist | 0.803 | 0.725 | 0.270 | 0.019 | 0.545 | 0.275 | 0.835 | - | - | - |
+| Uniform | reference | 0.308 | 0.311 | - | - | - | - | - | - | - | - |
+| Prior (label frequencies) | reference | 0.470 | 0.430 | - | - | - | - | - | - | - | - |
+| MiniLM-L6 (22M) | specialist | 0.587 | 0.506 | - | - | - | - | - | - | - | - |
+| ModernBERT-base (149M) | specialist | 0.646 | 0.542 | - | - | - | - | - | - | - | - |
+| Perfect scenario understanding | ceiling | 0.704 | - | - | - | - | - | - | - | - | - |
+| TypeSafe Jev 1.13.0 (card, 2026-09-18) | generalist | 0.727 | 0.580 | - | - | - | - | - | - | - | - |
+| Teacher self-agreement | ceiling | 0.735 | - | - | - | - | - | - | - | - | - |
+
+Paired (same 2050 decisions, McNemar): after vs before fine-tuning 703 / 94 (p=4.6e-116).
+Two calibrations were fitted on the held-out train cases: against the correct answers (default; confidence tracks accuracy) and against the teacher's distributions (probabilities track the teacher's spread, lower KL, underconfident top label). Load the second with Vega(..., calibration="teacher").
+Fine-tuning: best epoch 3, calibration-split soft NLL 1.5589 -> 0.5666, calibration mode thermal. Brier is summed over options against the gold distribution; the card may define it differently, so compare accuracy and soft accuracy with the card rows.
+
+## Adapter (PEFT without forgetting)
+
+The base engine is frozen and saved unchanged. One low-rank adapter (1431905 trainable params, 4.5% of the engine) learned typed-decisions; a gate per question decides whether it applies (threshold 0.50). A closed gate returns the base engine's output exactly.
+
+| items | mean gate | open | agrees with base engine | KL(base, adapted) |
+|---|---|---|---|---|
+| typed-decisions test | 1.000 | 100.0% | 52.8% | 2.2751 |
+| typed-decisions calibration split | 1.000 | 100.0% | 54.4% | 2.2202 |
+| vega replay, held out (old decision types) | 0.000 | 0.0% | 100.0% | 0.0000 |
+
+| workflow | before | after |
+|---|---|---|
+| apibank | 0.953 | 0.965 |
+| appliances | 0.764 | 0.891 |
+| banking77 | 0.418 | 0.749 |
+| clinc150 | 0.473 | 0.867 |
+| esci | 0.346 | 0.644 |
+| when2call | 0.523 | 0.946 |
+
+| question type | before | after |
+|---|---|---|
+| choice | 0.506 | 0.803 |
+
+| question | before | after |
+|---|---|---|
+| apibank/api | 0.953 | 0.965 |
+| appliances/category | 0.764 | 0.891 |
+| banking77/intent | 0.418 | 0.749 |
+| clinc150/intent | 0.473 | 0.867 |
+| esci/match | 0.346 | 0.644 |
+| when2call/action | 0.523 | 0.946 |
+

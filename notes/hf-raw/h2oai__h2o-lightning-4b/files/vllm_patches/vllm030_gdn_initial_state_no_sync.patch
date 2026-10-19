@@ -1,0 +1,25 @@
+diff --git a/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py b/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py
+index bbbb1c8..66c2167 100644
+--- a/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py
++++ b/vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py
+@@ -1524,7 +1524,19 @@ class QwenGatedDeltaNetAttention(GatedDeltaNetAttention):
+             assert prefill_state_indices is not None
+             assert prefill_has_initial_state is not None
+             initial_state = ssm_state[prefill_state_indices]
+-            initial_state[~prefill_has_initial_state, ...] = 0
++            # Zero the rows without a cached state WITHOUT a boolean-mask index_put:
++            # that masked assignment calls nonzero() and synchronises the GPU in
++            # every layer (24 syncs per step for Qwen3.5). torch.where, not a
++            # multiply: a stale slot holding inf/NaN times 0 would be NaN.
++            initial_state = torch.where(
++                prefill_has_initial_state.view(
++                    -1, *([1] * (initial_state.dim() - 1))
++                ),
++                initial_state,
++                torch.zeros(
++                    (), dtype=initial_state.dtype, device=initial_state.device
++                ),
++            )
+             (
+                 core_attn_out_non_spec,
+                 last_recurrent_state,

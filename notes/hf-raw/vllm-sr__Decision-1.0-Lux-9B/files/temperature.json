@@ -1,0 +1,36 @@
+{
+  "temperature": 2.0054410339959294,
+  "temperatures": {
+    "choice": 2.0054410339959294,
+    "noul": 2.0054410339959294,
+    "score": 2.0054410339959294
+  },
+  "fit": {
+    "temperature": 2.0054410339959294,
+    "inverse_temperature": 0.4986434320671379,
+    "status": "relative-bracket-converged",
+    "boundary_hit": false,
+    "iterations": 39,
+    "beta_final_bracket": [
+      0.4986434320489935,
+      0.4986434320852823
+    ],
+    "objective_at_T1": 0.575920704669103,
+    "objective_at_selected_T": 0.470824170405042,
+    "derivative_at_selected_beta": -1.0749178658229353e-11,
+    "initial_boundary_derivatives": {
+      "beta_0.05": -4.373609430947346,
+      "beta_20": 0.43818002393752065
+    },
+    "derivative_at_beta1": 0.31564766338757555,
+    "initial_boundary_objectives": [
+      1.0543611173192236,
+      8.781338999147692
+    ]
+  },
+  "heldout_used": false,
+  "SELECT_used_for_temperature": false,
+  "CAL_rows": 1814,
+  "selection_ranking_sha256": "2c2c7ad971e708d10038d000bbe34ba4a2f5ae7f97466a6001989978b514a585",
+  "calibration_sha256": "261d26d949d146481fcc086a1360ec6f309aec5a5b5ae81caddbdd989cd19d7b"
+}

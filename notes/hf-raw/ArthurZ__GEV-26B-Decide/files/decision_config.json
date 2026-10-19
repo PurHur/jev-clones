@@ -1,0 +1,13 @@
+{
+  "labels": {},
+  "temperature": {
+    "noul": 1.0027465,
+    "choice": 1.0171963,
+    "score": 0.9992907
+  },
+  "noul_options": [
+    "false",
+    "true"
+  ],
+  "sort_choices": false
+}

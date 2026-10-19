@@ -1,0 +1,285 @@
+{
+  "base_model": {
+    "id": "vllm-sr/Decision-1.0-Kai-0.6B",
+    "revision_of_release_layout": "9d6872cde6950c2c2b5786d182ec9a06ca1bdd66",
+    "native_manifest_sha256": "c1bf07ab1c4c3fa1f819256d3de858d1ed87869bdfa663553280d7e78b88bee4"
+  },
+  "trainer": "Kai decision_finetune, as shipped in the Kai repository until its 2026-09-27 model-only release",
+  "recipe": {
+    "runs": "one per question path (Choice, Noul), merged afterwards, no interpolation back to Kai",
+    "mixing": "temperature 2, no task above 1.5 times an equal share of its path",
+    "rows_per_epoch": {
+      "choice": 160000,
+      "noul": 316403
+    },
+    "logical_batch": 64,
+    "encoder_lr": 2.5e-05,
+    "head_lr": 0.0001,
+    "lr_min": 1e-06,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "clip_norm": 5,
+    "selection": "dev macro soft NLL",
+    "seed": 20260926
+  },
+  "runs": {
+    "choice": {
+      "epochs": 3,
+      "selected_checkpoint": "checkpoint-005000",
+      "dev_macro_soft_nll": 0.24940896787345,
+      "native_manifest_sha256": "02f0a9dfa3cbe92809260cd133b620725ad1756e9224f6342c590277d6e3782a"
+    },
+    "noul": {
+      "epochs": 1,
+      "selected_checkpoint": "checkpoint-004944",
+      "dev_macro_soft_nll": 0.2197743162251604,
+      "native_manifest_sha256": "fd632bfe2eab1e696eb97c233a40ca248063c269abbb766a528763c6f1e5678c"
+    }
+  },
+  "data": {
+    "training_rows": "the training split of each task (CoCoNot included), with the jailbreak and PII additions in vllm-sr/router-signal-suite: real jailbreak prompts for the jailbreak task and Few-NERD sentences with and without a person name for PII; Choice options rendered as KEY: description",
+    "tasks_report": null,
+    "prepare_report": {
+      "choice": {
+        "domain": {
+          "path": "choice",
+          "train_rows": 87548,
+          "train_over_budget": 0,
+          "dev_rows": 1498,
+          "dev_over_budget": 0
+        },
+        "jailbreak": {
+          "path": "noul",
+          "train_rows": 13526,
+          "train_over_budget": 0,
+          "dev_rows": 512,
+          "dev_over_budget": 0
+        },
+        "safety": {
+          "path": "noul",
+          "train_rows": 75296,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "hazard": {
+          "path": "noul",
+          "train_rows": 151011,
+          "train_over_budget": 0,
+          "dev_rows": 3600,
+          "dev_over_budget": 0
+        },
+        "fact_check": {
+          "path": "noul",
+          "train_rows": 5252,
+          "train_over_budget": 0,
+          "dev_rows": 198,
+          "dev_over_budget": 0
+        },
+        "modality": {
+          "path": "choice",
+          "train_rows": 59644,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "pii": {
+          "path": "noul",
+          "train_rows": 43932,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "feedback": {
+          "path": "choice",
+          "train_rows": 34774,
+          "train_over_budget": 0,
+          "dev_rows": 1199,
+          "dev_over_budget": 0
+        },
+        "hallucination": {
+          "path": "noul",
+          "train_rows": 23745,
+          "train_over_budget": 1,
+          "dev_rows": 1210,
+          "dev_over_budget": 0
+        },
+        "tool_need": {
+          "path": "noul",
+          "train_rows": 17502,
+          "train_over_budget": 0,
+          "dev_rows": 986,
+          "dev_over_budget": 0
+        },
+        "choice_mix": {
+          "domain": {
+            "rows": 87548,
+            "sampled": 65156
+          },
+          "modality": {
+            "rows": 59644,
+            "sampled": 53780
+          },
+          "feedback": {
+            "rows": 34774,
+            "sampled": 41064
+          }
+        },
+        "noul_mix": {
+          "jailbreak": {
+            "rows": 13526,
+            "sampled": 31057
+          },
+          "safety": {
+            "rows": 75296,
+            "sampled": 68571
+          },
+          "hazard": {
+            "rows": 151011,
+            "sampled": 68571
+          },
+          "fact_check": {
+            "rows": 5252,
+            "sampled": 15756
+          },
+          "pii": {
+            "rows": 43932,
+            "sampled": 55971
+          },
+          "hallucination": {
+            "rows": 23745,
+            "sampled": 41149
+          },
+          "tool_need": {
+            "rows": 17502,
+            "sampled": 35328
+          }
+        }
+      },
+      "noul": {
+        "domain": {
+          "path": "choice",
+          "train_rows": 87548,
+          "train_over_budget": 0,
+          "dev_rows": 1498,
+          "dev_over_budget": 0
+        },
+        "jailbreak": {
+          "path": "noul",
+          "train_rows": 13526,
+          "train_over_budget": 0,
+          "dev_rows": 512,
+          "dev_over_budget": 0
+        },
+        "safety": {
+          "path": "noul",
+          "train_rows": 75296,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "hazard": {
+          "path": "noul",
+          "train_rows": 151011,
+          "train_over_budget": 0,
+          "dev_rows": 3600,
+          "dev_over_budget": 0
+        },
+        "fact_check": {
+          "path": "noul",
+          "train_rows": 5252,
+          "train_over_budget": 0,
+          "dev_rows": 198,
+          "dev_over_budget": 0
+        },
+        "modality": {
+          "path": "choice",
+          "train_rows": 59644,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "pii": {
+          "path": "noul",
+          "train_rows": 47736,
+          "train_over_budget": 0,
+          "dev_rows": 1500,
+          "dev_over_budget": 0
+        },
+        "feedback": {
+          "path": "choice",
+          "train_rows": 34774,
+          "train_over_budget": 0,
+          "dev_rows": 1199,
+          "dev_over_budget": 0
+        },
+        "hallucination": {
+          "path": "noul",
+          "train_rows": 23745,
+          "train_over_budget": 1,
+          "dev_rows": 1210,
+          "dev_over_budget": 0
+        },
+        "tool_need": {
+          "path": "noul",
+          "train_rows": 17502,
+          "train_over_budget": 0,
+          "dev_rows": 986,
+          "dev_over_budget": 0
+        },
+        "choice_mix": {
+          "domain": {
+            "rows": 87548,
+            "sampled": 65156
+          },
+          "modality": {
+            "rows": 59644,
+            "sampled": 53780
+          },
+          "feedback": {
+            "rows": 34774,
+            "sampled": 41064
+          }
+        },
+        "noul_mix": {
+          "pii": {
+            "rows": 47736,
+            "sampled": 55971
+          },
+          "jailbreak": {
+            "rows": 16368,
+            "sampled": 31057
+          },
+          "safety": {
+            "rows": 75296,
+            "sampled": 68571
+          },
+          "hazard": {
+            "rows": 151011,
+            "sampled": 68571
+          },
+          "fact_check": {
+            "rows": 5252,
+            "sampled": 15756
+          },
+          "hallucination": {
+            "rows": 23745,
+            "sampled": 41149
+          },
+          "tool_need": {
+            "rows": 17502,
+            "sampled": 35328
+          }
+        }
+      }
+    },
+    "sources": {
+      "dataset": "vllm-sr/router-signal-suite",
+      "revision": "3f95fc2d0dbdd8abdd2a0fba0387f4a925fe934a",
+      "lock_files": {
+        "builder/sources.lock.json": "dd4d68f494a05ba2b40b8cc2de9c530e53713c1f38f742127fca8b43a13753ee",
+        "builder/additions.lock.json": "783ec3f296df74608d7cfc873e6718de72b2eb5284520f49b4829ddab44617b4"
+      }
+    }
+  }
+}

@@ -1,0 +1,482 @@
+{
+ "ckpt": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_9B_s42/stage2/ckpt-003000",
+ "export": "/root/adamko/export/vela2_9B_nb_20261003",
+ "device": "cuda",
+ "arms": {
+  "ref_bf16": {
+   "seconds": 47.5,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "ref_fp32_r": {
+   "seconds": 69.7,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "ref_fp32": {
+   "seconds": 61.1,
+   "stats": {
+    "p_domain_dev:rows": 15,
+    "p_factcheck_dev:rows": 10,
+    "p_modality_dev:rows": 10,
+    "p_feedback_dev:rows": 10,
+    "p_oasst1:rows": 8,
+    "p_boolq:rows": 8,
+    "p_snli:rows": 8,
+    "p_arc:rows": 6,
+    "p_massive:rows": 6,
+    "p_helpsteer2:rows": 10,
+    "p_jsts:rows": 8,
+    "p_klue_sts:rows": 6,
+    "p_shield:rows": 40,
+    "p_pii_dev:rows": 30,
+    "p_pii_longdev_4096:rows": 4,
+    "p_pii_longdev_4096:windowed_rows": 4,
+    "p_pii_longdev_4096:windows": 12,
+    "p_pii_longdev_4096:units_uncovered": 0,
+    "p_pii_longdev_8192:rows": 3,
+    "p_pii_longdev_8192:windowed_rows": 3,
+    "p_pii_longdev_8192:windows": 18,
+    "p_pii_longdev_8192:units_uncovered": 0,
+    "p_halu:rows": 20,
+    "p_toxic:rows": 10,
+    "p_fewnerd:rows": 6,
+    "p_multiconer:rows": 6,
+    "p_tydiqa_goldp:rows": 6
+   }
+  },
+  "exp_bf16": {
+   "seconds": 18.9,
+   "stats": {
+    "windowed_rows": 7,
+    "windows": 30,
+    "units_uncovered": 0
+   }
+  },
+  "exp_fp32": {
+   "seconds": 59.9,
+   "stats": {
+    "windowed_rows": 7,
+    "windows": 30,
+    "units_uncovered": 0
+   }
+  }
+ },
+ "checks": {
+  "rendering": {
+   "rows": 230,
+   "sequences": 260,
+   "mismatch": 0,
+   "parts_mismatch": 0,
+   "blocks_mismatch": 0,
+   "words_mismatch": 0,
+   "windows_count_mismatch": 0,
+   "examples": []
+  },
+  "outputs": {
+   "ref_bf16_vs_exp_bf16": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.0,
+     "max_abs_logit": 0.0,
+     "offs_mismatch": 0,
+     "spanset_diff": 0,
+     "spans": 408,
+     "gate_fired": 36
+    }
+   },
+   "ref_fp32_r_vs_exp_fp32": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.0,
+      "max_abs_logit": 0.0,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.0,
+     "max_abs_logit": 0.0,
+     "offs_mismatch": 0,
+     "spanset_diff": 0,
+     "spans": 405,
+     "gate_fired": 36
+    }
+   },
+   "ref_fp32_vs_exp_fp32": {
+    "types": {
+     "choice": {
+      "n": 169,
+      "max_abs_prob": 0.006502783163083392,
+      "max_abs_logit": 0.04948258399963379,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "score": {
+      "n": 101,
+      "max_abs_prob": 0.0014864575820251191,
+      "max_abs_logit": 0.019113540649414062,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     },
+     "set": {
+      "n": 26,
+      "max_abs_prob": 0.0017381225600992811,
+      "max_abs_logit": 0.029466629028320312,
+      "argmax_diff": 0,
+      "decision_diff": 0
+     }
+    },
+    "span": {
+     "rows": 85,
+     "units": 36360,
+     "max_abs_prob": 0.01885078561491732,
+     "max_abs_logit": 0.6635289192199707,
+     "offs_mismatch": 0,
+     "spanset_diff": 3,
+     "spans": 405,
+     "gate_fired": 36
+    }
+   }
+  },
+  "decoder_crosscheck_diff": 0,
+  "bundled_vs_single_fp32": {
+   "rows": 60,
+   "questions": 251,
+   "exact_equal": 0,
+   "max_abs_logit": 0.005934596061706543,
+   "span_rows": 10,
+   "span_exact": 0,
+   "span_max_abs_logit": 0.013752937316894531,
+   "by_source": {
+    "choice:oasst1": 8,
+    "choice:massive": 6,
+    "score:helpsteer2": 10,
+    "set:shield": 26,
+    "constructed:domain+4signals+pii": 10
+   },
+   "decision_flips": 1,
+   "batch_noise_control_max_abs_logit": 0.004175662994384766,
+   "batch_noise_control_span_max_abs_logit": 0.011744499206542969
+  },
+  "systemone_vs_predict": {
+   "cases": 6,
+   "max_abs_diff": 0.0,
+   "mismatches": 0,
+   "responses": [
+    {
+     "model": "vllm-sr/Vela-2.0-9B",
+     "answers": {
+      "modality": {
+       "type": "choice",
+       "choice": "DIFFUSION",
+       "confidence": 0.999132257487166,
+       "probabilities": {
+        "AR": 0.0003845940919392655,
+        "DIFFUSION": 0.9995168515791053,
+        "BOTH": 9.855432895533188e-05
+       }
+      },
+      "jailbreak": {
+       "type": "noul",
+       "noul": 0.017832214547449207
+      },
+      "urgency": {
+       "type": "score",
+       "score": 0.30209999314957425,
+       "confidence": 0.5126077633966108,
+       "legend": {
+        "0": "Routine",
+        "1": "Needs prompt attention",
+        "2": "Critical"
+       },
+       "probabilities": {
+        "0": 0.7549462920739214,
+        "1": 0.1880074227025829,
+        "2": 0.05704628522349569
+       }
+      }
+     },
+     "usage": {
+      "input_tokens": 399,
+      "output_tokens": 0
+     }
+    },
+    {
+     "model": "vllm-sr/Vela-2.0-9B",
+     "answers": {
+      "pii": {
+       "type": "noul",
+       "noul": 0.99999567529466
+      },
+      "halu": {
+       "type": "noul",
+       "noul": 0.9959181641896945
+      },
+      "domain": {
+       "type": "choice",
+       "choice": "health",
+       "confidence": 0.9765068115566078,
+       "probabilities": {
+        "health": 0.988114861630082,
+        "math": 0.0002770882964438927,
+        "other": 0.011608050073474166
+       }
+      }
+     },
+     "usage": {
+      "input_tokens": 1041,
+      "output_tokens": 0
+     },
+     "spans": {
+      "pii": [
+       {
+        "label": "PERSON",
+        "start": 8,
+        "end": 17,
+        "text": "Tom Baker",
+        "probability": 0.9985861778259277
+       },
+       {
+        "label": "EMAIL_ADDRESS",
+        "start": 19,
+        "end": 40,
+        "text": "tom.baker@example.com",
+        "probability": 0.9999925494194031
+       }
+      ],
+      "halu": [
+       {
+        "label": "unsupported",
+        "start": 22,
+        "end": 29,
+        "text": "6 grams",
+        "probability": 0.9815772771835327
+       }
+      ]
+     },
+     "thresholds": {
+      "pii": 0.5,
+      "halu": 0.45
+     }
+    },
+    {
+     "model": "vllm-sr/Vela-2.0-9B",
+     "answers": {
+      "issues.billing": {
+       "type": "noul",
+       "noul": 0.8773543536646207
+      },
+      "issues.shipping": {
+       "type": "noul",
+       "noul": 0.9776609175016739
+      },
+      "issues.login": {
+       "type": "noul",
+       "noul": 8.235325076175106e-05
+      }
+     },
+     "usage": {
+      "input_tokens": 133,
+      "output_tokens": 0
+     },
+     "sets": {
+      "issues": {
+       "selected": [
+        "billing",
+        "shipping"
+       ],
+       "probabilities": {
+        "billing": 0.8773543536646207,
+        "shipping": 0.9776609175016739,
+        "login": 8.235325076175106e-05
+       }
+      }
+     },
+     "thresholds": {
+      "issues": 0.4
+     }
+    }
+   ],
+   "route": {
+    "ok": true,
+    "rejects_other_model": true
+   }
+  },
+  "shortcuts": {
+   "classify_text": {
+    "label": {
+     "label": "positive",
+     "confidence": 0.9498579306911973
+    }
+   },
+   "extract_entities": {
+    "AGE": [],
+    "CREDIT_CARD": [
+     "4111 1111 1111 1111"
+    ],
+    "DATE_TIME": [],
+    "DOMAIN_NAME": [],
+    "EMAIL_ADDRESS": [
+     "sarah.johnson@gmail.com"
+    ],
+    "GPE": [],
+    "IBAN_CODE": [],
+    "IP_ADDRESS": [],
+    "NRP": [],
+    "ORGANIZATION": [],
+    "PERSON": [
+     "Sarah Johnson"
+    ],
+    "PHONE_NUMBER": [
+     "415-555-0132"
+    ],
+    "STREET_ADDRESS": [],
+    "TITLE": [],
+    "US_DRIVER_LICENSE": [],
+    "US_SSN": [],
+    "ZIP_CODE": []
+   },
+   "detect_hallucination": {
+    "hallucinated": true,
+    "spans": [
+     {
+      "start": 43,
+      "end": 61,
+      "label": "unsupported",
+      "probability": 0.8277191519737244,
+      "text": "65 W fast charging"
+     }
+    ],
+    "threshold": 0.45
+   },
+   "score_relevance": {
+    "score": 0.9658881772233853,
+    "label": "highly_relevant",
+    "probabilities": {
+     "not_relevant": 0.009071700464993416,
+     "partially_relevant": 0.05008024462324281,
+     "highly_relevant": 0.9408480549117638
+    }
+   }
+  }
+ },
+ "rows": {
+  "choice:domain_dev": 15,
+  "choice:factcheck_dev": 10,
+  "choice:modality_dev": 10,
+  "choice:feedback_dev": 10,
+  "choice:oasst1": 8,
+  "choice:boolq": 8,
+  "choice:snli": 8,
+  "choice:arc": 6,
+  "choice:massive": 6,
+  "score:helpsteer2": 10,
+  "score:jsts": 8,
+  "score:klue_sts": 6,
+  "set:shield": 40,
+  "span:pii_dev": 30,
+  "span:pii_longdev_4096": 4,
+  "span:pii_longdev_8192": 3,
+  "span:halu": 20,
+  "span:toxic": 10,
+  "span:fewnerd": 6,
+  "span:multiconer": 6,
+  "span:tydiqa_goldp": 6
+ }
+}

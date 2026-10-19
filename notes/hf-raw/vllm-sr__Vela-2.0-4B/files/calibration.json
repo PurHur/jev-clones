@@ -1,0 +1,369 @@
+{
+ "temperature": {
+  "choice": 1.2959439754486084,
+  "score": 1.245418667793274,
+  "set": 0.9298876523971558,
+  "span": 0.7196457386016846
+ },
+ "span_temperature": 0.7196457386016846,
+ "thresholds": {
+  "set:p_cats": 0.35,
+  "set:r_cats": 0.3,
+  "set:*": 0.35,
+  "span:pii": 0.05,
+  "span:toxic": 0.05,
+  "span:halu": 0.45,
+  "span:tydiqa": 0.65,
+  "span:multiconer": 0.5,
+  "span:fewnerd": 0.35,
+  "span:*": 0.5
+ },
+ "pii_buckets": [
+  {
+   "name": "short",
+   "max_tokens": 1024,
+   "threshold": 0.02455,
+   "dev_f1": 1.0,
+   "dev_file": "data/tier0_20260924/generic/eval/pii_dev.jsonl",
+   "n_dev": 888
+  },
+  {
+   "name": "4096",
+   "max_tokens": 6144,
+   "threshold": 0.03504,
+   "dev_f1": 0.9457357370858247,
+   "dev_file": "data/pii_longdev_20260927/generic/pii_longdev_4096.jsonl",
+   "n_dev": 300
+  },
+  {
+   "name": "8192",
+   "max_tokens": 1000000000000,
+   "threshold": 0.1,
+   "dev_f1": 0.938343100080432,
+   "dev_file": "data/pii_longdev_20260927/generic/pii_longdev_8192.jsonl",
+   "n_dev": 300
+  }
+ ],
+ "pii_bucket_rule": "fallback only (used when pii_length_rule is absent): bucket = first entry whose max_tokens >= token count of the span part (this model's tokenizer, no specials)",
+ "pii_types": [
+  "AGE",
+  "CREDIT_CARD",
+  "DATE_TIME",
+  "DOMAIN_NAME",
+  "EMAIL_ADDRESS",
+  "GPE",
+  "IBAN_CODE",
+  "IP_ADDRESS",
+  "NRP",
+  "ORGANIZATION",
+  "PERSON",
+  "PHONE_NUMBER",
+  "STREET_ADDRESS",
+  "TITLE",
+  "US_DRIVER_LICENSE",
+  "US_SSN",
+  "ZIP_CODE"
+ ],
+ "pii_schema": {
+  "text": "Which spans are personal information?",
+  "labels": {
+   "AGE": "a person's age",
+   "CREDIT_CARD": "a payment card number",
+   "DATE_TIME": "a date, time or date of birth",
+   "DOMAIN_NAME": "an internet domain name or website address",
+   "EMAIL_ADDRESS": "an e-mail address",
+   "GPE": "a country, city, state or other geopolitical place",
+   "IBAN_CODE": "an international bank account number (IBAN)",
+   "IP_ADDRESS": "an IPv4 or IPv6 address",
+   "NRP": "a nationality, religious or political group",
+   "ORGANIZATION": "the name of a company, institution or other organisation",
+   "PERSON": "a person's name",
+   "PHONE_NUMBER": "a telephone number",
+   "STREET_ADDRESS": "a street address or postal address",
+   "TITLE": "a personal or professional title such as Dr. or Mrs.",
+   "US_DRIVER_LICENSE": "a US driver's licence number",
+   "US_SSN": "a US social security number",
+   "ZIP_CODE": "a postal or ZIP code"
+  }
+ },
+ "halu_schema": {
+  "text": "Which spans of the answer are not supported by the context?",
+  "labels": {
+   "unsupported": "a claim not supported by the context"
+  }
+ },
+ "relevance_schema": {
+  "text": "How relevant is this candidate to the query?",
+  "levels": {
+   "not_relevant": "The candidate does not help with the query.",
+   "partially_relevant": "The candidate is related to the query but only partly helps.",
+   "highly_relevant": "The candidate directly helps with the query."
+  },
+  "values": {
+   "not_relevant": 0.0,
+   "partially_relevant": 0.5,
+   "highly_relevant": 1.0
+  }
+ },
+ "halu_dev": {
+  "n": 2874,
+  "threshold": 0.45,
+  "example_f1": 0.9100025068939583
+ },
+ "probability_convention": "choice/score: softmax(logits over the real options / T_type); abstain = softmax incl. [ABS] (last); set: sigmoid(logit / T_set) > threshold (set:<qid> or set:*); span: sigmoid(logit / T_span) per word x label, decoded at the threshold (pii: pii_length_rule of the span-part token count, then pii_sparse_gate; pii_buckets if no pii_length_rule / span:halu / span:toxic / span:<qid> / span:*)",
+ "sources": {
+  "calibration": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2/ckpt-003000/eval_v2/calibration.json",
+  "r4": "/root/adamko/guard/runs/vela2_dec_nb_20261002/NB_4B_s44/stage2/ckpt-003000/eval_r4/r4.json",
+  "threshold_metric": {
+   "set:p_cats": {
+    "metric": "micro_f1",
+    "best": 0.4801670146137787,
+    "at_0_5": 0.43112244897959184
+   },
+   "set:r_cats": {
+    "metric": "micro_f1",
+    "best": 0.5742574257425742,
+    "at_0_5": 0.5432098765432098
+   },
+   "set:*": {
+    "metric": "micro_f1",
+    "best": 0.4876660341555977,
+    "at_0_5": 0.4416184971098266
+   },
+   "span:pii": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.9287246765303596,
+    "at_0_5": 0.8556697287769265,
+    "n": [
+     888,
+     30,
+     30
+    ],
+    "oracle_unit_roundtrip": 1.0
+   },
+   "span:toxic": {
+    "metric": "mean_char_f1",
+    "objective": "mean over dev sets",
+    "best": 0.4934019893588192,
+    "at_0_5": 0.1473821043297085,
+    "n": [
+     2013
+    ],
+    "oracle_unit_roundtrip": 0.9992776299285484
+   },
+   "span:halu": {
+    "metric": "example_f1",
+    "objective": "mean over dev sets",
+    "best": 0.9100025068939583,
+    "at_0_5": 0.9096905124302385,
+    "n": [
+     2874
+    ],
+    "oracle_unit_roundtrip": 1.0
+   },
+   "span:tydiqa": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.37981101636321735,
+    "at_0_5": 0.37326500106769167,
+    "n": [
+     1999
+    ],
+    "oracle_unit_roundtrip": 0.9429714857428715
+   },
+   "span:multiconer": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.1310885490296877,
+    "at_0_5": 0.1310885490296877,
+    "n": [
+     3000
+    ],
+    "oracle_unit_roundtrip": 0.964930200885257
+   },
+   "span:fewnerd": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.19273743016759776,
+    "at_0_5": 0.18333463247330267,
+    "n": [
+     3000
+    ],
+    "oracle_unit_roundtrip": 1.0
+   }
+  },
+  "ece": {
+   "choice": {
+    "before": 0.025143191441570574,
+    "after": 0.007794309056948348,
+    "accuracy": 0.9072019820935864
+   },
+   "score": {
+    "before": 0.047970260469868714,
+    "after": 0.011532580246367314,
+    "accuracy": 0.5621757705218188
+   },
+   "set": {
+    "before": 0.005402601078216171,
+    "after": 0.0031214671518677794
+   },
+   "span": {
+    "before": 0.00969550216363645,
+    "after": 0.004855515837688107
+   }
+  },
+  "n": {
+   "choice": 17759,
+   "score": 13108,
+   "set": 24718,
+   "span": 4000000
+  },
+  "pii_calibration": "/root/adamko/export/work_4B_nb_20261003/pii_cal/pii_calibration.json"
+ },
+ "pii_length_rule": {
+  "kind": "loglin_iso",
+  "anchors": [
+   {
+    "n_tokens": 21,
+    "threshold": 0.1491
+   },
+   {
+    "n_tokens": 126,
+    "threshold": 0.1491
+   },
+   {
+    "n_tokens": 254,
+    "threshold": 0.1491
+   },
+   {
+    "n_tokens": 510,
+    "threshold": 0.1
+   },
+   {
+    "n_tokens": 1022,
+    "threshold": 0.1
+   },
+   {
+    "n_tokens": 2046,
+    "threshold": 0.0544
+   },
+   {
+    "n_tokens": 3070,
+    "threshold": 0.0544
+   },
+   {
+    "n_tokens": 4094,
+    "threshold": 0.0544
+   },
+   {
+    "n_tokens": 8190,
+    "threshold": 0.0544
+   }
+  ],
+  "interpolation": "log(threshold) linear in log(n_tokens) between anchors; constant outside",
+  "token_count": "span-part token ids, this model's tokenizer, no special tokens",
+  "fitted_on": "dev: Tier-0 pii_dev (short), pii_middev_20260928 (128..3072), pii_longdev_20260927 (4096, 8192); per-bucket micro-F1-best threshold, ties -> lowest"
+ },
+ "pii_sparse_gate": {
+  "K": 2,
+  "t_sparse": 0.5,
+  "probe_threshold": 0.5,
+  "rule": "if the doc has <= K spans decoded at probe_threshold, threshold = max(length rule, t_sparse); K < 0 disables the gate"
+ },
+ "noul_calibration": {
+  "T": 2.0104773495752877,
+  "b": 0.245461495966149,
+  "source": "dev-fitted on 290 select noul rows, 5-fold CV log-loss 0.5984 -> 0.4871",
+  "rule": "notes/vela2_dec_optcal_rule_20261002.md",
+  "default": false,
+  "note": "fitted for general-decision noul questions; enable with noul_calibration=True / VELA2_NOUL_CALIBRATION=1"
+ },
+ "broad_head": {
+  "file": "broad_head.safetensors",
+  "hidden": 2560,
+  "d": 256,
+  "slots": 64,
+  "temperature": 1.0,
+  "threshold": 0.55,
+  "threshold_fit": "r4 FINE grid, mean over the groups (5 zero-shot NER sets exact micro-F1, verbatim evidence char F1, RE exact micro-F1) of the thr-half metric, ties -> lowest (2h_gate2_4B.json); T = 1.0",
+  "router_ids": [
+   "pii",
+   "halu",
+   "toxic"
+  ],
+  "router_label_sets": [
+   [
+    "AGE",
+    "CREDIT_CARD",
+    "DATE_TIME",
+    "DOMAIN_NAME",
+    "EMAIL_ADDRESS",
+    "GPE",
+    "IBAN_CODE",
+    "IP_ADDRESS",
+    "NRP",
+    "ORGANIZATION",
+    "PERSON",
+    "PHONE_NUMBER",
+    "STREET_ADDRESS",
+    "TITLE",
+    "US_DRIVER_LICENSE",
+    "US_SSN",
+    "ZIP_CODE"
+   ],
+   [
+    "unsupported"
+   ],
+   [
+    "Criminal Planning/Confessions",
+    "Violence",
+    "Hate/Identity Hate",
+    "Harassment",
+    "Profanity",
+    "Sexual",
+    "Sexual (minor)",
+    "Controlled/Regulated Substances",
+    "PII/Privacy",
+    "Guns and Illegal Weapons",
+    "Suicide and Self Harm",
+    "Unauthorized Advice",
+    "Political/Misinformation/Conspiracy",
+    "Fraud/Deception",
+    "Illegal Activity",
+    "Threat",
+    "Copyright/Trademark/Plagiarism",
+    "High Risk Gov Decision Making",
+    "Immoral/Unethical",
+    "Needs Caution",
+    "Other",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10",
+    "S11",
+    "S12",
+    "S14",
+    "others",
+    "social_stereotypes_and_unfair_discrimination",
+    "disseminating_false_or_misleading_information_encouraging_disinformation_campaigns",
+    "violence_and_physical_harm",
+    "private_information_individual",
+    "sensitive_information_organization_government",
+    "defamation_encouraging_unethical_or_unsafe_actions",
+    "toxic_language_hate_speech",
+    "fraud_assisting_illegal_activities",
+    "copyright_violations",
+    "causing_material_harm_by_disseminating_misinformation",
+    "sexual_content",
+    "mental_health_over-reliance_crisis"
+   ]
+  ]
+ }
+}

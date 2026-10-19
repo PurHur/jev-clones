@@ -1,0 +1,1786 @@
+{
+  "choice_suffix_shapes": {
+    "choice_blocks.0.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.0.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.0.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.0.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.0.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.1.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.1.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.1.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.1.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.1.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.1.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.10.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.10.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.10.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.10.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.10.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.10.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.11.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.11.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.11.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.11.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.11.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.11.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.12.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.12.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.12.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.12.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.12.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.12.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.13.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.13.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.13.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.13.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.13.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.13.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.14.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.14.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.14.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.14.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.14.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.14.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.15.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.15.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.15.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.15.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.15.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.15.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.16.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.16.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.16.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.16.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.16.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.16.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.17.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.17.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.17.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.17.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.17.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.17.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.18.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.18.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.18.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.18.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.18.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.18.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.19.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.19.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.19.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.19.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.19.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.19.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.2.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.2.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.2.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.2.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.2.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.2.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.20.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.20.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.20.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.20.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.20.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.20.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.21.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.21.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.21.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.21.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.21.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.21.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.3.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.3.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.3.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.3.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.3.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.3.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.4.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.4.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.4.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.4.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.4.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.4.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.5.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.5.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.5.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.5.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.5.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.5.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.6.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.6.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.6.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.6.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.6.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.6.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.7.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.7.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.7.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.7.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.7.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.7.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.8.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.8.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.8.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.8.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.8.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.8.mlp_norm.weight": [
+      768
+    ],
+    "choice_blocks.9.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "choice_blocks.9.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.9.attn_norm.weight": [
+      768
+    ],
+    "choice_blocks.9.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "choice_blocks.9.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "choice_blocks.9.mlp_norm.weight": [
+      768
+    ],
+    "choice_final_norm.weight": [
+      768
+    ]
+  },
+  "counts": {
+    "frozen_parameters": 446810114,
+    "frozen_tensors": 327,
+    "integrated_choice_suffix_tensors": 132,
+    "score_suffix_parameters": 110330880,
+    "score_suffix_tensors": 132,
+    "shared_encoder_tensors": 134,
+    "trainable_parameters": 125099521,
+    "trainable_tensors": 162,
+    "type_and_head_tensors": 91,
+    "unique_parameters": 571909635,
+    "unique_tensors": 489
+  },
+  "encoder_shapes": {
+    "embeddings.norm.weight": [
+      768
+    ],
+    "embeddings.tok_embeddings.weight": [
+      256000,
+      768
+    ],
+    "final_norm.weight": [
+      768
+    ],
+    "layers.0.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.0.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.0.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.0.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.0.mlp_norm.weight": [
+      768
+    ],
+    "layers.1.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.1.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.1.attn_norm.weight": [
+      768
+    ],
+    "layers.1.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.1.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.1.mlp_norm.weight": [
+      768
+    ],
+    "layers.10.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.10.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.10.attn_norm.weight": [
+      768
+    ],
+    "layers.10.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.10.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.10.mlp_norm.weight": [
+      768
+    ],
+    "layers.11.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.11.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.11.attn_norm.weight": [
+      768
+    ],
+    "layers.11.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.11.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.11.mlp_norm.weight": [
+      768
+    ],
+    "layers.12.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.12.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.12.attn_norm.weight": [
+      768
+    ],
+    "layers.12.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.12.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.12.mlp_norm.weight": [
+      768
+    ],
+    "layers.13.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.13.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.13.attn_norm.weight": [
+      768
+    ],
+    "layers.13.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.13.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.13.mlp_norm.weight": [
+      768
+    ],
+    "layers.14.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.14.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.14.attn_norm.weight": [
+      768
+    ],
+    "layers.14.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.14.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.14.mlp_norm.weight": [
+      768
+    ],
+    "layers.15.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.15.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.15.attn_norm.weight": [
+      768
+    ],
+    "layers.15.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.15.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.15.mlp_norm.weight": [
+      768
+    ],
+    "layers.16.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.16.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.16.attn_norm.weight": [
+      768
+    ],
+    "layers.16.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.16.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.16.mlp_norm.weight": [
+      768
+    ],
+    "layers.17.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.17.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.17.attn_norm.weight": [
+      768
+    ],
+    "layers.17.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.17.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.17.mlp_norm.weight": [
+      768
+    ],
+    "layers.18.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.18.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.18.attn_norm.weight": [
+      768
+    ],
+    "layers.18.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.18.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.18.mlp_norm.weight": [
+      768
+    ],
+    "layers.19.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.19.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.19.attn_norm.weight": [
+      768
+    ],
+    "layers.19.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.19.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.19.mlp_norm.weight": [
+      768
+    ],
+    "layers.2.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.2.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.2.attn_norm.weight": [
+      768
+    ],
+    "layers.2.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.2.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.2.mlp_norm.weight": [
+      768
+    ],
+    "layers.20.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.20.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.20.attn_norm.weight": [
+      768
+    ],
+    "layers.20.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.20.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.20.mlp_norm.weight": [
+      768
+    ],
+    "layers.21.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.21.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.21.attn_norm.weight": [
+      768
+    ],
+    "layers.21.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.21.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.21.mlp_norm.weight": [
+      768
+    ],
+    "layers.3.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.3.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.3.attn_norm.weight": [
+      768
+    ],
+    "layers.3.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.3.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.3.mlp_norm.weight": [
+      768
+    ],
+    "layers.4.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.4.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.4.attn_norm.weight": [
+      768
+    ],
+    "layers.4.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.4.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.4.mlp_norm.weight": [
+      768
+    ],
+    "layers.5.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.5.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.5.attn_norm.weight": [
+      768
+    ],
+    "layers.5.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.5.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.5.mlp_norm.weight": [
+      768
+    ],
+    "layers.6.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.6.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.6.attn_norm.weight": [
+      768
+    ],
+    "layers.6.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.6.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.6.mlp_norm.weight": [
+      768
+    ],
+    "layers.7.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.7.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.7.attn_norm.weight": [
+      768
+    ],
+    "layers.7.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.7.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.7.mlp_norm.weight": [
+      768
+    ],
+    "layers.8.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.8.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.8.attn_norm.weight": [
+      768
+    ],
+    "layers.8.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.8.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.8.mlp_norm.weight": [
+      768
+    ],
+    "layers.9.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "layers.9.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "layers.9.attn_norm.weight": [
+      768
+    ],
+    "layers.9.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "layers.9.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "layers.9.mlp_norm.weight": [
+      768
+    ]
+  },
+  "head_shapes": {
+    "heads.choice.0.linear1.bias": [
+      3072
+    ],
+    "heads.choice.0.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.choice.0.linear2.bias": [
+      768
+    ],
+    "heads.choice.0.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.choice.0.norm1.bias": [
+      768
+    ],
+    "heads.choice.0.norm1.weight": [
+      768
+    ],
+    "heads.choice.0.norm2.bias": [
+      768
+    ],
+    "heads.choice.0.norm2.weight": [
+      768
+    ],
+    "heads.choice.0.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.choice.0.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.choice.0.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.choice.0.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "heads.choice.1.linear1.bias": [
+      3072
+    ],
+    "heads.choice.1.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.choice.1.linear2.bias": [
+      768
+    ],
+    "heads.choice.1.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.choice.1.norm1.bias": [
+      768
+    ],
+    "heads.choice.1.norm1.weight": [
+      768
+    ],
+    "heads.choice.1.norm2.bias": [
+      768
+    ],
+    "heads.choice.1.norm2.weight": [
+      768
+    ],
+    "heads.choice.1.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.choice.1.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.choice.1.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.choice.1.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "heads.noul.0.linear1.bias": [
+      3072
+    ],
+    "heads.noul.0.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.noul.0.linear2.bias": [
+      768
+    ],
+    "heads.noul.0.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.noul.0.norm1.bias": [
+      768
+    ],
+    "heads.noul.0.norm1.weight": [
+      768
+    ],
+    "heads.noul.0.norm2.bias": [
+      768
+    ],
+    "heads.noul.0.norm2.weight": [
+      768
+    ],
+    "heads.noul.0.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.noul.0.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.noul.0.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.noul.0.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "heads.noul.1.linear1.bias": [
+      3072
+    ],
+    "heads.noul.1.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.noul.1.linear2.bias": [
+      768
+    ],
+    "heads.noul.1.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.noul.1.norm1.bias": [
+      768
+    ],
+    "heads.noul.1.norm1.weight": [
+      768
+    ],
+    "heads.noul.1.norm2.bias": [
+      768
+    ],
+    "heads.noul.1.norm2.weight": [
+      768
+    ],
+    "heads.noul.1.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.noul.1.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.noul.1.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.noul.1.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "heads.score.0.linear1.bias": [
+      3072
+    ],
+    "heads.score.0.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.score.0.linear2.bias": [
+      768
+    ],
+    "heads.score.0.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.score.0.norm1.bias": [
+      768
+    ],
+    "heads.score.0.norm1.weight": [
+      768
+    ],
+    "heads.score.0.norm2.bias": [
+      768
+    ],
+    "heads.score.0.norm2.weight": [
+      768
+    ],
+    "heads.score.0.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.score.0.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.score.0.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.score.0.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "heads.score.1.linear1.bias": [
+      3072
+    ],
+    "heads.score.1.linear1.weight": [
+      3072,
+      768
+    ],
+    "heads.score.1.linear2.bias": [
+      768
+    ],
+    "heads.score.1.linear2.weight": [
+      768,
+      3072
+    ],
+    "heads.score.1.norm1.bias": [
+      768
+    ],
+    "heads.score.1.norm1.weight": [
+      768
+    ],
+    "heads.score.1.norm2.bias": [
+      768
+    ],
+    "heads.score.1.norm2.weight": [
+      768
+    ],
+    "heads.score.1.self_attn.in_proj_bias": [
+      2304
+    ],
+    "heads.score.1.self_attn.in_proj_weight": [
+      2304,
+      768
+    ],
+    "heads.score.1.self_attn.out_proj.bias": [
+      768
+    ],
+    "heads.score.1.self_attn.out_proj.weight": [
+      768,
+      768
+    ],
+    "scorers.choice.0.bias": [
+      768
+    ],
+    "scorers.choice.0.weight": [
+      768
+    ],
+    "scorers.choice.1.bias": [
+      768
+    ],
+    "scorers.choice.1.weight": [
+      768,
+      768
+    ],
+    "scorers.choice.3.bias": [
+      1
+    ],
+    "scorers.choice.3.weight": [
+      1,
+      768
+    ],
+    "scorers.noul.0.bias": [
+      768
+    ],
+    "scorers.noul.0.weight": [
+      768
+    ],
+    "scorers.noul.1.bias": [
+      768
+    ],
+    "scorers.noul.1.weight": [
+      768,
+      768
+    ],
+    "scorers.noul.3.bias": [
+      1
+    ],
+    "scorers.noul.3.weight": [
+      1,
+      768
+    ],
+    "scorers.score.0.bias": [
+      768
+    ],
+    "scorers.score.0.weight": [
+      768
+    ],
+    "scorers.score.1.bias": [
+      768
+    ],
+    "scorers.score.1.weight": [
+      768,
+      768
+    ],
+    "scorers.score.3.bias": [
+      1
+    ],
+    "scorers.score.3.weight": [
+      1,
+      768
+    ],
+    "type_embedding.weight": [
+      3,
+      768
+    ]
+  },
+  "score_suffix_shapes": {
+    "score_blocks.0.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.0.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.0.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.0.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.0.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.1.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.1.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.1.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.1.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.1.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.1.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.10.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.10.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.10.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.10.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.10.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.10.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.11.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.11.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.11.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.11.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.11.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.11.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.12.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.12.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.12.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.12.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.12.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.12.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.13.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.13.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.13.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.13.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.13.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.13.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.14.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.14.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.14.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.14.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.14.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.14.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.15.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.15.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.15.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.15.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.15.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.15.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.16.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.16.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.16.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.16.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.16.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.16.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.17.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.17.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.17.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.17.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.17.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.17.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.18.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.18.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.18.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.18.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.18.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.18.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.19.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.19.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.19.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.19.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.19.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.19.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.2.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.2.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.2.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.2.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.2.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.2.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.20.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.20.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.20.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.20.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.20.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.20.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.21.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.21.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.21.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.21.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.21.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.21.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.3.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.3.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.3.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.3.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.3.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.3.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.4.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.4.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.4.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.4.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.4.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.4.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.5.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.5.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.5.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.5.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.5.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.5.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.6.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.6.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.6.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.6.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.6.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.6.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.7.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.7.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.7.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.7.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.7.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.7.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.8.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.8.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.8.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.8.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.8.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.8.mlp_norm.weight": [
+      768
+    ],
+    "score_blocks.9.attn.Wo.weight": [
+      768,
+      768
+    ],
+    "score_blocks.9.attn.Wqkv.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.9.attn_norm.weight": [
+      768
+    ],
+    "score_blocks.9.mlp.Wi.weight": [
+      2304,
+      768
+    ],
+    "score_blocks.9.mlp.Wo.weight": [
+      768,
+      1152
+    ],
+    "score_blocks.9.mlp_norm.weight": [
+      768
+    ],
+    "score_final_norm.weight": [
+      768
+    ]
+  }
+}

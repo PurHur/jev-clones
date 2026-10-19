@@ -1,0 +1,40 @@
+{
+  "decision_format": "vllm-sr-decision",
+  "format_version": 1,
+  "model_name": "Decision-1.0-Route-0.6B",
+  "runtime_family": "vela-encoder",
+  "model_config": "native/decision_config.json",
+  "backbone": {
+    "config": "native/encoder/config.json",
+    "weights": [
+      "native/encoder/model.safetensors"
+    ]
+  },
+  "tokenizer": {
+    "json": "native/tokenizer/tokenizer.json",
+    "config": "native/tokenizer/tokenizer_config.json",
+    "special_tokens_map": "native/tokenizer/special_tokens_map.json"
+  },
+  "decision_weights": {
+    "choice_encoder": "native/choice_encoder.safetensors",
+    "score_encoder": "native/score_encoder.safetensors",
+    "decision_heads": "native/decision_heads.safetensors"
+  },
+  "model_type": "decision1",
+  "architectures": [
+    "Decision1Model"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_decision1.Decision1Config",
+    "AutoModel": "modeling_decision1.Decision1Model"
+  },
+  "custom_pipelines": {
+    "decision": {
+      "impl": "pipeline_decision1.Decision1Pipeline",
+      "pt": [
+        "AutoModel"
+      ],
+      "type": "text"
+    }
+  }
+}

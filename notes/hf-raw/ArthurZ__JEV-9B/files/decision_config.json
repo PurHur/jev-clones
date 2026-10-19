@@ -1,0 +1,15 @@
+{
+  "labels": {},
+  "temperature": {
+    "noul": 1.0022178236691426,
+    "choice": 0.9840233476014968,
+    "score": 1.012184473350984
+  },
+  "calibration": null,
+  "noul_band": null,
+  "noul_options": [
+    "false",
+    "true"
+  ],
+  "sort_choices": false
+}

@@ -1,0 +1,11 @@
+{
+  "training_exposure": null,
+  "model_id": "facebook__meta-encoder",
+  "display_name": "Meta Encoder 30B",
+  "short_name": "Meta Encoder",
+  "url": null,
+  "hf_url": "https://huggingface.co/facebook/meta-encoder",
+  "total_params": null,
+  "active_params": null,
+  "parameter_count_method": null
+}

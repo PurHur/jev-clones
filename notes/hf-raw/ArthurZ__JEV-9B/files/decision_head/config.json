@@ -1,0 +1,17 @@
+{
+  "architectures": [
+    "JevDecisionHead"
+  ],
+  "dtype": "float32",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "model_type": "jev",
+  "num_verbalizers": 24,
+  "offsets": {
+    "choice": 8,
+    "noul": 0,
+    "score": 2
+  },
+  "softcap": null,
+  "transformers_version": "5.19.0.dev0"
+}

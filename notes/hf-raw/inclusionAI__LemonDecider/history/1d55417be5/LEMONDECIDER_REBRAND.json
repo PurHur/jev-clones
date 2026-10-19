@@ -1,0 +1,16 @@
+{
+  "schema": "lemondecider-abi-rename-receipt/1",
+  "model_name": "lemondecider-4b-merge50-20261015-v2",
+  "rebuilt_utc": "2026-10-15T07:10:31Z",
+  "purpose": "v2 spelling-normalization export of the rebranded two-route checkpoint: internal machine identifiers corrected to the LemonDecider spelling; weights and the tokenizer BPE asset byte-identical to the v1 rebranded export; v1 kept read-only with its evaluation evidence.",
+  "weights": {
+    "shards": 2,
+    "note": "serialization files unchanged in this pass"
+  },
+  "amendments": [
+    {
+      "utc": "2026-10-15T09:05:30.492782+00:00",
+      "change": "max_input_length 8192 -> 262144 in config.json and decision_config.json, enabling the Qwen3.5-4B backbone's full 256K position window (max_position_embeddings 262144, rope_theta 1e7), per user instruction 2026-10-15. Weights, tokenizer and runtime code unchanged (INDEX revision binds LEMONDECIDER_BUILD.json, untouched)."
+    }
+  ]
+}

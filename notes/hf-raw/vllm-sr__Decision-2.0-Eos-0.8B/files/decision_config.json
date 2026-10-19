@@ -1,0 +1,58 @@
+{
+  "architecture": "qwen3.5-text-endpoints-global-query-shared-bilinear-mlp",
+  "prompt_version": "decision2-segmented-options-global-query-v1",
+  "base_revision": "2fc06364715b967f1860aea9cf38778875588b17",
+  "source_prompt_version": "structured-segmented-candidate-endpoints-global-query-v2",
+  "head_dim": 256,
+  "max_options": 255,
+  "text_parameter_count": 752393024,
+  "parameter_dtype": "float32",
+  "autocast_dtype": "bfloat16",
+  "head_compute_dtype": "float32",
+  "attention": "sdpa",
+  "checkpoint_format": "full",
+  "full_training_source": {
+    "kind": "decision1",
+    "revision": null,
+    "source_fingerprint": {
+      "source_name": "363c4a5e56afc115b1c78c837633956d0bbb63ab",
+      "files_sha256": {
+        "backbone/config.json": "5cece452e606f8ffca1790b79018fed5b0fde7d1a0791d375ca09492e0d1809b",
+        "backbone/model.safetensors": "613f491da2794c5d22f68e81bd2d41000c5675bc4538180148e6e453e8198abd",
+        "config.json": "37c16ffad2439cc06c7a40de037e59341cb57ae4e948cbaf9b1950c5d38d0d37",
+        "decision_config.json": "71fde3c2ea6f4bf4e781028d7f8f39da73599f9d868979efbfbd8b7f43dd68c3",
+        "decision_head.safetensors": "75f4ee8b512aea8f74fdcb42849b4cd37cfb37ff17c5d0b5fda1bb7b4f6d72f6",
+        "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+        "tokenizer_config.json": "bee8eba30f0eb4af73c0fe2cd06d0f89b657d7819941c438157ec42f7c80ea87"
+      }
+    }
+  },
+  "training_mode": "full",
+  "loss_version": "decision2-valid-k-ce-plus-optional-brier-and-replay-kl-v1",
+  "initialization": "linear-interpolation-of-full-checkpoints",
+  "interpolation": {
+    "alpha": 0.75,
+    "formula": "W = (1 - alpha) * release + alpha * arm, per tensor in FP32 (backbone and decision head)",
+    "release": {
+      "path": "/runs/m14/inputs/refs/DEV2.0-0.8B/bede7938a8c209c09f27400b79eed57948d6b75e",
+      "model_sha256": "3f02f0e5fc68a1fd985ce48bf3a3bb2d4ed16d1a1705c2258317b78a4d6514f4"
+    },
+    "arm": {
+      "path": "/runs/m16/inputs/arms/08b-RA",
+      "model_sha256": "f25beedd6b9b80fd8ce92857bfd6a14d77d73624e4fd410cc535357c0a1b41fb",
+      "soup": {
+        "method": "uniform weight average (FP32)",
+        "members": [
+          {
+            "path": "/runs/m12/arms/full/m12-08b-RA-s1/checkpoint-0004115",
+            "model_sha256": "576022450d7e284c33f46f680d1ddaeb419b093353b21f0753efe6f73b120f47"
+          },
+          {
+            "path": "/runs/m12/arms/full/m12-08b-RA-s2/checkpoint-0004109",
+            "model_sha256": "6f254ab5458ef0038ee0528f84d7aaea57335004912d9d23f8a432673311898f"
+          }
+        ]
+      }
+    }
+  }
+}

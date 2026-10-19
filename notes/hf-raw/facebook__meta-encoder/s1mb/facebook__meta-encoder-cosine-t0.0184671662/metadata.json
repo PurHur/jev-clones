@@ -1,0 +1,10 @@
+{
+  "model_id": "facebook__meta-encoder-cosine-t0.0184671662",
+  "display_name": "Meta Encoder",
+  "short_name": "Meta Encoder",
+  "url": "https://huggingface.co/facebook/meta-encoder",
+  "hf_url": "https://huggingface.co/facebook/meta-encoder",
+  "total_params": 29776626688,
+  "active_params": 28430222336,
+  "parameter_count_method": "non_lookup_parameters_v1"
+}

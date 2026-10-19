@@ -1,0 +1,2 @@
+# Source commit: 8b166de1eee57d46061fd16f2cc2f5c1f9dce002
+FROM ghcr.io/hotchpotch/s1mb-leaderboard@sha256:dbdcbcd9468521a3a9f10ea0cfa6b8228fd72eb59157b9761c9e44905b8b3c03

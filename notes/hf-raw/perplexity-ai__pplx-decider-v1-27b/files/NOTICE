@@ -1,0 +1,12 @@
+AutoJev 27B curated SFT checkpoint
+
+Derived from Qwen/Qwen3.8-27B, revision
+1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0, under Apache License 2.0.
+
+Modifications: the language-generation output layer is replaced with a
+255-option decision readout; retained backbone, vision and readout weights
+were updated through supervised fine-tuning. A scalar temperature fitted
+on a separate calibration split is saved in decision_config.json.
+
+Training and serving code under source/ is separately MIT licensed.
+No affiliation with or endorsement by Qwen or TypeSafe is implied.

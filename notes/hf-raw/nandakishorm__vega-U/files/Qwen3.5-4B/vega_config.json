@@ -1,0 +1,121 @@
+{
+  "latent_dim": 64,
+  "world_dim": 256,
+  "proj_hidden": 2048,
+  "n_steps": 12,
+  "dt_max": 0.5,
+  "settle_eps": 0.01,
+  "force_max": 20.0,
+  "ssm_state": 32,
+  "dropout": 0.1,
+  "feature_dropout": 0.1,
+  "max_len": 73728,
+  "opt_max_tokens": 32,
+  "memory_chunks": 16,
+  "memory_min_tokens": 128,
+  "memory_chunk_tokens": 128,
+  "prefix_min_tokens": 4096,
+  "query_first_max_state": 4096,
+  "model_name": "vega-universal",
+  "backbone": "/kaggle/input/notebooks/nandakishorconvai/vega-assets/models/Qwen3.5-4B",
+  "backbone_name": "Qwen3.5-4B",
+  "d_model": 1024,
+  "d_shared": 1024,
+  "port": "port.safetensors",
+  "raw_stats": "stats.npz",
+  "n_layers": 32,
+  "feature_layers": [
+    18,
+    26
+  ],
+  "option_layers": [
+    26
+  ],
+  "template": 0,
+  "calibration": {
+    "mode": "thermal",
+    "theta": [
+      [
+        1.374992930423782,
+        -0.6310800255637075,
+        0.4546723300514125,
+        -0.0001245940372647155,
+        0.10678631370623297
+      ],
+      [
+        -2.308770722574687,
+        -0.7592737148950025,
+        -0.44564383960208304,
+        0.00012135725931751597,
+        2.07975108606869
+      ],
+      [
+        0.8107650420281356,
+        -0.18247676908592003,
+        0.06331403614074224,
+        -0.00019173926162466216,
+        -0.00013290352896184579
+      ]
+    ],
+    "theta_scalar": [
+      [
+        0.8458185100405291,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.31125157648742197,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.6325486737244866,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "features": [
+      "log1p(kinetic)",
+      "log1p(nearest)",
+      "steps_used/n_steps",
+      "log(k)"
+    ],
+    "heldout_calib_nll": {
+      "scalar": 0.4738313718084204,
+      "thermal": 0.4637181614823179
+    },
+    "zero_shot_fit": {
+      "items": 300,
+      "tasks": 2,
+      "weight_per_item": 27.064000000000004,
+      "eval_zs_items_left": 1300
+    },
+    "conformal": {
+      "choice": {
+        "0.1": 0.7292137045836392,
+        "0.05": 0.8310039497269239
+      },
+      "score": {
+        "0.1": 0.8514660827622205,
+        "0.05": 0.9297297880704407
+      },
+      "noul": {
+        "0.1": 0.5985446392994087,
+        "0.05": 0.7536214413607949
+      }
+    },
+    "abstain_threshold": {
+      "0.05": 0.7797654564072923,
+      "0.1": 0.5960943881671983,
+      "0.2": 0.13844478943425373
+    },
+    "default_risk": "0.1",
+    "unbound_threshold": 2.5907034873962402
+  }
+}

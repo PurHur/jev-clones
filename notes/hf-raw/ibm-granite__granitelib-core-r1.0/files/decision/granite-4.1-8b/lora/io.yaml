@@ -1,0 +1,14 @@
+# Decider / decision engine (LoRA, r=64, granite-4.1-8b).
+# Prompt layout and readout are those of the LoRA example in the README: a fixed system prompt and a single user
+# turn carrying State / Question / Options as "A: ...", "B: ...", with add_generation_prompt=True;
+# the answer is the first assistant token, read as a softmax over the option-label token logits.
+# A standard always-on LoRA: no invocation marker, the adapter is active over the whole prompt.
+name: decision
+model: ~
+response_format: ~
+transformations: ~
+instruction: ~
+parameters:
+  max_completion_tokens: 1
+  temperature: 0.0
+sentence_boundaries: ~

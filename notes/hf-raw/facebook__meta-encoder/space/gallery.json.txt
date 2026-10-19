@@ -1,0 +1,1235 @@
+{
+ "decisions": [
+  {
+   "id": "NExTQA#565",
+   "task": "Spatial reasoning",
+   "source": "NExT-QA",
+   "media": {
+    "type": "video",
+    "file": "media/NExTQA_565.webp"
+   },
+   "state": null,
+   "instruction": "Given a video and a question, select the most accurate answer from the provided candidates. Return only the exact text of your chosen answer. Question:",
+   "query": "where is the dog sitting",
+   "n_options": 5,
+   "outcome": [
+    {
+     "label": "couch",
+     "detail": "",
+     "prob": 0.9999866567843714
+    },
+    {
+     "label": "man s lap",
+     "detail": "",
+     "prob": 5.982559548628133e-06
+    },
+    {
+     "label": "park",
+     "detail": "",
+     "prob": 4.656890980702846e-06
+    }
+   ]
+  },
+  {
+   "id": "TempCompass#4503",
+   "task": "Speed comparison",
+   "source": "TempCompass",
+   "media": {
+    "type": "video",
+    "file": "media/TempCompass_4503.webp"
+   },
+   "state": null,
+   "instruction": "Given a video and a question, select the most accurate answer from the provided candidates. Return only the exact text of your chosen answer. Question:",
+   "query": "Which ball is moving faster?",
+   "n_options": 3,
+   "outcome": [
+    {
+     "label": "same speed",
+     "detail": "",
+     "prob": 0.9950781459266057
+    },
+    {
+     "label": "the ball above",
+     "detail": "",
+     "prob": 0.0029307933848378097
+    },
+    {
+     "label": "the ball below",
+     "detail": "",
+     "prob": 0.001991060688556421
+    }
+   ]
+  },
+  {
+   "id": "TempCompass#6553",
+   "task": "Change detection",
+   "source": "TempCompass",
+   "media": {
+    "type": "video",
+    "file": "media/TempCompass_6553.webp"
+   },
+   "state": null,
+   "instruction": "Given a video and a question, select the most accurate answer from the provided candidates. Return only the exact text of your chosen answer. Question:",
+   "query": "Is the number of fruits and vegetables increasing?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "no",
+     "detail": "",
+     "prob": 0.8635551521670475
+    },
+    {
+     "label": "yes",
+     "detail": "",
+     "prob": 0.1364448478329525
+    }
+   ]
+  },
+  {
+   "id": "MVBench#2220",
+   "task": "Scene transition",
+   "source": "MVBench",
+   "media": {
+    "type": "video",
+    "file": "media/MVBench_2220.webp"
+   },
+   "state": null,
+   "instruction": "Given a video and a question, select the most accurate answer from the provided candidates. Return only the exact text of your chosen answer. Question:",
+   "query": "Can you choose the option that matches how the scenes change in the video?",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "From the fire scene to above the plane.",
+     "detail": "",
+     "prob": 0.9999957553645985
+    },
+    {
+     "label": "From the hospital to the university.",
+     "detail": "",
+     "prob": 2.226031014495905e-06
+    },
+    {
+     "label": "From the restaurant to the beach.",
+     "detail": "",
+     "prob": 1.144783043596943e-06
+    }
+   ]
+  },
+  {
+   "id": "MVBench#1068",
+   "task": "Unexpected action",
+   "source": "MVBench",
+   "media": {
+    "type": "video",
+    "file": "media/MVBench_1068.webp"
+   },
+   "state": null,
+   "instruction": "Given a video and a question, select the most accurate answer from the provided candidates. Return only the exact text of your chosen answer. Question:",
+   "query": "What was the unexpected event in the video?",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "A child dressed as a green waistband ran out and hopped onto the woman\u2019s back.",
+     "detail": "",
+     "prob": 0.8051646672154102
+    },
+    {
+     "label": "A child in a green waistband costume, with orange pants and yellow sleeves, quickly hid.",
+     "detail": "",
+     "prob": 0.1482244821224377
+    },
+    {
+     "label": "An individual wearing a vibrant orange and red kimono bellowed \"waistband\".",
+     "detail": "",
+     "prob": 0.04656661318541824
+    }
+   ]
+  },
+  {
+   "id": "SmthSmthV2#930",
+   "task": "Action recognition",
+   "source": "Something-Something V2",
+   "media": {
+    "type": "video",
+    "file": "media/SmthSmthV2_930.webp"
+   },
+   "state": null,
+   "instruction": "",
+   "query": "What actions or objects interactions are the person in the video doing?",
+   "n_options": 174,
+   "outcome": [
+    {
+     "label": "throwing deck of cards onto a surface",
+     "detail": "",
+     "prob": 0.9868585724180661
+    },
+    {
+     "label": "dropping news paper into ground",
+     "detail": "",
+     "prob": 0.007521780309850671
+    },
+    {
+     "label": "dropping a book onto a bed",
+     "detail": "",
+     "prob": 0.0023502129828929436
+    }
+   ]
+  },
+  {
+   "id": "naturalbench_data#3679",
+   "task": "Object recognition",
+   "source": "NaturalBench",
+   "media": {
+    "type": "image",
+    "file": "media/naturalbench_data_3679.jpg"
+   },
+   "state": null,
+   "instruction": "Select the correct option.",
+   "query": "Is there a bell tower with birds sitting on top of it?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "Yes",
+     "detail": "",
+     "prob": 0.9847628364414932
+    },
+    {
+     "label": "No",
+     "detail": "",
+     "prob": 0.015237163558506866
+    }
+   ]
+  },
+  {
+   "id": "naturalbench_data#331",
+   "task": "Color recognition",
+   "source": "NaturalBench",
+   "media": {
+    "type": "image",
+    "file": "media/naturalbench_data_331.jpg"
+   },
+   "state": null,
+   "instruction": "Select the correct option.",
+   "query": "Is there a green body of water visible in the shot?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "Yes",
+     "detail": "",
+     "prob": 0.9437541885155853
+    },
+    {
+     "label": "No",
+     "detail": "",
+     "prob": 0.05624581148441457
+    }
+   ]
+  },
+  {
+   "id": "A-OKVQA#175",
+   "task": "Commonsense reasoning",
+   "source": "A-OKVQA",
+   "media": {
+    "type": "image",
+    "file": "media/A-OKVQA_175.jpg"
+   },
+   "state": null,
+   "instruction": "Represent the given image with the following question:",
+   "query": "What left the blue marks on the ground near the fire hydrant?",
+   "n_options": 894,
+   "outcome": [
+    {
+     "label": "paint",
+     "detail": "",
+     "prob": 0.9448036579245946
+    },
+    {
+     "label": "fire hydrants",
+     "detail": "",
+     "prob": 0.011238283289727133
+    },
+    {
+     "label": "fire",
+     "detail": "",
+     "prob": 0.0026921028678377227
+    }
+   ]
+  },
+  {
+   "id": "mmmu_Art#334",
+   "task": "Expert knowledge",
+   "source": "MMMU Art",
+   "media": {
+    "type": "image",
+    "file": "media/mmmu_Art_334.jpg"
+   },
+   "state": null,
+   "instruction": "Select the correct option.",
+   "query": "The artist decided to call image?",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "The Third of May 1808",
+     "detail": "",
+     "prob": 0.9999919373036188
+    },
+    {
+     "label": "The Musicians",
+     "detail": "",
+     "prob": 6.639381770753301e-06
+    },
+    {
+     "label": "Self Portrait with Bandaged Ear and Pipe",
+     "detail": "",
+     "prob": 1.3425806805205457e-06
+    }
+   ]
+  },
+  {
+   "id": "ChartQA#884",
+   "task": "Chart understanding",
+   "source": "ChartQA",
+   "media": {
+    "type": "image",
+    "file": "media/ChartQA_884.jpg"
+   },
+   "state": null,
+   "instruction": "Represent the given image with the following question:",
+   "query": "What's the computing total for semiconductor demand in 2014?",
+   "n_options": 1000,
+   "outcome": [
+    {
+     "label": "105.4",
+     "detail": "",
+     "prob": 0.8086901950061087
+    },
+    {
+     "label": "106.4",
+     "detail": "",
+     "prob": 0.09706482123419875
+    },
+    {
+     "label": "105.3",
+     "detail": "",
+     "prob": 0.033337888958303724
+    }
+   ]
+  },
+  {
+   "id": "ImageNet-1K#72",
+   "task": "Image classification",
+   "source": "ImageNet-1K",
+   "media": {
+    "type": "image",
+    "file": "media/ImageNet-1K_72.jpg"
+   },
+   "state": null,
+   "instruction": "Represent the given image for classification",
+   "query": "",
+   "n_options": 1000,
+   "outcome": [
+    {
+     "label": "harmonica, mouth organ, harp, mouth harp",
+     "detail": "",
+     "prob": 0.9994152932348542
+    },
+    {
+     "label": "carpenter's kit, tool kit",
+     "detail": "",
+     "prob": 9.294213607425597e-05
+    },
+    {
+     "label": "harp",
+     "detail": "",
+     "prob": 6.792829758659576e-05
+    }
+   ]
+  },
+  {
+   "id": "s1mb_open_jev__mailroom_control_v1#82",
+   "task": "Email triage",
+   "source": "S1MB Mailroom",
+   "media": null,
+   "state": "From: Luma-c08b1b2d79b0 <contact@luma-c08b1b2d79b0.example>\nDate: 2026-09-20\nSubject: Luma-c08b1b2d79b0 \u2014 service correspondence\n\nThis message concerns electrical power supplied by the electricity utility itself.\nOur monthly informational bulletin contains service news only, with no offer and no payment owed.",
+   "instruction": "Select the correct option.",
+   "query": "Is the purpose of email.subject and email.body to advertise an offer, with prices or savings rather than existing money owed?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "No",
+     "detail": "the condition asked in the instruction does not hold under its stated rules.",
+     "prob": 0.9027452922368727
+    },
+    {
+     "label": "Yes",
+     "detail": "the condition asked in the instruction holds under its stated rules.",
+     "prob": 0.09725470776312724
+    }
+   ]
+  },
+  {
+   "id": "s1mb_open_jev__vizdoom_basic_v1#81",
+   "task": "Game control",
+   "source": "S1MB VizDoom",
+   "media": null,
+   "state": "action_window_tics: 4\nammo: 50.0\nelapsed_tics: 14\nhealth: 100.0\nmovement: {\"forward_units_per_tic\": 0.0, \"lateral_units_per_tic\": 0.0}\nnearest_visible_enemy: {\"distance_units\": 384.098646, \"name\": \"Cacodemon\", \"relative_bearing_deg\": 1.298572}\nplayer: {\"heading_deg\": 0.0, \"x_units\": -384.0, \"y_units\": 32.0}\nvisible_enemy_count: 1",
+   "instruction": "Select the correct option.",
+   "query": "Should the tracking policy press attack now: a visible target is within 3 degrees, ammunition remains, and the player is alive?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "Yes",
+     "detail": "the condition asked in the instruction holds under its stated rules.",
+     "prob": 0.8412484623253472
+    },
+    {
+     "label": "No",
+     "detail": "the condition asked in the instruction does not hold under its stated rules.",
+     "prob": 0.15875153767465286
+    }
+   ]
+  },
+  {
+   "id": "jev80_sms_spam__plain_text#34",
+   "task": "Spam detection",
+   "source": "SMS Spam",
+   "media": null,
+   "state": "Thanks for your subscription to Ringtone UK your mobile will be charged \u00a35/month Please confirm by replying YES or NO. If you reply NO you will not be charged",
+   "instruction": "Select the correct option.",
+   "query": "Is this SMS message spam or legitimate?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "spam",
+     "detail": "",
+     "prob": 0.9260876047282902
+    },
+    {
+     "label": "legitimate",
+     "detail": "",
+     "prob": 0.07391239527170976
+    }
+   ]
+  },
+  {
+   "id": "jev80_lex_glue__unfair_tos#233",
+   "task": "Legal analysis",
+   "source": "LexGLUE UNFAIR-ToS",
+   "media": null,
+   "state": "in no event shall our total liability to you for all damages ( other than as may be required by applicable law in cases involving personal injury ) exceed the amount of fifty dollars ( $ 50.00 ) .",
+   "instruction": "Select the correct option.",
+   "query": "Apply the legal label this task calls for.",
+   "n_options": 8,
+   "outcome": [
+    {
+     "label": "Limitation of liability",
+     "detail": "",
+     "prob": 0.9994600857294004
+    },
+    {
+     "label": "Choice of law",
+     "detail": "",
+     "prob": 0.0002870371548533268
+    },
+    {
+     "label": "Unilateral termination",
+     "detail": "",
+     "prob": 0.00010356026261741606
+    }
+   ]
+  },
+  {
+   "id": "jev80_financial_phrasebank__default#76",
+   "task": "Sentiment analysis",
+   "source": "Financial PhraseBank",
+   "media": null,
+   "state": "Operating profit totaled EUR 17.7 mn compared to EUR 17.6 mn in the corresponding period in 2007 .",
+   "instruction": "Select the correct option.",
+   "query": "What is the sentiment of this financial statement?",
+   "n_options": 3,
+   "outcome": [
+    {
+     "label": "positive",
+     "detail": "",
+     "prob": 0.847933385635189
+    },
+    {
+     "label": "neutral",
+     "detail": "",
+     "prob": 0.10912041184143334
+    },
+    {
+     "label": "negative",
+     "detail": "",
+     "prob": 0.04294620252337746
+    }
+   ]
+  },
+  {
+   "id": "jev80_clinc_oos__plus#287",
+   "task": "Intent detection",
+   "source": "CLINC OOS",
+   "media": null,
+   "state": "i want to set a timer",
+   "instruction": "Select the correct option.",
+   "query": "Which intent does this utterance express?",
+   "n_options": 20,
+   "outcome": [
+    {
+     "label": "timer",
+     "detail": "",
+     "prob": 0.9990542082492687
+    },
+    {
+     "label": "schedule_maintenance",
+     "detail": "",
+     "prob": 0.0004431701664887837
+    },
+    {
+     "label": "change_accent",
+     "detail": "",
+     "prob": 9.931893038406456e-05
+    }
+   ]
+  },
+  {
+   "id": "jev80_language-identification__default#79",
+   "task": "Language identification",
+   "source": "Language Identification",
+   "media": null,
+   "state": "Tr\u00e8s belle qualit\u00e9 tr\u00e8s pratique conforme \u00e0 la description",
+   "instruction": "Select the correct option.",
+   "query": "Which language is this text written in?",
+   "n_options": 20,
+   "outcome": [
+    {
+     "label": "French",
+     "detail": "",
+     "prob": 0.9963030079265431
+    },
+    {
+     "label": "Arabic",
+     "detail": "",
+     "prob": 0.0009055505331504946
+    },
+    {
+     "label": "Portuguese",
+     "detail": "",
+     "prob": 0.0008405639532522758
+    }
+   ]
+  },
+  {
+   "id": "jev80_bigbench__goal_step_wikihow#40",
+   "task": "Procedural reasoning",
+   "source": "BIG-bench WikiHow",
+   "media": null,
+   "state": "inputs: Q: The most reasonable goal of 'Select the Denomination from the \"Denomination\" box drop-down' is \n  choice: Find Your Rising Sign\n  choice: Save a New Dollar Bill to WheresGeorge\n  choice: Achieve Soft Light in Photography | wikiHow Asks a Professional Photographer\n  choice: Find Yourself | wikiHow Asks a Mind\\/Body Life Coach\nA:",
+   "instruction": "Select the correct option.",
+   "query": "Read the task definition and select the option it calls for.",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "Save a New Dollar Bill to WheresGeorge",
+     "detail": "",
+     "prob": 0.9989892355963201
+    },
+    {
+     "label": "Find Your Rising Sign",
+     "detail": "",
+     "prob": 0.0006310079729304818
+    },
+    {
+     "label": "Find Yourself | wikiHow Asks a Mind\\/Body Life Coach",
+     "detail": "",
+     "prob": 0.0003097200551413532
+    }
+   ]
+  },
+  {
+   "id": "jev80_ceval-exam__middle_school_physics#80",
+   "task": "Multilingual exam",
+   "source": "C-Eval Physics",
+   "media": null,
+   "state": "question: \u4e0b\u5217\u4e0e\u7167\u76f8\u673a\u6210\u50cf\u539f\u7406\u76f8\u540c\u7684\u8bbe\u5907\u662f____\nA: \u653e\u5927\u955c\nB: \u8fd1\u89c6\u773c\u955c\nC: \u76d1\u63a7\u6444\u50cf\u5934\nD: \u6295\u5f71\u4eea",
+   "instruction": "Select the correct option.",
+   "query": "Answer the multiple-choice exam question.",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "C",
+     "detail": "",
+     "prob": 0.975844980510256
+    },
+    {
+     "label": "D",
+     "detail": "",
+     "prob": 0.012382282557682459
+    },
+    {
+     "label": "B",
+     "detail": "",
+     "prob": 0.006644807246217774
+    }
+   ]
+  },
+  {
+   "id": "jev80_bigbench__temporal_sequences#13",
+   "task": "Temporal reasoning",
+   "source": "BIG-bench Temporal Sequences",
+   "media": null,
+   "state": "inputs: Today, Emily went to the beach. Between what times could they have gone?\nWe know that: \nEmily woke up at 12pm.\nSean saw Emily driving to the water park from 12pm to 2pm.\nJennifer saw Emily buying cookies at a bakery from 7pm to 8pm.\nSamantha saw Emily reading at the library from 8pm to 9pm.\nThe beach was closed after 9pm.\nBetween what times could Emily have gone to the beach?\n  choice: 2pm to 7pm\n  choice: 8pm to 9pm\n  choice: 12pm to 2pm\n  choice: 7pm to 8pm\nPossible times:",
+   "instruction": "Select the correct option.",
+   "query": "Read the task definition and select the option it calls for.",
+   "n_options": 4,
+   "outcome": [
+    {
+     "label": "2pm to 7pm",
+     "detail": "",
+     "prob": 0.9059621303893334
+    },
+    {
+     "label": "12pm to 2pm",
+     "detail": "",
+     "prob": 0.07264432445897077
+    },
+    {
+     "label": "7pm to 8pm",
+     "detail": "",
+     "prob": 0.01980943315823941
+    }
+   ]
+  },
+  {
+   "id": "jev80_bigbench__epistemic_reasoning#65",
+   "task": "Epistemic reasoning",
+   "source": "BIG-bench Epistemic Reasoning",
+   "media": null,
+   "state": "Premise: Charlotte remembers that David assumes that a man sits on his throne behind the drums. Hypothesis: David assumes that a man sits on his throne behind the drums.\nRelation:",
+   "instruction": "Select the correct option.",
+   "query": "Read the task definition and select the option it calls for. inputs: Identify the relation between the following premises and hypotheses, choosing from the options 'entailment' or 'non-entailment'.",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "entailment",
+     "detail": "",
+     "prob": 0.8240611132619383
+    },
+    {
+     "label": "non-entailment",
+     "detail": "",
+     "prob": 0.17593888673806168
+    }
+   ]
+  },
+  {
+   "id": "s1mb_winobias#102",
+   "task": "Coreference resolution",
+   "source": "WinoBias",
+   "media": null,
+   "state": "pronoun: he\nsentence: The carpenter hired the cleaner because he was favorably recommended.",
+   "instruction": "Select the correct option.",
+   "query": "Who does the pronoun refer to?",
+   "n_options": 2,
+   "outcome": [
+    {
+     "label": "cleaner",
+     "detail": "",
+     "prob": 0.986696355434814
+    },
+    {
+     "label": "carpenter",
+     "detail": "",
+     "prob": 0.013303644565185879
+    }
+   ]
+  }
+ ],
+ "retrieval": [
+  {
+   "id": "MSR-VTT#179",
+   "task": "Text-to-video retrieval",
+   "source": "MSR-VTT",
+   "media": null,
+   "state": null,
+   "instruction": "Find a video that contains the following visual content:",
+   "query": "playing with toy kitchen accessories",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_179_r0.webp",
+     "gold": true
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_179_r1.webp",
+     "gold": false
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_179_r2.webp",
+     "gold": false
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_179_r3.webp",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "MSR-VTT#83",
+   "task": "Text-to-video retrieval",
+   "source": "MSR-VTT",
+   "media": null,
+   "state": null,
+   "instruction": "Find a video that contains the following visual content:",
+   "query": "a man drives a red indianapolis 500 type race car around an asphalt track",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_83_r0.webp",
+     "gold": true
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_83_r1.webp",
+     "gold": false
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_83_r2.webp",
+     "gold": false
+    },
+    {
+     "type": "video",
+     "file": "media/MSR-VTT_83_r3.webp",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "CIRR#963",
+   "task": "Composed image retrieval",
+   "source": "CIRR",
+   "media": {
+    "type": "image",
+    "file": "media/CIRR_963.jpg"
+   },
+   "state": null,
+   "instruction": "Given an image, find a similar image with the described changes:",
+   "query": "A man building a straw roof.",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/CIRR_963_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_963_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_963_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_963_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "CIRR#27",
+   "task": "Composed image retrieval",
+   "source": "CIRR",
+   "media": {
+    "type": "image",
+    "file": "media/CIRR_27.jpg"
+   },
+   "state": null,
+   "instruction": "Given an image, find a similar image with the described changes:",
+   "query": "More monkeys.",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/CIRR_27_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_27_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_27_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/CIRR_27_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "MSCOCO_t2i#714",
+   "task": "Text-to-image retrieval",
+   "source": "MSCOCO",
+   "media": null,
+   "state": null,
+   "instruction": "Find me an image that matches the given caption:",
+   "query": "A kitchen shelf holds an assortment of pots, pans, and utensils.",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_714_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_714_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_714_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_714_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "MSCOCO_t2i#731",
+   "task": "Text-to-image retrieval",
+   "source": "MSCOCO",
+   "media": null,
+   "state": null,
+   "instruction": "Find me an image that matches the given caption:",
+   "query": "A bathroom with a toilet and sink and bathroom accessories.",
+   "corpus_size": 1000,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_731_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_731_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_731_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/MSCOCO_t2i_731_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "ViDoRe_infovqa#271",
+   "task": "Document retrieval",
+   "source": "ViDoRe InfoVQA",
+   "media": null,
+   "state": null,
+   "instruction": "Find a document image that matches the given query:",
+   "query": "Which is the only company to obtain patent for COVID-19 vaccine, Sinovac, Sinopharm, or CanSino ?",
+   "corpus_size": 500,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_271_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_271_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_271_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_271_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "ViDoRe_infovqa#72",
+   "task": "Document retrieval",
+   "source": "ViDoRe InfoVQA",
+   "media": null,
+   "state": null,
+   "instruction": "Find a document image that matches the given query:",
+   "query": "What is the most hunted type of whales in the Northern Atlantic ocean?",
+   "corpus_size": 500,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_72_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_72_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_72_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/ViDoRe_infovqa_72_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "GAE-Mind2Web_q2s#176",
+   "task": "Screen retrieval",
+   "source": "Mind2Web",
+   "media": null,
+   "state": null,
+   "instruction": "",
+   "query": "Locate the final observation of the web navigation for the task \"Search for Calico Life Science company and follow, like the first post.\".",
+   "corpus_size": 3207,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_q2s_176_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_q2s_176_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_q2s_176_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_q2s_176_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "GAE-Mind2Web_s2s#168",
+   "task": "GUI navigation",
+   "source": "Mind2Web",
+   "media": {
+    "type": "image",
+    "file": "media/GAE-Mind2Web_s2s_168.jpg"
+   },
+   "state": null,
+   "instruction": "",
+   "query": "Based on the provided user input \"Show me recipes for pancakes with wheat and without beetroot.\" and the current observation, find the prior navigation state for web agents.",
+   "corpus_size": 3207,
+   "results": [
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_s2s_168_r0.jpg",
+     "gold": true
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_s2s_168_r1.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_s2s_168_r2.jpg",
+     "gold": false
+    },
+    {
+     "type": "image",
+     "file": "media/GAE-Mind2Web_s2s_168_r3.jpg",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "text/NanoBEIR/NanoHotpotQA#21",
+   "task": "Multi-hop QA",
+   "source": "HotpotQA",
+   "media": null,
+   "state": null,
+   "instruction": "Given a multi-hop question, retrieve documents that can help answer the question",
+   "query": "Which magazine is based out of more countries, Adventist World or Baseball Digest?",
+   "corpus_size": 5090,
+   "results": [
+    {
+     "type": "text",
+     "text": "Baseball Digest is a baseball magazine resource, published in Evanston, Illinois by Grandstand Publishing, LLC. It is the oldest and longest-running baseball magazine in the United States.",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "Adventist World is a monthly international magazine of the Seventh-day Adventist Church published by the Review and Herald Publishing Association. Editors are based in Silver Spring, Maryland and Seoul, Korea.",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "Published by The Baseball Magazine Co. of New York City, which also published Lanigan's \"Baseball Magazine\", the title page of the \"Baseball Cyclopedia\" advertised it as the first compendium of baseball statistics and history ever published:",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "Baseball Hobby News was a United States based news-oriented magazine about the field of baseball memorabilia collecting. Founded in 1979 by the husband-and-wife team of Frank and Vivian Barning, who served as editor and publisher, respectively, the magazine was published on a monthly basis until 1993. The first issue appeared in March 1979. For most of its run, it appeared in a newspaper-style format, although it later converted to a tabloid size with a color cover.",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "text/NanoBEIR/NanoQuoraRetrieval#11",
+   "task": "Duplicate question retrieval",
+   "source": "Quora",
+   "media": null,
+   "state": null,
+   "instruction": "Given a question, retrieve questions that are semantically equivalent",
+   "query": "Who is the genuine seller of Davisco Whey Protein in INDIA? Any user of Davisco Whey, Please come forward.",
+   "corpus_size": 5046,
+   "results": [
+    {
+     "type": "text",
+     "text": "Which supplier provides genuine Davisco Whey Protein in India?",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "Is there awareness of whey protein in India?",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "How can I differentiate fake and original bodybuilding supplements like whey protein?",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "Why is whey protein so costly in India?",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "toolde/web/taskbench-daily#37",
+   "task": "Tool selection",
+   "source": "TaskBench Daily",
+   "media": null,
+   "state": null,
+   "instruction": "Given a `voice call` task, retrieve tools that facilitate initiating a voice call by processing a phone number input to connect a call to the specified recipient.",
+   "query": "I want to make a voice call to the phone number 123-456-7890.",
+   "corpus_size": 37292,
+   "results": [
+    {
+     "type": "text",
+     "text": "make_voice_call: Make a voice call to a specific phone number",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "make_video_call: Make a video call to a specific phone number",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "advanced_phone_number_lookup: Retrieves advanced technical information about a phone number, including validity, approximate location, timezone, carrier, line type, ported status, robocall/spam score, and more.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "call_service_provider: Call the service provider's contact number",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "toolde/customized/appbench#30",
+   "task": "App API retrieval",
+   "source": "AppBench",
+   "media": null,
+   "state": null,
+   "instruction": "Given a `flight search` task, retrieve tools that assist in booking one-way airline tickets by accurately processing travel specifications such as departure and destination cities, dates, connecting flight times, airline preferences, and pricing to provide the best available options.",
+   "query": "Please find me four one-way Southwest Airlines economy tickets from Chicago to Kuala Lumpur on the 14th of this month with a connecting flight leaving at 6:40 am for $485 each.",
+   "corpus_size": 3367,
+   "results": [
+    {
+     "type": "text",
+     "text": "searchonewayflight: search for one way flights to the destination",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "getTransportationInformation: Accesses route and transportation information to and from the airport.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "searchroundtripflights: search for roundtrip flights for the trip",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "getAviationRoutes: Get global aviation route data, including route maps, flight schedules, and more.",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "toolde/web/restgpt-spotify#29",
+   "task": "Music API retrieval",
+   "source": "RestGPT Spotify",
+   "media": null,
+   "state": null,
+   "instruction": "Given a `music library management` task, retrieve tools that facilitate modifying a user's music collection by processing track identifiers to remove specific items from the library.",
+   "query": "remove the third track from My Music",
+   "corpus_size": 37292,
+   "results": [
+    {
+     "type": "text",
+     "text": "DELETE_me_tracks: Remove one or more tracks from the current user's 'Your Music' library.",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "DELETE_playlists_playlist_id_tracks: Remove one or more items from a user's playlist.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "DELETE_me_albums: Remove one or more albums from the current user's 'Your Music' library.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "get_tracks: Fetches track information from the Spotify API for the given track IDs.",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "toolde/web/apigen#374",
+   "task": "Function retrieval",
+   "source": "APIGen",
+   "media": null,
+   "state": null,
+   "instruction": "Given a `duplicate removal` task, retrieve tools that can process a list to filter out duplicate elements while maintaining the original order of the remaining items.",
+   "query": "I have a list of students ['John', 'Mary', 'John', 'Peter', 'Mary', 'Peter', 'James', 'John', 'James', 'Peter']. Can you help me remove the duplicates and keep the original order?",
+   "corpus_size": 37292,
+   "results": [
+    {
+     "type": "text",
+     "text": "remove_duplicates: Removes duplicate elements from a list while preserving the order.",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "count_occurrences: Counts the occurrences of each element in a list and returns a dictionary with the counts.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "data_cleansing_remove_duplicates: Remove duplicate entries from a dataset based on specified columns.",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "find_duplicate_number: Finds the duplicate number in a list of integers.",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "memory/KnowMeBench#1623",
+   "task": "Personal memory",
+   "source": "KnowMeBench",
+   "media": null,
+   "state": null,
+   "instruction": "Given a query, retrieve documents that answer the query",
+   "query": "Order the interactions with Richard (Bloch):\nA. Richard asks Steven to set a date for a trip to \u00c9tretat.\nB. Richard comes to the station to see the narrator and Peter off.\nC. Peter mentions in a letter that his girlfriend wanted to meet Steven.",
+   "corpus_size": 27062,
+   "results": [
+    {
+     "type": "text",
+     "text": "At 1897-08-17 12:25:09, at Balbec Station, Background: None Mind: I thought Peter hated him. Action: I saw Richard come to the station to see me off. Dialogue: None Environment: None",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "At 1897-08-18 15:00:10, at Balbec Station, Background: None Mind: I thought Peter might also be worried that if Steven were alone, he wouldn't go. He assumed Steven's friendship with Richard was stronger than what Steven himself had said, so he thought it would be good for Steven to have a companion, someone to encourage him. Action: None Dialogue: None Environment: None",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "At 1897-08-18 15:00:00, at Balbec Station, Background: None Mind: None Action: None Dialogue: I heard Peter, upon learning that I was going to \u00c9tretat for lunch, dinner, and to stay, finally say to him: \"If you happen to pass through \u00c9tretat one afternoon and Steven is free, you can come to the command post to see Steven.\" Environment: None",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "At 1897-08-19 00:58:18, at Main Street, Background: None Mind: None Action: None Dialogue: I heard that one street led to the hotel and another to Richard's villa. Along the entire route, Richard kept asking Steven when he and the others would go to \u00c9tretat, because \"Peter was so kind to Steven,\" and if they didn't accept the invitation, it would be \"too insensitive.\" Environment: None",
+     "gold": false
+    }
+   ]
+  },
+  {
+   "id": "memory/REALTALK#610",
+   "task": "Conversation memory",
+   "source": "REALTALK",
+   "media": null,
+   "state": null,
+   "instruction": "Given a temporal query, retrieve relevant passages that answer the query",
+   "query": "For how long was Nebraas trying to get Moon?",
+   "corpus_size": 8944,
+   "results": [
+    {
+     "type": "text",
+     "text": "Data time: 11:42 PM on 14 January, 2024 - Session 19, Turn 18 Nebraas: Yess they gave me moon!!",
+     "gold": true
+    },
+    {
+     "type": "text",
+     "text": "Data time: 8:13 AM on 16 January, 2024 - Session 20, Turn 54 Nebraas: Moon was looking at me with a lot of love today lol",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "Data time: 8:34 AM on 11 January, 2024 - Session 16, Turn 45 Nebraas: I'm gonna give moon and Steve the best lives",
+     "gold": false
+    },
+    {
+     "type": "text",
+     "text": "Data time: 11:06 PM on 18 January, 2024 - Session 24, Turn 9 Nebraas: A whole monthhhh",
+     "gold": false
+    }
+   ]
+  }
+ ]
+}

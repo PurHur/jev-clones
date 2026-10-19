@@ -1,0 +1,74 @@
+7fc2116a 2026-09-22 Cleanup and huge simplification to an alternate approach
+83a6d2b3 2026-09-30 Cover all control tokens, not just special tokens
+209fb6ce 2026-09-30 Comment cleanup
+3a1a7d2d 2026-09-30 Comment cleanup
+80064e77 2026-10-08 Refactor everything out into chat_template_utils, couple of cleanups
+3f9df953 2026-10-08 Add FIXME
+45679330 2026-10-13 Merge remote-tracking branch 'origin/sanitize_chat_inputs' into add-jev-models
+4fb24b84 2026-10-13 Add the decision pipeline: chat templates with marks, decision heads and the shared DecisionConfig
+54ded2e6 2026-10-13 Ignore the decision objects in the docstring checker
+3b6a517d 2026-10-13 Decision heads of the most downloaded model of each family, with their chat templates
+ffa7f5d7 2026-10-13 Decision heads as models named after the first model that used them, decision files on the Hub
+474b4962 2026-10-13 Decision requests go through JSON once; docs of the jev and kev heads
+b9e16e18 2026-10-13 Merge branch 'main' into sanitize_chat_inputs
+022ad0c9 2026-10-13 Calibrated temperature and noul band as decision processors, out of the heads
+95db58d7 2026-10-13 Merge branch 'sanitize_chat_inputs' into add-jev-models
+2c1c8022 2026-10-13 No adapter loading in the decision pipeline: decision LoRAs live at the root of their repo
+d27afd9a 2026-10-13 Unbloat the decision code; clef in modular on MBart, von with the masking API
+3c84d737 2026-10-13 Decision head tester mixin; integration tests of the jev, kev and clef heads
+785af6fd 2026-10-13 Forward subfolder to the adapter lookup of AutoModel; expected answers of kev and clef
+07cdef61 2026-10-13 von on the decision head tester mixin, integration test of von
+77b1cdcd 2026-10-13 Decision code in a decision/ folder like generation/; expected answers of JEV-9B
+3fbb46c2 2026-10-13 No single-letter names in the decision code
+5420db67 2026-10-13 Decision pipeline: no head lookup for in-memory models
+252d15cb 2026-10-13 Unbloat von: marks as tensors, no Python loops
+7e286fc2 2026-10-13 Unbloat kev head, template and tests
+d23e65af 2026-10-13 No single-letter names
+5ddd5ff6 2026-10-13 Let templates that escape control tokens skip sanitizing
+2842215c 2026-10-13 Clef: conversion mapping instead of a conversion script (WIP)
+81f96a73 2026-10-13 Clef: WIP split into submodules
+97b2e39e 2026-10-13 Clef tests: new config keys, backbone width distinct from head width
+f185a6f5 2026-10-13 Merge branch 'main' into add-jev-models
+49038def 2026-10-13 Drop decision/utils.py: the pipeline applies the head
+b24f33e2 2026-10-14 Unbloat decision processing and tests; sanitize escaped sentinels and tokens
+ed18f839 2026-10-14 Unbloat von and jev heads
+8ca239d0 2026-10-14 Unbloat clef: simpler spans and routing, same 3 submodules
+7a5e28da 2026-10-14 Document prompt and lm_head once in auto_docstring
+b12b997f 2026-10-14 Decision heads take tensors: option counts and type ids come from the template
+c53f7b8c 2026-10-15 better input checks :)
+4335f5dd 2026-10-15 better type hinting
+e5073f28 2026-10-15 type hint + QOL
+457f0d91 2026-10-15 cache question rendering / checks
+cab3b7bf 2026-10-15 updates
+7c0ea55d 2026-10-15 add image support
+378559bb 2026-10-15 processor sanitization
+0fb7e3e4 2026-10-15 pass
+6842f172 2026-10-15 arbitrary types
+22f742bb 2026-10-15 updates
+ed4917a5 2026-10-15 Decision heads run their backbone; sanitize marked text in the tokenizer
+1b936d9a 2026-10-15 Load sub-models without weights in the checkpoint from the repo of their config
+b348601f 2026-10-15 Heads build their backbone from a required backbone_config; root conversions skip sub-models of another type
+e081eb3b 2026-10-15 Match excluded sub-model prefixes with one compiled regex
+62a629ea 2026-10-15 better
+cb4a4235 2026-10-16 more model support?
+9b3e6454 2026-10-16 update
+9f75041a 2026-10-16 Test the pplx-decider and d3 heads; document them in JEV
+509bf9a4 2026-10-16 Test the d3 head
+2fdb4c97 2026-10-16 Keep the readout of JEV heads in float32 from their config, as d3 runs it
+002b0773 2026-10-16 Convert causal and text-only code readouts and merged JEV checkpoints; test the 12 converted readouts
+fee155ee 2026-10-16 JEV heads load in the dtype of their backbone; test JEV-35B
+2001517d 2026-10-16 Merge branch 'main' into add-jev-models
+f3b2b310 2026-10-16 Root conversions only skip a base model of another type; hint at close question fields on all Pythons
+7c66228c 2026-10-16 Load the adapter of a sub-model read from another repo; convert the LoRA JEV checkpoints
+1cbb10f2 2026-10-16 Merge remote-tracking branch 'origin/add-jev-models' into add-jev-models
+2bf82476 2026-10-16 Merge branch 'main' into add-jev-models
+fc02b75b 2026-10-16 keep_in_fp32_modules is a common config field; heads call their sub-model backbone
+d1eee8ee 2026-10-16 Merge remote-tracking branch 'origin/add-jev-models' into add-jev-models
+74be39ab 2026-10-18 Merge branch 'main' into add-jev-models
+73eed592 2026-10-19 Exclude a foreign base model only when it is a PreTrainedModel; allow keep_in_fp32_modules in config checks
+a7705f03 2026-10-19 Merge remote-tracking branch 'origin/add-jev-models' into add-jev-models
+a8d5f84a 2026-10-19 Merge branch 'main' into add-jev-models
+495a7af7 2026-10-19 t checkout main
+631cdc5d 2026-10-19 cleanup
+7d8ca57d 2026-10-19 ....
+92b46a8f 2026-10-19 document the main contribution better

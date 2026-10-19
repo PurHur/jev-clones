@@ -1,0 +1,14 @@
+{
+  "architectures": [
+    "VonDecisionHead"
+  ],
+  "dtype": "float32",
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "model_type": "von",
+  "noul_prior": {
+    "a": -0.5,
+    "b": 0.3
+  },
+  "transformers_version": "5.19.0.dev0"
+}

@@ -1,0 +1,16 @@
+{
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "text_parameter_count": 7936684544,
+  "prompt_version": "structured-segmented-candidate-endpoints-global-query-v2",
+  "attention": "sdpa",
+  "head_dim": 256,
+  "max_options": 255,
+  "architecture": "contextual-candidate-endpoint-plus-global-query-shared-bilinear-mlp",
+  "head_precision": "float32-outside-autocast",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "model_name": "Decision-1.0-Lux",
+  "backbone_parameter_dtype": "bfloat16",
+  "head_parameter_dtype": "float32",
+  "training_master_parameter_dtype": "float32",
+  "calibration_file": "temperature.json"
+}

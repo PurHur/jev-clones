@@ -1,0 +1,182 @@
+{
+ "note": "README 'Use' example outputs recorded through this release by the export parity run (default settings: noul_calibration off; GPU bf16 autocast when device=cuda); the README shows them rounded to 3 decimals",
+ "systemone": {
+  "router": {
+   "model": "vllm-sr/Vela-2.0-9B",
+   "answers": {
+    "modality": {
+     "type": "choice",
+     "choice": "DIFFUSION",
+     "confidence": 0.999132257487166,
+     "probabilities": {
+      "AR": 0.0003845940919392655,
+      "DIFFUSION": 0.9995168515791053,
+      "BOTH": 9.855432895533188e-05
+     }
+    },
+    "jailbreak": {
+     "type": "noul",
+     "noul": 0.017832214547449207
+    },
+    "urgency": {
+     "type": "score",
+     "score": 0.30209999314957425,
+     "confidence": 0.5126077633966108,
+     "legend": {
+      "0": "Routine",
+      "1": "Needs prompt attention",
+      "2": "Critical"
+     },
+     "probabilities": {
+      "0": 0.7549462920739214,
+      "1": 0.1880074227025829,
+      "2": 0.05704628522349569
+     }
+    }
+   },
+   "usage": {
+    "input_tokens": 399,
+    "output_tokens": 0
+   }
+  },
+  "span_json_state": {
+   "model": "vllm-sr/Vela-2.0-9B",
+   "answers": {
+    "pii": {
+     "type": "noul",
+     "noul": 0.99999567529466
+    },
+    "halu": {
+     "type": "noul",
+     "noul": 0.9959181641896945
+    },
+    "domain": {
+     "type": "choice",
+     "choice": "health",
+     "confidence": 0.9765068115566078,
+     "probabilities": {
+      "health": 0.988114861630082,
+      "math": 0.0002770882964438927,
+      "other": 0.011608050073474166
+     }
+    }
+   },
+   "usage": {
+    "input_tokens": 1041,
+    "output_tokens": 0
+   },
+   "spans": {
+    "pii": [
+     {
+      "label": "PERSON",
+      "start": 8,
+      "end": 17,
+      "text": "Tom Baker",
+      "probability": 0.9985861778259277
+     },
+     {
+      "label": "EMAIL_ADDRESS",
+      "start": 19,
+      "end": 40,
+      "text": "tom.baker@example.com",
+      "probability": 0.9999925494194031
+     }
+    ],
+    "halu": [
+     {
+      "label": "unsupported",
+      "start": 22,
+      "end": 29,
+      "text": "6 grams",
+      "probability": 0.9815772771835327
+     }
+    ]
+   },
+   "thresholds": {
+    "pii": 0.5,
+    "halu": 0.45
+   }
+  },
+  "set": {
+   "model": "vllm-sr/Vela-2.0-9B",
+   "answers": {
+    "issues.billing": {
+     "type": "noul",
+     "noul": 0.8773543536646207
+    },
+    "issues.shipping": {
+     "type": "noul",
+     "noul": 0.9776609175016739
+    },
+    "issues.login": {
+     "type": "noul",
+     "noul": 8.235325076175106e-05
+    }
+   },
+   "usage": {
+    "input_tokens": 133,
+    "output_tokens": 0
+   },
+   "sets": {
+    "issues": {
+     "selected": [
+      "billing",
+      "shipping"
+     ],
+     "probabilities": {
+      "billing": 0.8773543536646207,
+      "shipping": 0.9776609175016739,
+      "login": 8.235325076175106e-05
+     }
+    }
+   },
+   "thresholds": {
+    "issues": 0.4
+   }
+  }
+ },
+ "shortcuts": {
+  "classify_text": {
+   "label": {
+    "label": "positive",
+    "confidence": 0.9498579306911973
+   }
+  },
+  "extract_entities": {
+   "CREDIT_CARD": [
+    "4111 1111 1111 1111"
+   ],
+   "EMAIL_ADDRESS": [
+    "sarah.johnson@gmail.com"
+   ],
+   "PERSON": [
+    "Sarah Johnson"
+   ],
+   "PHONE_NUMBER": [
+    "415-555-0132"
+   ]
+  },
+  "detect_hallucination": {
+   "hallucinated": true,
+   "spans": [
+    {
+     "start": 43,
+     "end": 61,
+     "label": "unsupported",
+     "probability": 0.8277191519737244,
+     "text": "65 W fast charging"
+    }
+   ],
+   "threshold": 0.45
+  },
+  "score_relevance": {
+   "score": 0.9658881772233853,
+   "label": "highly_relevant",
+   "probabilities": {
+    "not_relevant": 0.009071700464993416,
+    "partially_relevant": 0.05008024462324281,
+    "highly_relevant": 0.9408480549117638
+   }
+  }
+ }
+}

@@ -1,0 +1,323 @@
+{
+  "frozen_protocol_sha256": "ab97f652ab890eaefdd5373dd2deeb1e26588815f1f339eee4bcaa610846b0af",
+  "merged_statistics_sha256": "8406aea215dc1c4ee2645130c94472b336bb065ba46c6efac4f742589499463b",
+  "source_per_model": {
+    "Jev": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Jev",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "kev-9b": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "kev-9b",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "kev-4b": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "kev-4b",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Qwen3.5-9B": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Qwen3.5-9B",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Decider": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Decider",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Qwen3.5-4B": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Qwen3.5-4B",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Sol": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Sol",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "kev-0.8b": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "kev-0.8b",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Qwen3.5-2B": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Qwen3.5-2B",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Laya-base": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Laya-base",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Laya-multilingual": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Laya-multilingual",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Nox": {
+      "statistics_sha256": "b319a993ac569ea1fa8da027ccb2195868557e4efe232a5d06091db2884086be",
+      "source_model_key": "Nox-null-description-candidate",
+      "manifest_sha256": "cf455486f8eba2b7158bbb4b5bcdcd8a4bd4daee4f05184b1df61b5f70ef2b04",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Lux": {
+      "statistics_sha256": "71251a31ed6435d8c94df6d2a5241e9183613c19a87f8970145afec8ec948efc",
+      "source_model_key": "Lux-reading-source-candidate",
+      "manifest_sha256": "7107a2a8264a0416fa75fe40e57f3d06e4cb0395527eaedfa7b7335d8e37109a",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      }
+    },
+    "Kai": {
+      "statistics_sha256": "fc72b6c9f3d1594f5e4a6b8d33f9a438cbd7b762e6794e2d0ae6f47296b83d4d",
+      "source_model_key": "Kai-fixed-noul-restore-v2",
+      "manifest_sha256": "610a5a29f7619a5d4057c864c36cfa4958493a156fbe4dfdcb9185f89fb1e07d",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      },
+      "hub_revision": "db41e715facc312cfdf95f0f3ed763ef662db401",
+      "parameters": 571909635
+    },
+    "Eos": {
+      "statistics_sha256": "b25a7628e52247f69a165f8f1e71937bff814a12bf4b030817607320e9101645",
+      "source_model_key": "Eos-v1-candidate",
+      "manifest_sha256": "06d0e9f4980253b01ff43dbfd2dcbef53fe7c5c46cbc564dc3c6f7c1d73a7ef1",
+      "qualified_runtime": {
+        "python": "3.12.13",
+        "numpy": "2.3.5"
+      },
+      "hub_revision": "a121640a2332b14548453089cb77badcc9fb9a06",
+      "parameters": 753446208
+    }
+  },
+  "task_rows": 54,
+  "scored_questions": 3766,
+  "public_models": 15,
+  "weights": {
+    "old_core": 0.3,
+    "v3_core": 0.25,
+    "v4": 0.15,
+    "v5": 0.15,
+    "transfer_v9_test": 0.15
+  },
+  "method_note": "Exact rational integer correct/requested. Outcome-informed product-priority weights chosen by the user after earlier results; this display does not change the frozen scorer or constitute a training gain.",
+  "source_checks": {
+    "shared_reference_rows_exact": [
+      [
+        "Nox",
+        "llm2jev-2b"
+      ],
+      [
+        "Nox",
+        "kev-9b"
+      ],
+      [
+        "Nox",
+        "Sol"
+      ],
+      [
+        "Nox",
+        "Nox-null-description-candidate"
+      ],
+      [
+        "Nox",
+        "Qwen3.5-2B"
+      ],
+      [
+        "Nox",
+        "Qwen3.5-9B"
+      ],
+      [
+        "Nox",
+        "kev-0.8b"
+      ],
+      [
+        "Nox",
+        "kev-4b"
+      ],
+      [
+        "Nox",
+        "Decider"
+      ],
+      [
+        "Nox",
+        "Laya-base"
+      ],
+      [
+        "Nox",
+        "Jev"
+      ],
+      [
+        "Nox",
+        "Laya-multilingual"
+      ],
+      [
+        "Nox",
+        "llm2jev-4b"
+      ],
+      [
+        "Nox",
+        "nimble-9b"
+      ],
+      [
+        "Nox",
+        "Qwen3.5-4B"
+      ],
+      [
+        "Lux",
+        "llm2jev-2b"
+      ],
+      [
+        "Lux",
+        "kev-9b"
+      ],
+      [
+        "Lux",
+        "Sol"
+      ],
+      [
+        "Lux",
+        "Nox-null-description-candidate"
+      ],
+      [
+        "Lux",
+        "Qwen3.5-2B"
+      ],
+      [
+        "Lux",
+        "Qwen3.5-9B"
+      ],
+      [
+        "Lux",
+        "kev-0.8b"
+      ],
+      [
+        "Lux",
+        "kev-4b"
+      ],
+      [
+        "Lux",
+        "Decider"
+      ],
+      [
+        "Lux",
+        "Laya-base"
+      ],
+      [
+        "Lux",
+        "Jev"
+      ],
+      [
+        "Lux",
+        "Laya-multilingual"
+      ],
+      [
+        "Lux",
+        "llm2jev-4b"
+      ],
+      [
+        "Lux",
+        "nimble-9b"
+      ],
+      [
+        "Lux",
+        "Qwen3.5-4B"
+      ],
+      [
+        "Kai",
+        "Laya-base"
+      ],
+      [
+        "Kai",
+        "Laya-multilingual"
+      ],
+      [
+        "Kai",
+        "kev-0.8b"
+      ],
+      [
+        "Kai",
+        "Qwen3.5-2B"
+      ],
+      [
+        "Eos",
+        "Laya-base"
+      ],
+      [
+        "Eos",
+        "Laya-multilingual"
+      ],
+      [
+        "Eos",
+        "kev-0.8b"
+      ],
+      [
+        "Eos",
+        "Qwen3.5-2B"
+      ]
+    ],
+    "published_matrices_exact": {
+      "Kai": {
+        "sha256": "5e50911352fdf356da6f4397a3868a2987cfdfb284ab693a8820dba58bb61f6d",
+        "cells_exact": 270
+      },
+      "Eos": {
+        "sha256": "e4c7e7c8f3a5a9ab0d57538ecba93141c839592b4e0e4cc50aaeb5782a1ca1de",
+        "cells_exact": 270
+      }
+    }
+  },
+  "source_builder_sha256": "6d7aab8b701df4fe67750a2e0212fcc1e6321b4dad71d5723b3a2d6fd97e1ecd"
+}

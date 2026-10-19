@@ -1,0 +1,11 @@
+{
+  "architectures": [
+    "KevDecisionHead"
+  ],
+  "dtype": "float32",
+  "head_dim": 256,
+  "hidden_size": 2560,
+  "initializer_range": 0.02,
+  "model_type": "kev",
+  "transformers_version": "5.19.0.dev0"
+}
