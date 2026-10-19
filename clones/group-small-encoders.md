@@ -353,8 +353,8 @@ Strongest evidence so far that a 150M encoder can beat 0.6–0.8B decoder clones
 committed in the repo as `artifacts/blink-tiny-*.blink` (9 containers, 468–503 KB: synthetic s7/s17/s27, wanli
 s7/s17/s27, snake, doom, pilot). blink-small (7.9M) is experimental and not shipped (README "Performance").
 
-**Backbone.** None: trained from scratch, **byte-level, no tokenizer**. Preset tiny: width per `config.py:95-105`
-(blocks 2, ffn 128, rank 64, 2 heads, stride 4, 1 mixer block, 4,096 bigram buckets), 407k params, int8 weights
+**Backbone.** None: trained from scratch, **byte-level, no tokenizer**. Preset tiny (`python/blink_train/config.py:92-105`): width 64,
+blocks 2, ffn 128, rank 64, 2 heads, stride 4, 1 mixer block, 4,096 bigram buckets; 407k params, int8 weights
 (452 KiB) mmapped read-only. Runtime C99 + libm, zero allocation while scoring; 66 KB wasm build.
 
 **Input layout.** State, question and each option are separate byte streams: unigram + hashed bigram + position +
