@@ -1,0 +1,632 @@
+                                        Decision 1.0
+                     Towards Open Decision Foundation Models
+                        Xunzhuo Liu, Haichen Zhang, Mahdi Ghodsi, Andy Luo,
+                           Adam Kovacs, Huamin Chen, Xue Liu, Bowei He
+
+    Abstract. Intelligent software needs reusable judgments inside its control flow: selecting an
+    action, testing a condition, or assessing evidence against a rubric. We present Decision 1.0, an
+    open-weight family that turns textual state and runtime-defined questions into typed probability
+    distributions. Its Choice, Noul, and Score interface lets applications specify outcomes at inference
+    time and compose predictions into agents and workflows. Each question produces its candidate
+    distribution without autoregressive text generation. Six models cover bidirectional encoder and
+    causal decoder architectures, including a workflow specialist. Training draws on verifiable tasks,
+    natural-language annotations, and workflow adaptation. On a common decision benchmark, Lux-
+    9B achieves 84.17% on explicit decisions and 91.25% on inference, with a weighted overall score of
+    77.22%. Results also expose gaps in composition, transfer, and probability calibration. Released
+    weights and inference code provide a basis for developing decision models as reusable components
+    of software.
+
+                                                                                           SEMANTIC ROUTER
+
+
+
+
+    Date: September 2026
+
+
+
+1      Introduction
+As learned models become components of software, their outputs must support decisions inside pro-
+grams. Routing, agent control, and workflow automation require judgments that can be combined
+with explicit state, constraints, and rules. A reusable model for this setting should interpret a task
+supplied at runtime and return probabilities over the application’s allowed outcomes.
+Jev’s System One interface highlights this opportunity through typed, probabilistic decisions [1]. De-
+veloping the idea as an open research direction requires access to model weights and implementations:
+researchers need to examine how representations and training affect decisions, adapt models to new
+domains, and test whether their probabilities remain useful as tasks change.
+We introduce Decision 1.0, six open-weight models spanning bidirectional encoders and causal decoders
+under a common Choice, Noul, and Score interface. The family includes general decision models and
+a workflow specialist, with documented architectures, training sources, and evaluation. Our aim is
+to establish an open foundation for programmable decision-making: models that can be adapted
+to different applications while preserving an interface that software can compose and inspect. This
+release studies the current capabilities of that approach and the remaining challenges in composition,
+transfer, and calibration.
+
+
+
+
+                                                     1
+2     Task Formulation
+A request contains textual state x and questions {qj }Q   j=1 . A question specifies a type t, instructions
+u, and candidate descriptions C = (c1 , . . . , cK ). The model predicts
+
+                                                           exp(zi /T )
+                                  pθ (i | x, u, C, t) = ∑︁K               ,                             (1)
+                                                          k=1 exp(zk /T )
+
+where zi is a candidate score and T > 0 is an inference temperature. Padded candidates are excluded
+from normalization.
+Choice returns this distribution and the identifier of its maximum. Noul, the interface name for a
+Boolean judgment, returns p(true) over the alternatives
+                                                    ∑︁ false and true. Score returns a distribution
+over ordered rubric levels and its expected index,     i (i − 1)pi . The native encoder interface also
+supports expectations over supplied numeric values.
+Candidate descriptions define each task at runtime. Applications can include an explicit abstention
+or unknown outcome when the available evidence may not support a decision.
+The complete input includes state, instructions, candidates, and special tokens. The public interfaces
+accept up to 1,024 tokens for encoders and 16,384 for causal models, rejecting overlength requests.
+Choice supports 2–255 candidates and the common Score interface supports 2–10 levels. Questions
+are computed independently and may be batched.
+
+
+3     Model Architectures
+Decision 1.0 combines two architectures under one typed interface (Table 1). Kai and Lex use bidi-
+rectional encoders; Eos, Sol, Nox, and Lux use causal backbones. Both score candidates supplied
+at runtime, but differ in how they encode the evidence and extract candidate representations. Each
+checkpoint has independent weights.
+Table 1 Decision 1.0 model family. Parameter counts include the deployed decision readout; context covers
+the complete packed question. Lex is evaluated separately as a workflow specialist.
+
+ Model      Initialization    Parameters Context Architecture / scope
+ Kai-0.6B   Vela / mmBERT           0.57B       1K    Bidirectional; general
+ Lex-0.6B   Earlier Kai             0.57B       1K    Bidirectional; workflow
+ Eos-0.8B   Qwen3.5-0.8B            0.75B      16K    Causal; general
+ Sol-2B     Qwen3.5-2B              1.88B      16K    Causal; general
+ Nox-4B     Qwen3.5-4B              4.21B      16K    Causal; general
+ Lux-9B     Qwen3.5-9B              7.94B      16K    Causal; general
+
+
+3.1      Encoder-based implementation: Kai and Lex
+Inputs and type paths. The encoder jointly represents the question, candidate descriptions, and state.
+A shared embedding layer feeds independent paths for Choice, Noul, and Score (Figure 1).
+
+Backbone and interaction. Figure 2 expands a single type path. The backbone has width 768 and
+pre-LayerNorm residual blocks with GEGLU feed-forward width 1,152. The attention normalization
+in the first layer is Identity because the embeddings have already been normalized. Global attention
+appears at zero-based layers 0, 3, . . . , 21; the remaining layers use a bidirectional local window of ±64
+tokens. Rotary position transformations act on queries and keys.
+
+
+                                                     2
+Kai is initialized from Vela Encoder [15], a                        Choice                     Noul                  Score
+derivative of mmBERT [3] using the Modern-
+BERT architecture [4]. The packed sequence                         Scorer                    Scorer                 Scorer
+                                                                  → softmax                 → softmax              → softmax
+places the typed question first, then each can-
+didate description preceded by a [MASK] marker,                     [MASK]                    [MASK]                [MASK]
+followed by the state. Joint bidirectional atten-
+tion gives a marker access to its candidate, the                      2×                        2×                     2×
+evidence, and competing outcomes. External                        Interaction               Interaction            Interaction
+candidate IDs are bookkeeping rather than in-
+put tokens.
+                                                                          +        e   ₜ         +      e   ₜ          +       e   ₜ
+                                                                   Final LN                  Final LN               Final LN
+Within a checkpoint, token embeddings, embed-
+ding normalization, and a three-entry type em-
+                                                                    22×                       22×                  22×
+bedding table are shared. Choice, Noul, and
+                                                                 ModernBERT                ModernBERT           ModernBERT
+Score each have their own 22-layer backbone
+path, final LayerNorm, two interaction layers,
+                                                                          Shared embeddings                        Shared type
+and scalar scorer.
+                                                                             + LayerNorm                            table → e  ₜ
+                                                                                Type · question · candidates · state
+                                                                      Kai / Lex · encoder-based decision models
+
+Figure 1 Kai and Lex: shared embeddings feed three independent type paths. Each path has its own encoder, interaction
+layers, and scorer. et comes from the shared type table.
+
+
+
+           (a) Encoder path                         (b) Interaction                             (c) Candidate scorer
+
+            Final LayerNorm                                                                    Candidate probabilities
+
+   22×              +                        2×             +
+                                                                                                     Masked softmax
+                GEGLU                              ReLU feed-forward
+                                                                                                     Linear: 768 → 1
+               LayerNorm                               LayerNorm
+
+                    +                                       +                                               GELU
+         Global / local attention                 Global self-attention
+                                                                                                 Linear: 768 → 768
+         Attention LayerNorm*                          LayerNorm
+                                                                                                       LayerNorm
+
+                                                  Select rows by type
+      Shared embedding → LN                                                                     Gather [MASK] states
+                                                            +           e   ₜ
+           Packed token IDs
+
+                              * First attention norm is Identity; each FFN norm is retained.
+
+
+Figure 2 Expanded encoder computation: a ModernBERT backbone, two type-conditioned interaction layers,
+and a candidate scorer. The first backbone attention normalization is Identity.
+
+
+
+                                                            3
+After path-specific final normalization, the selected type embedding is added to every token. Two
+additional pre-LayerNorm interaction layers use global self-attention and a ReLU feed-forward network
+of width 3,072.
+
+Candidate scoring. Following Laya’s candidate-marker design [11], the model gathers the contextu-
+alized marker hi for each candidate and applies
+
+                             zi = wt⊤ GELU(Wt LNt (hi ) + bt ) + at ,              Wt ∈ R768×768 .                       (2)
+
+Figure 3 shows the attention, feed-forward, and readout operators. The scorer is shared across candi-
+dates within each type. Lex retains the same topology with independently adapted weights. In native
+mixed-type batches, each active backbone path processes the full padded batch; rows are selected by
+type before the interaction layers.
+
+          (a) Attention                 (b) GEGLU                        (c) Interaction               (d) Readout
+
+                                           Output                                                Candidate probability
+          Concat → Wₒ                                             2×
+                                                                               +
+                                                                                                     Masked softmax
+                                      Wₒ: 1152 → 768
+          Weights × V                                                      ReLU FFN
+                                                                       768 → 3072 → 768
+            Softmax
+                                              ⊙                            LayerNorm
+                                                                                                      Linear: 768 → 1
+
+       Padding + mask
+        global or ±64                                                                                     GELU
+                                                                               +
+                                    GELU
+           QKᵀ / √64
+                                                                           Global MHA
+                                                                       12 heads · no RoPE            Linear: 768 → 768
+
+      RoPE        RoPE              a: 1152         b: 1152
+      Q                  K   V                                             LayerNorm                    LayerNorm
+            Joint QKV                 Wᵢ: 768 → 2304
+          12 heads × 64                   split a, b                                                  Gather [MASK]
+
+          Normalized x                  Normalized x                   Type-conditioned x              Token states
+
+
+Figure 3 Encoder operators: rotary attention, GEGLU, the pre-norm interaction layer, and the type-specific
+scorer. Dropout is inactive at inference.
+
+
+3.2       Decoder-based implementation: Eos, Sol, Nox, and Lux
+Backbone and input packing. The causal family inherits a Qwen3.5 text backbone and replaces vo-
+cabulary prediction with candidate scoring. Figure 4 shows the complete inference path.
+
+
+
+
+                                                              4
+The decoder-based models inherit the Qwen3.5
+text-backbone topology [5]. Eos and Sol have 24                        Mask → softmax(z / T)
+layers, while Nox and Lux have 32. Each group
+of four layers uses three Gated DeltaNet mixers                    Shared candidate head · FP32
+followed by one full causal attention layer. Both
+layer types have two pre-RMSNorm residual sub-                       Gather candidate endpoints
+layers: token mixing and a SwiGLU feed-forward                          and suffix-final query
+network. A separate RMSNorm follows the com-
+plete layer stack.                                                         Final RMSNorm
+The input orders state, typed question, candi-
+date blocks, and a final decision suffix. The ques-                                +
+tion type is represented in the token sequence,                         SwiGLU feed-forward
+and each candidate block includes its key and
+description.                                                                  RMSNorm
+The backbone uses BF16; decision scoring
+                                                          N×                       +
+uses FP32. The vision tower and vocabulary-
+generation head are absent from decision infer-                          GDN or gated GQA
+ence.                                                                    3:1 layer schedule
+
+                                                                              RMSNorm
+
+
+                                                                      Token embedding · BF16
+
+                                                                   State · task · candidates · suffix
+
+
+Figure 4 Eos, Sol, Nox, and Lux: a hybrid causal backbone feeds one shared FP32 candidate readout. N = 24 for
+Eos/Sol and N = 32 for Nox/Lux.
+
+
+Candidate-conditioned readout. The readout combines each candidate endpoint with a query that
+summarizes the complete input. Let H be the final-normalized sequence, ei the last token of candidate
+block i, and L the unpadded sequence length. The readout gathers hi = H[ei ] and hq = H[L − 1],
+using the suffix-final state to condition every candidate score on the complete input.
+Separate LayerNorms yield ci = LNc (hi ) and q = LNq (hq ). The shared FP32 head adds a bilinear
+compatibility score and a nonlinear interaction:
+
+                          (Wk ci )⊤ (Wq q)
+                   zi =        √           + w⊤ GELU(Ac ci + Aq q + b),         dh = 256.                 (3)
+                                  dh
+The readout uses four independently parameterized projections; only the candidate-side nonlinear
+projection carries a bias. Within one checkpoint, this head is shared across all candidates and all
+three decision types. Padded candidates are masked before temperature scaling and softmax. Figure 5
+makes the two score components explicit.
+An early candidate endpoint cannot attend to later candidates, but the final query conditions ev-
+ery score on the complete choice set. This supports variable output cardinality without enforcing
+permutation invariance.
+Both architectures return all candidate probabilities after one complete forward pass per question.
+The current implementation does not reuse state activations across questions; eliminating output-
+token generation alone does not establish a latency advantage over a one-token generative classifier.
+
+
+
+                                                      5
+              Choice                                   Noul                                 Score
+        (argmax identifier, p)                        p(true)                         (Σᵢ (i − 1) pᵢ, p)
+
+
+                                      Candidate mask → softmax(z / T)
+
+                                                        +
+                                                            zᵢ
+                    Sum over features                                 Linear 256 → 1 · no bias
+                     divide by √256
+
+                            ⊙                                                    GELU
+
+                                                                                  +
+            Wk cᵢ                       Wq q                     Ac cᵢ + b                      Aq q
+          d → 256                     d → 256                    d → 256                      d → 256
+
+                                 Same normalized pair (cᵢ, q) to both branches
+
+
+               FP32 H[eᵢ] → LayerNormc                            FP32 H[L − 1] → LayerNormq
+                     candidate cᵢ                                      suffix-final query q
+            FP32 throughout · shared across candidates and question types within each checkpoint
+
+Figure 5 FP32 candidate readout (Equation 3). Four independent projections form bilinear and nonlinear
+scores; candidate masking and temperature scaling precede typed output conversion.
+
+
+4     Data and Training
+The central training problem is to bind a textual task definition to its allowed outcomes while pre-
+serving useful language understanding. Procedural supervision supplies explicit rules, controlled state
+changes, and verifiable answers. Natural-language annotations provide reading, intent, inference, and
+rubric judgments that templates alone do not cover. The documented Sol, Nox, and Lux mixtures do
+not use official Jev predictions as training labels.
+
+4.1    Distribution supervision
+In the documented Lex, Sol, Nox, and Lux distribution-supervised stages, a target y ∈ ∆K−1 gives
+the objective
+                                        K
+                                       ∑︂
+                               LCE = −     yi log pθ (i | x, u, C, t),                       (4)
+                                                i=1
+
+with T = 1 during training. Hard labels become one-hot distributions; source soft labels retain their
+recorded distribution. Human ordinal means can be represented by interpolation between adjacent
+levels, preserving the annotated mean. Candidate reordering must also reorder its targets, and ordered
+rubric levels cannot be shuffled without preserving their semantics.
+
+4.2    Encoder adaptation and workflow specialization
+Kai inherits multilingual supervision spanning inference, intent, evidence, and human ratings. Repre-
+sentative sources include SNLI, MASSIVE, BoolQ, TyDi QA, HelpSteer2, and OpenAssistant [9, 16,
+
+
+
+                                                        6
+17, 19–21]. Their annotations are converted into candidate decisions with supporting context where
+required.
+Kai adapts Choice and Score paths on approximately 21,000 complete-input examples with frozen
+shared embeddings, retaining an earlier Noul path in the released checkpoint. Lex specializes an earlier
+Kai checkpoint on 6,000 generated training decisions from typed-decisions [6], covering customer
+service, invoices, security incidents, and agent traces. It combines teacher-derived soft targets and
+hard labels equally, adapts all three paths with frozen embeddings, and follows a fixed refit schedule
+before evaluation on the 2,000-decision test set.
+
+4.3    Causal adaptation and retention
+Sol and Nox use an English/Chinese curriculum of procedural decisions, complemented by intent and
+inference annotations [22–24]. Replay retains earlier task coverage. Natural-language adaptation uses
+a 24,000-example mixture of retained decisions, Cosmos QA, SQuAD 2.0 answerability, and SNLI [7–
+9]. Examples from each source-parent or detected near-duplicate group are assigned to the same
+training, selection, or calibration split. Known evaluation matches are excluded from custom training
+construction.
+Sol uses candidate cross-entropy training. Nox adds supervised retention through frozen vocabulary
+rows for legal answer letters, with this auxiliary readout removed at deployment. Lux adapts Qwen3.5-
+9B on a 24,000-example mixture of retained decisions and human-annotated judgments. Its released
+final stage uses hard-label cross-entropy and replaces eligible opaque option keys with semantic de-
+scriptions while preserving the evidence, candidate descriptions, order, and labels.
+Eos uses head-only warmup followed by full-model adaptation over 24,000 training rows. Differences
+in initialization and training recipes make the family a comparison of released systems rather than a
+controlled scaling or attention-direction study.
+
+4.4    Selection and calibration
+Causal checkpoint selection emphasizes decision accuracy, with probability quality used to break ties
+where documented. A positive scalar temperature is fitted separately by minimizing negative log
+likelihood [10], adjusting distribution sharpness while preserving the argmax. Lex uses a fixed final
+schedule and no test-based temperature fitting.
+
+
+5     Evaluation
+We evaluate general decision quality, workflow specialization, and probability quality separately. The
+common benchmark compares five general Decision models with ten reference systems; Lex is assessed
+on its dedicated workflow test. All results use the fixed public revisions in Appendix A.
+
+5.1    Setup and protocol
+The common benchmark contains 3,766 scored decisions across 54 task slices. Five panels measure
+different capabilities: Decisions covers explicit classification, Boolean rules, and rubric judgments;
+Composition tests interacting constraints and state updates; Reading tests comprehension of provided
+evidence; Inference tests answerability, entailment, and commonsense judgments; and Transfer tests
+reuse on the external Kev suite [13]. The suite covers English and Chinese. Appendix C gives the
+source datasets, sample counts, and aggregation rules.
+Systems receive the same examples and candidate order through their native inference interfaces. We
+compare the official Jev 1.13.0 service, English and multilingual Laya, Decider, three Kev sizes, and
+
+
+                                                   7
+untuned Qwen3.5 references [1, 5, 11–13]. Panel scores measure categorical accuracy, including for
+Score questions. Because much of the benchmark was observed repeatedly during development, these
+results characterize the released systems rather than establish performance on a fresh blind test.
+
+5.2     General decision accuracy
+Lux leads Decisions and Inference among the 15 systems in Table 2, at 84.17% and 91.25%, and ranks
+second by the published Overall score. Relative to its untuned Qwen3.5-9B reference, these are gains
+of 10.26 and 11.67 percentage points. Sol and Nox likewise improve Decisions by 16.62 and 13.11
+points over their corresponding references. Eos exceeds Kev-0.8B on the four non-transfer panels, and
+Kai exceeds both general Laya models on those panels. These system-level comparisons do not isolate
+the effects of the readout, data, and optimization recipe.
+Table 2 General decision accuracy (%). Bold marks the best result in each column; our models are shaded
+and marked (ours). Rank follows the published, post-hoc weighted Overall score; aggregation is specified in
+Appendix C.
+
+Rank Model                                        Overall Decisions Composition Reading Inference Transfer
+   1   Jev 1.13.0                                   81.05    79.10        66.38    94.53     89.79    87.19
+   2   Lux-9B (ours)                                77.22    84.17        52.75    89.69     91.25    77.63
+   3   Nox-4B (ours)                                73.09    83.00        51.79    79.06     86.25    69.60
+   4   Kev-9B                                       71.89    76.75        45.75    86.72     83.54    79.25
+   5   Kev-4B                                       70.09    71.90        48.54    81.88     84.58    76.10
+   6   Qwen3.5-9B                                   69.73    73.91        44.62    89.84     79.58    73.23
+   7   Decider 2B                                   67.71    64.01        46.58    92.03     84.38    69.31
+   8   Qwen3.5-4B                                   67.29    69.89        43.33    87.97     79.79    68.83
+   9   Sol-2B (ours)                                66.32    73.75        46.08    76.56     84.17    57.07
+  10   Eos-0.8B (ours)                              61.89    65.94        46.04    70.31     81.67    52.01
+  11   Kev-0.8B                                     58.28    60.14        42.29    67.81     68.75    61.19
+  12   Qwen3.5-2B                                   57.24    57.12        39.00    73.75     72.29    56.31
+  13   Kai-0.6B (ours)                              53.52    57.96        40.83    54.69     69.79    48.37
+  14   Laya English                                 51.03    56.54        35.33    51.41     63.75    53.06
+  15   Laya Multilingual                            47.19    47.25        38.92    50.78     57.29    47.13
+
+The gains do not extend uniformly across capabilities. Jev leads Overall, Composition, Reading, and
+Transfer; Lux remains 13.62 points behind it on Composition and 9.56 on Transfer. Kev-9B also
+exceeds Lux on Transfer. Adaptation can trade off existing capabilities: Nox’s reading accuracy falls
+8.91 points below its untuned reference. Transfer also remains weaker than Kev-0.8B for Eos and
+Laya English for Kai. Composition and transfer therefore remain priorities for broader decision reuse.
+
+5.3     Workflow specialization
+On the separate typed-decisions test of 2,000 judgments from 400 state groups, Lex reaches 78.15%
+accuracy versus 76.60% for the official Laya specialist. The paired group-bootstrap 95% interval
+for this 1.55-point difference is [−0.20, +3.15]; the overall advantage is not statistically established.
+Lex has higher Score accuracy, whereas Noul accuracy and probability-quality measures favor Laya.
+Specialization yields a mixed profile rather than a uniform improvement.
+
+5.4     Probability quality
+A useful decision distribution must convey more than its most likely label. Table 3 compares Lux
+with the two systems that achieve higher transfer accuracy. Lux is close to Kev-9B in Brier score and
+negative log likelihood, but has higher calibration error. Among these three systems, Jev leads all
+three measures. Transfer calibration remains a limitation despite temperature fitting.
+
+
+                                                    8
+Table 3 Probability quality for Lux and its higher-accuracy transfer comparators. Lower is better; bold marks
+the best value among the displayed systems. ECE is reported in percent.
+
+                                Model             Brier    NLL     ECE (%)
+                                Jev 1.13.0       0.191    0.574        3.35
+                                Lux-9B (ours)    0.294    0.594        5.56
+                                Kev-9B           0.295    0.603        4.45
+
+
+Candidate order and missing evidence present separate robustness challenges. Neither architecture
+enforces candidate-order invariance, and a closed candidate set cannot express an abstention outcome
+that the application has not supplied.
+
+
+6    Related Work
+Candidate-conditioned classification connects to entailment-based zero-shot classification, where labels
+are supplied as descriptions rather than fixed output indices [14]. ModernBERT and mmBERT provide
+bidirectional representations; Qwen3.5 provides the causal initialization used here [3–5]. The decision
+interface is compatible with either attention direction.
+Jev, Laya, Decider, and Kev explore typed probabilistic interfaces and candidate readouts [1, 11–13].
+Decision builds on these designs with a released encoder and causal family, multilingual and workflow
+adaptation, and a common evaluation of accuracy, transfer, and probability quality. Temperature
+scaling addresses calibration separately from classification accuracy [10].
+
+
+7    Future Directions
+Future work targets the cost of multi-question inference while preserving decision quality.
+
+Reuse state computation and improve batching. An identical causal prefix could be computed once
+and branched across questions, reusing attention key/value caches together with Gated DeltaNet
+recurrent and convolutional states. Length-aware batching and serving methods such as FlashInfer [25]
+motivate further study on this hybrid backbone. Evaluation should vary input length, candidate count,
+question count, and batch size, measuring throughput and tail latency.
+
+Compress the model while preserving decisions. Quantization methods such as SmoothQuant [26]
+motivate lower-precision backbone execution with a higher-precision readout. Distillation of candidate
+distributions, including methods such as decoupled knowledge distillation [27], could transfer a larger
+model’s behavior to a smaller decision model. Accuracy, calibration, and candidate-order robustness
+should guide these studies.
+
+Learn a reusable state representation. Perceiver IO and in-context autoencoding [28, 29] motivate a
+compact state representation shared by question-specific readers. This would require a new trained
+architecture that preserves evidence needed by questions beyond those used to construct the represen-
+tation.
+
+Allocate computation to difficult questions. Routing and cascading can allocate model capacity under
+a cost–quality objective [30]. Within-model early exits would additionally require trained intermediate
+heads and validated exit confidence. Policies for grouped requests should be assessed on task-held-out
+data using per-question quality and end-to-end latency.
+
+
+
+                                                     9
+8    Limitations and Availability
+Decision 1.0 is text-only and relies on supplied evidence. The general evaluation covers English
+and Chinese; quality depends on the task, input budget, evidence, and candidate set. Training and
+evaluation reuse public task families, and upstream pretraining exposure is unknown. Differences in
+recipes and native input handling limit attribution to individual architectural changes.
+We release weights, inference implementations, configurations, and evaluation documentation [2]; en-
+coder releases also include continued fine-tuning code. Not every assembled training corpus, construc-
+tion script, or final optimization setting is distributed. Project artifacts use Apache 2.0 with retained
+upstream notices; source datasets retain their own terms.
+
+
+9    Conclusion
+Decision 1.0 maps runtime-defined alternatives directly to typed probabilities through bidirectional or
+causal models. The family improves explicit decision performance and supports workflow adaptation,
+while composition, transfer, order sensitivity, and uncertainty remain open problems. Released weights
+and inference code provide a basis for further research.
+
+
+Acknowledgments
+We thank the authors and maintainers of the pretrained models, datasets, and open decision imple-
+mentations on which this work builds.
+
+
+References
+ [1] Diogo Almeida. Introducing System One Models & Jev. TypeSafe AI, September 2026. https://
+     typesafe.ai/blog/introducing-system-one-models-and-jev.
+ [2] vLLM Semantic Router Team. Decision 1.0:               model weights, implementations, and eval-
+     uation    documentation.     2026.      https://huggingface.co/collections/llm-semantic-router/
+     decision-10-6ab12177bd0002394d8409f9.
+ [3] Marc Marone, Orion Weller, William Fleshman, Eugene Yang, Dawn Lawrie, and Benjamin Van Durme.
+     mmBERT: A Modern Multilingual Encoder with Annealed Language Learning. arXiv:2509.06888, 2025.
+ [4] Benjamin Warner et al. Smarter, Better, Faster, Longer: A Modern Bidirectional Encoder for Fast,
+     Memory Efficient, and Long Context Finetuning and Inference. arXiv:2412.13663, 2024.
+ [5] Qwen Team. Qwen3.5 model releases. 2026. https://huggingface.co/Qwen/Qwen3.5-9B. Companion
+     0.8B, 2B, and 4B checkpoints initialize Eos-0.8B, Sol-2B, and Nox-4B.
+ [6] LocalLLaMA. Typed Decisions. Dataset release, 2026. https://huggingface.co/datasets/LocalLLaMA/
+     typed-decisions.
+ [7] Lifu Huang, Ronan Le Bras, Chandra Bhagavatula, and Yejin Choi. Cosmos QA: Machine Reading Com-
+     prehension with Contextual Commonsense Reasoning. EMNLP-IJCNLP, 2019. https://aclanthology.
+     org/D19-1243/.
+ [8] Pranav Rajpurkar, Robin Jia, and Percy Liang. Know What You Don’t Know: Unanswerable Questions
+     for SQuAD. ACL, 2018. https://aclanthology.org/P18-2124/.
+ [9] Samuel R. Bowman, Gabor Angeli, Christopher Potts, and Christopher D. Manning. A Large Anno-
+     tated Corpus for Learning Natural Language Inference. EMNLP, 2015. https://aclanthology.org/
+     D15-1075/.
+[10] Chuan Guo, Geoff Pleiss, Yu Sun, and Kilian Q. Weinberger. On Calibration of Modern Neural Networks.
+     ICML, 2017. https://proceedings.mlr.press/v70/guo17a.html.
+[11] ConvAI Innovations. Laya: model and implementation release. 2026. https://huggingface.co/
+     convaiinnovations/laya.
+
+
+                                                   10
+[12] Mapika. Decider: System One-style decision models. 2026. https://github.com/Mapika/decider.
+[13] Jared Palmer. Kev: decision models, training code, and evaluation suites. 2026. https://github.com/
+     jaredpalmer/kev.
+[14] Wenpeng Yin, Jamaal Hay, and Dan Roth. Benchmarking Zero-shot Text Classification: Datasets, Eval-
+     uation and Entailment Approach. EMNLP-IJCNLP, 2019. arXiv:1909.00161.
+[15] vLLM Semantic Router Team. Vela-1.0-Encoder-307M. Model release, 2026. https://huggingface.co/
+     llm-semantic-router/Vela-1.0-Encoder-307M.
+[16] Christopher Clark et al. BoolQ: Exploring the Surprising Difficulty of Natural Yes/No Questions. NAACL,
+     2019. arXiv:1905.10044.
+[17] Jonathan H. Clark et al. TyDi QA: A Benchmark for Information-Seeking Question Answering in Typo-
+     logically Diverse Languages. TACL, 2020. arXiv:2003.05002.
+[18] Lucas Bandarkar et al. The Belebele Benchmark: a Parallel Reading Comprehension Dataset in 122
+     Language Variants. arXiv:2308.16884, 2023.
+[19] Zhilin Wang et al. HelpSteer2: Open-source Dataset for Training Top-performing Reward Models.
+     arXiv:2406.08673, 2024.
+[20] Andreas Köpf et al. OpenAssistant Conversations—Democratizing Large Language Model Alignment.
+     arXiv:2304.07327, 2023.
+[21] Jack FitzGerald et al. MASSIVE: A 1M-Example Multilingual Natural Language Understanding Dataset
+     with 51 Typologically-Diverse Languages. arXiv:2204.08582, 2022.
+[22] Adina Williams, Nikita Nangia, and Samuel R. Bowman. A Broad-Coverage Challenge Corpus for Sen-
+     tence Understanding through Inference. NAACL, 2018. https://aclanthology.org/N18-1101/.
+[23] Iñigo Casanueva et al. Efficient Intent Detection with Dual Sentence Encoders. 2020. https://github.
+     com/PolyAI-LDN/task-specific-datasets.
+[24] Stefan Larson et al. An Evaluation Dataset for Intent Classification and Out-of-Scope Prediction.
+     EMNLP-IJCNLP, 2019. https://github.com/clinc/oos-eval.
+[25] Zihao Ye et al. FlashInfer:          Efficient and Customizable Attention Engine for LLM In-
+     ference Serving. MLSys, 2025. https://proceedings.mlsys.org/paper_files/paper/2025/hash/
+     dbf02b21d77409a2db30e56866a8ab3a-Abstract-Conference.html.
+[26] Guangxuan Xiao, Ji Lin, Mickael Seznec, Hao Wu, Julien Demouth, and Song Han. SmoothQuant:
+     Accurate and Efficient Post-Training Quantization for Large Language Models. ICML, 2023. https:
+     //proceedings.mlr.press/v202/xiao23c.html.
+[27] Borui Zhao, Quan Cui, Renjie Song, Yiyu Qiu, and Jiajun Liang. Decoupled Knowledge Distillation.
+     CVPR, 2022. https://openaccess.thecvf.com/content/CVPR2022/html/Zhao_Decoupled_Knowledge_
+     Distillation_CVPR_2022_paper.html.
+[28] Andrew Jaegle et al. Perceiver IO: A General Architecture for Structured Inputs & Outputs. ICLR, 2022.
+     https://openreview.net/forum?id=fILj7WpI-g.
+[29] Tao Ge, Jing Hu, Lei Wang, Xun Wang, Si-Qing Chen, and Furu Wei. In-context Autoencoder for Context
+     Compression in a Large Language Model. ICLR, 2024. arXiv:2307.06945.
+[30] Jasper Dekoninck, Maximilian Baader, and Martin Vechev. A Unified Approach to Routing and Cascad-
+     ing for LLMs. ICML, 2025. https://proceedings.mlr.press/v267/dekoninck25a.html.
+
+
+A     Released Artifacts
+The results describe fixed public model snapshots. The following links resolve to the exact revisions
+used in this report: Kai-0.6B, Lex-0.6B, Eos-0.8B, Sol-2B, Nox-4B, and Lux-9B. The linked repos-
+itories provide inference code, configurations, and source attributions. Panel scores can be checked
+against metrics/benchmark.json in the linked Lux release.
+
+
+
+
+                                                    11
+B     Backbone Dimensions
+Table 4 records the deployed causal backbone dimensions. The architecture diagrams in Section 3
+show inference computation: dropout is inactive, and kernel-specific layouts are omitted. Fixed source
+revisions are linked in Appendix A.
+Table 4 Decoder backbone dimensions. Q/KV counts describe full-attention query and key/value heads; K/V
+counts describe Gated DeltaNet key and value heads. Full-attention head width is 256; DeltaNet key and
+value widths are 128. These are backbone dimensions, distinct from the 256-dimensional decision head.
+
+ Model      Layers   Width     FFN     Q/KV      K/V    Mixer schedule
+ Eos-0.8B       24    1,024    3,584     8/2    16/16   18 GDN + 6 full
+ Sol-2B         24    2,048    6,144     8/2    16/16   18 GDN + 6 full
+ Nox-4B         32    2,560    9,216    16/4    16/32   24 GDN + 8 full
+ Lux-9B         32    4,096   12,288    16/4    16/32   24 GDN + 8 full
+
+
+
+C     Evaluation Details
+Panels and aggregation. Decisions and Composition contain 880 examples each and macro-average
+ten task families. Reading contains 480 BoolQ and English/Chinese Belebele examples [16, 18], as-
+signing one half of its weight to BoolQ and one quarter to each Belebele language. Inference equally
+averages four 120-example sources: Cosmos QA, SQuAD answerability, SNLI, and supplied-fact QASC.
+Transfer uses micro accuracy on the 1,046 answerable examples of the Kev suite. Score accuracy uses
+the most probable rubric category, not error in the expected ordinal score.
+Overall combines the unrounded panel accuracies with the published weights: 30% Decisions, 25%
+Composition, and 15% each for Reading, Inference, and Transfer. The weights were chosen after
+observing results and provide a descriptive ranking. Reported differences are also computed before
+display rounding.
+
+Inference and coverage. Untuned Qwen uses fixed answer-letter logits without generated-text parsing.
+Models retain their native templates and temperatures. Kev uses a BF16 backbone and FP32 head
+with date injection disabled, differing from its authors’ FP32 configuration. Laya truncates some
+transfer inputs; Jev’s server-side input retention is unobservable. Failures count as incorrect when a
+gold accuracy label exists.
+
+Exposure and uncertainty. The external suite is excluded from custom training, checkpoint selection,
+and temperature fitting, although observed results can inform later research. Paired bootstrap resam-
+pling over source groups preserves related examples; Lex’s separate comparison resamples its 400 state
+groups. These intervals quantify example-sampling uncertainty, not benchmark reuse, training-run
+variation, or unknown upstream pretraining exposure. Differences between architectures and training
+recipes limit attribution to individual components.
+
+
+
+
+                                                  12
+

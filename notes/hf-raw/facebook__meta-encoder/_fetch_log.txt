@@ -1,0 +1,9 @@
+2026-10-19 fetch log (anonymous, no HF token)
+- api2.json: /api/models/facebook/meta-encoder?expand[]=safetensors,cardData,config,lastModified,sha,spaces,gated  -> 200; sha 1a78a4bd84eff42084be6ee3623e8e330a7ed54c, gated "auto", spaces [hotchpotch/S1MB-leaderboard, facebook/meta-encoder-space]
+- files/README.md: fetched earlier in sweep (card text visible)
+- resolve/main/{USAGE.md, modeling_metaencoder.py, vllm_metaencoder.py, config.json, NOTICE, README.md.bak.2111, requirements.txt, processor_config.json, generation_config.json, chat_template.jinja} -> all HTTP 401 "Access to model facebook/meta-encoder is restricted"
+- /api/models/facebook/meta-encoder/commits/main -> 401
+- space/: facebook/meta-encoder-space (public gradio): app.py, README.md, data/gallery.json (model's own scores on eval examples)
+- s1mb/: hotchpotch/S1MB-leaderboard space files + dataset hotchpotch/s1mb-result folders facebook__meta-encoder-cosine-t0.0184671662 (137 English tasks), facebook__meta-encoder (27 Japanese tasks), imguangyu__metaencoder_think (137 tasks, CoT variant)
+- GitHub: github.com/facebook/meta-encoder-eval shallow-cloned to sources/meta-encoder @ ecc77922 (2026-10-09), read only, not executed
+- Paper: arXiv 2610.11316v1 (pdf + pdftotext) saved in notes/hf-raw/_papers/

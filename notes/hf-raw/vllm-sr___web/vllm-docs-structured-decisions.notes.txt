@@ -1,0 +1,11 @@
+Fetched 2026-10-19 via WebFetch (summarised by fetch model, not verbatim):
+https://docs.vllm.ai/en/latest/models/structured_decisions_models/
+- Decision 3.0: D3ForSequenceClassification, D3Strategy, task classify; one forward pass per question, readout at last token.
+- Prompt built per checkpoint d3_format.py; JSON state as JSON text, empty state "(empty)".
+- Full-attention layers bidirectional as checkpoint declares; chunked prefill and prefix caching OFF for d3.
+- top-level `instructions` -> 400; chat_template_kwargs no effect.
+- /classify and /pooling return all 255 code logits.
+- Generic /v1/systemone (for generative models): 64 questions/request, 26 options/choice, 10 score levels;
+  confidence = chosen option's share of label mass * label_mass; diagnostics {label_mass, argmax_is_label}.
+- Page lists Clef-Flash, Clef-Omni, Liquid d1, Gemma 4, DiffusionGemma, Qwen3/3.5; no pplx-decider mention.
+Search hits: recipes.vllm.ai/vllm-sr/d3 (+ -edge/-flash/-mini/-lite/-nano), marktechpost 2026-10-11 (403 on fetch).
