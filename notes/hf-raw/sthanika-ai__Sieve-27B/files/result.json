@@ -1,0 +1,136 @@
+{
+ "model": "Sieve-27B",
+ "decision_index_leaderboard": {
+  "edition": "0.3.2",
+  "board_data": "2026-10-12",
+  "full_score": 60.17,
+  "public_score": 60.04,
+  "url": "https://huggingface.co/spaces/multimodalart/jev-decision-index",
+  "full_score_weights": {
+   "public": 0.2,
+   "private_same_skills": 0.5,
+   "private_new_domains": 0.3
+  }
+ },
+ "protocol": {
+  "temperature": 1.05,
+  "temperature_fit": "negative log-likelihood on the calibration split (43,309 questions); used only to fit T and choose the checkpoint"
+ },
+ "calibration_split": {
+  "questions": 43309,
+  "calibrated": {
+   "accuracy": 0.9013,
+   "nll": 0.2499,
+   "brier": 0.1369,
+   "ece": 0.0054,
+   "wrong_at_p_ge_0.9": 0.0088
+  },
+  "raw": {
+   "accuracy": 0.9013,
+   "nll": 0.2502,
+   "brier": 0.1368,
+   "ece": 0.0061,
+   "wrong_at_p_ge_0.9": 0.0098
+  }
+ },
+ "latency": {
+  "decision_index_requests": {
+   "what": "in-process wall time per request, eager, one at a time, 140,620 requests of the 0.3 run",
+   "hardware": "A100 80GB PCIe",
+   "median_ms": 151.4,
+   "mean_ms": 415.7,
+   "p80_ms": 425.3,
+   "p95_ms": 966.0
+  },
+  "server_kv_cache": {
+   "method": "p50 ms of 15 requests: state new every time (miss, prefill timed) vs the same state repeated (hit, served from its cached KV / recurrent state)",
+   "table": {
+    "2": {
+     "graphs": {
+      "miss": 580.8,
+      "hit": 137.5
+     },
+     "eager": {
+      "miss": 580.7,
+      "hit": 138.2
+     },
+     "state_tokens": 1433
+    },
+    "10": {
+     "graphs": {
+      "miss": 583.8,
+      "hit": 141.6
+     },
+     "eager": {
+      "miss": 580.0,
+      "hit": 138.4
+     },
+     "state_tokens": 1433
+    },
+    "50": {
+     "graphs": {
+      "miss": 678.6,
+      "hit": 236.5
+     },
+     "eager": {
+      "miss": 677.7,
+      "hit": 235.3
+     },
+     "state_tokens": 1433
+    }
+   }
+  },
+  "server_by_options": {
+   "note": "41-token state, below the server's 64-token caching threshold, so the state ran on every request",
+   "hardware": "NVIDIA A100 80GB PCIe, bf16, adapter merged",
+   "p50_ms": {
+    "2": {
+     "graphs": 177.3,
+     "eager": 257.35
+    },
+    "5": {
+     "graphs": 182.7,
+     "eager": 257.85
+    },
+    "10": {
+     "graphs": 186.7,
+     "eager": 259.75
+    },
+    "25": {
+     "graphs": 252.6,
+     "eager": 275.0
+    },
+    "50": {
+     "graphs": 369.4,
+     "eager": 349.0
+    },
+    "100": {
+     "graphs": 535.75,
+     "eager": 410.2
+    },
+    "255": {
+     "graphs": 1182.25,
+     "eager": 1059.0
+    }
+   }
+  }
+ },
+ "decision_index_0.3": {
+  "index": 60.04,
+  "raw_index": 69.32,
+  "breadth": 58.67,
+  "areas": {
+   "knowledge": 43.47,
+   "language": 65.68,
+   "retrieval": 67.82,
+   "tools": 77.51,
+   "arts": 40.79
+  },
+  "scored_requests": 140178,
+  "complete": true,
+  "kit": "apolinario/decision-index 62d2f51 (0.3)",
+  "how": "one complete run of the 0.3 suite on two A100 80GB PCIe GPUs, in two shards",
+  "results": "https://huggingface.co/datasets/sthanika-ai/Sieve-27B-decision-index-results",
+  "self_reported": true
+ }
+}

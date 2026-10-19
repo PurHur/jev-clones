@@ -1,0 +1,83 @@
+{
+  "a": {
+    "source": "<redacted>/jevbench_results.csv",
+    "run": "v19"
+  },
+  "b": {
+    "source": "<redacted>/results.jsonl",
+    "run": null
+  },
+  "slices": {
+    "all": {
+      "n": 231,
+      "a_correct": 167,
+      "b_correct": 176,
+      "both_right": 163,
+      "both_wrong": 51,
+      "a_only": 4,
+      "b_only": 13,
+      "discordant": 17,
+      "net_b_minus_a": 9,
+      "mcnemar_exact_p": 0.049041748046875
+    },
+    "easy": {
+      "n": 48,
+      "a_correct": 48,
+      "b_correct": 48,
+      "both_right": 48,
+      "both_wrong": 0,
+      "a_only": 0,
+      "b_only": 0,
+      "discordant": 0,
+      "net_b_minus_a": 0,
+      "mcnemar_exact_p": 1.0
+    },
+    "standard": {
+      "n": 72,
+      "a_correct": 63,
+      "b_correct": 67,
+      "both_right": 63,
+      "both_wrong": 5,
+      "a_only": 0,
+      "b_only": 4,
+      "discordant": 4,
+      "net_b_minus_a": 4,
+      "mcnemar_exact_p": 0.125
+    },
+    "hard": {
+      "n": 111,
+      "a_correct": 56,
+      "b_correct": 61,
+      "both_right": 52,
+      "both_wrong": 46,
+      "a_only": 4,
+      "b_only": 9,
+      "discordant": 13,
+      "net_b_minus_a": 5,
+      "mcnemar_exact_p": 0.266845703125
+    }
+  },
+  "discordant_ids": {
+    "a_only": [
+      "hard-opus-c-long_policy-10",
+      "hard-sol-b-long_policy-05",
+      "hard-sol-c-judge_hard-13",
+      "hard-sol-c-multi_hop-12"
+    ],
+    "b_only": [
+      "hard-opus-a-long_policy-11",
+      "hard-opus-a-long_policy-17",
+      "hard-opus-b-multi_hop-03",
+      "hard-opus-b-multi_hop-07",
+      "hard-opus-b-probability-04",
+      "hard-opus-b-tradeoff-01",
+      "hard-sol-a-adversarial-11",
+      "hard-sol-a-trap-08",
+      "hard-sol-b-long_policy-01",
+      "original-adequacy-05-1",
+      "original-intent-05-0",
+      "original-intent-05-1",
+      "original-policy-05-0"
+    ]
+  }
+}

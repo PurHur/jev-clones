@@ -1,0 +1,39 @@
+{
+ "pool": "span",
+ "temperature": 1.05,
+ "markers": [
+  "[STATE]",
+  "[Q]",
+  "[OPT]"
+ ],
+ "max_state_tokens": 256,
+ "max_len": 512,
+ "hidden": 1024,
+ "base_model": "microsoft/deberta-v3-large",
+ "attn_implementation": "eager",
+ "train": {
+  "states": 18000,
+  "questions": 42000,
+  "epochs": 1.0,
+  "augment": 0.7,
+  "seed": 2
+ },
+ "metrics": {
+  "in_domain": {
+   "n": 3508,
+   "acc": 0.8540478905359179,
+   "brier": 0.2126380754345202,
+   "nll": 0.39161871231692685,
+   "ece": 0.022295263177569035,
+   "mean_conf": 0.8701430000003163
+  },
+  "ood": {
+   "n": 4012,
+   "acc": 0.6899302093718843,
+   "brier": 0.3993802813670758,
+   "nll": 0.7091980578363113,
+   "ece": 0.03451239586188453,
+   "mean_conf": 0.7230830628866867
+  }
+ }
+}

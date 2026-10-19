@@ -1,0 +1,77 @@
+{
+ "settings": {
+  "threshold": 0.8,
+  "mix": 0.5,
+  "think_budget": 8192
+ },
+ "datasets": {
+  "AQuA-RAT": {
+   "n": 254,
+   "system1": 68.11023622047244,
+   "adaptive": 88.9763779527559,
+   "always_think": 90.15748031496062,
+   "escalated_pct": 53.937007874015755,
+   "ece_system1": 0.03542993923235089,
+   "ece_adaptive": 0.10937879489051755
+  },
+  "CommonsenseQA": {
+   "n": 300,
+   "system1": 86.66666666666667,
+   "adaptive": 85.0,
+   "always_think": 83.33333333333334,
+   "escalated_pct": 32.0,
+   "ece_system1": 0.04021547925836765,
+   "ece_adaptive": 0.053498085540242254
+  },
+  "LogiQA": {
+   "n": 300,
+   "system1": 55.333333333333336,
+   "adaptive": 80.33333333333333,
+   "always_think": 82.0,
+   "escalated_pct": 63.66666666666667,
+   "ece_system1": 0.12319165112240366,
+   "ece_adaptive": 0.12393589949576163
+  },
+  "MedMCQA": {
+   "n": 300,
+   "system1": 66.66666666666666,
+   "adaptive": 71.66666666666667,
+   "always_think": 73.66666666666667,
+   "escalated_pct": 52.33333333333333,
+   "ece_system1": 0.09009478448570694,
+   "ece_adaptive": 0.11489545268113895
+  },
+  "OpenBookQA": {
+   "n": 300,
+   "system1": 94.33333333333334,
+   "adaptive": 96.33333333333334,
+   "always_think": 95.66666666666667,
+   "escalated_pct": 14.666666666666666,
+   "ece_system1": 0.0443799860205645,
+   "ece_adaptive": 0.024977894380833043
+  },
+  "StrategyQA": {
+   "n": 300,
+   "system1": 68.0,
+   "adaptive": 78.66666666666666,
+   "always_think": 79.0,
+   "escalated_pct": 71.0,
+   "ece_system1": 0.02861885470538586,
+   "ece_adaptive": 0.0359552437712111
+  },
+  "ALL": {
+   "n": 1754,
+   "system1": 73.31812998859749,
+   "adaptive": 83.35233751425314,
+   "always_think": 83.80843785632838,
+   "escalated_pct": 47.776510832383124,
+   "ece_system1": 0.03522315989905164,
+   "ece_adaptive": 0.03458824415825564
+  },
+  "thinking_tokens": {
+   "median": 2282.0,
+   "p90": 7573.4,
+   "finished_within_8192": 0.9156214367160775
+  }
+ }
+}

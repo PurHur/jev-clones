@@ -1,0 +1,2 @@
+-r requirements.txt
+flash-linear-attention==0.5.2

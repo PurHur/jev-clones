@@ -1,0 +1,1208 @@
+{
+  "version": "v0.3.0",
+  "decision_index_37": {
+    "edition": "0.3",
+    "scope": "Public 37-benchmark scoreable text panel; not private Full or full multimodal HLE",
+    "requests": 110087,
+    "answer_fields": 272229,
+    "statuses": {"ok": 110087},
+    "coverage": 1.0,
+    "baseline_index": 53.88,
+    "index": 55.58,
+    "delta_index": 1.70,
+    "baseline_raw_index": 65.08,
+    "raw_index": 66.42,
+    "area_skill": {"knowledge": 0.4346, "language": 0.5963, "retrieval": 0.5568, "tools": 0.7443, "arts": 0.4178},
+    "benchmark_skill_changes": {"up": 30, "down": 6, "equal": 1},
+    "paired_accuracy_diagnostic": {
+      "gold_fields": 234641,
+      "macro_delta_pp": 1.03,
+      "group_bootstrap_95ci_pp": [0.86, 1.20],
+      "mcnemar_p_lt_005_up": 17,
+      "mcnemar_p_lt_005_down": 2,
+      "multiple_comparison_correction": false,
+      "note": "Diagnostic field accuracy, not DI-index confidence interval or benchmark-specific F1/nDCG significance"
+    },
+    "protocol": {"strategy": "single", "max_len": 32768, "batch_tokens": 32768, "same_frozen_source_as_baseline": true},
+    "input_sha256_uncompressed": "1a2875db806c4d7d8f5fe0f2ddaa01c7d324a304a10cb15db16d57d5a915136b",
+    "results_sha256": "0cc7b0db0950fbc3be386a07ea2fe8907e775e8614676000845e7e2a5c692f7b",
+    "execution": {
+      "gpus": 3,
+      "row_ranges_half_open": [[0, 43144], [43144, 54542], [54542, 110087]],
+      "unique_run_ids": 110087,
+      "cross_gpu_sampled_replays": 40,
+      "answers_and_probabilities_exactly_equal": true,
+      "request_wall_span_seconds": 27933.67177,
+      "end_to_end_seconds": 28557.1,
+      "note": "Three-GPU parallel wall time; not a single-GPU speedup measurement"
+    },
+    "temperature_audit": {"retempered_index": 55.58, "answer_flips": 0, "max_benchmark_skill_diff": 0.0},
+    "limitations": ["One checkpoint per version", "No JEV-27B-VL full-panel pairing", "Not every task improves", "ACOS target F1 and field-accuracy diagnostic differ", "HLE raw accuracy decline is not significant"]
+  },
+  "final": {
+    "baseline": {
+      "macro_acc": 0.7399169754633028,
+      "public_acc": 0.6341030322885548,
+      "legacy_acc": 0.7344444444444446,
+      "rules_acc": 0.8214046662841844,
+      "macro_nll": 0.7247609488549681,
+      "macro_brier": 0.3488381586222528,
+      "macro_ece": 0.1174995141861319,
+      "counterfactual_pair_accuracy": 0.742,
+      "order_consistency": 0.9010416666666666,
+      "tasks_acc": {
+        "legacy/ag_news": 0.84,
+        "legacy/banking77": 0.7066666666666667,
+        "legacy/boolq": 0.9066666666666666,
+        "legacy/dair_emotion": 0.6,
+        "legacy/massive_en": 0.7733333333333333,
+        "legacy/massive_zh": 0.8,
+        "legacy/sst5": 0.48,
+        "legacy/tnews_zh": 0.6,
+        "legacy/toxicity": 0.7066666666666667,
+        "legacy/xnli_en": 0.8933333333333333,
+        "legacy/xnli_zh": 0.8133333333333334,
+        "legacy/yelp_stars": 0.6933333333333334,
+        "public/aqua_rat": 0.6711409395973155,
+        "public/helpsteer2": 0.38513513513513514,
+        "public/paws": 0.8066666666666666,
+        "public/qasc": 0.673469387755102,
+        "rules/alias_coreference": 0.9939759036144579,
+        "rules/calendar_deadline": 0.8493975903614458,
+        "rules/condition_count": 0.6566265060240963,
+        "rules/explicit_evidence": 0.9404761904761905,
+        "rules/ordered_routing": 1.0,
+        "rules/refund_conversion": 0.4879518072289157
+      },
+      "suite_sha256": "59213740f5cc627495038505aec7bfb8539d5f726fa4f771825a217b8d17cc71"
+    },
+    "candidate": {
+      "macro_acc": 0.7872115323961828,
+      "public_acc": 0.7064907374159531,
+      "legacy_acc": 0.7488888888888888,
+      "rules_acc": 0.9176706827309236,
+      "macro_nll": 0.6288372163402411,
+      "macro_brier": 0.29582686417558945,
+      "macro_ece": 0.09775462606997513,
+      "counterfactual_pair_accuracy": 0.892,
+      "order_consistency": 0.9010416666666666,
+      "tasks_acc": {
+        "legacy/ag_news": 0.8533333333333334,
+        "legacy/banking77": 0.7333333333333333,
+        "legacy/boolq": 0.92,
+        "legacy/dair_emotion": 0.5866666666666667,
+        "legacy/massive_en": 0.8,
+        "legacy/massive_zh": 0.7866666666666666,
+        "legacy/sst5": 0.5333333333333333,
+        "legacy/tnews_zh": 0.6,
+        "legacy/toxicity": 0.7333333333333333,
+        "legacy/xnli_en": 0.9066666666666666,
+        "legacy/xnli_zh": 0.8533333333333334,
+        "legacy/yelp_stars": 0.68,
+        "public/aqua_rat": 0.7449664429530202,
+        "public/helpsteer2": 0.5135135135135135,
+        "public/paws": 0.86,
+        "public/qasc": 0.7074829931972789,
+        "rules/alias_coreference": 1.0,
+        "rules/calendar_deadline": 0.9518072289156626,
+        "rules/condition_count": 1.0,
+        "rules/explicit_evidence": 1.0,
+        "rules/ordered_routing": 1.0,
+        "rules/refund_conversion": 0.5542168674698795
+      },
+      "suite_sha256": "59213740f5cc627495038505aec7bfb8539d5f726fa4f771825a217b8d17cc71"
+    },
+    "macro_delta_pp": 4.729455693288012,
+    "macro_delta_95ci_pp": [
+      3.709597261750196,
+      5.801044669693442
+    ],
+    "gold_rows": 2494,
+    "paired_views": {
+      "all": {
+        "macro_delta_pp": 4.729455693288012,
+        "group_bootstrap_95ci_pp": [
+          3.709597261750196,
+          5.801044669693442
+        ],
+        "tasks": {
+          "public/qasc": {
+            "n": 147,
+            "reference_only": 3,
+            "candidate_only": 8,
+            "delta_pp": 3.401360544217687,
+            "reference_acc": 0.673469387755102,
+            "candidate_acc": 0.7074829931972789
+          },
+          "public/paws": {
+            "n": 150,
+            "reference_only": 4,
+            "candidate_only": 12,
+            "delta_pp": 5.333333333333333,
+            "reference_acc": 0.8066666666666666,
+            "candidate_acc": 0.86
+          },
+          "public/aqua_rat": {
+            "n": 149,
+            "reference_only": 3,
+            "candidate_only": 14,
+            "delta_pp": 7.382550335570469,
+            "reference_acc": 0.6711409395973155,
+            "candidate_acc": 0.7449664429530202
+          },
+          "public/helpsteer2": {
+            "n": 148,
+            "reference_only": 10,
+            "candidate_only": 29,
+            "delta_pp": 12.837837837837839,
+            "reference_acc": 0.38513513513513514,
+            "candidate_acc": 0.5135135135135135
+          },
+          "rules/calendar_deadline": {
+            "n": 166,
+            "reference_only": 2,
+            "candidate_only": 19,
+            "delta_pp": 10.240963855421686,
+            "reference_acc": 0.8493975903614458,
+            "candidate_acc": 0.9518072289156626
+          },
+          "rules/condition_count": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 57,
+            "delta_pp": 34.33734939759036,
+            "reference_acc": 0.6566265060240963,
+            "candidate_acc": 1.0
+          },
+          "rules/refund_conversion": {
+            "n": 166,
+            "reference_only": 4,
+            "candidate_only": 15,
+            "delta_pp": 6.626506024096385,
+            "reference_acc": 0.4879518072289157,
+            "candidate_acc": 0.5542168674698795
+          },
+          "rules/alias_coreference": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 0.6024096385542169,
+            "reference_acc": 0.9939759036144579,
+            "candidate_acc": 1.0
+          },
+          "rules/ordered_routing": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 0,
+            "delta_pp": 0.0,
+            "reference_acc": 1.0,
+            "candidate_acc": 1.0
+          },
+          "rules/explicit_evidence": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 10,
+            "delta_pp": 5.9523809523809526,
+            "reference_acc": 0.9404761904761905,
+            "candidate_acc": 1.0
+          },
+          "legacy/boolq": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.92
+          },
+          "legacy/sst5": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 4,
+            "delta_pp": 5.333333333333333,
+            "reference_acc": 0.48,
+            "candidate_acc": 0.5333333333333333
+          },
+          "legacy/ag_news": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.84,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/dair_emotion": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 0,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.6,
+            "candidate_acc": 0.5866666666666667
+          },
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7066666666666667,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/xnli_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 3,
+            "delta_pp": 4.0,
+            "reference_acc": 0.8133333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/tnews_zh": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 2,
+            "delta_pp": 0.0,
+            "reference_acc": 0.6,
+            "candidate_acc": 0.6
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 0,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.8,
+            "candidate_acc": 0.7866666666666666
+          },
+          "legacy/toxicity": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7066666666666667,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/yelp_stars": {
+            "n": 75,
+            "reference_only": 3,
+            "candidate_only": 2,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.6933333333333334,
+            "candidate_acc": 0.68
+          },
+          "legacy/xnli_en": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.8933333333333333,
+            "candidate_acc": 0.9066666666666666
+          }
+        },
+        "groups": 1606,
+        "macro_tasks": 22,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "public": {
+        "macro_delta_pp": 7.238770512739831,
+        "group_bootstrap_95ci_pp": [
+          3.855427155431906,
+          10.678773541202084
+        ],
+        "tasks": {
+          "public/qasc": {
+            "n": 147,
+            "reference_only": 3,
+            "candidate_only": 8,
+            "delta_pp": 3.401360544217687,
+            "reference_acc": 0.673469387755102,
+            "candidate_acc": 0.7074829931972789
+          },
+          "public/paws": {
+            "n": 150,
+            "reference_only": 4,
+            "candidate_only": 12,
+            "delta_pp": 5.333333333333333,
+            "reference_acc": 0.8066666666666666,
+            "candidate_acc": 0.86
+          },
+          "public/aqua_rat": {
+            "n": 149,
+            "reference_only": 3,
+            "candidate_only": 14,
+            "delta_pp": 7.382550335570469,
+            "reference_acc": 0.6711409395973155,
+            "candidate_acc": 0.7449664429530202
+          },
+          "public/helpsteer2": {
+            "n": 148,
+            "reference_only": 10,
+            "candidate_only": 29,
+            "delta_pp": 12.837837837837839,
+            "reference_acc": 0.38513513513513514,
+            "candidate_acc": 0.5135135135135135
+          }
+        },
+        "groups": 372,
+        "macro_tasks": 4,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "legacy": {
+        "macro_delta_pp": 1.4444444444444446,
+        "group_bootstrap_95ci_pp": [
+          0.3724298968947283,
+          2.6605410797788953
+        ],
+        "tasks": {
+          "legacy/boolq": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.92
+          },
+          "legacy/sst5": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 4,
+            "delta_pp": 5.333333333333333,
+            "reference_acc": 0.48,
+            "candidate_acc": 0.5333333333333333
+          },
+          "legacy/ag_news": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.84,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/dair_emotion": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 0,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.6,
+            "candidate_acc": 0.5866666666666667
+          },
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7066666666666667,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/xnli_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 3,
+            "delta_pp": 4.0,
+            "reference_acc": 0.8133333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/tnews_zh": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 2,
+            "delta_pp": 0.0,
+            "reference_acc": 0.6,
+            "candidate_acc": 0.6
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 0,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.8,
+            "candidate_acc": 0.7866666666666666
+          },
+          "legacy/toxicity": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7066666666666667,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/yelp_stars": {
+            "n": 75,
+            "reference_only": 3,
+            "candidate_only": 2,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.6933333333333334,
+            "candidate_acc": 0.68
+          },
+          "legacy/xnli_en": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.8933333333333333,
+            "candidate_acc": 0.9066666666666666
+          }
+        },
+        "groups": 734,
+        "macro_tasks": 12,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "rules": {
+        "macro_delta_pp": 9.626601644673933,
+        "group_bootstrap_95ci_pp": [
+          7.693662637759433,
+          11.514666610436064
+        ],
+        "tasks": {
+          "rules/calendar_deadline": {
+            "n": 166,
+            "reference_only": 2,
+            "candidate_only": 19,
+            "delta_pp": 10.240963855421686,
+            "reference_acc": 0.8493975903614458,
+            "candidate_acc": 0.9518072289156626
+          },
+          "rules/condition_count": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 57,
+            "delta_pp": 34.33734939759036,
+            "reference_acc": 0.6566265060240963,
+            "candidate_acc": 1.0
+          },
+          "rules/refund_conversion": {
+            "n": 166,
+            "reference_only": 4,
+            "candidate_only": 15,
+            "delta_pp": 6.626506024096385,
+            "reference_acc": 0.4879518072289157,
+            "candidate_acc": 0.5542168674698795
+          },
+          "rules/alias_coreference": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 0.6024096385542169,
+            "reference_acc": 0.9939759036144579,
+            "candidate_acc": 1.0
+          },
+          "rules/ordered_routing": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 0,
+            "delta_pp": 0.0,
+            "reference_acc": 1.0,
+            "candidate_acc": 1.0
+          },
+          "rules/explicit_evidence": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 10,
+            "delta_pp": 5.9523809523809526,
+            "reference_acc": 0.9404761904761905,
+            "candidate_acc": 1.0
+          }
+        },
+        "groups": 500,
+        "macro_tasks": 6,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "wide": {
+        "macro_delta_pp": 1.3333333333333335,
+        "group_bootstrap_95ci_pp": [
+          -0.45662100456621,
+          3.3451027627734464
+        ],
+        "tasks": {
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7066666666666667,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 2,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 0,
+            "delta_pp": -1.3333333333333333,
+            "reference_acc": 0.8,
+            "candidate_acc": 0.7866666666666666
+          }
+        },
+        "groups": 149,
+        "macro_tasks": 3,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      }
+    }
+  },
+  "external_final": {
+    "paired_vs_jev_27b_vl": {
+      "all": {
+        "macro_delta_pp": 5.249369436823954,
+        "group_bootstrap_95ci_pp": [
+          4.011810486407252,
+          6.495066675461929
+        ],
+        "tasks": {
+          "public/qasc": {
+            "n": 147,
+            "reference_only": 5,
+            "candidate_only": 12,
+            "delta_pp": 4.761904761904762,
+            "reference_acc": 0.6598639455782312,
+            "candidate_acc": 0.7074829931972789
+          },
+          "public/paws": {
+            "n": 150,
+            "reference_only": 4,
+            "candidate_only": 14,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.7933333333333333,
+            "candidate_acc": 0.86
+          },
+          "public/aqua_rat": {
+            "n": 149,
+            "reference_only": 3,
+            "candidate_only": 20,
+            "delta_pp": 11.409395973154362,
+            "reference_acc": 0.6308724832214765,
+            "candidate_acc": 0.7449664429530202
+          },
+          "public/helpsteer2": {
+            "n": 148,
+            "reference_only": 9,
+            "candidate_only": 25,
+            "delta_pp": 10.81081081081081,
+            "reference_acc": 0.40540540540540543,
+            "candidate_acc": 0.5135135135135135
+          },
+          "rules/calendar_deadline": {
+            "n": 166,
+            "reference_only": 2,
+            "candidate_only": 17,
+            "delta_pp": 9.036144578313253,
+            "reference_acc": 0.8614457831325302,
+            "candidate_acc": 0.9518072289156626
+          },
+          "rules/condition_count": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 33,
+            "delta_pp": 19.879518072289155,
+            "reference_acc": 0.8012048192771084,
+            "candidate_acc": 1.0
+          },
+          "rules/refund_conversion": {
+            "n": 166,
+            "reference_only": 10,
+            "candidate_only": 19,
+            "delta_pp": 5.421686746987952,
+            "reference_acc": 0.5,
+            "candidate_acc": 0.5542168674698795
+          },
+          "rules/alias_coreference": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 0,
+            "delta_pp": 0.0,
+            "reference_acc": 1.0,
+            "candidate_acc": 1.0
+          },
+          "rules/ordered_routing": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 18,
+            "delta_pp": 10.714285714285714,
+            "reference_acc": 0.8928571428571429,
+            "candidate_acc": 1.0
+          },
+          "rules/explicit_evidence": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 17,
+            "delta_pp": 10.119047619047619,
+            "reference_acc": 0.8988095238095238,
+            "candidate_acc": 1.0
+          },
+          "legacy/boolq": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.92
+          },
+          "legacy/sst5": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 6,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.4666666666666667,
+            "candidate_acc": 0.5333333333333333
+          },
+          "legacy/ag_news": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 1,
+            "delta_pp": 0.0,
+            "reference_acc": 0.8533333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/dair_emotion": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 0,
+            "delta_pp": -2.6666666666666665,
+            "reference_acc": 0.6133333333333333,
+            "candidate_acc": 0.5866666666666667
+          },
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.72,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/xnli_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 3,
+            "delta_pp": 4.0,
+            "reference_acc": 0.8133333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/tnews_zh": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 4,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.5733333333333334,
+            "candidate_acc": 0.6
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 4,
+            "delta_pp": 4.0,
+            "reference_acc": 0.76,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.7866666666666666
+          },
+          "legacy/toxicity": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.72,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/yelp_stars": {
+            "n": 75,
+            "reference_only": 4,
+            "candidate_only": 9,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.6133333333333333,
+            "candidate_acc": 0.68
+          },
+          "legacy/xnli_en": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 1,
+            "delta_pp": 0.0,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.9066666666666666
+          }
+        },
+        "groups": 1606,
+        "macro_tasks": 22,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "public": {
+        "macro_delta_pp": 8.41219455313415,
+        "group_bootstrap_95ci_pp": [
+          4.92408562486099,
+          12.104439346530613
+        ],
+        "tasks": {
+          "public/qasc": {
+            "n": 147,
+            "reference_only": 5,
+            "candidate_only": 12,
+            "delta_pp": 4.761904761904762,
+            "reference_acc": 0.6598639455782312,
+            "candidate_acc": 0.7074829931972789
+          },
+          "public/paws": {
+            "n": 150,
+            "reference_only": 4,
+            "candidate_only": 14,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.7933333333333333,
+            "candidate_acc": 0.86
+          },
+          "public/aqua_rat": {
+            "n": 149,
+            "reference_only": 3,
+            "candidate_only": 20,
+            "delta_pp": 11.409395973154362,
+            "reference_acc": 0.6308724832214765,
+            "candidate_acc": 0.7449664429530202
+          },
+          "public/helpsteer2": {
+            "n": 148,
+            "reference_only": 9,
+            "candidate_only": 25,
+            "delta_pp": 10.81081081081081,
+            "reference_acc": 0.40540540540540543,
+            "candidate_acc": 0.5135135135135135
+          }
+        },
+        "groups": 372,
+        "macro_tasks": 4,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "legacy": {
+        "macro_delta_pp": 2.2222222222222223,
+        "group_bootstrap_95ci_pp": [
+          0.6048992799325741,
+          3.9034749516212233
+        ],
+        "tasks": {
+          "legacy/boolq": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.92
+          },
+          "legacy/sst5": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 6,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.4666666666666667,
+            "candidate_acc": 0.5333333333333333
+          },
+          "legacy/ag_news": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 1,
+            "delta_pp": 0.0,
+            "reference_acc": 0.8533333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/dair_emotion": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 0,
+            "delta_pp": -2.6666666666666665,
+            "reference_acc": 0.6133333333333333,
+            "candidate_acc": 0.5866666666666667
+          },
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.72,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/xnli_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 3,
+            "delta_pp": 4.0,
+            "reference_acc": 0.8133333333333334,
+            "candidate_acc": 0.8533333333333334
+          },
+          "legacy/tnews_zh": {
+            "n": 75,
+            "reference_only": 2,
+            "candidate_only": 4,
+            "delta_pp": 2.6666666666666665,
+            "reference_acc": 0.5733333333333334,
+            "candidate_acc": 0.6
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 4,
+            "delta_pp": 4.0,
+            "reference_acc": 0.76,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.7866666666666666
+          },
+          "legacy/toxicity": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.72,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/yelp_stars": {
+            "n": 75,
+            "reference_only": 4,
+            "candidate_only": 9,
+            "delta_pp": 6.666666666666667,
+            "reference_acc": 0.6133333333333333,
+            "candidate_acc": 0.68
+          },
+          "legacy/xnli_en": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 1,
+            "delta_pp": 0.0,
+            "reference_acc": 0.9066666666666666,
+            "candidate_acc": 0.9066666666666666
+          }
+        },
+        "groups": 734,
+        "macro_tasks": 12,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "rules": {
+        "macro_delta_pp": 9.195113788487282,
+        "group_bootstrap_95ci_pp": [
+          7.056479729553694,
+          11.39524806528266
+        ],
+        "tasks": {
+          "rules/calendar_deadline": {
+            "n": 166,
+            "reference_only": 2,
+            "candidate_only": 17,
+            "delta_pp": 9.036144578313253,
+            "reference_acc": 0.8614457831325302,
+            "candidate_acc": 0.9518072289156626
+          },
+          "rules/condition_count": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 33,
+            "delta_pp": 19.879518072289155,
+            "reference_acc": 0.8012048192771084,
+            "candidate_acc": 1.0
+          },
+          "rules/refund_conversion": {
+            "n": 166,
+            "reference_only": 10,
+            "candidate_only": 19,
+            "delta_pp": 5.421686746987952,
+            "reference_acc": 0.5,
+            "candidate_acc": 0.5542168674698795
+          },
+          "rules/alias_coreference": {
+            "n": 166,
+            "reference_only": 0,
+            "candidate_only": 0,
+            "delta_pp": 0.0,
+            "reference_acc": 1.0,
+            "candidate_acc": 1.0
+          },
+          "rules/ordered_routing": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 18,
+            "delta_pp": 10.714285714285714,
+            "reference_acc": 0.8928571428571429,
+            "candidate_acc": 1.0
+          },
+          "rules/explicit_evidence": {
+            "n": 168,
+            "reference_only": 0,
+            "candidate_only": 17,
+            "delta_pp": 10.119047619047619,
+            "reference_acc": 0.8988095238095238,
+            "candidate_acc": 1.0
+          }
+        },
+        "groups": 500,
+        "macro_tasks": 6,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      },
+      "wide": {
+        "macro_delta_pp": 2.2222222222222223,
+        "group_bootstrap_95ci_pp": [
+          -0.44225250558800205,
+          5.261108959811728
+        ],
+        "tasks": {
+          "legacy/banking77": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 2,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.72,
+            "candidate_acc": 0.7333333333333333
+          },
+          "legacy/massive_en": {
+            "n": 75,
+            "reference_only": 1,
+            "candidate_only": 4,
+            "delta_pp": 4.0,
+            "reference_acc": 0.76,
+            "candidate_acc": 0.8
+          },
+          "legacy/massive_zh": {
+            "n": 75,
+            "reference_only": 0,
+            "candidate_only": 1,
+            "delta_pp": 1.3333333333333333,
+            "reference_acc": 0.7733333333333333,
+            "candidate_acc": 0.7866666666666666
+          }
+        },
+        "groups": 149,
+        "macro_tasks": 3,
+        "method": "paired Poisson cluster bootstrap; same weights for all views of each group"
+      }
+    },
+    "models": {
+      "v0.2.0": {
+        "macro_gold": {
+          "acc": 0.635861522706496,
+          "nll": 1.049759652153627,
+          "brier": 0.4961191446070023,
+          "ece": 0.16471093089907712
+        },
+        "public": {
+          "acc": 0.5702726548627794,
+          "nll": 1.0527297294137805,
+          "brier": 0.5388110313672285,
+          "ece": 0.1217559724217519
+        },
+        "legacy": {
+          "acc": 0.7022222222222222,
+          "nll": 0.9914142821912062,
+          "brier": 0.45076289385572027,
+          "ece": 0.18313881969980753
+        },
+        "rules": {
+          "acc": 0.5468660355708548,
+          "nll": 1.1644703405716992,
+          "brier": 0.5583703882694157,
+          "ece": 0.15649179228249974
+        }
+      },
+      "v0.3.0": {
+        "macro_gold": {
+          "acc": 0.7418372151101246,
+          "nll": 0.7508935982214792,
+          "brier": 0.3500786671259523,
+          "ece": 0.11201286234502184
+        },
+        "public": {
+          "acc": 0.6325164731228969,
+          "nll": 0.922442605139745,
+          "brier": 0.46674503225207004,
+          "ece": 0.07512355725386774
+        },
+        "legacy": {
+          "acc": 0.6988888888888889,
+          "nll": 0.9474157869861233,
+          "brier": 0.4274896122053498,
+          "ece": 0.16011699440735042
+        },
+        "rules": {
+          "acc": 0.9006143622107478,
+          "nll": 0.24348321608001355,
+          "brier": 0.1174792002164123,
+          "ece": 0.0403974682811341
+        }
+      },
+      "27B-v0.2.0": {
+        "macro_gold": {
+          "acc": 0.7399169754633028,
+          "nll": 0.7247609488549681,
+          "brier": 0.3488381586222528,
+          "ece": 0.1174995141861319
+        },
+        "public": {
+          "acc": 0.6341030322885548,
+          "nll": 0.9359777312628309,
+          "brier": 0.4721492144490324,
+          "ece": 0.10125105758466431
+        },
+        "legacy": {
+          "acc": 0.7344444444444446,
+          "nll": 0.8160507756360592,
+          "brier": 0.3785199858604115,
+          "ece": 0.144010091571411
+        },
+        "rules": {
+          "acc": 0.8214046662841844,
+          "nll": 0.4013701070208769,
+          "brier": 0.2072671335947489,
+          "ece": 0.07531066381655205
+        }
+      },
+      "27B-v0.3.0": {
+        "macro_gold": {
+          "acc": 0.7872115323961828,
+          "nll": 0.6288372163402411,
+          "brier": 0.29582686417558945,
+          "ece": 0.09775462606997513
+        },
+        "public": {
+          "acc": 0.7064907374159531,
+          "nll": 0.7701114943354505,
+          "brier": 0.3896633590853922,
+          "ece": 0.08348267793132544
+        },
+        "legacy": {
+          "acc": 0.7488888888888888,
+          "nll": 0.7944238291851932,
+          "brier": 0.36493474194827386,
+          "ece": 0.14149847830175324
+        },
+        "rules": {
+          "acc": 0.9176706827309236,
+          "nll": 0.20348113865353126,
+          "brier": 0.095053445357019,
+          "ece": 0.019781553698851963
+        }
+      },
+      "Kev-4B": {
+        "macro_gold": {
+          "acc": 0.6349500793914499,
+          "nll": 1.0181561250949756,
+          "brier": 0.4996387380482712,
+          "ece": 0.1589691928415456
+        },
+        "public": {
+          "acc": 0.5669973815755216,
+          "nll": 1.0528600043327287,
+          "brier": 0.5424855218407731,
+          "ece": 0.12081286366858696
+        },
+        "legacy": {
+          "acc": 0.7011111111111111,
+          "nll": 0.8940138681947928,
+          "brier": 0.4243324650711037,
+          "ece": 0.15189812763697572
+        },
+        "rules": {
+          "acc": 0.5479298144960795,
+          "nll": 1.2433047194035056,
+          "brier": 0.6216867614742713,
+          "ece": 0.1985488760326578
+        }
+      },
+      "JEV-27B-VL": {
+        "macro_gold": {
+          "acc": 0.7347178380279433,
+          "nll": 0.7613522575284409,
+          "brier": 0.35399162525635464,
+          "ece": 0.10658638180110107
+        },
+        "public": {
+          "acc": 0.6223687918846117,
+          "nll": 1.0108346954814902,
+          "brier": 0.4877153426523023,
+          "ece": 0.11664691033295274
+        },
+        "legacy": {
+          "acc": 0.7266666666666666,
+          "nll": 0.8389736846296695,
+          "brier": 0.3759834672606929,
+          "ece": 0.1266346275038254
+        },
+        "rules": {
+          "acc": 0.8257195448460509,
+          "nll": 0.43978777802395125,
+          "brier": 0.22085879631704639,
+          "ece": 0.059782871374418046
+        }
+      }
+    }
+  },
+  "development_checkpoints": {
+    "r27b_step00256_dev": {
+      "macro_delta_pp": 3.7562725392507037,
+      "ci": [
+        2.6879693944124443,
+        4.773315293140522
+      ],
+      "public_delta_pp": 6.587765957446809,
+      "legacy_delta_pp": 0.6944444444444444,
+      "wide_delta_pp": 1.6666666666666667
+    },
+    "r27b_step00512_dev": {
+      "macro_delta_pp": 4.804169709406361,
+      "ci": [
+        3.7386920307099727,
+        5.88760378209429
+      ],
+      "public_delta_pp": 9.345744680851062,
+      "legacy_delta_pp": 1.5277777777777777,
+      "wide_delta_pp": 1.6666666666666667
+    },
+    "r27b_step00768_dev": {
+      "macro_delta_pp": 4.699149675952438,
+      "ci": [
+        3.5081010495110254,
+        5.866824015071102
+      ],
+      "public_delta_pp": 9.720744680851064,
+      "legacy_delta_pp": 0.9722222222222222,
+      "wide_delta_pp": 0.0
+    },
+    "r27b_step01024_dev": {
+      "macro_delta_pp": 4.208230589243553,
+      "ci": [
+        3.015919086996722,
+        5.354163080402979
+      ],
+      "public_delta_pp": 9.595744680851064,
+      "legacy_delta_pp": 0.4166666666666667,
+      "wide_delta_pp": -1.1111111111111112
+    }
+  },
+  "latency": {
+    "p50_ms": 150.57589951902628,
+    "p95_ms": 352.64655654318614,
+    "mean_ms": 169.47138134267632,
+    "mean_prompt_tokens": 303.1720128307939,
+    "gpu": "NVIDIA H20",
+    "scope": "serial in-process merged-bf16, one question per forward; tokenization+forward+head+CPU copy+softmax; no HTTP"
+  }
+}

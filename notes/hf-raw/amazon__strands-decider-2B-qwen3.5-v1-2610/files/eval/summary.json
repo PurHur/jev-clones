@@ -1,0 +1,174 @@
+{
+  "internal": {
+    "eval: [2] gen:all_conditions": {
+      "accuracy": 0.765,
+      "n": 34
+    },
+    "eval: [2] gen:dates": {
+      "accuracy": 0.806,
+      "n": 31
+    },
+    "eval: [2] gen:exception": {
+      "accuracy": 0.973,
+      "n": 37
+    },
+    "eval: [2] gen:lookup_chain": {
+      "accuracy": 0.875,
+      "n": 40
+    },
+    "eval: [2] gen:numbers": {
+      "accuracy": 0.879,
+      "n": 33
+    },
+    "eval: [2] gen:precedence": {
+      "accuracy": 0.917,
+      "n": 36
+    },
+    "eval: [2] gen:rubric": {
+      "accuracy": 0.912,
+      "n": 34
+    },
+    "eval: [2] gen:surface_trap": {
+      "accuracy": 0.917,
+      "n": 48
+    },
+    "eval: [2] gen:tradeoff": {
+      "accuracy": 0.725,
+      "n": 40
+    },
+    "eval: [2] gen:underdetermined": {
+      "accuracy": 0.706,
+      "n": 17
+    },
+    "eval: [3] gen:all_conditions": {
+      "accuracy": 0.778,
+      "n": 9
+    },
+    "eval: [3] gen:borderline_rubric": {
+      "accuracy": 0.462,
+      "n": 13
+    },
+    "eval: [3] gen:cross_artefact": {
+      "accuracy": 0.71,
+      "n": 31
+    },
+    "eval: [3] gen:dates": {
+      "accuracy": 0.9,
+      "n": 10
+    },
+    "eval: [3] gen:definition_scope": {
+      "accuracy": 0.917,
+      "n": 12
+    },
+    "eval: [3] gen:exception": {
+      "accuracy": 1.0,
+      "n": 15
+    },
+    "eval: [3] gen:judge_action": {
+      "accuracy": 0.857,
+      "n": 7
+    },
+    "eval: [3] gen:lookup_chain": {
+      "accuracy": 0.7,
+      "n": 10
+    },
+    "eval: [3] gen:missing_fact": {
+      "accuracy": 0.724,
+      "n": 29
+    },
+    "eval: [3] gen:nested_exception": {
+      "accuracy": 0.769,
+      "n": 13
+    },
+    "eval: [3] gen:numbers": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:precedence": {
+      "accuracy": 1.0,
+      "n": 11
+    },
+    "eval: [3] gen:rubric": {
+      "accuracy": 0.667,
+      "n": 3
+    },
+    "eval: [3] gen:running_total": {
+      "accuracy": 0.696,
+      "n": 23
+    },
+    "eval: [3] gen:surface_trap": {
+      "accuracy": 0.0,
+      "n": 1
+    },
+    "eval: [3] gen:tie_break": {
+      "accuracy": 0.826,
+      "n": 23
+    },
+    "eval: [3] gen:underdetermined": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:version_in_force": {
+      "accuracy": 0.815,
+      "n": 27
+    },
+    "eval: [3] gen:withdrawn_instruction": {
+      "accuracy": 0.875,
+      "n": 8
+    },
+    "eval: [4] adequacy_hs2": {
+      "accuracy": 0.709,
+      "n": 234
+    },
+    "eval: [5] gen:adequacy": {
+      "accuracy": 0.828,
+      "n": 302
+    },
+    "eval: boardgame": {
+      "accuracy": 0.81,
+      "n": 900
+    },
+    "eval: contractnli": {
+      "accuracy": 0.878,
+      "n": 1026
+    },
+    "eval: held-out short tasks": {
+      "accuracy": 0.653,
+      "ece": 0.054,
+      "n": 6000,
+      "nll": 0.842
+    },
+    "eval: hotpotqa (held out)": {
+      "accuracy": 0.832,
+      "n": 959
+    },
+    "eval: musique": {
+      "accuracy": 0.882,
+      "n": 1199
+    },
+    "eval: musique, answerable": {
+      "accuracy": 0.876,
+      "n": 599
+    },
+    "eval: musique, unanswerable": {
+      "accuracy": 0.887,
+      "n": 600
+    }
+  },
+  "jevbench": [
+    {
+      "accuracy": 0.7792207792207793,
+      "arm": "w4096",
+      "brier": 0.2803568132900433,
+      "ece": 0.07184632034632034,
+      "n": 231,
+      "n_correct": 180,
+      "schema_validity_strict": 1.0,
+      "served": "these files",
+      "window": 4096
+    }
+  ],
+  "name": "strands-decider-2B-qwen3.5-v1-2610",
+  "role": "final",
+  "run_id": "v1-qwen3.5-2b-soup"
+}

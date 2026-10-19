@@ -1,0 +1,17 @@
+{
+  "adapter": "typesafe",
+  "dataset_hash": "dc3995d8ae1e2fc8e81ce38431add509eb8bb39b85aadfd0c7c32079382dde51",
+  "delay_s": 0.0,
+  "endpoint": "http://127.0.0.1:8200",
+  "finished_utc": "2026-10-07T15:43:54.556476+00:00",
+  "key_env_used": false,
+  "n_attempted": 231,
+  "n_planned": 231,
+  "request_options": {},
+  "requested_model": "g26-e2b-code-soup3",
+  "resolved_models": [
+    "g26-e2b-code-soup3"
+  ],
+  "run_label": "g26-e2b-code-soup3",
+  "started_utc": "2026-10-07T15:43:23.396009+00:00"
+}

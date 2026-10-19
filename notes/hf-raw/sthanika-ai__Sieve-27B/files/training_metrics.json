@@ -1,0 +1,24 @@
+{
+ "runs": {
+  "run": {
+   "name": "Sieve-27B",
+   "optimizer_steps": 4813,
+   "records_trained": 153988,
+   "wall_minutes": 1610.5,
+   "selected_step": 4500,
+   "selection_check": {
+    "questions": "fixed 2001-question sample of the calibration split",
+    "accuracy": 0.905,
+    "nll": 0.2621
+   },
+   "calibration_split": {
+    "questions": 43309,
+    "accuracy": 0.9013
+   },
+   "note": "interrupted once at step 2,500 and resumed from the step-2,000 checkpoint (weights, optimiser, schedule, random state); wall_minutes counts the kept run, without the 500 repeated steps"
+  }
+ },
+ "hardware": "2x NVIDIA A100 80GB PCIe (shared machine)",
+ "precision": "bf16",
+ "gradient_checkpointing": true
+}

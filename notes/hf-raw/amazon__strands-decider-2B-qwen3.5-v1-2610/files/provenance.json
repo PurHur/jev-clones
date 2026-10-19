@@ -1,0 +1,20 @@
+{
+  "adapter_sha256": "ae1d0cd1ac3edec6df0a519a3ad18f1c382099032d493f8f98c96a80cfebb4c7",
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "base_model_revision": "b1485b2fa6dfa1287294f269f5fb618e03d52d7c",
+  "base_model_revision_note": "inferred: Hub main at training time; hosts did not pin it",
+  "code_commit": "unknown",
+  "format": "hobson-hf-export/1",
+  "gpu": null,
+  "head_sha256": "ace56742545b505e6fae34ada85c8edbeedb23ba8974d8680aebe0380d6083a1",
+  "hobson_config_sha256": "1d9625055e88c254d50089116992d08b0567286c9d6fcefb3c025922058ee65a",
+  "host_shape": null,
+  "name": "strands-decider-2B-qwen3.5-v1-2610",
+  "pipeline_wall_s": null,
+  "role": "final",
+  "run_id": "v1-qwen3.5-2b-soup",
+  "source_checkpoint_fingerprint": "cac584415ce9405a",
+  "source_head_pickle_sha256": "4eb4f3449bd9f8a4ffcfdd7ccc3a40b92a103ac93201756e4c9098d426ce3f4b",
+  "train_config_sha256": "85e5dbda4fb646a5182dc5c9895b653837592cf1e685d0c67fa2747c9d6cd649",
+  "train_wall_s": null
+}

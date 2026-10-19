@@ -1,0 +1,95 @@
+{
+  "a": {
+    "source": "<redacted>/jevbench_results.csv",
+    "run": "v19"
+  },
+  "b": {
+    "source": "<redacted>/results.jsonl",
+    "run": null
+  },
+  "slices": {
+    "all": {
+      "n": 231,
+      "a_correct": 167,
+      "b_correct": 180,
+      "both_right": 159,
+      "both_wrong": 43,
+      "a_only": 8,
+      "b_only": 21,
+      "discordant": 29,
+      "net_b_minus_a": 13,
+      "mcnemar_exact_p": 0.0241195447742939
+    },
+    "easy": {
+      "n": 48,
+      "a_correct": 48,
+      "b_correct": 48,
+      "both_right": 48,
+      "both_wrong": 0,
+      "a_only": 0,
+      "b_only": 0,
+      "discordant": 0,
+      "net_b_minus_a": 0,
+      "mcnemar_exact_p": 1.0
+    },
+    "standard": {
+      "n": 72,
+      "a_correct": 63,
+      "b_correct": 67,
+      "both_right": 61,
+      "both_wrong": 3,
+      "a_only": 2,
+      "b_only": 6,
+      "discordant": 8,
+      "net_b_minus_a": 4,
+      "mcnemar_exact_p": 0.2890625
+    },
+    "hard": {
+      "n": 111,
+      "a_correct": 56,
+      "b_correct": 65,
+      "both_right": 50,
+      "both_wrong": 40,
+      "a_only": 6,
+      "b_only": 15,
+      "discordant": 21,
+      "net_b_minus_a": 9,
+      "mcnemar_exact_p": 0.0783538818359375
+    }
+  },
+  "discordant_ids": {
+    "a_only": [
+      "hard-opus-b-ambiguous-03",
+      "hard-opus-c-long_policy-10",
+      "hard-sol-a-trap-05",
+      "hard-sol-a-trap-15",
+      "hard-sol-b-temporal_numeric-02",
+      "hard-sol-b-temporal_numeric-03",
+      "original-intent-02-0",
+      "original-policy-06-1"
+    ],
+    "b_only": [
+      "hard-opus-a-long_policy-01",
+      "hard-opus-a-long_policy-09",
+      "hard-opus-a-long_policy-11",
+      "hard-opus-b-ambiguous-09",
+      "hard-opus-b-multi_hop-05",
+      "hard-opus-b-probability-03",
+      "hard-opus-b-tradeoff-08",
+      "hard-opus-c-probability-03",
+      "hard-opus-c-temporal_numeric-08",
+      "hard-sol-a-adversarial-01",
+      "hard-sol-a-multi_hop-08",
+      "hard-sol-a-multi_hop-12",
+      "hard-sol-a-trap-08",
+      "hard-sol-b-judge_hard-18",
+      "hard-sol-b-long_policy-01",
+      "original-adequacy-03-0",
+      "original-intent-05-0",
+      "original-intent-05-1",
+      "original-policy-02-1",
+      "original-policy-03-1",
+      "original-policy-05-0"
+    ]
+  }
+}

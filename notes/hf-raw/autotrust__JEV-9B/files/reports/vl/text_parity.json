@@ -1,0 +1,12 @@
+{
+ "n": 300,
+ "mean_abs_dp_max": 0.002224256388519142,
+ "max_abs_dp": 0.010940762902599044,
+ "share_over_0.05": 0.0,
+ "same_top_option": 0.99,
+ "kinds": {
+  "noul": 140,
+  "choice": 83,
+  "score": 77
+ }
+}

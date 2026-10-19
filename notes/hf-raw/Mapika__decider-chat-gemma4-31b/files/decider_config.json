@@ -1,0 +1,10 @@
+{
+ "version": "chat-gemma4-31b-v1",
+ "layout": "chat",
+ "temperature": 6.972,
+ "temperature_by_options": {"a": 10.124, "b": -1.633, "min": 0.05},
+ "neutralize_none": false,
+ "isolated_levels": false,
+ "base": "google/gemma-4-31B-it, unmodified weights",
+ "requires": "decider-ai>=1.8.0 (temperature_by_options; final-logit softcapping from 1.7.0)"
+}

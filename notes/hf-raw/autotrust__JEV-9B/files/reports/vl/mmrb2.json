@@ -1,0 +1,26 @@
+{
+ "t2i": {
+  "n": 1000,
+  "accuracy": 0.65,
+  "order_agreement": 0.637,
+  "seconds": 90.77313542366028
+ },
+ "edit": {
+  "n": 1000,
+  "accuracy": 0.585,
+  "order_agreement": 0.342,
+  "seconds": 122.78884029388428
+ },
+ "interleaved": {
+  "n": 1000,
+  "accuracy": 0.622,
+  "order_agreement": 0.663,
+  "seconds": 151.45967888832092
+ },
+ "reasoning": {
+  "n": 1000,
+  "accuracy": 0.58,
+  "order_agreement": 0.593,
+  "seconds": 94.65101504325867
+ }
+}

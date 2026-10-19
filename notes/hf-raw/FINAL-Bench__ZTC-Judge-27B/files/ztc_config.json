@@ -1,0 +1,111 @@
+{
+ "ztc_version": "1.0",
+ "base_model": "Qwen/Qwen3.5-27B",
+ "base_revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+ "probe_file": "ZTC-Judge-27B.npz",
+ "hidden_dim": 5120,
+ "layer": "last",
+ "token": "last_non_pad",
+ "max_length": 2048,
+ "template": "다음은 어떤 문제와 그에 대한 답변이다. 이 답변이 옳은지 판단하라.\n\n[문제]\n%s\n\n[답변]\n%s\n\n이 답변은 옳은가?",
+ "thresholds": {
+  "review": -0.392403355096007,
+  "clear": 0.11326689029648167
+ },
+ "measured": {
+  "cv_auc": 0.7999247390498649,
+  "permutation_z": 25.68107120241526,
+  "n": 2018,
+  "n_wrong": 508,
+  "per_domain_lodo": {
+   "전문시험(법·수학·생물)": 0.8462,
+   "상식·다단계추론": 0.6172,
+   "생물·의학": 0.7154,
+   "과학추론": 0.741,
+   "재난·안전 지침": 0.6961
+  },
+  "per_domain_detail": {
+   "전문시험(법·수학·생물)": {
+    "auc": 0.8462,
+    "z": 9.07,
+    "n": 400,
+    "n_wrong": 80
+   },
+   "상식·다단계추론": {
+    "auc": 0.6172,
+    "z": 3.63,
+    "n": 278,
+    "n_wrong": 130
+   },
+   "생물·의학": {
+    "auc": 0.7154,
+    "z": 8.92,
+    "n": 917,
+    "n_wrong": 169
+   },
+   "과학추론": {
+    "auc": 0.741,
+    "z": 3.82,
+    "n": 198,
+    "n_wrong": 20
+   },
+   "재난·안전 지침": {
+    "auc": 0.6961,
+    "z": 4.72,
+    "n": 225,
+    "n_wrong": 109
+   }
+  },
+  "review_budget": [
+   {
+    "frac": 0.05,
+    "k": 100,
+    "caught": 71,
+    "recall": 0.13976377952755906,
+    "precision": 0.71
+   },
+   {
+    "frac": 0.1,
+    "k": 201,
+    "caught": 142,
+    "recall": 0.2795275590551181,
+    "precision": 0.7064676616915423
+   },
+   {
+    "frac": 0.15,
+    "k": 302,
+    "caught": 195,
+    "recall": 0.3838582677165354,
+    "precision": 0.6456953642384106
+   },
+   {
+    "frac": 0.2,
+    "k": 403,
+    "caught": 240,
+    "recall": 0.47244094488188976,
+    "precision": 0.5955334987593052
+   },
+   {
+    "frac": 0.3,
+    "k": 605,
+    "caught": 315,
+    "recall": 0.6200787401574803,
+    "precision": 0.5206611570247934
+   },
+   {
+    "frac": 0.4,
+    "k": 807,
+    "caught": 369,
+    "recall": 0.7263779527559056,
+    "precision": 0.45724907063197023
+   }
+  ],
+  "leaderboard_auc": 0.7282,
+  "surface_baseline": 0.6223,
+  "protocol": "2,018 items, corrected set; leave-one-domain-out; hyper-parameters chosen inside training domains only; per-domain then size-weighted. Curved probe (ztc_curve_probe.npz).",
+  "note_linear": "cv_auc 0.7999 comes from the linear probe on 400 professional-exam items with random folds — an easier protocol. Quote leaderboard_auc when comparing systems."
+ },
+ "note": "per_domain_lodo 는 leave-one-domain-out 값 = 처음 보는 분야의 정직한 기대치.",
+ "do_not_cite": "self_auc (in-sample). 성능은 cv_auc 로만 말한다.",
+ "curve_probe_file": "ztc_curve_probe.npz"
+}

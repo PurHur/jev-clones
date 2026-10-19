@@ -1,0 +1,1 @@
+{"temperature": 1.03, "temperature_schema_first": 1.03, "neutralize_none": false, "version": "0.8b-v1", "base": "Qwen/Qwen3.5-0.8B-Base", "max_options": 255, "max_state_tokens": 32768, "schema_first": false, "schema_first_trained": true, "isolated_levels": true, "recipe": "scripts/train.sh full (single run)", "release_date": "2026-09-19"}

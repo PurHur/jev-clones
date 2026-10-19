@@ -1,0 +1,19 @@
+{
+  "add_prefix_space": false,
+  "backend": "tokenizers",
+  "bos_token": "<|end_of_text|>",
+  "clean_up_tokenization_spaces": false,
+  "eos_token": "<|end_of_text|>",
+  "extra_special_tokens": [
+    "<|guardian-core|>",
+    "<|decision|>",
+    "<|audio|>"
+  ],
+  "is_local": true,
+  "local_files_only": false,
+  "model_max_length": 1000000000000000019884624838656,
+  "pad_token": "<|pad|>",
+  "padding_side": "left",
+  "tokenizer_class": "TokenizersBackend",
+  "unk_token": "<|unk|>"
+}

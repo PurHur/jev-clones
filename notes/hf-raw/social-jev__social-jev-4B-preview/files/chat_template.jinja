@@ -1,0 +1,12 @@
+{%- set role_start = "<|im_start|>" -%}
+{%- set role_end = "<|im_end|>" -%}
+{%- for message in messages %}
+{{- role_start + message.role + '\n' }}
+{%- if message.role == 'example' %}
+{{- role_start + 'state\n' + message.content.state + role_end }}
+{{- role_start + 'option\n' + message.content.choice + role_end }}
+{%- else %}
+{{- message.content }}
+{%- endif %}
+{{- role_end }}
+{%- endfor %}

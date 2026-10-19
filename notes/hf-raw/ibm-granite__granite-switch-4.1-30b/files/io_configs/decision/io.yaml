@@ -1,0 +1,16 @@
+# Decider / decision engine (aLoRA, r=64, granite-4.1-30b).
+# Prompt layout and readout are those of decide_alora.py: a fixed system prompt, a first user
+# turn with the state (runs on frozen base KV), then a second user turn opening with the
+# "### DECISION" invocation marker plus Question / Options as "A: ...", "B: ...",
+# add_generation_prompt=True; the answer is the first assistant token, read as a softmax over
+# the option-label token logits. In the Switch, the control token replaces the marker's first
+# token, so only the question turn ever activates the adapter.
+name: decision
+model: ~
+response_format: ~
+transformations: ~
+instruction: ~
+parameters:
+  max_completion_tokens: 1
+  temperature: 0.0
+sentence_boundaries: ~

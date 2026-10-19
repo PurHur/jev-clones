@@ -1,0 +1,62 @@
+{
+ "_provenance": "Recovered from the trackio bucket DB (pngwn/system-one-qwen3-5-4b-scorer-trackio-bucket, trackio/system-one-scorer.db, run pngwn-1789573027 / ef7c7e1da21e45d28e5404c17cc9fe4f, final row step 2200, timestamp 2026-09-16T18:34:27Z). The training run omitted its --out-dir flag, so the script never wrote this file; test/*, val/*, baseline/*, temperature and latency_ms_per_query are verbatim from trackio. val_uncalibrated and test_uncalibrated ALL rows were read from the job log. peak_gpu_memory_gb and val_nll were never recorded and are deliberately absent rather than estimated.",
+ "base_model": "Qwen/Qwen3.5-4B-Base",
+ "data_repo": "pngwn/system-one-decisions",
+ "n_train_questions": 12913,
+ "epochs": 2,
+ "steps": 2200,
+ "max_len": 384,
+ "batch_size": 8,
+ "grad_accum": 1,
+ "max_options": 16,
+ "lora_r": 16,
+ "lr": 0.0001,
+ "temperature": 1.75,
+ "latency_ms_per_query": 112.25900650024414,
+ "latency_options": 4,
+ "job_wall_seconds": 10693.8,
+ "val_uncalibrated": {
+  "ALL": {"n": 537, "acc": 0.7523, "ece": 0.09528, "brier": 0.34704, "mean_conf": 0.8466}
+ },
+ "test_uncalibrated": {
+  "ALL": {"n": 576, "acc": 0.7066, "ece": 0.13484, "brier": 0.41547, "mean_conf": 0.839}
+ },
+ "test_calibrated": {
+  "ag_news": {"acc": 0.921875, "ece": 0.02078868861029505, "brier": 0.13062124015794666},
+  "banking77": {"acc": 0.890625, "ece": 0.04906201353248987, "brier": 0.17568371574460404},
+  "go_emotions": {"acc": 0.859375, "ece": 0.06239910424253903, "brier": 0.20201733102714178},
+  "mmlu": {"acc": 0.703125, "ece": 0.18782345669768424, "brier": 0.4066659820573347},
+  "tickets_language": {"acc": 0.890625, "ece": 0.06935006180860846, "brier": 0.18915652114647494},
+  "tickets_priority": {"acc": 0.46875, "ece": 0.05804192707194618, "brier": 0.6120249901633202},
+  "tickets_queue": {"acc": 0.234375, "ece": 0.24406082408894336, "brier": 0.8480035435968167},
+  "tickets_type": {"acc": 0.75, "ece": 0.0520225821137337, "brier": 0.3286810638856328},
+  "yelp_score": {"acc": 0.640625, "ece": 0.11713274051675233, "brier": 0.4599780452084759},
+  "ALL": {"acc": 0.7065972222222222, "ece": 0.04429396231895713, "brier": 0.3725369369986391}
+ },
+ "val_calibrated": {
+  "ag_news": {"acc": 0.90625, "ece": 0.02561223629679346},
+  "banking77": {"acc": 0.828125, "ece": 0.09840222403002677},
+  "go_emotions": {"acc": 0.921875, "ece": 0.06525766793979536},
+  "mmlu": {"acc": 0.625, "ece": 0.15560447028237082},
+  "tickets_language": {"acc": 0.9, "ece": 0.03595485486356885},
+  "tickets_priority": {"acc": 0.5833333333333334, "ece": 0.09906256295963414},
+  "tickets_queue": {"acc": 0.5666666666666667, "ece": 0.11125137115325968},
+  "tickets_type": {"acc": 0.7567567567567568, "ece": 0.03794559358867211},
+  "yelp_score": {"acc": 0.671875, "ece": 0.08282058137929138},
+  "ALL": {"acc": 0.7523277467411545, "ece": 0.03234344213898263}
+ },
+ "baseline_val": {
+  "_note": "Prompted Qwen3.5-4B-Base with a 26-letter answer alphabet, uncapped options. 16 questions per family, 7 of 9 families: banking77 (77 options) and tickets_queue (52) are excluded because they exceed the alphabet. n=112 total.",
+  "n_total": 112,
+  "n_per_family": 16,
+  "families": 7,
+  "ag_news": {"acc": 0.875, "ece": 0.09928598425164807},
+  "go_emotions": {"acc": 0.6875, "ece": 0.22287221548108033},
+  "mmlu": {"acc": 0.625, "ece": 0.1674371868915145},
+  "tickets_language": {"acc": 0.9375, "ece": 0.08371453073758081},
+  "tickets_priority": {"acc": 0.3125, "ece": 0.26230829059667415},
+  "tickets_type": {"acc": 0.625, "ece": 0.33525639584374867},
+  "yelp_score": {"acc": 0.6875, "ece": 0.2174095130007399},
+  "ALL": {"acc": 0.6785714285714286, "ece": 0.09281280169121499}
+ }
+}

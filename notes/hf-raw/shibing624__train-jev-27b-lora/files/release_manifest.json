@@ -1,0 +1,65 @@
+{
+  "format": "train-jev-lora-head-v1",
+  "version": "v0.3.0",
+  "repo_id": "shibing624/train-jev-27b-lora",
+  "base_model_id": "Qwen/Qwen3.8-27B",
+  "offline_preparation": true,
+  "qualified_final_pk": true,
+  "source_adapter_sha256": "a55c448ef743617595fc27bfc597bbdc5f83dfd47b8e7149fe4c7269b9a7b199",
+  "source_head_sha256": "604b8598a3611e7fe1dc02fe84976953d23345f2c08d74528db69440a587432d",
+  "files": {
+    "LICENSE": {
+      "sha256": "58338e6733a8486bbafe7e32a358aac6e56ea586e7cb4d0d986692537af0a33c",
+      "bytes": 11351
+    },
+    "README.md": {
+      "sha256": "d387c259ab97e86c4f52e34fc23ccdb09ca931f13316c2c1009d31a92f174556",
+      "bytes": 5271
+    },
+    "adapter_config.json": {
+      "sha256": "0327bc6b6f59aa131027758390aeaf462f71843770010264e76ec9a259f03651",
+      "bytes": 1348
+    },
+    "adapter_model.safetensors": {
+      "sha256": "a55c448ef743617595fc27bfc597bbdc5f83dfd47b8e7149fe4c7269b9a7b199",
+      "bytes": 435263728
+    },
+    "calibration.json": {
+      "sha256": "506f8dfadebf147e04b7a4086668f45cd77abed4377b43afb46650541f1686d8",
+      "bytes": 229
+    },
+    "head.pt": {
+      "sha256": "57c769e836934effd7fb02ae8d7163241d5b6a2448a8dc5cddb68b6e5ad54469",
+      "bytes": 493837
+    },
+    "metrics.json": {
+      "sha256": "1a3d4e4a08c623be7d615c31e624bdf10266aa989585d041dfbe3b7f35706ee4",
+      "bytes": 39389
+    },
+    "training_recipe.json": {
+      "sha256": "b7d070ccdc6ebf776b5991ef8167982779aa74fe7e1ac45c276ba3825dbf4f04",
+      "bytes": 5851
+    },
+    "validation.json": {
+      "sha256": "4c106b89d30dde260b82db3710cd335d72c40e2e0e1f59889742ddf13bf24c7a",
+      "bytes": 374
+    }
+  },
+  "manifest_excludes_itself": true,
+  "validation": {
+    "passed": true,
+    "raw_vs_packaged_max_probability_difference": 0.0,
+    "same_calibration": true,
+    "comparison_rows": 13,
+    "wide_options": 77,
+    "api": {
+      "health": true,
+      "all_three_primitives": true,
+      "native_wide_single": true,
+      "normalized_probabilities": true,
+      "invalid_schema_rejected": true
+    },
+    "torch": "2.13.0+cu129",
+    "gpu": "NVIDIA H20"
+  }
+}

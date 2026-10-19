@@ -1,0 +1,54 @@
+A = v19   B = jevbench-w4096
+slice        n     A     B  both+  both-  A only  B only  net B-A  McNemar p
+----------------------------------------------------------------------------
+all        231   167   200    160     24       7      40      +33     0.0000
+easy        48    48    48     48      0       0       0       +0     1.0000
+standard    72    63    71     63      1       0       8       +8     0.0078
+hard       111    56    81     49     23       7      32      +25     0.0001
+  B only  hard     hard-opus-a-long_policy-01
+  B only  hard     hard-opus-a-long_policy-09
+  B only  hard     hard-opus-a-long_policy-11
+  B only  hard     hard-opus-a-long_policy-13
+  B only  hard     hard-opus-a-long_policy-17
+  A only  hard     hard-opus-a-probability-08
+  B only  hard     hard-opus-a-temporal_numeric-03
+  B only  hard     hard-opus-a-temporal_numeric-06
+  A only  hard     hard-opus-a-temporal_numeric-09
+  A only  hard     hard-opus-b-ambiguous-03
+  B only  hard     hard-opus-b-ambiguous-07
+  B only  hard     hard-opus-b-ambiguous-09
+  A only  hard     hard-opus-b-ambiguous-10
+  B only  hard     hard-opus-b-multi_hop-03
+  B only  hard     hard-opus-b-multi_hop-04
+  B only  hard     hard-opus-b-multi_hop-05
+  B only  hard     hard-opus-b-multi_hop-08
+  B only  hard     hard-opus-b-probability-02
+  B only  hard     hard-opus-b-probability-03
+  B only  hard     hard-opus-b-probability-06
+  B only  hard     hard-opus-b-tradeoff-07
+  B only  hard     hard-opus-b-tradeoff-08
+  B only  hard     hard-opus-c-probability-03
+  B only  hard     hard-opus-c-temporal_numeric-08
+  B only  hard     hard-sol-a-adversarial-01
+  B only  hard     hard-sol-a-adversarial-11
+  B only  hard     hard-sol-a-multi_hop-02
+  B only  hard     hard-sol-a-multi_hop-05
+  B only  hard     hard-sol-a-multi_hop-07
+  A only  hard     hard-sol-a-multi_hop-10
+  B only  hard     hard-sol-a-multi_hop-12
+  B only  hard     hard-sol-a-trap-08
+  B only  hard     hard-sol-b-judge_hard-18
+  B only  hard     hard-sol-b-long_policy-01
+  B only  hard     hard-sol-b-long_policy-02
+  A only  hard     hard-sol-b-temporal_numeric-02
+  A only  hard     hard-sol-b-temporal_numeric-03
+  B only  hard     hard-sol-c-judge_hard-03
+  B only  hard     hard-sol-c-judge_hard-08
+  B only  standard original-adequacy-03-0
+  B only  standard original-adequacy-03-1
+  B only  standard original-intent-05-0
+  B only  standard original-intent-05-1
+  B only  standard original-policy-02-1
+  B only  standard original-policy-03-1
+  B only  standard original-policy-05-0
+  B only  standard original-routing-05-1

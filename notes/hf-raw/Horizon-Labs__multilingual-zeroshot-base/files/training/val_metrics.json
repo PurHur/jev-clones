@@ -1,0 +1,25 @@
+{
+ "step": 4000,
+ "auc": 0.963585299071516,
+ "f1": 0.8474668111622866,
+ "acc": 0.9060884070058381,
+ "fpr": 0.0676522577534951,
+ "fnr": 0.1529156887524824,
+ "per_source": {
+  "mnli": 0.924,
+  "snli": 0.931,
+  "wanli": 0.801,
+  "tr_nli": 0.869,
+  "tr_nli_xen": 0.853,
+  "zs_passage_native": 0.9,
+  "zs_passage": 0.878,
+  "zs_short": 0.894,
+  "zs_short_native": 0.882,
+  "zs_tax_passage_native": 0.872,
+  "zs_tax_passage": 0.932,
+  "zs_aspect": 0.964,
+  "zs_tax_short": 0.944,
+  "zs_tax_short_native": 0.923,
+  "zs_aspect_native": 0.959
+ }
+}

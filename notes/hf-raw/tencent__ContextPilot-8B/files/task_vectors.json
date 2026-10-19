@@ -1,0 +1,17 @@
+{
+  "base": "/root/.cache/huggingface/hub/models--Qwen--Qwen3-8B/snapshots/b968826d9c46dd6066d109eabc6255188de91218",
+  "vectors": [
+    {
+      "path": "agentic_verl/saves/sft/Qwen3-8B/qwen3-8b-four-task-joint-recovery-v12-finish-long-step400-20260801/global_step_400/huggingface_eval",
+      "weight": 0.5
+    },
+    {
+      "path": "agentic_verl/saves/sft/Qwen3-8B/qwen3-8b-browse-raw-success-specialist-step400-20260802/global_step_400/huggingface_eval",
+      "weight": 0.5
+    },
+    {
+      "path": "agentic_verl/saves/sft/Qwen3-8B/qwen3-8b_infbench-full-closed-loop-recovery_20260731/global_step_200/huggingface_eval",
+      "weight": 0.15
+    }
+  ]
+}

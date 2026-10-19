@@ -1,0 +1,46 @@
+model:
+  backbone: backbone
+  trust_remote_code: true
+  tune_mode: lora
+  pooling: last
+  projection_dim: 768
+  normalize_state: false
+  decision_arch: matrix_stack
+  decision_depth: 1
+  decision_num_heads: 8
+  decision_ffn_ratio: 4.0
+  decision_dropout: 0.0
+  decision_zero_init_ffn: true
+  decision_final_norm: false
+  gradient_checkpointing: true
+  torch_dtype: bfloat16
+  tau_set_init: 0.15
+  tau_dec_init: 0.1
+  tau_cov_init: 0.1
+  alpha_over_tau_init: 0.6
+  coverage_bias_init: 0.0
+  min_temperature: 0.0001
+  head_path: null
+  adapter_path: null
+  lora:
+    r: 64
+    alpha: 128
+    dropout: 0.05
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+      - in_proj_qkv
+      - in_proj_z
+      - in_proj_a
+      - in_proj_b
+      - out_proj
+      - gate_proj
+      - up_proj
+      - down_proj
+data:
+  max_state_length: 9000
+  max_option_length: 8192
+  max_train_options: null
+  cap_hard_only: true

@@ -1,0 +1,1982 @@
+[
+ {
+  "id": "payouts",
+  "request": {
+   "id": "payouts",
+   "state": "Help! My payouts have been failing for 3 days! ",
+   "questions": {
+    "is_urgent": {
+     "type": "noul",
+     "instructions": "Does this convey urgency?"
+    },
+    "team": {
+     "type": "choice",
+     "instructions": "Which team should handle this?",
+     "criteria": {
+      "billing": "",
+      "sales": "",
+      "retail": ""
+     }
+    },
+    "frustration": {
+     "type": "score",
+     "instructions": "How frustrated is the writer?",
+     "criteria": [
+      "calm",
+      "frustrated",
+      "depressed"
+     ]
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "is_urgent",
+    "kind": "noul",
+    "labels": [
+     "false",
+     "true"
+    ],
+    "prompt": "<state>\nHelp! My payouts have been failing for 3 days!\n</state>\n<question type=\"noul\">\nDecide whether the statement is true of the state.\nDoes this convey urgency?\n<options>\n1. false — the statement does not hold for this state\n2. true — the statement holds for this state\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     12325,
+     0,
+     2921,
+     86449,
+     599,
+     978,
+     20738,
+     364,
+     220,
+     18,
+     2756,
+     0,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     77,
+     10644,
+     731,
+     198,
+     4741,
+     562,
+     3315,
+     279,
+     4952,
+     369,
+     804,
+     314,
+     279,
+     1528,
+     13,
+     198,
+     20810,
+     411,
+     19392,
+     52011,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     867,
+     1892,
+     279,
+     4952,
+     1503,
+     524,
+     3222,
+     364,
+     411,
+     1528,
+     198,
+     17,
+     13,
+     804,
+     1892,
+     279,
+     4952,
+     9687,
+     364,
+     411,
+     1528,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     62,
+     73
+    ],
+    "probs": [
+     0.17130827903747559,
+     0.8286917805671692
+    ],
+    "hidden_answer_head": [
+     0.05019082874059677,
+     0.12285162508487701,
+     -76.9886245727539,
+     0.1996455192565918,
+     -0.011905213817954063,
+     0.15623611211776733,
+     0.2895990014076233,
+     -0.4122880697250366
+    ]
+   },
+   {
+    "question": "team",
+    "kind": "choice",
+    "labels": [
+     "billing",
+     "sales",
+     "retail"
+    ],
+    "prompt": "<state>\nHelp! My payouts have been failing for 3 days!\n</state>\n<question type=\"choice\">\nSelect exactly one option.\nWhich team should handle this?\n<options>\n1. billing\n2. sales\n3. retail\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     12325,
+     0,
+     2921,
+     86449,
+     599,
+     978,
+     20738,
+     364,
+     220,
+     18,
+     2756,
+     0,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11409,
+     731,
+     198,
+     3270,
+     6681,
+     799,
+     2904,
+     13,
+     198,
+     22365,
+     2015,
+     1220,
+     3579,
+     411,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     32419,
+     198,
+     17,
+     13,
+     6416,
+     198,
+     18,
+     13,
+     10489,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     47,
+     51,
+     55
+    ],
+    "probs": [
+     0.844222903251648,
+     0.06440707296133041,
+     0.09137004613876343
+    ],
+    "hidden_answer_head": [
+     0.36713898181915283,
+     0.26149803400039673,
+     -77.25125885009766,
+     0.4424843192100525,
+     -0.08435089141130447,
+     0.09087491035461426,
+     -0.09335837513208389,
+     -0.1742544323205948
+    ]
+   },
+   {
+    "question": "frustration",
+    "kind": "score",
+    "labels": [
+     "0",
+     "1",
+     "2"
+    ],
+    "prompt": "<state>\nHelp! My payouts have been failing for 3 days!\n</state>\n<question type=\"score\">\nRate the state against the ordered levels below (lowest first).\nHow frustrated is the writer?\n<options>\n1. 0 — calm\n2. 1 — frustrated\n3. 2 — depressed\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     12325,
+     0,
+     2921,
+     86449,
+     599,
+     978,
+     20738,
+     364,
+     220,
+     18,
+     2756,
+     0,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11985,
+     731,
+     198,
+     11231,
+     279,
+     1528,
+     2272,
+     279,
+     11128,
+     5684,
+     3559,
+     318,
+     86806,
+     1118,
+     553,
+     198,
+     4199,
+     31457,
+     369,
+     279,
+     6700,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     220,
+     15,
+     1892,
+     18717,
+     198,
+     17,
+     13,
+     220,
+     16,
+     1892,
+     31457,
+     198,
+     18,
+     13,
+     220,
+     17,
+     1892,
+     40168,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     57,
+     64,
+     71
+    ],
+    "probs": [
+     0.1632779836654663,
+     0.5714703798294067,
+     0.26525166630744934
+    ],
+    "hidden_answer_head": [
+     0.049282386898994446,
+     0.23302936553955078,
+     -77.12694549560547,
+     0.2679220736026764,
+     0.13233213126659393,
+     0.13463938236236572,
+     0.18185895681381226,
+     -0.33922383189201355
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "is_urgent": {
+     "type": "noul",
+     "noul": 0.8287
+    },
+    "team": {
+     "type": "choice",
+     "choice": "billing",
+     "probabilities": {
+      "billing": 0.8442,
+      "sales": 0.0644,
+      "retail": 0.0914
+     },
+     "confidence": 0.7663
+    },
+    "frustration": {
+     "type": "score",
+     "score": 1.102,
+     "legend": {
+      "0": "calm",
+      "1": "frustrated",
+      "2": "depressed"
+     },
+     "probabilities": {
+      "0": 0.1633,
+      "1": 0.5715,
+      "2": 0.2653
+     },
+     "confidence": 0.5168
+    }
+   },
+   "usage": {
+    "input_tokens": 238,
+    "output_tokens": 3
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "is_urgent": {
+     "type": "noul",
+     "noul": 0.8287
+    },
+    "team": {
+     "type": "choice",
+     "choice": "billing",
+     "probabilities": {
+      "billing": 0.8442,
+      "sales": 0.0644,
+      "retail": 0.0914
+     },
+     "confidence": 0.7663
+    },
+    "frustration": {
+     "type": "score",
+     "score": 1.102,
+     "legend": {
+      "0": "calm",
+      "1": "frustrated",
+      "2": "depressed"
+     },
+     "probabilities": {
+      "0": 0.1633,
+      "1": 0.5715,
+      "2": 0.2653
+     },
+     "confidence": 0.5168
+    }
+   },
+   "usage": {
+    "input_tokens": 196,
+    "output_tokens": 3
+   }
+  }
+ },
+ {
+  "id": "strawberry",
+  "request": {
+   "id": "strawberry",
+   "state": "strawberry",
+   "questions": {
+    "three_rs": {
+     "type": "noul",
+     "instructions": "Are there three r's in this word?"
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "three_rs",
+    "kind": "noul",
+    "labels": [
+     "false",
+     "true"
+    ],
+    "prompt": "<state>\nstrawberry\n</state>\n<question type=\"noul\">\nDecide whether the statement is true of the state.\nAre there three r's in this word?\n<options>\n1. false — the statement does not hold for this state\n2. true — the statement holds for this state\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     485,
+     654,
+     14911,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     77,
+     10644,
+     731,
+     198,
+     4741,
+     562,
+     3315,
+     279,
+     4952,
+     369,
+     804,
+     314,
+     279,
+     1528,
+     13,
+     198,
+     11195,
+     1017,
+     2250,
+     427,
+     579,
+     303,
+     411,
+     3299,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     867,
+     1892,
+     279,
+     4952,
+     1503,
+     524,
+     3222,
+     364,
+     411,
+     1528,
+     198,
+     17,
+     13,
+     804,
+     1892,
+     279,
+     4952,
+     9687,
+     364,
+     411,
+     1528,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     57,
+     68
+    ],
+    "probs": [
+     0.7133347988128662,
+     0.2866651713848114
+    ],
+    "hidden_answer_head": [
+     0.35021424293518066,
+     0.16455042362213135,
+     -77.74969482421875,
+     0.14930406212806702,
+     -0.2919454276561737,
+     0.0930410698056221,
+     0.4105546474456787,
+     -0.011384177021682262
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "three_rs": {
+     "type": "noul",
+     "noul": 0.2867
+    }
+   },
+   "usage": {
+    "input_tokens": 81,
+    "output_tokens": 1
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "three_rs": {
+     "type": "noul",
+     "noul": 0.2867
+    }
+   },
+   "usage": {
+    "input_tokens": 81,
+    "output_tokens": 1
+   }
+  }
+ },
+ {
+  "id": "language",
+  "request": {
+   "id": "language",
+   "state": "sihamba ngokushesha",
+   "questions": {
+    "lang": {
+     "type": "choice",
+     "instructions": "What language is this phrase in?",
+     "criteria": {
+      "english": "English",
+      "zulu": "isiZulu",
+      "dutch": "Nederlands"
+     }
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "lang",
+    "kind": "choice",
+    "labels": [
+     "english",
+     "zulu",
+     "dutch"
+    ],
+    "prompt": "<state>\nsihamba ngokushesha\n</state>\n<question type=\"choice\">\nSelect exactly one option.\nWhat language is this phrase in?\n<options>\n1. english — English\n2. zulu — isiZulu\n3. dutch — Nederlands\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     6122,
+     71,
+     40527,
+     7531,
+     547,
+     1080,
+     287,
+     4084,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11409,
+     731,
+     198,
+     3270,
+     6681,
+     799,
+     2904,
+     13,
+     198,
+     3710,
+     3992,
+     369,
+     411,
+     16629,
+     303,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     28018,
+     1892,
+     6163,
+     198,
+     17,
+     13,
+     1110,
+     23639,
+     1892,
+     92098,
+     57,
+     23639,
+     198,
+     18,
+     13,
+     9746,
+     329,
+     1892,
+     220637,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     46,
+     55,
+     62
+    ],
+    "probs": [
+     0.03384288027882576,
+     0.9562683701515198,
+     0.009888718836009502
+    ],
+    "hidden_answer_head": [
+     -0.11899085342884064,
+     0.09198689460754395,
+     -77.95928192138672,
+     0.39577823877334595,
+     0.11253523826599121,
+     -0.014288729056715965,
+     -0.1165112629532814,
+     -0.02883141301572323
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "lang": {
+     "type": "choice",
+     "choice": "zulu",
+     "probabilities": {
+      "english": 0.0338,
+      "zulu": 0.9563,
+      "dutch": 0.0099
+     },
+     "confidence": 0.9344
+    }
+   },
+   "usage": {
+    "input_tokens": 75,
+    "output_tokens": 1
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "lang": {
+     "type": "choice",
+     "choice": "zulu",
+     "probabilities": {
+      "english": 0.0338,
+      "zulu": 0.9563,
+      "dutch": 0.0099
+     },
+     "confidence": 0.9344
+    }
+   },
+   "usage": {
+    "input_tokens": 75,
+    "output_tokens": 1
+   }
+  }
+ },
+ {
+  "id": "tool_call",
+  "request": {
+   "id": "tool_call",
+   "state": {
+    "user": "What's the weather like?",
+    "proposed_call": {
+     "tool": "get_weather",
+     "args": {
+      "city": null
+     }
+    }
+   },
+   "questions": {
+    "args_ok": {
+     "type": "noul",
+     "instructions": "Does the proposed tool call have every argument it needs?"
+    },
+    "next": {
+     "type": "choice",
+     "instructions": "What should the agent do next?",
+     "criteria": {
+      "call_tool": "Run the proposed tool call",
+      "ask_user": "Ask the user for missing information",
+      "answer": "Answer directly without a tool"
+     }
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "args_ok",
+    "kind": "noul",
+    "labels": [
+     "false",
+     "true"
+    ],
+    "prompt": "<state>\n{\n  \"user\": \"What's the weather like?\",\n  \"proposed_call\": {\n    \"tool\": \"get_weather\",\n    \"args\": {\n      \"city\": null\n    }\n  }\n}\n</state>\n<question type=\"noul\">\nDecide whether the statement is true of the state.\nDoes the proposed tool call have every argument it needs?\n<options>\n1. false — the statement does not hold for this state\n2. true — the statement holds for this state\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     90,
+     198,
+     220,
+     328,
+     846,
+     763,
+     328,
+     3710,
+     579,
+     279,
+     8831,
+     1040,
+     29993,
+     198,
+     220,
+     328,
+     751,
+     3736,
+     13042,
+     763,
+     313,
+     198,
+     262,
+     328,
+     13766,
+     763,
+     328,
+     447,
+     67017,
+     487,
+     198,
+     262,
+     328,
+     2048,
+     763,
+     313,
+     198,
+     406,
+     328,
+     8656,
+     763,
+     819,
+     198,
+     262,
+     333,
+     198,
+     220,
+     333,
+     198,
+     92,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     77,
+     10644,
+     731,
+     198,
+     4741,
+     562,
+     3315,
+     279,
+     4952,
+     369,
+     804,
+     314,
+     279,
+     1528,
+     13,
+     198,
+     20810,
+     279,
+     10660,
+     5224,
+     1562,
+     599,
+     1396,
+     5515,
+     424,
+     3749,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     867,
+     1892,
+     279,
+     4952,
+     1503,
+     524,
+     3222,
+     364,
+     411,
+     1528,
+     198,
+     17,
+     13,
+     804,
+     1892,
+     279,
+     4952,
+     9687,
+     364,
+     411,
+     1528,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     106,
+     117
+    ],
+    "probs": [
+     0.6916303634643555,
+     0.30836957693099976
+    ],
+    "hidden_answer_head": [
+     0.3038135766983032,
+     0.09510527551174164,
+     -77.50284576416016,
+     0.14812994003295898,
+     -0.13607166707515717,
+     0.17945289611816406,
+     0.09025125950574875,
+     0.13924193382263184
+    ]
+   },
+   {
+    "question": "next",
+    "kind": "choice",
+    "labels": [
+     "call_tool",
+     "ask_user",
+     "answer"
+    ],
+    "prompt": "<state>\n{\n  \"user\": \"What's the weather like?\",\n  \"proposed_call\": {\n    \"tool\": \"get_weather\",\n    \"args\": {\n      \"city\": null\n    }\n  }\n}\n</state>\n<question type=\"choice\">\nSelect exactly one option.\nWhat should the agent do next?\n<options>\n1. call_tool — Run the proposed tool call\n2. ask_user — Ask the user for missing information\n3. answer — Answer directly without a tool\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     90,
+     198,
+     220,
+     328,
+     846,
+     763,
+     328,
+     3710,
+     579,
+     279,
+     8831,
+     1040,
+     29993,
+     198,
+     220,
+     328,
+     751,
+     3736,
+     13042,
+     763,
+     313,
+     198,
+     262,
+     328,
+     13766,
+     763,
+     328,
+     447,
+     67017,
+     487,
+     198,
+     262,
+     328,
+     2048,
+     763,
+     313,
+     198,
+     406,
+     328,
+     8656,
+     763,
+     819,
+     198,
+     262,
+     333,
+     198,
+     220,
+     333,
+     198,
+     92,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11409,
+     731,
+     198,
+     3270,
+     6681,
+     799,
+     2904,
+     13,
+     198,
+     3710,
+     1220,
+     279,
+     8057,
+     635,
+     1727,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     1562,
+     22076,
+     1892,
+     6250,
+     279,
+     10660,
+     5224,
+     1562,
+     198,
+     17,
+     13,
+     2466,
+     3208,
+     1892,
+     19814,
+     279,
+     1156,
+     364,
+     7167,
+     1928,
+     198,
+     18,
+     13,
+     4087,
+     1892,
+     21134,
+     5774,
+     1973,
+     264,
+     5224,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     93,
+     105,
+     115
+    ],
+    "probs": [
+     0.8039440512657166,
+     0.13751596212387085,
+     0.058539994060993195
+    ],
+    "hidden_answer_head": [
+     0.16642233729362488,
+     0.23183220624923706,
+     -77.64541625976562,
+     0.34822115302085876,
+     0.17435146868228912,
+     0.17446406185626984,
+     -0.059626463800668716,
+     -0.30554255843162537
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "args_ok": {
+     "type": "noul",
+     "noul": 0.3084
+    },
+    "next": {
+     "type": "choice",
+     "choice": "call_tool",
+     "probabilities": {
+      "call_tool": 0.8039,
+      "ask_user": 0.1375,
+      "answer": 0.0585
+     },
+     "confidence": 0.7059
+    }
+   },
+   "usage": {
+    "input_tokens": 258,
+    "output_tokens": 2
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "args_ok": {
+     "type": "noul",
+     "noul": 0.3084
+    },
+    "next": {
+     "type": "choice",
+     "choice": "call_tool",
+     "probabilities": {
+      "call_tool": 0.8039,
+      "ask_user": 0.1375,
+      "answer": 0.0585
+     },
+     "confidence": 0.7059
+    }
+   },
+   "usage": {
+    "input_tokens": 199,
+    "output_tokens": 2
+   }
+  }
+ },
+ {
+  "id": "review",
+  "request": {
+   "id": "review",
+   "state": "The blender caught fire the second time I used it. Smoke everywhere, my kitchen still smells. I want a full refund TODAY or I am calling my lawyer and posting videos everywhere. Nobody from support has replied in 5 days.",
+   "questions": {
+    "sentiment": {
+     "type": "choice",
+     "instructions": "What is the reviewer's sentiment?",
+     "criteria": {
+      "positive": "",
+      "mixed": "",
+      "negative": "",
+      "furious": "angry and threatening action"
+     }
+    },
+    "safety": {
+     "type": "noul",
+     "instructions": "The review reports a safety hazard."
+    },
+    "damage": {
+     "type": "score",
+     "instructions": "How damaging is this review to the brand?",
+     "criteria": [
+      "harmless",
+      "minor",
+      "moderate",
+      "serious",
+      "severe"
+     ]
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "sentiment",
+    "kind": "choice",
+    "labels": [
+     "positive",
+     "mixed",
+     "negative",
+     "furious"
+    ],
+    "prompt": "<state>\nThe blender caught fire the second time I used it. Smoke everywhere, my kitchen still smells. I want a full refund TODAY or I am calling my lawyer and posting videos everywhere. Nobody from support has replied in 5 days.\n</state>\n<question type=\"choice\">\nSelect exactly one option.\nWhat is the reviewer's sentiment?\n<options>\n1. positive\n2. mixed\n3. negative\n4. furious — angry and threatening action\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     760,
+     59711,
+     10255,
+     3807,
+     279,
+     2018,
+     854,
+     353,
+     1429,
+     424,
+     13,
+     51416,
+     16360,
+     11,
+     821,
+     9488,
+     1990,
+     47965,
+     13,
+     353,
+     1318,
+     264,
+     2400,
+     20325,
+     38929,
+     466,
+     353,
+     1044,
+     7842,
+     821,
+     14967,
+     321,
+     16506,
+     6589,
+     16360,
+     13,
+     35254,
+     494,
+     1761,
+     682,
+     19386,
+     303,
+     220,
+     20,
+     2756,
+     13,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11409,
+     731,
+     198,
+     3270,
+     6681,
+     799,
+     2904,
+     13,
+     198,
+     3710,
+     369,
+     279,
+     53650,
+     579,
+     25144,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     6572,
+     198,
+     17,
+     13,
+     9238,
+     198,
+     18,
+     13,
+     7968,
+     198,
+     19,
+     13,
+     50320,
+     1892,
+     17960,
+     321,
+     25948,
+     1852,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     82,
+     86,
+     90,
+     99
+    ],
+    "probs": [
+     0.01755804568529129,
+     0.014370434917509556,
+     0.14877888560295105,
+     0.8192925453186035
+    ],
+    "hidden_answer_head": [
+     -0.01377197727560997,
+     0.1328909993171692,
+     -77.06121063232422,
+     0.2771398723125458,
+     0.2803945243358612,
+     0.17258109152317047,
+     0.039578281342983246,
+     0.05263691022992134
+    ]
+   },
+   {
+    "question": "safety",
+    "kind": "noul",
+    "labels": [
+     "false",
+     "true"
+    ],
+    "prompt": "<state>\nThe blender caught fire the second time I used it. Smoke everywhere, my kitchen still smells. I want a full refund TODAY or I am calling my lawyer and posting videos everywhere. Nobody from support has replied in 5 days.\n</state>\n<question type=\"noul\">\nDecide whether the statement is true of the state.\nThe review reports a safety hazard.\n<options>\n1. false — the statement does not hold for this state\n2. true — the statement holds for this state\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     760,
+     59711,
+     10255,
+     3807,
+     279,
+     2018,
+     854,
+     353,
+     1429,
+     424,
+     13,
+     51416,
+     16360,
+     11,
+     821,
+     9488,
+     1990,
+     47965,
+     13,
+     353,
+     1318,
+     264,
+     2400,
+     20325,
+     38929,
+     466,
+     353,
+     1044,
+     7842,
+     821,
+     14967,
+     321,
+     16506,
+     6589,
+     16360,
+     13,
+     35254,
+     494,
+     1761,
+     682,
+     19386,
+     303,
+     220,
+     20,
+     2756,
+     13,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     77,
+     10644,
+     731,
+     198,
+     4741,
+     562,
+     3315,
+     279,
+     4952,
+     369,
+     804,
+     314,
+     279,
+     1528,
+     13,
+     198,
+     760,
+     3286,
+     6473,
+     264,
+     6925,
+     29309,
+     13,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     867,
+     1892,
+     279,
+     4952,
+     1503,
+     524,
+     3222,
+     364,
+     411,
+     1528,
+     198,
+     17,
+     13,
+     804,
+     1892,
+     279,
+     4952,
+     9687,
+     364,
+     411,
+     1528,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     98,
+     109
+    ],
+    "probs": [
+     0.11516907066106796,
+     0.8848309516906738
+    ],
+    "hidden_answer_head": [
+     0.026131873950362206,
+     0.1490950584411621,
+     -77.1482162475586,
+     0.39738529920578003,
+     0.16353465616703033,
+     0.15464341640472412,
+     0.24887867271900177,
+     -0.41516491770744324
+    ]
+   },
+   {
+    "question": "damage",
+    "kind": "score",
+    "labels": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4"
+    ],
+    "prompt": "<state>\nThe blender caught fire the second time I used it. Smoke everywhere, my kitchen still smells. I want a full refund TODAY or I am calling my lawyer and posting videos everywhere. Nobody from support has replied in 5 days.\n</state>\n<question type=\"score\">\nRate the state against the ordered levels below (lowest first).\nHow damaging is this review to the brand?\n<options>\n1. 0 — harmless\n2. 1 — minor\n3. 2 — moderate\n4. 3 — serious\n5. 4 — severe\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     760,
+     59711,
+     10255,
+     3807,
+     279,
+     2018,
+     854,
+     353,
+     1429,
+     424,
+     13,
+     51416,
+     16360,
+     11,
+     821,
+     9488,
+     1990,
+     47965,
+     13,
+     353,
+     1318,
+     264,
+     2400,
+     20325,
+     38929,
+     466,
+     353,
+     1044,
+     7842,
+     821,
+     14967,
+     321,
+     16506,
+     6589,
+     16360,
+     13,
+     35254,
+     494,
+     1761,
+     682,
+     19386,
+     303,
+     220,
+     20,
+     2756,
+     13,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11985,
+     731,
+     198,
+     11231,
+     279,
+     1528,
+     2272,
+     279,
+     11128,
+     5684,
+     3559,
+     318,
+     86806,
+     1118,
+     553,
+     198,
+     4199,
+     32243,
+     369,
+     411,
+     3286,
+     310,
+     279,
+     6529,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     220,
+     15,
+     1892,
+     51119,
+     198,
+     17,
+     13,
+     220,
+     16,
+     1892,
+     8652,
+     198,
+     18,
+     13,
+     220,
+     17,
+     1892,
+     22469,
+     198,
+     19,
+     13,
+     220,
+     18,
+     1892,
+     5812,
+     198,
+     20,
+     13,
+     220,
+     19,
+     1892,
+     14938,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     94,
+     101,
+     108,
+     115,
+     122
+    ],
+    "probs": [
+     0.10223318636417389,
+     0.09391951560974121,
+     0.09426595270633698,
+     0.27437838912010193,
+     0.43520301580429077
+    ],
+    "hidden_answer_head": [
+     0.01506668608635664,
+     0.18217289447784424,
+     -77.01185607910156,
+     0.23808905482292175,
+     0.2269129902124405,
+     0.16589456796646118,
+     0.0615844801068306,
+     -0.10021594166755676
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "sentiment": {
+     "type": "choice",
+     "choice": "furious",
+     "probabilities": {
+      "positive": 0.0176,
+      "mixed": 0.0144,
+      "negative": 0.1488,
+      "furious": 0.8193
+     },
+     "confidence": 0.7591
+    },
+    "safety": {
+     "type": "noul",
+     "noul": 0.8848
+    },
+    "damage": {
+     "type": "score",
+     "score": 2.8464,
+     "legend": {
+      "0": "harmless",
+      "1": "minor",
+      "2": "moderate",
+      "3": "serious",
+      "4": "severe"
+     },
+     "probabilities": {
+      "0": 0.1022,
+      "1": 0.0939,
+      "2": 0.0943,
+      "3": 0.2744,
+      "4": 0.4352
+     },
+     "confidence": 0.3906
+    }
+   },
+   "usage": {
+    "input_tokens": 369,
+    "output_tokens": 3
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "sentiment": {
+     "type": "choice",
+     "choice": "furious",
+     "probabilities": {
+      "positive": 0.0176,
+      "mixed": 0.0144,
+      "negative": 0.1488,
+      "furious": 0.8193
+     },
+     "confidence": 0.7591
+    },
+    "safety": {
+     "type": "noul",
+     "noul": 0.8848
+    },
+    "damage": {
+     "type": "score",
+     "score": 2.8464,
+     "legend": {
+      "0": "harmless",
+      "1": "minor",
+      "2": "moderate",
+      "3": "serious",
+      "4": "severe"
+     },
+     "probabilities": {
+      "0": 0.1022,
+      "1": 0.0939,
+      "2": 0.0943,
+      "3": 0.2744,
+      "4": 0.4352
+     },
+     "confidence": 0.3906
+    }
+   },
+   "usage": {
+    "input_tokens": 259,
+    "output_tokens": 3
+   }
+  }
+ },
+ {
+  "id": "positive",
+  "request": {
+   "id": "positive",
+   "state": "this is the best doc I've ever read",
+   "questions": {
+    "pos": {
+     "type": "score",
+     "instructions": "How positive is this?",
+     "criteria": [
+      "very negative",
+      "negative",
+      "neutral",
+      "positive",
+      "very positive"
+     ]
+    }
+   }
+  },
+  "cases": [
+   {
+    "question": "pos",
+    "kind": "score",
+    "labels": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4"
+    ],
+    "prompt": "<state>\nthis is the best doc I've ever read\n</state>\n<question type=\"score\">\nRate the state against the ordered levels below (lowest first).\nHow positive is this?\n<options>\n1. 0 — very negative\n2. 1 — negative\n3. 2 — neutral\n4. 3 — positive\n5. 4 — very positive\n</options>\n</question>\n<answer>",
+    "state_ids": [
+     27,
+     2374,
+     29,
+     198,
+     559,
+     369,
+     279,
+     1786,
+     4479,
+     353,
+     2908,
+     3397,
+     1301,
+     198,
+     510,
+     2374,
+     29,
+     198
+    ],
+    "question_ids": [
+     27,
+     7593,
+     913,
+     420,
+     11985,
+     731,
+     198,
+     11231,
+     279,
+     1528,
+     2272,
+     279,
+     11128,
+     5684,
+     3559,
+     318,
+     86806,
+     1118,
+     553,
+     198,
+     4199,
+     6572,
+     369,
+     411,
+     30,
+     198,
+     27,
+     2782,
+     29,
+     198,
+     16,
+     13,
+     220,
+     15,
+     1892,
+     1546,
+     7968,
+     198,
+     17,
+     13,
+     220,
+     16,
+     1892,
+     7968,
+     198,
+     18,
+     13,
+     220,
+     17,
+     1892,
+     20002,
+     198,
+     19,
+     13,
+     220,
+     18,
+     1892,
+     6572,
+     198,
+     20,
+     13,
+     220,
+     19,
+     1892,
+     1546,
+     6572,
+     198,
+     510,
+     2782,
+     29,
+     198,
+     510,
+     7593,
+     29,
+     198,
+     27,
+     8944,
+     29
+    ],
+    "opt_idx": [
+     54,
+     61,
+     68,
+     75,
+     83
+    ],
+    "probs": [
+     0.06569361686706543,
+     0.0872880145907402,
+     0.12088590115308762,
+     0.25232869386672974,
+     0.473803848028183
+    ],
+    "hidden_answer_head": [
+     0.05917542055249214,
+     0.041386205703020096,
+     -77.32217407226562,
+     0.28839537501335144,
+     0.23868505656719208,
+     0.1239125058054924,
+     0.029144829139113426,
+     -0.11328838765621185
+    ]
+   }
+  ],
+  "response": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "pos": {
+     "type": "score",
+     "score": 2.9813,
+     "legend": {
+      "0": "very negative",
+      "1": "negative",
+      "2": "neutral",
+      "3": "positive",
+      "4": "very positive"
+     },
+     "probabilities": {
+      "0": 0.0657,
+      "1": 0.0873,
+      "2": 0.1209,
+      "3": 0.2523,
+      "4": 0.4738
+     },
+     "confidence": 0.4521
+    }
+   },
+   "usage": {
+    "input_tokens": 96,
+    "output_tokens": 1
+   }
+  },
+  "response_shared_prefix": {
+   "model": "strands-decider-0.1.0",
+   "answers": {
+    "pos": {
+     "type": "score",
+     "score": 2.9813,
+     "legend": {
+      "0": "very negative",
+      "1": "negative",
+      "2": "neutral",
+      "3": "positive",
+      "4": "very positive"
+     },
+     "probabilities": {
+      "0": 0.0657,
+      "1": 0.0873,
+      "2": 0.1209,
+      "3": 0.2523,
+      "4": 0.4738
+     },
+     "confidence": 0.4521
+    }
+   },
+   "usage": {
+    "input_tokens": 96,
+    "output_tokens": 1
+   }
+  }
+ }
+]

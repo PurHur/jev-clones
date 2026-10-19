@@ -1,0 +1,14 @@
+{
+    "tasks": [
+        "choice",
+        "noul",
+        "score"
+    ],
+    "query_length": 7997,
+    "document_length": 3800,
+    "context_length": 7999,
+    "query_truncation": "balanced",
+    "task_tokens": {},
+    "choice_interaction": null,
+    "prefix_layout": "instruction_state"
+}

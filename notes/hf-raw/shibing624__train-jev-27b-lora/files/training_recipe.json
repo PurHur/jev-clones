@@ -1,0 +1,210 @@
+{
+  "version": "v0.3.0",
+  "base_model_id": "Qwen/Qwen3.8-27B",
+  "selected_checkpoint_step": 512,
+  "completed_experiment_steps": 1024,
+  "schedule_steps": 2048,
+  "lineage": [
+    "Qwen/Qwen3.8-27B",
+    "shibing624/train-jev-27b-lora@v0.2.0",
+    "shibing624/train-jev-27b-lora@v0.3.0"
+  ],
+  "method": "v0.3.0 4B recipe unchanged (same data files, 0.125 new-data fraction, LR, seed, schedule), continued from the v0.2.0 27B LoRA + head with a fresh optimizer",
+  "adapter": {
+    "r": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "o_proj",
+      "in_proj_z",
+      "v_proj",
+      "k_proj",
+      "q_proj",
+      "out_proj",
+      "gate_proj",
+      "up_proj",
+      "in_proj_qkv",
+      "down_proj"
+    ],
+    "bias": "none"
+  },
+  "training_arguments": {
+    "steps": 2048,
+    "max_steps": 1024,
+    "batch": 128,
+    "micro_tokens": 16384,
+    "max_len": 2048,
+    "lora_r": 16,
+    "lr": 2e-05,
+    "head_lr": 4e-05,
+    "rps_w": 0.5,
+    "brier_w": 0.0,
+    "perm": 0.3,
+    "placeholder_w": 0.05,
+    "eval_every": 256,
+    "val_n": 2500,
+    "seed": 17,
+    "no_gc": false,
+    "mix_fraction": 0.125,
+    "kind_counts": "choice:64,noul:32,score:32"
+  },
+  "datasets": [
+    {
+      "id": "SargeDev/jev-distill-corpus-v3",
+      "license": "apache-2.0",
+      "role": "v0.2.0 lineage and replay"
+    },
+    {
+      "id": "openai/gsm8k",
+      "license": "mit",
+      "role": "gold mathematics; mixed distractor constructions"
+    },
+    {
+      "id": "google-research-datasets/paws",
+      "license": "upstream free-use permissive licence",
+      "role": "human paraphrases"
+    },
+    {
+      "id": "deepmind/aqua_rat",
+      "license": "apache-2.0",
+      "role": "native mathematics multiple choice"
+    },
+    {
+      "id": "allenai/qasc",
+      "license": "cc-by-4.0",
+      "role": "science multiple choice"
+    },
+    {
+      "id": "nvidia/HelpSteer2",
+      "license": "cc-by-4.0",
+      "role": "human correctness ratings"
+    },
+    {
+      "id": "independent_exact_rules_cc0_v1",
+      "license": "cc0-1.0",
+      "role": "verified policy/evidence/alias/arithmetic/calendar/count pairs"
+    }
+  ],
+  "training_pool": {
+    "old_distill": 655806,
+    "math_variants": 11148,
+    "public_curated": 15999,
+    "exact_rules": 10000,
+    "actual_new_total": 37147
+  },
+  "data_provenance": {
+    "google-research-datasets/paws": {
+      "repo": "google-research-datasets/paws",
+      "revision": "161ece9501cf0a11f3e48bd356eaa82de46d6a09",
+      "asset": "labeled_final/train-00000-of-00001.parquet",
+      "raw_sha256": "8dc9ad3e5f30ad9a86b290fe236d528ef23a5751fec9a35d99cbacf68ba277cf",
+      "license": "LicenseRef-PAWS-permissive"
+    },
+    "deepmind/aqua_rat": {
+      "repo": "deepmind/aqua_rat",
+      "revision": "33301c6a050c96af81f63cad5562cb5363e88971",
+      "asset": "raw/train-00000-of-00001.parquet",
+      "raw_sha256": "b9e0ee4d72661e3d00002553fb210938f50528b42cc72809fde18b8119c96778",
+      "license": "apache-2.0"
+    },
+    "allenai/qasc": {
+      "repo": "allenai/qasc",
+      "revision": "a34ba204eb9a33b919c10cc08f4f1c8dae5ec070",
+      "asset": "data/train-00000-of-00001.parquet",
+      "raw_sha256": "b9a297b5ab55f1605c7682ffbb7042c26d7ecb9ff1e1aa5a820d4e791c8302d1",
+      "license": "cc-by-4.0"
+    },
+    "nvidia/HelpSteer2": {
+      "repo": "nvidia/HelpSteer2",
+      "revision": "990b2711a36180dd19d9c94b8627844866f8982a",
+      "asset": "train.jsonl.gz",
+      "raw_sha256": "c0d7e91d738d42e8a08070db26c4c09a9c7631308e1f0fd380ff43d130c9f713",
+      "license": "cc-by-4.0"
+    },
+    "SargeDev/jev-distill-corpus-v3": {
+      "rows": 655806,
+      "train_sha256": "71e3ac5080e7da7d80d0dc867e3b4ac0307e1c3eb2c0843d578417f8510af9d6",
+      "role": "v0.2.0 lineage and replay",
+      "license": "apache-2.0"
+    },
+    "openai/gsm8k": {
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "questions": 5574,
+      "training_variants": 11148,
+      "negative_variants": [
+        "near",
+        "rank-balanced broad"
+      ],
+      "train_sha256": "f693a4cac3be41402c7a3d768db8578f1859af6394716539e923aac2fa35ed77",
+      "license": "mit"
+    },
+    "independent_exact_rules_cc0_v1": {
+      "rows": 10000,
+      "families": [
+        "ordered_routing",
+        "explicit_evidence",
+        "alias_coreference",
+        "refund_conversion",
+        "calendar_deadline",
+        "condition_count"
+      ],
+      "train_sha256": "f380ff3133f46bcdc378b016148b1df43cb0d6b116f5fb1409194f479c29df06",
+      "license": "cc0-1.0",
+      "verification": "two independent exact oracles; grouped counterfactual pairs"
+    }
+  },
+  "decision_head": {
+    "slots": 24,
+    "hidden_size": 5120,
+    "verbalizer_ids": [
+      3721,
+      1802,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "dtype": "float32",
+    "trained_choice_slots": 16
+  },
+  "calibration": {
+    "per_kind": {
+      "noul": 1.3107680988880808,
+      "choice": 1.1315033500123985,
+      "score": 0.30000000184424575
+    },
+    "fit_rows": 2468,
+    "fit_role": "independent grouped calibration; final evaluation labels never fitted"
+  },
+  "training_data_bundled": false,
+  "training_sampling": {
+    "step_stop": 1024,
+    "actual_mix_fraction": 0.125,
+    "tokens": 17608466,
+    "hardware": "3x NVIDIA H20, gradient checkpointing",
+    "seconds": 28279.755440950394,
+    "note": "Completed-experiment statistics (1024 steps); release is the step-512 checkpoint."
+  },
+  "checkpoint_selection": {
+    "rule": "highest dev macro delta among eligible checkpoints with wide>=0 (same rule as 4B v0.3.0 selection)",
+    "selected_on": "development only (suite.json dev); final2 not queried before selection"
+  }
+}

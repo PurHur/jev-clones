@@ -1,0 +1,350 @@
+{
+ "description": "Agreement of the pplx_decider reference and fast paths with the evaluated implementation, and throughput on one NVIDIA GB200 (bf16).",
+ "samples": {
+  "decision_index_like": "300 Decision Index requests (150 multi-question, 150 single-question; 2,324 questions)",
+  "reranking": "40 BEIR queries x 100 candidates, one (query, document) request each",
+  "vision": "300 vision Decision Index requests",
+  "speed": "2,000 Decision Index requests (mean 1,050 tokens), 3,000 reranking requests (mean 437 tokens), vision requests (mean 1,087 tokens) at 1.6 MP"
+ },
+ "exactness": {
+  "text: reference (bs 1) vs evaluated engine": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 1.0,
+    "mean_abs_dp": 1.7027231838819165e-08,
+    "max_abs_dp": 2.603317043048392e-07
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9989282928292826,
+    "spearman_min": 0.9960036003600359,
+    "same_top1": 1.0,
+    "max_abs_dmargin": 0.25
+   }
+  },
+  "text: reference vs evaluated model, synthetic choice/noul/score/255 options": {
+   "comparison": {
+    "questions": 6,
+    "argmax_agreement": 1.0,
+    "mean_abs_dp": 9.009880020417287e-08,
+    "max_abs_dp": 2.1901116831202216e-07
+   }
+  },
+  "text: reference run-to-run (two processes)": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9995697074010327,
+    "mean_abs_dp": 0.00046989731948034993,
+    "max_abs_dp": 0.05921476036291207
+   }
+  },
+  "text: reference batched vs bs 1": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9978485370051635,
+    "mean_abs_dp": 0.0017168362190021274,
+    "max_abs_dp": 0.07284984569592912
+   }
+  },
+  "text: fast pack vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9965576592082617,
+    "mean_abs_dp": 0.0018110069667170222,
+    "max_abs_dp": 0.0442368306334181
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9988307830783076,
+    "spearman_min": 0.9958595859585957,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast sub vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9969879518072289,
+    "mean_abs_dp": 0.0020040418025796553,
+    "max_abs_dp": 0.09002576500100601
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9988580858085807,
+    "spearman_min": 0.9965676567656764,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast layer vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9982788296041308,
+    "mean_abs_dp": 0.002193053294391509,
+    "max_abs_dp": 0.07284962913842119
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9987353735373536,
+    "spearman_min": 0.9958115811581157,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast static vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9982788296041308,
+    "mean_abs_dp": 0.0023058154548499733,
+    "max_abs_dp": 0.07284962913842119
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9987719771977197,
+    "spearman_min": 0.9963876387638763,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast static_prune vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9982788296041308,
+    "mean_abs_dp": 0.0023042765178778227,
+    "max_abs_dp": 0.07284962913842119
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9987947794779476,
+    "spearman_min": 0.9965916591659165,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast buckets_prune vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9982788296041308,
+    "mean_abs_dp": 0.0023042765178778227,
+    "max_abs_dp": 0.07284962913842119
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9988169816981698,
+    "spearman_min": 0.9965916591659165,
+    "same_top1": 1.0
+   }
+  },
+  "text: fast fp8 vs reference": {
+   "comparison": {
+    "questions": 2324,
+    "argmax_agreement": 0.9939759036144579,
+    "mean_abs_dp": 0.00626003238235509,
+    "max_abs_dp": 0.24130858877992567
+   },
+   "rerank": {
+    "queries": 40,
+    "spearman_mean": 0.9946378637863786,
+    "spearman_min": 0.9846624662466246,
+    "same_top1": 1.0
+   }
+  },
+  "vision: reference (bs 1) vs evaluated engine": {
+   "comparison": {
+    "questions": 300,
+    "argmax_agreement": 1.0,
+    "mean_abs_dp": 1.6935581793314087e-08,
+    "max_abs_dp": 2.464291225523496e-07
+   }
+  },
+  "vision: reference vs evaluated model, synthetic incl. multi-question image request": {
+   "comparison": {
+    "questions": 9,
+    "argmax_agreement": 1.0,
+    "mean_abs_dp": 4.902736371473792e-09,
+    "max_abs_dp": 2.0643191933622518e-08
+   }
+  },
+  "vision: reference batched vs bs 1": {
+   "comparison": {
+    "questions": 300,
+    "argmax_agreement": 0.9866666666666667,
+    "mean_abs_dp": 0.003144362621223277,
+    "max_abs_dp": 0.025780027789907928
+   }
+  },
+  "vision: fast pack vs reference": {
+   "comparison": {
+    "questions": 300,
+    "argmax_agreement": 0.9933333333333333,
+    "mean_abs_dp": 0.0032729134389268884,
+    "max_abs_dp": 0.028176270737434506
+   }
+  },
+  "vision: fast static_prune vs reference": {
+   "comparison": {
+    "questions": 300,
+    "argmax_agreement": 0.9833333333333333,
+    "mean_abs_dp": 0.0037329615169526126,
+    "max_abs_dp": 0.06342247016705682
+   }
+  },
+  "vision: fast buckets_prune vs reference": {
+   "comparison": {
+    "questions": 300,
+    "argmax_agreement": 0.9833333333333333,
+    "mean_abs_dp": 0.0037329615169526126,
+    "max_abs_dp": 0.06342247016705682
+   }
+  }
+ },
+ "throughput": [
+  {
+   "config": "reference",
+   "label": "Reference (padded, length-sorted batches)",
+   "di": {
+    "requests_per_s": 9.09,
+    "tokens_per_s": 9542,
+    "speedup": 1.0,
+    "latency_p50_ms": 131
+   },
+   "rerank": {
+    "requests_per_s": 27.05,
+    "tokens_per_s": 11827,
+    "speedup": 1.0,
+    "latency_p50_ms": 129
+   },
+   "vision": {
+    "requests_per_s": 8.04,
+    "tokens_per_s": 8738,
+    "speedup": 1.0,
+    "latency_p50_ms": 220
+   }
+  },
+  {
+   "config": "pack",
+   "label": "Packing, no padding",
+   "di": {
+    "requests_per_s": 9.1,
+    "tokens_per_s": 9561,
+    "speedup": 1.0,
+    "latency_p50_ms": 160
+   },
+   "rerank": {
+    "requests_per_s": 27.95,
+    "tokens_per_s": 12219,
+    "speedup": 1.03,
+    "latency_p50_ms": 136
+   }
+  },
+  {
+   "config": "sub",
+   "label": "+ compile norms/MLP/conv",
+   "di": {
+    "requests_per_s": 12.92,
+    "tokens_per_s": 13570,
+    "speedup": 1.42,
+    "latency_p50_ms": 123
+   },
+   "rerank": {
+    "requests_per_s": 46.16,
+    "tokens_per_s": 20182,
+    "speedup": 1.71,
+    "latency_p50_ms": 116
+   }
+  },
+  {
+   "config": "layer",
+   "label": "+ whole-layer compile",
+   "di": {
+    "requests_per_s": 18.04,
+    "tokens_per_s": 18947,
+    "speedup": 1.99,
+    "latency_p50_ms": 102
+   },
+   "rerank": {
+    "requests_per_s": 52.3,
+    "tokens_per_s": 22862,
+    "speedup": 1.93,
+    "latency_p50_ms": 88
+   },
+   "vision": {
+    "requests_per_s": 12.02,
+    "tokens_per_s": 13068,
+    "speedup": 1.5,
+    "latency_p50_ms": 150
+   }
+  },
+  {
+   "config": "static",
+   "label": "+ static 32k packs, CUDA graphs",
+   "di": {
+    "requests_per_s": 20.95,
+    "tokens_per_s": 22001,
+    "speedup": 2.31,
+    "latency_p50_ms": 1228
+   },
+   "rerank": {
+    "requests_per_s": 55.51,
+    "tokens_per_s": 24269,
+    "speedup": 2.05,
+    "latency_p50_ms": 1205
+   }
+  },
+  {
+   "config": "static_prune",
+   "label": "+ last-layer pruning",
+   "di": {
+    "requests_per_s": 21.19,
+    "tokens_per_s": 22250,
+    "speedup": 2.33,
+    "latency_p50_ms": 1200
+   },
+   "rerank": {
+    "requests_per_s": 55.99,
+    "tokens_per_s": 24478,
+    "speedup": 2.07,
+    "latency_p50_ms": 1191
+   },
+   "vision": {
+    "requests_per_s": 15.29,
+    "tokens_per_s": 16629,
+    "speedup": 1.9,
+    "latency_p50_ms": 1250
+   }
+  },
+  {
+   "config": "fp8",
+   "label": "+ FP8 rowwise matmuls (off by default)",
+   "di": {
+    "requests_per_s": 24.93,
+    "tokens_per_s": 26183,
+    "speedup": 2.74,
+    "latency_p50_ms": 1090
+   },
+   "rerank": {
+    "requests_per_s": 67.31,
+    "tokens_per_s": 29425,
+    "speedup": 2.49,
+    "latency_p50_ms": 1069
+   }
+  },
+  {
+   "config": "buckets_prune",
+   "label": "Default fast path (buckets 2k-32k, pruning)",
+   "di": {
+    "requests_per_s": 19.78,
+    "tokens_per_s": 20775,
+    "speedup": 2.18,
+    "latency_p50_ms": 96
+   },
+   "rerank": {
+    "requests_per_s": 56.16,
+    "tokens_per_s": 24552,
+    "speedup": 2.08,
+    "latency_p50_ms": 90
+   },
+   "vision": {
+    "requests_per_s": 14.41,
+    "tokens_per_s": 15669,
+    "speedup": 1.79,
+    "latency_p50_ms": 161
+   }
+  }
+ ]
+}

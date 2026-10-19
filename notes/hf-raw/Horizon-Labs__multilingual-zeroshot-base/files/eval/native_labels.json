@@ -1,0 +1,26 @@
+{
+ "small": {
+  "massive": 0.4231111111111111,
+  "sib200": 0.7607843137254902
+ },
+ "base": {
+  "massive": 0.4935555555555556,
+  "sib200": 0.8091503267973856
+ },
+ "large": {
+  "massive": 0.5222222222222223,
+  "sib200": 0.8307189542483661
+ },
+ "MoritzLaurer/bge-m3-zeroshot-v2.0": {
+  "massive": 0.56,
+  "sib200": 0.8062091503267974
+ },
+ "MoritzLaurer/bge-m3-zeroshot-v2.0-c": {
+  "massive": 0.42311111111111105,
+  "sib200": 0.7411764705882352
+ },
+ "MoritzLaurer/mDeBERTa-v3-base-xnli-multilingual-nli-2mil7": {
+  "massive": 0.3442222222222222,
+  "sib200": 0.6473856209150328
+ }
+}

@@ -1,0 +1,60 @@
+{
+  "architectures": [
+    "StrandsDeciderModel"
+  ],
+  "model_type": "qwen3_5_text",
+  "hidden_size": 2048,
+  "num_hidden_layers": 24,
+  "vocab_size": 248320,
+  "layer_types": [
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention",
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention",
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention",
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention",
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention",
+    "linear_attention",
+    "linear_attention",
+    "linear_attention",
+    "full_attention"
+  ],
+  "pad_token_id": 248044,
+  "decider": {
+    "description": "strands-decider-2B (hobson v19): Qwen3.5-2B-Base + rank-16 LoRA + a pointer head. One prompt per question: <state>\u2026</state> then the rendered question ending at <answer>. The logit of option k is the scaled dot product of the head's q(<answer> state) and k(last token of option k's line); divide by temperature_by_kind[type] and softmax.",
+    "source": "StrandsAgents/strands-decider-2B-hobson-v19",
+    "max_length": 4096,
+    "max_question_fraction": 0.75,
+    "temperature": 0.9627721607677362,
+    "temperature_by_kind": {
+      "noul": 0.9107136998460428,
+      "choice": 0.734189596436441,
+      "score": 1.32780942142348
+    },
+    "ordinal_smoothing": 0.1,
+    "inputs": {
+      "answer_pos": "index of the last real token (<answer>) per row",
+      "option_pos": "index of each option line's last token, per row"
+    }
+  },
+  "transformers.js_config": {
+    "use_external_data_format": {
+      "model_q4f16.onnx": 1,
+      "model_quantized.onnx": 1
+    },
+    "dtype": "q4f16"
+  }
+}

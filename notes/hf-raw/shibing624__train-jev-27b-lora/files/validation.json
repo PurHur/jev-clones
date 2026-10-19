@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "raw_vs_packaged_max_probability_difference": 0.0,
+  "same_calibration": true,
+  "comparison_rows": 13,
+  "wide_options": 77,
+  "api": {
+    "health": true,
+    "all_three_primitives": true,
+    "native_wide_single": true,
+    "normalized_probabilities": true,
+    "invalid_schema_rejected": true
+  },
+  "torch": "2.13.0+cu129",
+  "gpu": "NVIDIA H20"
+}

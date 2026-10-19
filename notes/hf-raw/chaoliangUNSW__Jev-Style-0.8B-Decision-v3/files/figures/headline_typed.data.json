@@ -1,0 +1,78 @@
+{
+ "figure": "headline_typed",
+ "panels": {
+  "accuracy_pct": [
+   {
+    "label": "Laya (typed ckpt)",
+    "entry": "typed.accuracy.laya_typed",
+    "raw": 0.766,
+    "plotted": 76.6,
+    "source": "runs/macjev/report_r2/scoreboard/scoreboard.json",
+    "field": "metrics['typed.accuracy'].laya.typed.value"
+   },
+   {
+    "label": "Jev-Style 0.8B v3",
+    "entry": "typed.accuracy.v3",
+    "raw": 0.7915,
+    "plotted": 79.2,
+    "source": "runs/macjev/report_r2/scoreboard/scoreboard.json",
+    "field": "metrics['typed.accuracy'].ours_value"
+   }
+  ],
+  "reference_lines_pct": {
+   "teacher_self_agreement_dataset_card": 73.5,
+   "one_teacher_draw_vs_gold_test_split": 65.9
+  },
+  "by_teacher_margin_pct": [
+   {
+    "bin": "near-ties margin < 0.1",
+    "n": 315,
+    "v3": 51.7,
+    "laya_typed": 51.7,
+    "diff_ci95_pts": [
+     -4.36,
+     4.52
+    ]
+   },
+   {
+    "bin": "0.1 \u2013 0.3",
+    "n": 555,
+    "v3": 69.7,
+    "laya_typed": 66.1,
+    "diff_ci95_pts": [
+     0.18,
+     7.27
+    ]
+   },
+   {
+    "bin": "clear margin \u2265 0.3",
+    "n": 1130,
+    "v3": 91.4,
+    "laya_typed": 88.7,
+    "diff_ci95_pts": [
+     0.82,
+     4.61
+    ]
+   }
+  ]
+ },
+ "annotations": {
+  "delta_vs_laya_typed_pts": 2.6,
+  "delta_vs_v2_pts": 5.7,
+  "v3_acc_ci95_wilson": [
+   0.7731,
+   0.8087
+  ],
+  "v3_minus_laya_typed_paired_ci95": [
+   0.010499999999999954,
+   0.04249999999999998
+  ],
+  "jev_zero_shot_pct_footnote_only": 72.7
+ },
+ "protocol": "in-domain for v3 and Laya typed; 2B v1/v2 as reported on the v2 card; Jev named in the footnote only",
+ "sources": {
+  "chart_data": "v3_card/chart_data.json",
+  "teacher_noise": "figures/typed_teacher_noise.json"
+ },
+ "footnote": "Typed-decisions test set (LocalLLaMA/typed-decisions), 2,000 decisions from 400 states; gold = argmax of the mean of three samples from one\nteacher. In-domain for v3 and Laya typed (both trained on its train split). Laya: official typed-decisions checkpoint re-run by us on identical rows.\nOur 2B v2: 73.5% (teacher agreement, as reported on its card). Teacher self-agreement: dataset card, measured on its 1,600-case set.\nOne teacher draw: expected agreement of a draw from the mean distribution, test split. Jev (zero-shot, dataset card) scores 72.7%; not like-for-like.\nv3 95% CI 77.3\u201380.9% (Wilson); v3 minus Laya typed +1.0 to +4.2 pts; margin = top-1 minus top-2 gold probability;\nper-bin paired 95% CIs in figures/typed_teacher_noise.json. Plotted values: figures/headline_typed.data.json."
+}

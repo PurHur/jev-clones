@@ -1,0 +1,91 @@
+{
+  "sources": {
+    "accuracy": "Microsoft-Decision-1 announcement, 'Accuracy, latency, and calibration, side by side' (36-benchmark average), https://commandline.microsoft.com/microsoft-decision-1-model-foundry/ read 2026-10-10 (values from the page's chart data, not a mid-animation screenshot)",
+    "latency_and_composite": "JevBench v1.6.1 board data, https://benchmarkheaven.com/api/jevbench/latest (latency.p50_s_raw, composite_score), artifact sha256 5cd8c1332226ea9c179883d2285c0d8b8cc593ae38f2645197364a7ddd9c83c1",
+    "not_on_board_latency": "Strands-Decider latency not measured; Microsoft now uses published JevBench API measurement, not announcement85ms.",
+    "ranks": "JevBench v1.6.1 API board read2026-10-10: Microsoft69.1 rank6 median0.46s; OpenAI62.5 rank8 median0.30s (raw298ms retained).",
+    "capability": "JevBench v1.6.1 capability = (Intelligence + Calibration)/2; exact frozen aggregate JSON for open models; published API board for Microsoft/OpenAI; read2026-10-10."
+  },
+  "rows": [
+    {
+      "name": "H2O-Lightning-4B v1.1",
+      "acc": 77.2,
+      "lat_ms": 29,
+      "lat_src": "board",
+      "comp": 72.5,
+      "comp_rank": "open #1",
+      "kind": "ours",
+      "capability": 75.0
+    },
+    {
+      "name": "Jev 1.13.0",
+      "acc": null,
+      "lat_ms": 239,
+      "lat_src": "board",
+      "comp": 71.5,
+      "comp_rank": "API #4",
+      "kind": "other",
+      "acc_note": "not ranked",
+      "capability": 77.1
+    },
+    {
+      "name": "Quyet-1.0-Large",
+      "acc": 81.9,
+      "lat_ms": 116,
+      "lat_src": "board",
+      "comp": 71.4,
+      "comp_rank": "open #3",
+      "kind": "other",
+      "capability": 81.7
+    },
+    {
+      "name": "deck-31B",
+      "acc": 77.8,
+      "lat_ms": 127,
+      "lat_src": "board",
+      "comp": 68.7,
+      "comp_rank": "open #8",
+      "kind": "other",
+      "capability": 77.6
+    },
+    {
+      "name": "Surogate Rune 26B-A4B",
+      "acc": 79.7,
+      "lat_ms": 116,
+      "lat_src": "board",
+      "comp": 65.0,
+      "comp_rank": "open #17",
+      "kind": "other",
+      "capability": 73.5
+    },
+    {
+      "name": "Microsoft-Decision-1",
+      "acc": 83.5,
+      "lat_ms": 460,
+      "lat_src": "board API",
+      "comp": 69.1,
+      "kind": "ms",
+      "comp_rank": "API #6",
+      "capability": 70.8
+    },
+    {
+      "name": "OpenAI Decisions",
+      "acc": 79.4,
+      "lat_ms": 298,
+      "lat_src": "board",
+      "comp": 62.5,
+      "kind": "ref",
+      "comp_rank": "API #8",
+      "capability": 73.5
+    },
+    {
+      "name": "Strands-Decider 2B",
+      "acc": 54.8,
+      "lat_ms": null,
+      "comp": null,
+      "kind": "other",
+      "acc_note": "23 of 36 benchmarks",
+      "capability": null
+    }
+  ]
+}

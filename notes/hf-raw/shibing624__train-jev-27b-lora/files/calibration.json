@@ -1,0 +1,9 @@
+{
+  "per_kind": {
+    "noul": 1.3107680988880808,
+    "choice": 1.1315033500123985,
+    "score": 0.30000000184424575
+  },
+  "fit_rows": 2468,
+  "fit_role": "independent grouped calibration; final evaluation labels never fitted"
+}

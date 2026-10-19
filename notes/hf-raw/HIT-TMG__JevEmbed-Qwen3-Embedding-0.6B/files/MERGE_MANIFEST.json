@@ -1,0 +1,23 @@
+{
+  "model_name": "JevEmbed-Qwen3-Embedding-0.6B",
+  "base_model": "Qwen/Qwen3-Embedding-0.6B",
+  "base_model_sha256": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
+  "adapter_sha256": "f75992447af7d137b81f253cfc3f7a59d2af0a585274b7b3fe127b3eb41f5546",
+  "merged_model_sha256": "d3e90fdeb21415b57f474d5ac24b9c9f557c538d54e28b651f8ce637c42f4032",
+  "format": "standalone Sentence Transformers model with merged LoRA weights",
+  "embedding_dimension": 1024,
+  "training_step": 3128,
+  "tested_prompt_count": 5,
+  "in_memory_merge": {
+    "max_absolute_difference": 6.891787052154541e-07,
+    "minimum_cosine": 1.0
+  },
+  "saved_model_reload": {
+    "max_absolute_difference": 6.891787052154541e-07,
+    "minimum_cosine": 1.0
+  },
+  "base_vs_lora_max_absolute_difference": 0.14514517784118652,
+  "versions": {
+    "torch": "2.8.0+cu129"
+  }
+}

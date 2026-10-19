@@ -1,0 +1,73 @@
+{
+  "release": "v1.2",
+  "status": "release",
+  "target_repository": "juspay/Xor-26B-A4B",
+  "checkpoint": "x1n",
+  "precision": "BF16",
+  "base_model": "google/gemma-4-26B-A4B-it",
+  "base_revision": "4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+  "merge_required_for_inference": false,
+  "blend_recipe": {
+    "non_expert_tensors": "0.60 * v1.1 checkpoint (xn-lora-xl-5050) + 0.40 * ndnew checkpoint, float math, cast to BF16",
+    "routed_expert_tensors": "v1.1 checkpoint verbatim (60 tensors: experts.down_proj and experts.gate_up_proj, layers 0-29)",
+    "expert_identity_check": "layers 0, 17, 29 expert tensors byte-identical to juspay/Xor-26B-A4B@v1.1",
+    "split_selection": "chosen after comparing blends on public Decision Index results (partly tuned on the public suite)"
+  },
+  "tensor_count": 1013,
+  "weight_shards": {
+    "model-00001-of-00002.safetensors": "e87a2529a38ed808d0a917fd860cea84f2f44e9913a940b6dfd0f063920fc10e",
+    "model-00002-of-00002.safetensors": "4623b81fcc1c4094a3eb586aab3cdbabeeddbdb03381363132f7e52a292b4f79"
+  },
+  "index_sha256": "88a9bfd190e898e839e20cd676cbcb91879fdccf600395a93d395ab6d3b4f728",
+  "wrapper_sha256": "2eed569347cd5c6d4afbc638c0feb1b3cdbbb4dff02ed927788d9ded8cf4e435",
+  "wrapper_unchanged_from": "v1.1",
+  "decision_index_wrapper_sha256": "2eed569347cd5c6d4afbc638c0feb1b3cdbbb4dff02ed927788d9ded8cf4e435",
+  "label_ids_sha256": "239b0c213883a3ccf3c0effc7b398e66cd755d5765233128b1ed15a2ec5f7c1b",
+  "serving_archive_sha256": "9360d603aac03dbf4fb8776a2b6f36c75ad93ea02bdef6130334fa32b4e1c5b8",
+  "image": "prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f",
+  "image_upstream": "lmsysorg/sglang@sha256:6bcaa47db52f78ce0d67863b8b2431221b79bc23204a80cad757fa819d00e921",
+  "sglang_commit": "408d2334c34d387a36a26398dff9a8f004328344",
+  "temperatures": {
+    "choice": 1.95,
+    "noul": 1.0,
+    "score": 1.0
+  },
+  "temperature_provenance": "choice=1.95 carried over from an earlier checkpoint fit; not re-fitted on held-out data for this blend",
+  "two_order": true,
+  "context_limit": 131072,
+  "api_modalities": [
+    "text",
+    "image",
+    "video"
+  ],
+  "max_images": 8,
+  "max_request_bytes": 8388608,
+  "choice_limit": 255,
+  "media_checks": "functional smoke tests passed (image and video color identification, 1 GPU per replica); not a multimodal benchmark",
+  "public_decision_index_edition": "0.3",
+  "public_decision_index": 59.46,
+  "public_decision_index_raw": 69.41,
+  "benchmark_upstream_commit": "f5a6e4fd85fed05e77878dfc4966d0568bfb45ec",
+  "benchmark_hardware": "2 x NVIDIA RTX PRO 6000 Blackwell Server Edition, 97887 MiB each",
+  "benchmark_replicas": 2,
+  "benchmark_tp": 1,
+  "benchmark_concurrency_per_replica": 6,
+  "benchmark_total_concurrency": 12,
+  "benchmark_attempted": 140620,
+  "benchmark_scored": 140178,
+  "benchmark_complete": true,
+  "benchmark_errors": 0,
+  "benchmark_fresh_run": true,
+  "latency_ms_under_load": {
+    "median": 176.6,
+    "p95": 2268.4,
+    "mean": 559.5
+  },
+  "latency_is_sequential": false,
+  "known_gaps": [
+    "v1.1 checkpoint training mixes contain public POP909 test rows; inherited through v1.1 tensors",
+    "ndnew pool: 0 whole-field matches vs the 0.3 suite; strict per-field screen: 26 exact matches and ~3,500 near-matching (mostly shared tool-retrieval) contexts",
+    "ndnew training rows carry no per-row source or licence provenance",
+    "choice temperature not re-fitted on held-out data for this blend"
+  ]
+}

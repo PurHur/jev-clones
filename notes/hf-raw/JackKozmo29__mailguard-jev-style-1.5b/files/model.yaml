@@ -1,0 +1,29 @@
+spec_version: "0.1"
+model: mailguard-jev-style-1.5b
+namespace: jackkozmo29
+category: system-one
+architecture: laya
+license: apache-2.0
+summary: Routes enterprise emails to the correct owner based on category and content.
+
+capabilities:
+  - choice
+
+tags:
+  - routing
+  - email
+  - triage
+
+runtime:
+  framework: pytorch
+  hardware: cpu
+
+artifacts:
+  - kind: huggingface
+    uri: https://huggingface.co/JackKozmo29/mailguard-jev-style-1.5b/resolve/main/model.safetensors
+    filename: model.safetensors
+
+evaluation:
+  decision_accuracy: 0.94
+  calibration_error: 0.03
+  median_latency_ms: 78.0

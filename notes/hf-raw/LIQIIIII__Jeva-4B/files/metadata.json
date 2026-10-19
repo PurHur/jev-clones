@@ -1,0 +1,9 @@
+{
+  "backbone": "backbone",
+  "tune_mode": "lora",
+  "decision_arch": "matrix_stack",
+  "decision_depth": 1,
+  "decision_num_heads": 8,
+  "projection_dim": 768,
+  "adapter": "backbone_adapter"
+}

@@ -1,0 +1,28 @@
+{
+  "model_info": {
+    "num_adapters": 2,
+    "base_model": "granite-4.1-30b"
+  },
+  "adapters": [
+    {
+      "adapter_index": 1,
+      "adapter_name": "guardian-core",
+      "technology": "alora",
+      "control_token": {
+        "token": "<|guardian-core|>",
+        "id": 100352
+      },
+      "io_config": "io_configs/guardian-core/io.yaml"
+    },
+    {
+      "adapter_index": 2,
+      "adapter_name": "decision",
+      "technology": "alora",
+      "control_token": {
+        "token": "<|decision|>",
+        "id": 100353
+      },
+      "io_config": "io_configs/decision/io.yaml"
+    }
+  ]
+}

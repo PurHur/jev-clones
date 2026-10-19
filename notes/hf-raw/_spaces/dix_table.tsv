@@ -1,0 +1,174 @@
+JEV 61.53 0.0799
+69.12	startlux-decision-v1.1-27b-instant	StartLux-Decision v1.1 27B	{'id': 'startlux-models', 'name': 'StartLux', 'logo': 'data/orgs/startlux-models.png'}	full fine-tune	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant	0.0261	0.2388	None
+66.26	vllm-sr-d3-v310	vLLM-SR d3 (27B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	26085330160	Qwen/Qwen3.8-27B	https://huggingface.co/vllm-sr/d3/tree/v3.1.0	0.0428	0.3008	None
+65.61	linne-oak-1.0	linne-oak 1.0 (31B)	{'id': 'MISA-core', 'name': 'MISA-AICORE', 'logo': 'data/orgs/MISA-core.png'}	full fine-tune	autoregressive	31273088876	google/gemma-4-31B-it	https://huggingface.co/MISA-core/linne-oak-1-0	0.1055	0.3525	None
+65.55	pplx-decider-v1.2	Perplexity Decider v1.2 (27B)	{'id': 'perplexity-ai', 'name': 'Perplexity', 'logo': 'data/orgs/perplexity-ai.png'}	full fine-tune	autoregressive	26085330160	Qwen/Qwen3.8-27B	https://huggingface.co/perplexity-ai/pplx-decider-v1.2	0.0551	0.2996	None
+64.62	decider-31b	Decider 31B (NVFP4)	None	full fine-tune	autoregressive	32680000000	google/gemma-4-31B-it	https://huggingface.co/Mapika/decider-31b	0.0243	0.3349	None
+64.08	amos-1-large	Amos 1 Large (27B)	None	full fine-tune	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/mukaddamzaid/amos-1-large	0.0317	0.3126	None
+63.81	sieve-31b	Sieve 31B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA	autoregressive	31273088876	google/gemma-4-31B-it	https://huggingface.co/sthanika-ai/Sieve-31B	0.0331	0.3374	None
+62.99	lychee-27b	Lychee-27B	None	full fine-tune	autoregressive	26085330160	Qwen/Qwen3.8-27B	https://huggingface.co/LycheeAI/Lychee-27B	0.108	0.3524	None
+62.92	knowline-35b-a3b-gen1	KnowLine 35B-A3B Gen1	{'id': 'PelaAI', 'name': 'PelaAI', 'logo': 'data/orgs/PelaAI.png'}	LoRA	autoregressive	35951822704	Qwen/Qwen3.5-35B-A3B	https://huggingface.co/PelaAI/KnowLine-35B-A3B-Gen1	0.0475	0.2612	None
+62.83	bobcat-1.3	Bobcat 1.3 (31B)	None	LoRA	autoregressive	31273088876	google/gemma-4-31B-it	https://huggingface.co/sanghwa-na/bobcat-1.3	0.1021	0.3857	None
+62.56	span-02	span-02 (Gemma 4 26B-A4B)	None	full fine-tune	autoregressive	25805936206	google/gemma-4-26B-A4B-it	https://huggingface.co/lihe07/span-02	0.114	0.3553	None
+62.46	darwin-27b-ztc	Darwin-27B-ZTC	{'id': 'FINAL-Bench', 'name': 'FINAL_Bench', 'logo': 'data/orgs/FINAL-Bench.png'}	full fine-tune	autoregressive	25624600064	FINAL-Bench/Darwin-27B-RSI	https://huggingface.co/FINAL-Bench/Darwin-27B-ZTC	0.0454	0.3332	None
+60.96	morj-1.0.1	MORJ 1.0.1 (Gemma 4 31B)	None	inference technique	autoregressive	31273088876	google/gemma-4-31B-it	None	0.0919	0.3817	None
+60.22	anyjev-l0-gemma-4-31b	AnyJev L0 · Gemma-4-31B	None	inference technique	autoregressive	31273088876	google/gemma-4-31B-it	None	0.2403	0.4979	None
+60.21	decision-27b-ckpt-nothink	Fastino GLiDE no-thinking (28B)	{'id': 'fastino', 'name': 'Fastino', 'logo': 'data/orgs/fastino.png'}	full fine-tune	autoregressive	27800000000	None	None	0.0398	0.34	None
+60.17	sieve-27b	Sieve 27B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/sthanika-ai/Sieve-27B	0.0653	0.3518	None
+60.11	jev-1.13.0	Jev 1.13	None	hosted API	None	None	None	None	0.078	0.3577	None
+59.91	torchcast-decision-27b	Torchcast Decision 27B	{'id': 'torchcast-ai', 'name': 'Torchcast AI', 'logo': 'data/orgs/torchcast-ai.png'}	LoRA	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/torchcast-ai/torchcast-decision-27b	0.0235	0.2841	None
+59.9	onejev1.5-27b	OneJev1.5-27B	{'id': 'OmniJev', 'name': 'OmniJev', 'logo': 'data/orgs/OmniJev.png'}	full fine-tune	autoregressive	27356728560	Qwen/Qwen3.8-27B	https://huggingface.co/OmniJev/OneJev1.5-27B	0.0239	0.275	None
+59.77	shisa-de-2-repeat	Shisa DE-2 (repeat)	{'id': 'shisa-ai', 'name': 'Shisa.AI', 'logo': 'data/orgs/shisa-ai.png'}	LoRA	autoregressive	25805933872	google/gemma-4-26B-A4B-it	https://huggingface.co/shisa-ai/shisa-de-2	0.2067	0.4751	None
+59.23	matilda-jev-v1.5	Matilda Jev v1.5	{'id': 'Maincode', 'name': 'Maincode', 'logo': 'data/orgs/Maincode.png'}	full fine-tune	autoregressive	26085330160	Qwen/Qwen3.8-27B	https://huggingface.co/Maincode/matilda-jev-v1.5	0.0769	0.3365	None
+59.03	deck31b	deck31b (Gemma 4 31B)	None	inference technique	autoregressive	32680000000	google/gemma-4-31B-it	None	0.2043	0.4691	None
+58.78	kev-27b	Kev 27B	None	full fine-tune	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/jaredpalmer/kev-27b	0.0218	0.3591	None
+58.71	quyet-1.0-large	Quyet-1.0-Large	None	LoRA	autoregressive	32680000000	google/gemma-4-31B-it	https://huggingface.co/chinhnc/Quyet-1.0-Large	0.0778	0.3748	None
+58.66	rsi-jev-v6.1-vl-27b-auto	RSI-Jev v6.1 VL 27B (effort auto)	None	LoRA	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/shgao/rsi-jev-v6.1-vl-27b	0.0771	0.3267	None
+58.55	decisio-0.6.0-gemma-4-31b	decisio 0.6.0 (Gemma 4 31B)	None	inference technique	autoregressive	31273088876	google/gemma-4-31B-it	None	0.1423	0.4354	None
+58.52	qwen-decision-27b-noncausal	Qwen Decision 27B noncausal LoRA	None	LoRA + head	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/jsaurabh/qwen-decision-27b-noncausal-lora	0.0505	0.358	None
+58.34	garas	garas (Gemma 4 31B)	None	LoRA	autoregressive	31273088876	google/gemma-4-31B-it	https://huggingface.co/plantwaterer/garas	0.0488	0.3687	None
+58.29	wald-26b-a4b	Wald-26B-A4B	{'id': 'org2ai', 'name': 'ORG2 AI', 'logo': 'data/orgs/org2ai.png'}	full fine-tune	autoregressive	25805936206	google/gemma-4-26B-A4B-it	https://huggingface.co/org2ai/Wald-26B-A4B	0.0432	0.3334	None
+57.81	linne-fern-1.0	linne-fern 1.0 (27B)	{'id': 'MISA-core', 'name': 'MISA-AICORE', 'logo': 'data/orgs/MISA-core.png'}	full fine-tune	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/MISA-core/linne-fern-1-0	0.0786	0.3605	None
+57.76	blink-v0.3-26b-a4b-nvfp4	Blink v0.3 26B-A4B (NVFP4)	{'id': 'PixilabAI', 'name': 'Pixilab.ai', 'logo': 'data/orgs/PixilabAI.png'}	full fine-tune	autoregressive	25800000000	google/gemma-4-26B-A4B-it	https://huggingface.co/PixilabAI/Blink-v0.3-26B-A4B-NVFP4	0.0404	0.3391	None
+57.62	decider-chat-gemma4-31b	Decider chat · Gemma-4-31B	None	inference technique	autoregressive	32682372656	google/gemma-4-31B	None	0.0471	0.3928	None
+57.46	synack-decide-26b-a4b-v7	SynACK Decide 26B-A4B v7	None	LoRA	autoregressive	25805933872	google/gemma-4-26B-A4B-it	https://huggingface.co/SkyPanther/synack-decide-26b-a4b	0.0691	0.3597	None
+57.43	rune-26b-a4b-v3	Surogate Rune 26B-A4B v3	{'id': 'surogate', 'name': 'Surogate', 'logo': 'data/orgs/surogate.png'}	full fine-tune	autoregressive	25805936206	google/gemma-4-26B-A4B-it	surogate/rune-26b-a4b-GGUF	0.1196	0.3704	None
+57.07	xor-26b-a4b-v1.1	Xor 26B-A4B v1.1	{'id': 'juspay', 'name': 'Juspay Technologies', 'logo': 'data/orgs/juspay.png'}	LoRA	autoregressive	25805933872	google/gemma-4-26B-A4B-it	https://huggingface.co/juspay/Xor-26B-A4B	0.0575	0.3676	None
+56.95	jev-35b	JEV-35B	{'id': 'autotrust', 'name': 'AutoTrust AI Lab', 'logo': 'data/orgs/autotrust.png'}	LoRA + head	autoregressive	35951822704	Qwen/Qwen3.5-35B-A3B	https://huggingface.co/autotrust/JEV-35B	0.0846	0.3587	None
+56.43	ajev-gemma26-lora1	AJev lora1 (Gemma 4 26B-A4B)	None	LoRA	autoregressive	25805936206	google/gemma-4-26B-A4B-it	https://huggingface.co/andyzhang232/ajev-gemma4-26b-a4b-lora1	0.0476	0.3584	None
+56.17	jev-gemma4-26b-a4b	GEV-26B-Decide	{'id': 'autotrust', 'name': 'AutoTrust AI Lab', 'logo': 'data/orgs/autotrust.png'}	LoRA	autoregressive	25800000000	google/gemma-4-26B-A4B-it	https://huggingface.co/autotrust/GEV-26B-Decide	0.0721	0.3527	None
+55.94	drex-v2.0	Nace.AI Drex v2.0 (35B-A3B)	{'id': 'nace-ai', 'name': 'Nace.AI', 'logo': 'data/orgs/nace-ai.png'}	full fine-tune	autoregressive	35107181936	Qwen/Qwen3.6-35B-A3B	https://huggingface.co/nace-ai/drex-v2.0	0.0183	0.3168	None
+55.94	jebadiah-v2.1	frontier-infra Jebadiah 27B v2.1	{'id': 'frontier-infra', 'name': 'Frontier Infra', 'logo': 'data/orgs/frontier-infra.png'}	LoRA	autoregressive	27781427952	Qwen/Qwen3.8-27B	https://huggingface.co/frontier-infra/jebadiah-27b-v2-1	0.0609	0.3657	None
+55.88	decision-2.0-vega-27b	vLLM-SR Decision 2.0 Vega 27B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	LoRA + head	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/vllm-sr/Decision-2.0-Vega-27B	0.0861	0.3758	None
+55.79	vllm-sr-d3-flash	vLLM-SR d3-flash (9B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	8392695024	Qwen/Qwen3.5-9B	https://huggingface.co/vllm-sr/d3-flash	0.0559	0.3467	None
+55.64	jev-27b	JEV-27B	{'id': 'autotrust', 'name': 'AutoTrust AI Lab', 'logo': 'data/orgs/autotrust.png'}	full fine-tune	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/autotrust/JEV-27B	0.0759	0.3826	None
+55.56	jade	JADE	None	LoRA	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/theunnecessarythings/JADE	0.2379	0.5098	None
+55.34	eikos-27b-fp8	Eikos-27B	None	LoRA	autoregressive	27781427952	Qwen/Qwen3.8-27B	caiovicentino1/Eikos-27B-FP8	0.0574	0.4009	None
+54.81	pplx-decider-flash-v1.2	Perplexity Decider Flash v1.2 (4B)	{'id': 'perplexity-ai', 'name': 'Perplexity', 'logo': 'data/orgs/perplexity-ai.png'}	full fine-tune	autoregressive	4539265536	Qwen/Qwen3.5-4B	https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2	0.0523	0.3626	None
+54.72	reflex-27b-pmscr	reflex Qwen3.8-27B-FP8 (pmscr)	None	inference technique	autoregressive	27781427952	Qwen/Qwen3.8-27B-FP8	None	0.045	0.3737	None
+54.67	nimble-v3	Bespoke Nimble 9B v3	{'id': 'bespokelabs', 'name': 'Bespoke Labs', 'logo': 'data/orgs/bespokelabs.png'}	LoRA	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/bespokelabs/Bespoke-Nimble-9B-v3	0.1229	0.3705	None
+53.29	onejev1.5-9b	OneJev1.5-9B	{'id': 'OmniJev', 'name': 'OmniJev', 'logo': 'data/orgs/OmniJev.png'}	full fine-tune	autoregressive	9409813744	Qwen/Qwen3.5-9B	https://huggingface.co/OmniJev/OneJev1.5-9B	0.0295	0.3034	None
+53.08	clef	Cloudflare clef	{'id': 'Cloudflare', 'name': 'Cloudflare', 'logo': 'data/orgs/Cloudflare.png'}	full fine-tune	autoregressive	27800000000	Qwen/Qwen3.8-27B	https://huggingface.co/Cloudflare/clef	0.0395	0.306	None
+52.61	vllm-sr-d3-mini	vLLM-SR d3-mini (4B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	4539265536	Qwen/Qwen3.5-4B	https://huggingface.co/vllm-sr/d3-mini	0.0561	0.3657	None
+51.79	simple-jev-qwen3.8-27b	simple-jev · Qwen3.8-27B (featherless)	None	inference technique	autoregressive	27781427952	Qwen/Qwen3.8-27B	None	0.113	0.4001	None
+51.41	jpt-35b-a3b	JPT-35B-A3B	None	LoRA	autoregressive	35950000000	Qwen/Qwen3.5-35B-A3B	https://huggingface.co/kirp/jpt-35b-a3b	0.0491	0.3696	None
+51.25	decider-chat-qwen3.6-27b	Decider chat · Qwen3.6-27B	None	inference technique	autoregressive	27781427952	Qwen/Qwen3.6-27B	None	0.0209	0.3998	None
+51.15	xor-1.2	Xor 1.2	{'id': 'juspay', 'name': 'Juspay Technologies', 'logo': 'data/orgs/juspay.png'}	LoRA	autoregressive	35950000000	Qwen/Qwen3.6-35B-A3B	https://huggingface.co/juspay/xor	0.0236	0.3829	None
+50.89	sieve-9b-plus	Sieve 9B v2	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	9653104368	Qwen/Qwen3.5-9B	https://huggingface.co/sthanika-ai/Sieve-9B-v2	0.0728	0.397	None
+50.68	ajev-lora7	AJev lora7 (Gemma 4 12B)	None	LoRA	autoregressive	11960000000	google/gemma-4-12B-it	https://huggingface.co/andyzhang232/ajev-gemma4-12b-lora7	0.0823	0.4064	None
+49.72	drex-v1.5	Nace.AI Drex v1.5	{'id': 'nace-ai', 'name': 'Nace.AI', 'logo': 'data/orgs/nace-ai.png'}	full fine-tune	autoregressive	8950000000	XiaomiMiMo/MiMo-V2.6-Distill-Qwen-9B	https://huggingface.co/nace-ai/drex-v1.5	0.0897	0.3829	None
+49.56	standard-one-8b-sh-v4	Standard One 8B SH (v4)	{'id': 'StandardThinking', 'name': 'Standard Thinking', 'logo': 'data/orgs/StandardThinking.png'}	LoRA + head	autoregressive	8918026240	StandardThinking/StandardOne-8B	https://huggingface.co/StandardThinking/StandardOne-8B-SH	0.1065	0.3856	None
+49.27	winnow-12b-q8	Winnow-12B	None	LoRA	autoregressive	11959730224	google/gemma-4-12B	EldanRing/Winnow-12B	0.1679	0.4862	None
+49.17	onejev1.5-4b	OneJev1.5-4B	{'id': 'OmniJev', 'name': 'OmniJev', 'logo': 'data/orgs/OmniJev.png'}	full fine-tune	autoregressive	5174964736	Qwen/Qwen3.5-4B	https://huggingface.co/OmniJev/OneJev1.5-4B	0.0339	0.3311	None
+48.82	coco-decision-4b-2.3.0	CoCo-Decision-4B 2.3.0	{'id': 'corners-ai', 'name': 'Corners', 'logo': 'data/orgs/corners-ai.png'}	LoRA + head	autoregressive	4205751296	Qwen/Qwen3.5-4B	https://huggingface.co/corners-ai/CoCo-Decision-4B	0.116	0.3888	None
+48.53	decider-35b-nvfp4	Decider 35B-A3B	None	full fine-tune	autoregressive	35951822704	Qwen/Qwen3.5-35B-A3B-Base	Mapika/decider-35b-a3b-nvfp4	0.0226	0.3878	None
+48.35	jevk5-9b-v0.3.3	JevK5 9B v0.3.3	None	LoRA	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/alibiserikbay/JevK5-9B	0.0598	0.414	None
+48.28	clef-omni	Cloudflare clef-omni (30B-A3B)	{'id': 'Cloudflare', 'name': 'Cloudflare', 'logo': 'data/orgs/Cloudflare.png'}	full fine-tune	autoregressive	31830000000	Qwen/Qwen3-Omni-30B-A3B-Instruct	https://huggingface.co/Cloudflare/clef-omni	0.0403	0.3234	None
+48.21	decision-2.0-lux-9b	vLLM-SR Decision 2.0 Lux 9B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/vllm-sr/Decision-2.0-Lux-9B	0.056	0.4216	None
+47.72	decisio-0.4.0-qwen3.6-35b-a3b	decisio 0.4.0 (Qwen3.6-35B-A3B)	None	inference technique	autoregressive	35950000000	Qwen/Qwen3.6-35B-A3B	None	0.0554	0.4192	None
+47.61	clef-flash	Cloudflare clef-flash	{'id': 'Cloudflare', 'name': 'Cloudflare', 'logo': 'data/orgs/Cloudflare.png'}	full fine-tune	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/Cloudflare/clef-flash	0.0249	0.3333	None
+47.47	decisio-0.4.0-gemma-4-12b	decisio 0.4.0 (Gemma 4 12B)	None	inference technique	autoregressive	11960000000	google/gemma-4-12B-it	None	0.1031	0.4554	None
+47.32	joshua-diffusion-full	JoshuaSP diffusiongemma (open-jev)	None	inference technique	diffusion	25823778864	google/diffusiongemma-26B-A4B-it	None	0.2155	0.5241	None
+47.27	hopper-12b-trained	Hopper 12B (trained)	{'id': 'HopitAI', 'name': 'HopitAI', 'logo': 'data/orgs/HopitAI.png'}	LoRA	autoregressive	11960000000	google/gemma-4-12B-it	https://huggingface.co/HopitAI/hopper	0.0762	0.449	None
+46.95	ezjev-4b-s2	ezjev 4B s2	None	LoRA	autoregressive	4660000000	Qwen/Qwen3.5-4B	https://huggingface.co/everettjf/ezjev-4b-s2	0.063	0.4031	None
+46.83	purplemist-flash-1.0	PurpleMIST-Flash-1.0	{'id': 'olaverse', 'name': 'Olaverse Lab', 'logo': 'data/orgs/olaverse.png'}	LoRA + head	autoregressive	7936684544	Qwen/Qwen3.5-9B-Base	https://huggingface.co/olaverse/PurpleMIST-Flash-1.0	0.032	0.4118	None
+46.33	rsi-jev-v6.1-vl-4b	RSI-Jev v6.1 VL 4B	None	full fine-tune	autoregressive	4660000000	Qwen/Qwen3.5-4B-Base	https://huggingface.co/shgao/rsi-jev-v6.1-vl-4b	0.049	0.3776	None
+46.11	sieve-4b	Sieve 4B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	4660000000	Qwen/Qwen3.5-4B	https://huggingface.co/sthanika-ai/Sieve-4B	0.0312	0.4092	None
+45.55	jevfire-uncapped	Jevfire	None	inference technique	autoregressive	27781427952	Qwen/Qwen3.8-27B	None	0.0521	0.4139	None
+45.21	jev-9b	JEV-9B	{'id': 'autotrust', 'name': 'AutoTrust AI Lab', 'logo': 'data/orgs/autotrust.png'}	full fine-tune	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/autotrust/JEV-9B	0.0726	0.4462	None
+44.95	decision-2.0-nox-4b	vLLM-SR Decision 2.0 Nox 4B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	LoRA + head	autoregressive	4210000000	Qwen/Qwen3.5-4B-Base	https://huggingface.co/vllm-sr/Decision-2.0-Nox-4B	0.0298	0.4358	None
+44.91	jebadiah-v2.1-9b	frontier-infra Jebadiah 9B v2.1	{'id': 'frontier-infra', 'name': 'Frontier Infra', 'logo': 'data/orgs/frontier-infra.png'}	LoRA	autoregressive	9653104368	Qwen/Qwen3.5-9B	https://huggingface.co/frontier-infra/jebadiah-9b-v2-1	0.0584	0.4222	None
+44.83	jiwo-4b-v2	jiwo 4B v2	None	full fine-tune	autoregressive	4205751296	Qwen/Qwen3.5-4B	https://huggingface.co/eljiwo/jiwo-4b	0.0675	0.4284	None
+44.59	sieve-9b	Sieve 9B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	9650000000	Qwen/Qwen3.5-9B	https://huggingface.co/sthanika-ai/Sieve-9B	0.0433	0.4409	None
+44.45	jpt-9b	JPT-9B	None	LoRA	autoregressive	9653104368	Qwen/Qwen3.5-9B-Base	kirp/jpt-9b	0.0773	0.4346	None
+43.77	aplomb-1	Aplomb 1	{'id': 'empiriolabsai', 'name': 'EmpirioLabs AI', 'logo': 'data/orgs/empiriolabsai.png'}	LoRA + head	autoregressive	5295891968	Qwen/Qwen3.5-4B	https://huggingface.co/empiriolabsai/aplomb-1	0.0754	0.4504	None
+43.65	decision-4b-v1.6	FlyMy.AI Decision 4B v1.6	{'id': 'flymy-ai', 'name': 'FlyMy.AI', 'logo': 'data/orgs/flymy-ai.png'}	LoRA	autoregressive	4660000000	Qwen/Qwen3.5-4B	https://huggingface.co/flymy-ai/decision-4b-v1.6	0.0459	0.4329	None
+43.27	kev-9b-v2	Kev 9B v2	None	LoRA + head	autoregressive	9650000000	Qwen/Qwen3.5-9B-Base	https://huggingface.co/jaredpalmer/kev-9b	0.0453	0.4506	None
+42.61	hopper-g-1.2	Hopper (G) 1.2	{'id': 'HopitAI', 'name': 'HopitAI', 'logo': 'data/orgs/HopitAI.png'}	LoRA	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	HopitAI/hopper-g	0.0927	0.4672	None
+42.35	jev-omni	Jev-Omni	None	LoRA + head	autoregressive	11959730224	google/gemma-4-12B	akhilaaa3/Jev-Omni	0.161	0.5344	None
+41.78	djev	djev	None	inference technique	diffusion	25823778864	google/diffusiongemma-26B-A4B-it	None	0.2124	0.5655	None
+41.63	jpt-4b	JPT-4B	None	LoRA	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	kirp/jpt-4b	0.0793	0.4478	None
+41.54	jevk5-v0.3	JevK5 v0.3	None	LoRA	autoregressive	4660000000	Qwen/Qwen3.5-4B	https://huggingface.co/alibiserikbay/JevK5	0.0605	0.4587	None
+40.95	nimble-v2	Bespoke Nimble 9B v2	{'id': 'bespokelabs', 'name': 'Bespoke Labs', 'logo': 'data/orgs/bespokelabs.png'}	LoRA	autoregressive	9653104368	Qwen/Qwen3.5-9B-Base	bespokelabs/Bespoke-Nimble-9B-v2	0.024	0.4671	None
+40.85	solomon-v11-bf16-encoding	Solomon v1.1	{'id': 'DoccyHealth', 'name': 'Doccy Health', 'logo': 'data/orgs/DoccyHealth.png'}	head / adapter	autoregressive	27781427952	Qwen/Qwen3.8-27B	DoccyHealth/Solomon	0.0807	0.4423	None
+40.33	decider-4b	Decider 4B	None	full fine-tune	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	Mapika/decider-4b	0.0837	0.4542	None
+40.17	saracura-ptbr-4b	Saracura PT-BR 4B	{'id': 'felhen-ai', 'name': 'Felhen', 'logo': 'data/orgs/felhen-ai.png'}	LoRA + head	autoregressive	4660000000	Qwen/Qwen3.5-4B-Base	https://huggingface.co/felhen-ai/saracura-ptbr-4b	0.1794	0.5379	None
+40.04	razorback-one-read-3e296f08	razorback16 openjev diffusiongemma (NVFP4, vLLM)	None	inference technique	diffusion	25823778864	google/diffusiongemma-26B-A4B-it	None	0.232	0.6004	None
+39.85	standard-one-3b-sh-v2	Standard One 3B SH (v2)	{'id': 'StandardThinking', 'name': 'Standard Thinking', 'logo': 'data/orgs/StandardThinking.png'}	LoRA + head	autoregressive	3849090048	StandardThinking/StandardOne-3B	https://huggingface.co/StandardThinking/StandardOne-3B-SH	0.1005	0.4748	None
+39.5	kev-4b-r10	Kev 4B r10	None	LoRA + head	autoregressive	4660000000	Qwen/Qwen3.5-4B-Base	https://huggingface.co/jaredpalmer/kev-4b	0.032	0.4847	None
+38.9	d1-3b	LiquidAI d1-3B	{'id': 'LiquidAI', 'name': 'Liquid AI', 'logo': 'data/orgs/LiquidAI.png'}	full fine-tune	autoregressive	3120000000	LiquidAI/LFM2.5-VL-3B	https://huggingface.co/LiquidAI/d1-3B	0.0468	0.3902	None
+38.86	vllm-sr-d3-nano	vLLM-SR d3-nano (2B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	2213241664	Qwen/Qwen3.5-2B	https://huggingface.co/vllm-sr/d3-nano	0.112	0.4525	None
+38.73	winnow-e4b-q8	Winnow-E4B	None	LoRA	autoregressive	7996156490	google/gemma-4-E4B	EldanRing/Winnow-E4B	0.058	0.4613	None
+38.63	lev1-3.7b	Lev1 3.7B	None	LoRA	autoregressive	3700000000	IFM/K2-Horizon-3.7B	https://huggingface.co/theaviv/Lev1-3.7B	0.0578	0.4474	None
+38.44	rsi-jev-v5.0-vl-3b	RSI-Jev v5.0 VL 3B	None	full fine-tune	autoregressive	4660000000	Qwen/Qwen3.5-4B-Base	https://huggingface.co/shgao/rsi-jev-v5.0-vl-3b	0.0478	0.4664	None
+38.21	intern-decision-4b	Intern-Decision-4B	{'id': 'internlm', 'name': 'Intern Large Models', 'logo': 'data/orgs/internlm.png'}	full fine-tune	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	internlm/Intern-Decision-4B	0.0278	0.4737	None
+37.97	neohorse-jev-4b	NeoHorse-Jev-4B	{'id': 'TokenRhythm', 'name': 'TokenRhythm', 'logo': 'data/orgs/TokenRhythm.png'}	head / adapter	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	TokenRhythm/NeoHorse-Jev-4B	0.1039	0.5134	None
+36.99	ryotide-qwen-v0.3.1	Ryotide Qwen v0.3.1	None	inference technique	autoregressive	4000000000	Qwen/Qwen3.5-4B	None	0.0916	0.4852	None
+36.7	kas-4b	Kas 4B	None	LoRA	autoregressive	4020000000	Qwen/Qwen3-4B	https://huggingface.co/kpiya/kas-4b	0.0984	0.4632	None
+36.53	lev	lev	{'id': 'interfaze-ai', 'name': 'Interfaze', 'logo': 'data/orgs/interfaze-ai.png'}	LoRA + head	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	interfaze-ai/lev	0.0638	0.4905	None
+36.3	vllm-pr57250	mmastrac diffusiongemma (vLLM PR 57250)	None	inference technique	diffusion	25823778864	google/diffusiongemma-26B-A4B-it	None	0.2019	0.535	None
+35.93	jevstral-8b	Jevstral 8B	None	LoRA	autoregressive	8000000000	mistralai/Ministral-3-8B-Base-2512	https://huggingface.co/AmirBraham/jevstral-8b	0.0472	0.4948	None
+34.25	intelif-qwen3-4b	Intelif Qwen3-4B	None	LoRA + head	autoregressive	4020000000	Qwen/Qwen3-4B	https://huggingface.co/UserMoonlight/intelif-qwen3-4b	0.0708	0.5064	None
+34.14	tev1-4b	Tev1-4B-experimental	{'id': 'togethercomputer', 'name': 'Together', 'logo': 'data/orgs/togethercomputer.png'}	full fine-tune	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	togethercomputer/Tev1-4B-experimental	0.104	0.4763	None
+33.06	jobe	Jobe	None	inference technique	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	None	0.1232	0.536	None
+33.02	gevva-e4b	Gevva E4B	None	full fine-tune	encoder	8000000000	google/gemma-4-E4B-it	https://huggingface.co/davidburhans/gevva-e4b	0.1451	0.5678	None
+32.33	vllm-sr-d3-lite	vLLM-SR d3-lite (0.8B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	852985920	Qwen/Qwen3.5-0.8B	https://huggingface.co/vllm-sr/d3-lite	0.0943	0.5076	None
+32.26	openvons	openvons	None	inference technique	autoregressive	4022468096	Qwen/Qwen3-4B-Instruct-2507	None	0.3712	0.7749	None
+32.09	pngwn-space-uncapped-full	open-jev (pngwn)	None	LoRA	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	pngwn/system-one-qwen3.5-4b-scorer-v2b	0.0589	0.5446	None
+31.42	jev-style-2b-v3	Jev-Style 2B v3	None	full fine-tune	autoregressive	2270000000	Qwen/Qwen3.5-2B	https://huggingface.co/chaoliangUNSW/Jev-Style-2B-Decision-v3	0.1177	0.5282	None
+30.96	metask-jev-4b	Metask-Jev-4B	{'id': 'wayfind', 'name': 'Metask-AI-Lab', 'logo': 'data/orgs/wayfind.png'}	LoRA	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	wayfind/metask-jev-4b-policy-mix	0.1035	0.5026	None
+30.84	sieve-2b-plus	Sieve 2B v2	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	2274069824	Qwen/Qwen3.5-2B-Base	https://huggingface.co/sthanika-ai/Sieve-2B-v2	0.0948	0.4969	None
+30.78	cam1	Cam1	None	LoRA + head	autoregressive	4660000000	Qwen/Qwen3.5-4B	https://huggingface.co/cbuk10001/Cam1	0.0633	0.5179	None
+29.01	onejev1.5-0.8b	OneJev1.5-0.8B	{'id': 'OmniJev', 'name': 'OmniJev', 'logo': 'data/orgs/OmniJev.png'}	full fine-tune	autoregressive	1107265600	Qwen/Qwen3.5-0.8B	https://huggingface.co/OmniJev/OneJev1.5-0.8B	0.0345	0.4156	None
+28.84	semif	SemIf	None	inference technique	autoregressive	4659865088	Qwen/Qwen3.5-4B-Base	None	0.0989	0.4825	None
+28.18	gevva-e2b	Gevva E2B	None	full fine-tune	encoder	5100000000	google/gemma-4-E2B-it	https://huggingface.co/davidburhans/gevva-e2b	0.0902	0.6003	None
+28.07	vera-core	vera-core	None	full fine-tune	autoregressive	1904074821	Qwen/Qwen3.5-2B	https://huggingface.co/scar-ai/vera-core	0.1219	0.5167	None
+27.07	decision-2.0-sol-2b	vLLM-SR Decision 2.0 Sol 2B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	2270000000	Qwen/Qwen3.5-2B	https://huggingface.co/vllm-sr/Decision-2.0-Sol-2B	0.0366	0.5332	None
+25.8	decider-2b-fp8-http	Decider 2B	None	full fine-tune	autoregressive	2274069824	Qwen/Qwen3.5-2B-Base	Mapika/decider-2b	0.0771	0.52	None
+25.16	mini-jev	mini-jev	None	inference technique	autoregressive	4022468096	Qwen/Qwen3-4B-Instruct-2507	None	0.3457	0.7257	None
+24.87	jiwo-0.8b-v2-r2	jiwo 0.8B v2	None	full fine-tune	autoregressive	752393024	Qwen/Qwen3.5-0.8B	https://huggingface.co/eljiwo/jiwo-0.8b	0.0676	0.5381	None
+24.56	this-that-1.2	this-that 1.2	{'id': 'flock-io', 'name': 'FLock.io', 'logo': 'data/orgs/flock-io.png'}	full fine-tune	autoregressive	1881825088	Mapika/decider-2b	flock-io/this-that-model-1.2	0.1983	0.5907	None
+23.31	exaone-4.0-1.2b-jev-v0.3	EXAONE-4.0-1.2B-JEV v0.3	None	full fine-tune	autoregressive	1280000000	LGAI-EXAONE/EXAONE-4.0-1.2B	https://huggingface.co/carrtesy/EXAONE-4.0-1.2B-JEV	0.0794	0.5485	None
+23.06	sieve-0.8b	Sieve 0.8B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	full fine-tune	autoregressive	590000000	Qwen/Qwen3.5-0.8B-Base	https://huggingface.co/sthanika-ai/Sieve-0.8B	0.0882	0.541	None
+22.58	intern-decision-2b	Intern-Decision-2B	{'id': 'internlm', 'name': 'Intern Large Models', 'logo': 'data/orgs/internlm.png'}	full fine-tune	autoregressive	2274069824	Qwen/Qwen3.5-2B-Base	internlm/Intern-Decision-2B	0.0608	0.6076	None
+22.21	crivo-150m	Crivo-150M	None	full fine-tune	encoder	149610241	cross-encoder/ettin-reranker-150m-v1	https://huggingface.co/tardellirs/crivo-150m	0.1435	0.5505	None
+21.34	strands-decider-2b	Strands Decider 2B	{'id': 'StrandsAgents', 'name': 'Strands Agents', 'logo': 'data/orgs/StrandsAgents.png'}	LoRA + head	autoregressive	1900000000	Qwen/Qwen3.5-2B-Base	https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21	0.0441	0.552	None
+20.82	saina-helm-2.0-06f2fec	Saina Helm 2.0	{'id': 'run-saina', 'name': 'Saina', 'logo': 'data/orgs/run-saina.png'}	LoRA + head	autoregressive	852985920	Qwen/Qwen3.5-0.8B	https://huggingface.co/run-saina/saina-helm-2-0.8b	0.289	0.7089	None
+20.53	sieve-2b	Sieve 2B	{'id': 'sthanika-ai', 'name': 'Sthānika AI', 'logo': 'data/orgs/sthanika-ai.png'}	LoRA + head	autoregressive	2270000000	Qwen/Qwen3.5-2B-Base	https://huggingface.co/sthanika-ai/sieve-2b	0.0885	0.5782	None
+20.24	vllm-sr-d3-edge	vLLM-SR d3-edge (0.6B)	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	594321600	Qwen/Qwen3.5-0.8B	https://huggingface.co/vllm-sr/d3-edge	0.1409	0.5853	None
+18.73	jpt-0.8b	JPT-0.8B	None	LoRA	autoregressive	873438784	Qwen/Qwen3.5-0.8B-Base	kirp/jpt-0.8b	0.0688	0.6121	None
+17.79	sifr-0.8b-v3.1	Sifr 0.8B v3.1	None	full fine-tune	autoregressive	870000000	Qwen/Qwen3.5-0.8B	https://huggingface.co/mohamedlotfy50/sifr-0.8b-v3	0.1203	0.5666	None
+17.63	tasksource-decider-nano-v4	tasksource Decider nano v4 (150M)	{'id': 'tasksource', 'name': 'tasksource', 'logo': 'data/orgs/tasksource.png'}	full fine-tune	encoder	149015041	cross-encoder/ettin-reranker-150m-v1	https://huggingface.co/tasksource/tasksource-decider-nano	0.069	0.5321	None
+17.47	decision-2.0-eos-0.8b	vLLM-SR Decision 2.0 Eos 0.8B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	870000000	Qwen/Qwen3.5-0.8B	https://huggingface.co/vllm-sr/Decision-2.0-Eos-0.8B	0.1295	0.6429	None
+16.72	decisiontune-1.0	DecisionTune 1.0	{'id': 'decision-tune', 'name': 'DecisionTune', 'logo': 'data/orgs/decision-tune.png'}	full fine-tune	encoder	394781696	answerdotai/ModernBERT-large	https://huggingface.co/decision-tune/decisiontune-1.0	0.1475	0.6027	None
+15.82	bosun-v3.1-1.7b	Bosun v3.1 1.7B	{'id': 'Hanno-Labs', 'name': 'Hanno Labs', 'logo': 'data/orgs/Hanno-Labs.png'}	LoRA + head	autoregressive	1720574976	Qwen/Qwen3-1.7B-Base	Hanno-Labs/bosun-v3.1-1.7b	0.1302	0.6136	None
+15.24	bekko-v0-400m	Bekko System One v0 400M	None	full fine-tune	encoder	400000000	jhu-clsp/ettin-encoder-400m	https://huggingface.co/hotchpotch/bekko-system-one-v0-400m	0.1108	0.6306	None
+13.87	dinah-0	Dinah-0	None	full fine-tune	encoder	150000000	Tropic-AI/moBERTo	https://huggingface.co/Lukitaduarte/dinah-0	0.1039	0.5775	None
+13.66	kev-0.8b-r15	Kev 0.8B r15	None	LoRA + head	autoregressive	870000000	Qwen/Qwen3.5-0.8B-Base	https://huggingface.co/jaredpalmer/kev-0.8b	0.0402	0.6042	None
+13.61	decision-2.0-kai-0.6b	vLLM-SR Decision 2.0 Kai 0.6B	{'id': 'vllm-sr', 'name': 'vLLM Semantic Router', 'logo': 'data/orgs/vllm-sr.png'}	full fine-tune	autoregressive	600000000	Qwen/Qwen3-0.6B-Base	https://huggingface.co/vllm-sr/Decision-2.0-Kai-0.6B	0.0376	0.615	None
+12.02	tev1-0.8b	Tev1-0.8B-experimental	{'id': 'togethercomputer', 'name': 'Together', 'logo': 'data/orgs/togethercomputer.png'}	full fine-tune	autoregressive	873438784	Qwen/Qwen3.5-0.8B-Base	togethercomputer/Tev1-0.8B-experimental	0.1257	0.6067	None
+11.91	jev-style-0.8b-v3	Jev-Style 0.8B v3	None	full fine-tune	autoregressive	870000000	Qwen/Qwen3.5-0.8B	https://huggingface.co/chaoliangUNSW/Jev-Style-0.8B-Decision-v3	0.0841	0.6403	None
+11.87	crivo-32m	Crivo-32M	None	full fine-tune	encoder	32033665	cross-encoder/ettin-reranker-32m-v1	https://huggingface.co/tardellirs/crivo-32m	0.0866	0.5697	None
+11.8	kodiak-v0.2-1b-accuracy	Kodiak v0.2 1B (accuracy)	{'id': 'cortex-agent-llc', 'name': 'Cortex Agent LLC', 'logo': 'data/orgs/cortex-agent-llc.png'}	full fine-tune	encoder	3000000000	jhu-clsp/ettin-encoder-1b	https://huggingface.co/cortex-agent-llc/kodiak-v0.2-1b-accuracy	0.0773	0.606	None
+11.78	intern-decision-0.8b	Intern-Decision-0.8B	{'id': 'internlm', 'name': 'Intern Large Models', 'logo': 'data/orgs/internlm.png'}	full fine-tune	autoregressive	873438784	Qwen/Qwen3.5-0.8B-Base	internlm/Intern-Decision-0.8B	0.0255	0.6309	None
+11.46	vera-spark	vera-spark	None	full fine-tune	encoder	638468358	answerdotai/ModernBERT-large	https://huggingface.co/scar-ai/vera-spark	0.1572	0.631	None
+9.24	gliner-decide	GLiNER2.5-Decide	{'id': 'fastino', 'name': 'Fastino', 'logo': 'data/orgs/fastino.png'}	full fine-tune	GLi family	486444053	fastino/gliner2-large-v1	fastino/GLiNER2.5-Decide	0.0884	0.7049	None
+9.09	d1-omni-600m	LiquidAI d1-omni-600M	{'id': 'LiquidAI', 'name': 'Liquid AI', 'logo': 'data/orgs/LiquidAI.png'}	full fine-tune	encoder	587000000	LiquidAI/LFM2.5-Encoder-350M	https://huggingface.co/LiquidAI/d1-omni-600M	0.1284	0.586	None
+8.69	bosun-v3.1-0.6b	Bosun v3.1 0.6B	{'id': 'Hanno-Labs', 'name': 'Hanno Labs', 'logo': 'data/orgs/Hanno-Labs.png'}	LoRA + head	autoregressive	596049920	Qwen/Qwen3-0.6B-Base	Hanno-Labs/bosun-v3.1-0.6b	0.1419	0.6671	None
+8.42	bekko-v0-68m	Bekko System One v0 68M	None	full fine-tune	encoder	68000000	jhu-clsp/ettin-encoder-68m	https://huggingface.co/hotchpotch/bekko-system-one-v0-68m	0.1134	0.6848	None
+8.17	von-1.3	Von 1.3	None	full fine-tune	encoder	400000000	answerdotai/ModernBERT-large	https://huggingface.co/wfzyx/von	0.2157	0.7709	None
+7.71	jeff-uncapped	jeff	None	inference technique	GLi family	575683963	knowledgator/gliformer-large-v1	None	0.0969	0.6823	None
+6.29	jevk5-lite	JevK5 Lite	None	full fine-tune	encoder	300000000	microsoft/deberta-v3-large	https://huggingface.co/alibiserikbay/JevK5-Lite	0.149	0.6428	None
+6.24	clm-v0.1-8b	CLM-v0.1-8B	None	full fine-tune	autoregressive	8190735360	Qwen/Qwen3-8B-Base	Contrastive-LM/CLM-v0.1-8B	0.3227	0.9042	None
+6.13	lfm2600	LFM2.5-2.6B-RLCD	None	full fine-tune	autoregressive	2697198592	LiquidAI/LFM2.5-2.6B-Base	monotykamary/LFM2.5-2.6B-RLCD	0.2545	0.7921	None
+4.43	laya-1e28ac20	Laya	None	full fine-tune	encoder	421293830	None	convaiinnovations/laya	0.1402	0.7211	None
+4.39	lavoir	Lavoir	{'id': 'moganai', 'name': 'Mogan AI', 'logo': 'data/orgs/moganai.png'}	full fine-tune	encoder	395881664	answerdotai/ModernBERT-large	moganai/lavoir	0.1492	0.7278	None
+4.05	dm-jepa-1.1	DM-JEPA 1.1	{'id': 'DangerLabs', 'name': 'Danger Labs', 'logo': 'data/orgs/DangerLabs.png'}	full fine-tune	encoder	149000000	answerdotai/ModernBERT-base	https://huggingface.co/DangerLabs/DM-JEPA	0.4451	0.9364	None
+3.9	harsha	Qwen-2.5-1B-RLCD	None	inference technique	autoregressive	1543714304	Qwen/Qwen2.5-1.5B	None	0.2052	0.7934	None
+2.93	bekko-v0-17m	Bekko System One v0 17M	None	full fine-tune	encoder	17000000	jhu-clsp/ettin-encoder-17m	https://huggingface.co/hotchpotch/bekko-system-one-v0-17m	0.1605	0.7457	None
+2.56	julia-1	Julia 1	{'id': 'SupersonicLabs', 'name': 'Supersonic Labs', 'logo': 'data/orgs/SupersonicLabs.png'}	full fine-tune	encoder	140908331	jhu-clsp/mmBERT-small	SupersonicLabs/Julia-1	0.4197	0.9866	None
+1.25	akash-gemma	system-one-gemma	None	LoRA + head	autoregressive	268098176	google/gemma-3-270m	None	0.2387	0.7993	None
+-1	verdict-8af2496e	Verdict	None	full fine-tune	GLi family	151378176	knowledgator/gliclass-modern-base-v2.0	heman10x/rlcd-modernbert-151m	0.154	0.6841	None
+-1	lfm350-sdpa	LFM2.5-350M-RLCD	None	full fine-tune	autoregressive	354483968	None	notnotsamuel/LFM2.5-350M-RLCD	0.5681	1.2239	None
+-1	nirnaya-0.4b	Nirnaya 0.4B	None	full fine-tune	autoregressive	389956608	kshitijthakkar/loggenix-moe-0.4B-0.2A-sft-s4	https://huggingface.co/kshitijthakkar/nirnaya-0.4b-0.2a-decision	0.0459	0.6855	None
+-1	zev-latest	Zev	None	inference technique	autoregressive	None	None	None	0.1378	0.7765	None

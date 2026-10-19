@@ -1,0 +1,13 @@
+{
+ "arch": "qwen3-marker",
+ "model_name": "zeiger-0.6b",
+ "encoder": "Qwen/Qwen3-0.6B-Base",
+ "head_layers": 2,
+ "chunk_tokens": 2048,
+ "max_len": 131072,
+ "head_max_len": 131072,
+ "trained_max_len": 32768,
+ "temperature_by_options": {
+  "choice:11+": 1.2342
+ }
+}

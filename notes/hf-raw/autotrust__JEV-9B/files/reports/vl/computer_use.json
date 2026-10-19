@@ -1,0 +1,4249 @@
+{
+ "summary": {
+  "marks/mail": {
+   "episodes": 20,
+   "success": 0.15,
+   "mean_steps": 3.45,
+   "median_ms": 448.2111930847168
+  },
+  "marks/shop": {
+   "episodes": 20,
+   "success": 0.0,
+   "mean_steps": 5.75,
+   "median_ms": 436.57422065734863
+  },
+  "marks/settings": {
+   "episodes": 20,
+   "success": 0.95,
+   "mean_steps": 4.5,
+   "median_ms": 457.08513259887695
+  },
+  "marks/all": {
+   "episodes": 60,
+   "success": 0.36666666666666664,
+   "mean_steps": 4.566666666666666,
+   "median_ms": 441.36738777160645
+  },
+  "marks+text/mail": {
+   "episodes": 20,
+   "success": 1.0,
+   "mean_steps": 3.0,
+   "median_ms": 420.0015068054199
+  },
+  "marks+text/shop": {
+   "episodes": 20,
+   "success": 0.85,
+   "mean_steps": 6.85,
+   "median_ms": 356.5859794616699
+  },
+  "marks+text/settings": {
+   "episodes": 20,
+   "success": 1.0,
+   "mean_steps": 4.0,
+   "median_ms": 335.61229705810547
+  },
+  "marks+text/all": {
+   "episodes": 60,
+   "success": 0.95,
+   "mean_steps": 4.616666666666666,
+   "median_ms": 354.40516471862793
+  }
+ },
+ "episodes": [
+  {
+   "app": "mail",
+   "seed": 1,
+   "variant": "marks",
+   "task": "Archive the email from Grace Lee about the server outage.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9982746437151456
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8334909382092105
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.5058816504214596
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 7,
+   "variant": "marks",
+   "task": "Archive the email from Farid Khan about the server outage.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 2,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 6",
+     "p": 0.9647011684460824
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.7792887183749148
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 13,
+   "variant": "marks",
+   "task": "Archive the email from Grace Lee about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.9937341264133329
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.9863845529692548
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.44492366517381127
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 19,
+   "variant": "marks",
+   "task": "Archive the email from Carla Diaz about the design review.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9807737343210758
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8174530530135385
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5244242389788385
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.31159580177347423
+    },
+    {
+     "options": 8,
+     "choice": "click element 5",
+     "p": 0.6709079633984095
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.4141379128556906
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 5,
+   "variant": "marks",
+   "task": "Buy a blue Backpack in size XL: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9723648021740522
+    },
+    {
+     "options": 15,
+     "choice": "click element 6",
+     "p": 0.8600005236688053
+    },
+    {
+     "options": 15,
+     "choice": "click element 13",
+     "p": 0.9764484781782136
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9973305801715106
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.583533532377031
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9714770425759613
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 11,
+   "variant": "marks",
+   "task": "Buy a green Hoodie in size M: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.8722076667590815
+    },
+    {
+     "options": 15,
+     "choice": "click element 7",
+     "p": 0.9549730511314003
+    },
+    {
+     "options": 15,
+     "choice": "click element 11",
+     "p": 0.899875124333359
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9783519677258821
+    },
+    {
+     "options": 15,
+     "choice": "the task is complete",
+     "p": 0.26210784293130024
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 17,
+   "variant": "marks",
+   "task": "Buy a yellow Backpack in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.8748457149745421
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9919989012545333
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.6902823083403318
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9802913310756076
+    },
+    {
+     "options": 15,
+     "choice": "the task is complete",
+     "p": 0.2689643969993545
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 3,
+   "variant": "marks",
+   "task": "Turn on \"Public profile\" in the Profile settings and save the change.",
+   "success": false,
+   "goal_met": false,
+   "stopped": false,
+   "steps": 10,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9244319010091888
+    },
+    {
+     "options": 11,
+     "choice": "click element 3",
+     "p": 0.21800954835263237
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.27040654496582883
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.34239870331676225
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.3316417510622889
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.3253367122452282
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.29282394222947133
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.2897465697254864
+    },
+    {
+     "options": 11,
+     "choice": "click element 3",
+     "p": 0.3013946459625229
+    },
+    {
+     "options": 11,
+     "choice": "click element 6",
+     "p": 0.27051882083252277
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 9,
+   "variant": "marks",
+   "task": "Turn on \"Show online status\" in the Profile settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.9670326405483354
+    },
+    {
+     "options": 11,
+     "choice": "click element 4",
+     "p": 0.6468518133087894
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9933768305569631
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9699413010725476
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9097613437721809
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 15,
+   "variant": "marks",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.996253790857984
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.99995244088394
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9998217960544984
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9865564735196983
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 1,
+   "variant": "marks+text",
+   "task": "Archive the email from Grace Lee about the server outage.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: Grace Lee server outage (list row)",
+     "p": 0.9997272732546577
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9949619613442648
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9737861919434078
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 7,
+   "variant": "marks+text",
+   "task": "Archive the email from Farid Khan about the server outage.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Farid Khan server outage (list row)",
+     "p": 0.99891955649885
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9961048712722775
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9948701459532536
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 13,
+   "variant": "marks+text",
+   "task": "Archive the email from Grace Lee about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: Grace Lee design review (list row)",
+     "p": 0.9999329216037259
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9999737385115206
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.992147055643575
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 19,
+   "variant": "marks+text",
+   "task": "Archive the email from Carla Diaz about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Carla Diaz design review (list row)",
+     "p": 0.9950059236871672
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9964700166912593
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9784770032552219
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 5,
+   "variant": "marks+text",
+   "task": "Buy a blue Backpack in size XL: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8: Backpack $47 (product card)",
+     "p": 0.993364117705504
+    },
+    {
+     "options": 15,
+     "choice": "click element 6: colour swatch",
+     "p": 0.9274856450395298
+    },
+    {
+     "options": 15,
+     "choice": "click element 13: XL (button)",
+     "p": 0.9928069873869816
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9989047164598033
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9219735598194037
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9573855700355163
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9922097493907391
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 11,
+   "variant": "marks+text",
+   "task": "Buy a green Hoodie in size M: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Hoodie $19 (product card)",
+     "p": 0.9412609201093222
+    },
+    {
+     "options": 15,
+     "choice": "click element 7: colour swatch",
+     "p": 0.9564180663469437
+    },
+    {
+     "options": 15,
+     "choice": "click element 11: M (button)",
+     "p": 0.986536596936008
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9985445443898117
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8282340607456052
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9654997367268956
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9842322022806581
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 17,
+   "variant": "marks+text",
+   "task": "Buy a yellow Backpack in size S: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Backpack $19 (product card)",
+     "p": 0.940359339582156
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9858881742243698
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.8551272500749205
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9984293372563396
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8050696131921257
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9021917776190918
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9881904436979773
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 3,
+   "variant": "marks+text",
+   "task": "Turn on \"Public profile\" in the Profile settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Profile (button)",
+     "p": 0.9959615170011822
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999599811214911
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9994108816211869
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9936511423877045
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 9,
+   "variant": "marks+text",
+   "task": "Turn on \"Show online status\" in the Profile settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4: Profile (button)",
+     "p": 0.9988477194352602
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9985245328592022
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9992239296747358
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9941867260593812
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 15,
+   "variant": "marks+text",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Security (button)",
+     "p": 0.9999235275879494
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999808420275468
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9997413447716699
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9963593628898741
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 2,
+   "variant": "marks",
+   "task": "Archive the email from Carla Diaz about the design review.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 2,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 6",
+     "p": 0.992892747318574
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9394490421410343
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 8,
+   "variant": "marks",
+   "task": "Archive the email from David Kim about the team offsite.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9839992752867965
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8287444053272831
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5330357886108769
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.3273539011637661
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 14,
+   "variant": "marks",
+   "task": "Archive the email from Farid Khan about the design review.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9967033674828369
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.7805851948452558
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.4830101845743075
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 20,
+   "variant": "marks",
+   "task": "Archive the email from David Kim about the quarterly report.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9987644959897256
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8527813615448195
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.5125817489314975
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 6,
+   "variant": "marks",
+   "task": "Buy a yellow Hoodie in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7",
+     "p": 0.9285634084521504
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.7314717723970512
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.9084396079269625
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.992894054982253
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5219137971277054
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9685345805656184
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 12,
+   "variant": "marks",
+   "task": "Buy a yellow T-shirt in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.9023016621302632
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.6798205530212345
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.982139760810323
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.43474362963224583
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.6348496367171638
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 18,
+   "variant": "marks",
+   "task": "Buy a yellow Hoodie in size M: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.8831294091331314
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9897705699477023
+    },
+    {
+     "options": 15,
+     "choice": "click element 11",
+     "p": 0.9485748263462652
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.980252965938635
+    },
+    {
+     "options": 15,
+     "choice": "click element 2",
+     "p": 0.3433746666724213
+    },
+    {
+     "options": 15,
+     "choice": "the task is complete",
+     "p": 0.2845906266826623
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 4,
+   "variant": "marks",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.7659056181153656
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9981562579322069
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9995431369873375
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9829790685579896
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 10,
+   "variant": "marks",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.8607466026492488
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9997785980513878
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9995801557152993
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9777011584656636
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 16,
+   "variant": "marks",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3",
+     "p": 0.9212433445285446
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9935464056890795
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9993049765619494
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9591851744653948
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 2,
+   "variant": "marks+text",
+   "task": "Archive the email from Carla Diaz about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Carla Diaz design review (list row)",
+     "p": 0.9977086597928134
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9903121014052187
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9814345325268685
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 8,
+   "variant": "marks+text",
+   "task": "Archive the email from David Kim about the team offsite.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: David Kim team offsite (list row)",
+     "p": 0.9894351748126062
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9964010863647544
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.983771267828729
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 14,
+   "variant": "marks+text",
+   "task": "Archive the email from Farid Khan about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: Farid Khan design review (list row)",
+     "p": 0.9993521420451742
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9770269820561703
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9777662221765737
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 20,
+   "variant": "marks+text",
+   "task": "Archive the email from David Kim about the quarterly report.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: David Kim quarterly report (list row)",
+     "p": 0.9990144165005647
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9926864103491031
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9756077897569488
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 6,
+   "variant": "marks+text",
+   "task": "Buy a yellow Hoodie in size L: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: Hoodie $40 (product card)",
+     "p": 0.9813036312355834
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9610590109418928
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.9815786175202621
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9988241701268467
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8970628239849784
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.8904910506224382
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9872025732578935
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 12,
+   "variant": "marks+text",
+   "task": "Buy a yellow T-shirt in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: T-shirt $54 (product card)",
+     "p": 0.9804849887896055
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.5761758000316538
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.5022904409646454
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (0) (button)",
+     "p": 0.8642461308245414
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.8316142885191892
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.7651186738172107
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 18,
+   "variant": "marks+text",
+   "task": "Buy a yellow Hoodie in size M: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Hoodie $19 (product card)",
+     "p": 0.9522250943022443
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9738524366972843
+    },
+    {
+     "options": 15,
+     "choice": "click element 11: M (button)",
+     "p": 0.9863360416857281
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9986619272427975
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8094502494360777
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9487938856798926
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9828495924812901
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 4,
+   "variant": "marks+text",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Appearance (button)",
+     "p": 0.9999708741560777
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9980580764701288
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999883319061353
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9967894681511111
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 10,
+   "variant": "marks+text",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Security (button)",
+     "p": 0.9995923520219391
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.999982835500853
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9995185658916087
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9951004316276988
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 16,
+   "variant": "marks+text",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3: Appearance (button)",
+     "p": 0.9999751438353036
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9986287386223566
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999953952381304
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.997078758999307
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 3,
+   "variant": "marks",
+   "task": "Archive the email from David Kim about the quarterly report.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9838817435045476
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8455759183384586
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5875776523184338
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.3086781194757333
+    },
+    {
+     "options": 8,
+     "choice": "click element 5",
+     "p": 0.6766474044327385
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.3183251198465185
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 9,
+   "variant": "marks",
+   "task": "Archive the email from Bob Martin about the team offsite.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.997289240137233
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.9837272087328917
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.4647874571488452
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 15,
+   "variant": "marks",
+   "task": "Archive the email from Emma Rossi about the invoice for March.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 2,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 6",
+     "p": 0.9702812148517301
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9403280793404984
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 1,
+   "variant": "marks",
+   "task": "Buy a yellow T-shirt in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7",
+     "p": 0.9101713573009392
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9692643661636647
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.8454289470261946
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9888392092463819
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.43631729559271687
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9751536258590529
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 7,
+   "variant": "marks",
+   "task": "Buy a yellow Hoodie in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9289429773474432
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9932170754901455
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.8321332823471849
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9840190780467732
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.48966729581964946
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.90910168336184
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 13,
+   "variant": "marks",
+   "task": "Buy a red Hoodie in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.991030158484895
+    },
+    {
+     "options": 15,
+     "choice": "click element 5",
+     "p": 0.7043170750165028
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.9062719628987717
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9913608684740531
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5227950049510057
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.944637088321295
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 19,
+   "variant": "marks",
+   "task": "Buy a blue Hoodie in size M: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.9077247245545136
+    },
+    {
+     "options": 15,
+     "choice": "click element 6",
+     "p": 0.9898188184798979
+    },
+    {
+     "options": 15,
+     "choice": "click element 11",
+     "p": 0.9464649526716705
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9843282251462333
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.2766443618754146
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.8037782839935003
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 5,
+   "variant": "marks",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9958939165113844
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.999960974536647
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9990585217282378
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9884240638076942
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 11,
+   "variant": "marks",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.6573439674745547
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9904128810866905
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.998773792864025
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9648748061389091
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 17,
+   "variant": "marks",
+   "task": "Turn on \"Email digests\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9977362582394523
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.999788174419673
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9944024512942901
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9861272891224006
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 3,
+   "variant": "marks+text",
+   "task": "Archive the email from David Kim about the quarterly report.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: David Kim quarterly report (list row)",
+     "p": 0.9952371496910286
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.998120127796241
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9744201429328296
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 9,
+   "variant": "marks+text",
+   "task": "Archive the email from Bob Martin about the team offsite.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: Bob Martin team offsite (list row)",
+     "p": 0.9999868081391723
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9999322150619298
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.992569728998587
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 15,
+   "variant": "marks+text",
+   "task": "Archive the email from Emma Rossi about the invoice for March.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Emma Rossi invoice for March (list row)",
+     "p": 0.9992222579588744
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9975109962949797
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.982054501907486
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 1,
+   "variant": "marks+text",
+   "task": "Buy a yellow T-shirt in size S: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: T-shirt $40 (product card)",
+     "p": 0.9740591912318491
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9759231406621297
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.8900758446119122
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9985380209641412
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8978607987249052
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.8704514891952391
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.987484227256529
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 7,
+   "variant": "marks+text",
+   "task": "Buy a yellow Hoodie in size L: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Hoodie $26 (product card)",
+     "p": 0.963667775145069
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9712447647070995
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.978977233548299
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9987039650705727
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9021430832310717
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9423090118612728
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9820948481733074
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 13,
+   "variant": "marks+text",
+   "task": "Buy a red Hoodie in size L: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: Hoodie $54 (product card)",
+     "p": 0.9976998363005869
+    },
+    {
+     "options": 15,
+     "choice": "click element 5: colour swatch",
+     "p": 0.5975121320987309
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.9644448183475047
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9975853359368868
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9238046809385214
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9350430068110196
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9885171237123968
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 19,
+   "variant": "marks+text",
+   "task": "Buy a blue Hoodie in size M: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Hoodie $19 (product card)",
+     "p": 0.9614889198814917
+    },
+    {
+     "options": 15,
+     "choice": "click element 6: colour swatch",
+     "p": 0.9536291966235857
+    },
+    {
+     "options": 15,
+     "choice": "click element 11: M (button)",
+     "p": 0.9790026806067829
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9986270119611157
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8663043379054834
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9573331464379526
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9867372354449497
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 5,
+   "variant": "marks+text",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Notifications (button)",
+     "p": 0.9999851359456106
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999529034342831
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.999393528660747
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9975966277343157
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 11,
+   "variant": "marks+text",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Notifications (button)",
+     "p": 0.9998418248744801
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.999958143903509
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.999683199898457
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9943518558112904
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 17,
+   "variant": "marks+text",
+   "task": "Turn on \"Email digests\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Notifications (button)",
+     "p": 0.9999797971102274
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9994324394495737
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.997233540081523
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9967343460531148
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 4,
+   "variant": "marks",
+   "task": "Archive the email from Emma Rossi about the lunch on Friday.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 2,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 6",
+     "p": 0.9855487551663377
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9308825906967287
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 10,
+   "variant": "marks",
+   "task": "Archive the email from Farid Khan about the travel booking.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 2,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 6",
+     "p": 0.9852244373508147
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9140660760871496
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 16,
+   "variant": "marks",
+   "task": "Archive the email from Farid Khan about the lunch on Friday.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.9972137776650049
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.7362238314361507
+    },
+    {
+     "options": 9,
+     "choice": "click element 8",
+     "p": 0.9532336855993342
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.897518995028419
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 2,
+   "variant": "marks",
+   "task": "Buy a black Jacket in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9609309782002599
+    },
+    {
+     "options": 15,
+     "choice": "click element 8",
+     "p": 0.9396790619223374
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.9018170161205531
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.996378990977478
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5631464953077281
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9319969987750208
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 8,
+   "variant": "marks",
+   "task": "Buy a black Sneakers in size XL: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.9290852645605687
+    },
+    {
+     "options": 15,
+     "choice": "click element 8",
+     "p": 0.9835174004714023
+    },
+    {
+     "options": 15,
+     "choice": "click element 13",
+     "p": 0.9886847375645783
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9974020135975942
+    },
+    {
+     "options": 15,
+     "choice": "click element 2",
+     "p": 0.32275330837769406
+    },
+    {
+     "options": 15,
+     "choice": "the task is complete",
+     "p": 0.3005283192869037
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 14,
+   "variant": "marks",
+   "task": "Buy a yellow T-shirt in size M: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7",
+     "p": 0.8957954100251765
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9527137105108581
+    },
+    {
+     "options": 15,
+     "choice": "click element 11",
+     "p": 0.8418209101275489
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.985780767306956
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5725218740452435
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9731734853402912
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 20,
+   "variant": "marks",
+   "task": "Buy a green T-shirt in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7",
+     "p": 0.8981146342911692
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.973576385408416
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9947437700951561
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5379663256325706
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.6553060678980768
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 6,
+   "variant": "marks",
+   "task": "Turn on \"Email digests\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9946522153525018
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9997800537380285
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9931225113501516
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.983254758203928
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 12,
+   "variant": "marks",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4",
+     "p": 0.6771187385863631
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9997470954486974
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.999907418123659
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9835333339517102
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 18,
+   "variant": "marks",
+   "task": "Turn on \"Show online status\" in the Profile settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.860364468713165
+    },
+    {
+     "options": 11,
+     "choice": "click element 3",
+     "p": 0.30531098696231596
+    },
+    {
+     "options": 11,
+     "choice": "click element 5",
+     "p": 0.25359959705762425
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9981164071772921
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9948318206465058
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9580818329237141
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 4,
+   "variant": "marks+text",
+   "task": "Archive the email from Emma Rossi about the lunch on Friday.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Emma Rossi lunch on Friday (list row)",
+     "p": 0.9975740282709057
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9986279950212591
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9721280369484723
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 10,
+   "variant": "marks+text",
+   "task": "Archive the email from Farid Khan about the travel booking.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Farid Khan travel booking (list row)",
+     "p": 0.9982699772427862
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9983118964905628
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9905520244311105
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 16,
+   "variant": "marks+text",
+   "task": "Archive the email from Farid Khan about the lunch on Friday.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8: Farid Khan lunch on Friday (list row)",
+     "p": 0.9999809451500565
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9997292910799996
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9870400226989652
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 2,
+   "variant": "marks+text",
+   "task": "Buy a black Jacket in size S: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Jacket $26 (product card)",
+     "p": 0.9827851210771855
+    },
+    {
+     "options": 15,
+     "choice": "click element 8: colour swatch",
+     "p": 0.9512028750586858
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.9172164523902843
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9991719465167891
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9407980052505666
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9076550297300644
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9833290856419374
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 8,
+   "variant": "marks+text",
+   "task": "Buy a black Sneakers in size XL: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Sneakers $19 (product card)",
+     "p": 0.9676992827619597
+    },
+    {
+     "options": 15,
+     "choice": "click element 8: colour swatch",
+     "p": 0.9819713432247609
+    },
+    {
+     "options": 15,
+     "choice": "click element 13: XL (button)",
+     "p": 0.9958746162915724
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9994346913700353
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8058434759165681
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9128849961763449
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.984380423345111
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 14,
+   "variant": "marks+text",
+   "task": "Buy a yellow T-shirt in size M: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: T-shirt $40 (product card)",
+     "p": 0.97411548061535
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9593834606086283
+    },
+    {
+     "options": 15,
+     "choice": "click element 11: M (button)",
+     "p": 0.9833986409904353
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9985064778608521
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9205587157263847
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.863131126413095
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9878627456829393
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 20,
+   "variant": "marks+text",
+   "task": "Buy a green T-shirt in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: T-shirt $40 (product card)",
+     "p": 0.970578779632661
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.5990679873207809
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9956647741439458
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (0) (button)",
+     "p": 0.8757491522466574
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.7774576449337983
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.7690601700268177
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 6,
+   "variant": "marks+text",
+   "task": "Turn on \"Email digests\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Notifications (button)",
+     "p": 0.9999842016504991
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9994150620395968
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9972876521304855
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9960997796797132
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 12,
+   "variant": "marks+text",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4: Appearance (button)",
+     "p": 0.9999691692678567
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999730053229482
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999830929907714
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9968240033922481
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 18,
+   "variant": "marks+text",
+   "task": "Turn on \"Show online status\" in the Profile settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Profile (button)",
+     "p": 0.9985919139831643
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9986426020816851
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9983380512498816
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9942144276734939
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 5,
+   "variant": "marks",
+   "task": "Archive the email from Grace Lee about the design review.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.8899010117753333
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8066999118688997
+    },
+    {
+     "options": 9,
+     "choice": "click element 8",
+     "p": 0.9120995511344607
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.8881741550281158
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 11,
+   "variant": "marks",
+   "task": "Archive the email from Alice Chen about the quarterly report.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9831324322046033
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8472186834319649
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5508126979678155
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.33350175447877733
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 17,
+   "variant": "marks",
+   "task": "Archive the email from Emma Rossi about the contract renewal.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9822709369473034
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8238683071196944
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5910924206545309
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.25963709770423166
+    },
+    {
+     "options": 8,
+     "choice": "click element 5",
+     "p": 0.691520205330588
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.2882675288787037
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 3,
+   "variant": "marks",
+   "task": "Buy a red T-shirt in size XL: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4",
+     "p": 0.9375362542911772
+    },
+    {
+     "options": 15,
+     "choice": "click element 5",
+     "p": 0.8732786746968813
+    },
+    {
+     "options": 15,
+     "choice": "click element 13",
+     "p": 0.9800002435274163
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9969592123057359
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.23922567319207153
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.45299021554689833
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 9,
+   "variant": "marks",
+   "task": "Buy a black Hoodie in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.9741231718074939
+    },
+    {
+     "options": 15,
+     "choice": "click element 8",
+     "p": 0.9961483976287776
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.9567583973213926
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9915358825629454
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5907729898341846
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9752848062801821
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 15,
+   "variant": "marks",
+   "task": "Buy a red Cap in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9630162879372378
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.7675994858173997
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.995774746171946
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.42907766071206693
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.5277446542096556
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 1,
+   "variant": "marks",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3",
+     "p": 0.9935602079112924
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9998454086687328
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9991662344761395
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9738732252466481
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 7,
+   "variant": "marks",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3",
+     "p": 0.9968102730943665
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.999931918684158
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9998791925209146
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9713008439318978
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 13,
+   "variant": "marks",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.7522469616611945
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9997734280204899
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9997519934686436
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9792125486750463
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 19,
+   "variant": "marks",
+   "task": "Turn on \"Two-factor authentication\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.944877843469037
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9991690520603501
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9966135123525435
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9734410757252002
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 5,
+   "variant": "marks+text",
+   "task": "Archive the email from Grace Lee about the design review.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8: Grace Lee design review (list row)",
+     "p": 0.9999892675561525
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9970689596587538
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9726428273594905
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 11,
+   "variant": "marks+text",
+   "task": "Archive the email from Alice Chen about the quarterly report.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Alice Chen quarterly report (list row)",
+     "p": 0.9954630350124003
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.998339405107799
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9735429892314412
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 17,
+   "variant": "marks+text",
+   "task": "Archive the email from Emma Rossi about the contract renewal.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Emma Rossi contract renewal (list row)",
+     "p": 0.9936438299265863
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9989676992732754
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.977145677973397
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 3,
+   "variant": "marks+text",
+   "task": "Buy a red T-shirt in size XL: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: T-shirt $19 (product card)",
+     "p": 0.9724649897236056
+    },
+    {
+     "options": 15,
+     "choice": "click element 5: colour swatch",
+     "p": 0.8201496116233312
+    },
+    {
+     "options": 15,
+     "choice": "click element 13: XL (button)",
+     "p": 0.9945416373501986
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9990969758466067
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.8309152366189686
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9487986537578865
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9818605565008113
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 9,
+   "variant": "marks+text",
+   "task": "Buy a black Hoodie in size L: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: Hoodie $54 (product card)",
+     "p": 0.9960404028285044
+    },
+    {
+     "options": 15,
+     "choice": "click element 8: colour swatch",
+     "p": 0.9805375054980668
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.9837963454968081
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9976957181828331
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9195499572559499
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9129357820426369
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9870940040069339
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 15,
+   "variant": "marks+text",
+   "task": "Buy a red Cap in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Cap $26 (product card)",
+     "p": 0.9859670899502154
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.678428694655598
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9989641213642733
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (0) (button)",
+     "p": 0.9007504654413979
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.7522623624428733
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.6835069943315197
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 1,
+   "variant": "marks+text",
+   "task": "Turn on \"Push notifications\" in the Notifications settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3: Notifications (button)",
+     "p": 0.9999545186659321
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999664376093863
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9996863951619318
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9969804824838281
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 7,
+   "variant": "marks+text",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 3: Security (button)",
+     "p": 0.9929287820354508
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999838057845707
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999077276071512
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9956865815692123
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 13,
+   "variant": "marks+text",
+   "task": "Turn on \"Login alerts\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Security (button)",
+     "p": 0.9994821599022279
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.9999815488842919
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.999727732069915
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9943509873223676
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 19,
+   "variant": "marks+text",
+   "task": "Turn on \"Two-factor authentication\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5: Security (button)",
+     "p": 0.999270936232728
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9984709902613281
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9994291102790471
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9937489113161283
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 6,
+   "variant": "marks",
+   "task": "Archive the email from Hugo Weber about the contract renewal.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9977978895807249
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8082693171210587
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.45693151981236835
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 12,
+   "variant": "marks",
+   "task": "Archive the email from David Kim about the lunch on Friday.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9",
+     "p": 0.9952809633559083
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.9889362018121068
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.42661916179808373
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 18,
+   "variant": "marks",
+   "task": "Archive the email from Hugo Weber about the team offsite.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9854551874369589
+    },
+    {
+     "options": 9,
+     "choice": "click element 6",
+     "p": 0.8196608231025655
+    },
+    {
+     "options": 9,
+     "choice": "click element 5",
+     "p": 0.5450367894211691
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.32470083263231264
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 4,
+   "variant": "marks",
+   "task": "Buy a yellow T-shirt in size L: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.8980278245305588
+    },
+    {
+     "options": 15,
+     "choice": "click element 9",
+     "p": 0.9875382834747788
+    },
+    {
+     "options": 15,
+     "choice": "click element 12",
+     "p": 0.8198989186225369
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9785015781736833
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5233256744813881
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.908995003138921
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 10,
+   "variant": "marks",
+   "task": "Buy a green Hoodie in size M: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5",
+     "p": 0.9244280841330427
+    },
+    {
+     "options": 15,
+     "choice": "click element 7",
+     "p": 0.9727558040316957
+    },
+    {
+     "options": 15,
+     "choice": "click element 11",
+     "p": 0.7583926622129231
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9546084846018491
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5560089136897925
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9117279923105113
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 16,
+   "variant": "marks",
+   "task": "Buy a red Sneakers in size S: add it to the cart and check out.",
+   "success": false,
+   "goal_met": false,
+   "stopped": true,
+   "steps": 6,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8",
+     "p": 0.9890552637127913
+    },
+    {
+     "options": 15,
+     "choice": "click element 5",
+     "p": 0.9037842078472037
+    },
+    {
+     "options": 15,
+     "choice": "click element 10",
+     "p": 0.8556609428632328
+    },
+    {
+     "options": 15,
+     "choice": "click element 14",
+     "p": 0.9877794279325114
+    },
+    {
+     "options": 15,
+     "choice": "click element 4",
+     "p": 0.5052077997295938
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9456430542992879
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 2,
+   "variant": "marks",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9958116241350685
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9998879190405711
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9999763273129455
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9916864915655396
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 8,
+   "variant": "marks",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 5,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 5",
+     "p": 0.6064446058191004
+    },
+    {
+     "options": 11,
+     "choice": "click element 4",
+     "p": 0.4973635699651363
+    },
+    {
+     "options": 11,
+     "choice": "click element 8",
+     "p": 0.9994703422234483
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9988544104560748
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9415067293532886
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 14,
+   "variant": "marks",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4",
+     "p": 0.9856281316967483
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9994869791292652
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.9998337668981889
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9792926559207835
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 20,
+   "variant": "marks",
+   "task": "Turn on \"Two-factor authentication\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6",
+     "p": 0.9990456531762184
+    },
+    {
+     "options": 11,
+     "choice": "click element 7",
+     "p": 0.9997513970436877
+    },
+    {
+     "options": 11,
+     "choice": "click element 9",
+     "p": 0.996187671253891
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9741278562628871
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 6,
+   "variant": "marks+text",
+   "task": "Archive the email from Hugo Weber about the contract renewal.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 7: Hugo Weber contract renewal (list row)",
+     "p": 0.9997271606212903
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9907772289056817
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9864732674108846
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 12,
+   "variant": "marks+text",
+   "task": "Archive the email from David Kim about the lunch on Friday.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 9: David Kim lunch on Friday (list row)",
+     "p": 0.9999193858698756
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9999953339070028
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9950677004298637
+    }
+   ]
+  },
+  {
+   "app": "mail",
+   "seed": 18,
+   "variant": "marks+text",
+   "task": "Archive the email from Hugo Weber about the team offsite.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 3,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 4: Hugo Weber team offsite (list row)",
+     "p": 0.994082157941521
+    },
+    {
+     "options": 9,
+     "choice": "click element 6: Archive (button)",
+     "p": 0.9973919332879417
+    },
+    {
+     "options": 9,
+     "choice": "the task is complete",
+     "p": 0.9802493081590956
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 4,
+   "variant": "marks+text",
+   "task": "Buy a yellow T-shirt in size L: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: T-shirt $26 (product card)",
+     "p": 0.9418415900533565
+    },
+    {
+     "options": 15,
+     "choice": "click element 9: colour swatch",
+     "p": 0.9671758878869959
+    },
+    {
+     "options": 15,
+     "choice": "click element 12: L (button)",
+     "p": 0.9775716810435897
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.998624901141156
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9090881901569096
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.8903531049173349
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9829689527867387
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 10,
+   "variant": "marks+text",
+   "task": "Buy a green Hoodie in size M: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 5: Hoodie $26 (product card)",
+     "p": 0.9642140622495479
+    },
+    {
+     "options": 15,
+     "choice": "click element 7: colour swatch",
+     "p": 0.9063349717362331
+    },
+    {
+     "options": 15,
+     "choice": "click element 11: M (button)",
+     "p": 0.978193066020716
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.9979707448580522
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.919863573092946
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9456619224631192
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.986074816399851
+    }
+   ]
+  },
+  {
+   "app": "shop",
+   "seed": 16,
+   "variant": "marks+text",
+   "task": "Buy a red Sneakers in size S: add it to the cart and check out.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 7,
+   "trace": [
+    {
+     "options": 10,
+     "choice": "click element 8: Sneakers $47 (product card)",
+     "p": 0.997407808424899
+    },
+    {
+     "options": 15,
+     "choice": "click element 5: colour swatch",
+     "p": 0.8169221410542152
+    },
+    {
+     "options": 15,
+     "choice": "click element 10: S (button)",
+     "p": 0.9634893782412659
+    },
+    {
+     "options": 15,
+     "choice": "click element 14: Add to cart (button)",
+     "p": 0.996928313018705
+    },
+    {
+     "options": 15,
+     "choice": "click element 4: Cart (1) (button)",
+     "p": 0.9269748557765952
+    },
+    {
+     "options": 6,
+     "choice": "click element 4: Checkout (button)",
+     "p": 0.9738908331240022
+    },
+    {
+     "options": 6,
+     "choice": "the task is complete",
+     "p": 0.9879875474980592
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 2,
+   "variant": "marks+text",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Appearance (button)",
+     "p": 0.9999937106905179
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.999960651534345
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999929753885327
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9978669216983815
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 8,
+   "variant": "marks+text",
+   "task": "Turn on \"Compact layout\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4: Appearance (button)",
+     "p": 0.9999720633741155
+    },
+    {
+     "options": 11,
+     "choice": "click element 8: switch",
+     "p": 0.999977755226722
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999893245512457
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9965392611219008
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 14,
+   "variant": "marks+text",
+   "task": "Turn on \"Dark mode\" in the Appearance settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 4: Appearance (button)",
+     "p": 0.999979186898143
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9983935140517022
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9999970728455576
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9968614361821789
+    }
+   ]
+  },
+  {
+   "app": "settings",
+   "seed": 20,
+   "variant": "marks+text",
+   "task": "Turn on \"Two-factor authentication\" in the Security settings and save the change.",
+   "success": true,
+   "goal_met": true,
+   "stopped": true,
+   "steps": 4,
+   "trace": [
+    {
+     "options": 7,
+     "choice": "click element 6: Security (button)",
+     "p": 0.9999686007458691
+    },
+    {
+     "options": 11,
+     "choice": "click element 7: switch",
+     "p": 0.9989842666774184
+    },
+    {
+     "options": 11,
+     "choice": "click element 9: Save changes (button)",
+     "p": 0.9994442811408799
+    },
+    {
+     "options": 11,
+     "choice": "the task is complete",
+     "p": 0.9951361449249908
+    }
+   ]
+  }
+ ]
+}

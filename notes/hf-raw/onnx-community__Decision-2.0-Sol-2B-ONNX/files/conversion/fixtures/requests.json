@@ -1,0 +1,25 @@
+[
+  {"id": "payouts", "state": "Help! My payouts have been failing for 3 days! ",
+   "questions": {
+     "is_urgent": {"type": "noul", "instructions": "Does this convey urgency?"},
+     "team": {"type": "choice", "instructions": "Which team should handle this?", "criteria": {"billing": "", "sales": "", "retail": ""}},
+     "frustration": {"type": "score", "instructions": "How frustrated is the writer?", "criteria": ["calm", "frustrated", "depressed"]}
+   }},
+  {"id": "strawberry", "state": "strawberry",
+   "questions": {"three_rs": {"type": "noul", "instructions": "Are there three r's in this word?"}}},
+  {"id": "language", "state": "sihamba ngokushesha",
+   "questions": {"lang": {"type": "choice", "instructions": "What language is this phrase in?", "criteria": {"english": "English", "zulu": "isiZulu", "dutch": "Nederlands"}}}},
+  {"id": "tool_call", "state": {"user": "What's the weather like?", "proposed_call": {"tool": "get_weather", "args": {"city": null}}},
+   "questions": {
+     "args_ok": {"type": "noul", "instructions": "Does the proposed tool call have every argument it needs?"},
+     "next": {"type": "choice", "instructions": "What should the agent do next?", "criteria": {"call_tool": "Run the proposed tool call", "ask_user": "Ask the user for missing information", "answer": "Answer directly without a tool"}}
+   }},
+  {"id": "review", "state": "The blender caught fire the second time I used it. Smoke everywhere, my kitchen still smells. I want a full refund TODAY or I am calling my lawyer and posting videos everywhere. Nobody from support has replied in 5 days.",
+   "questions": {
+     "sentiment": {"type": "choice", "instructions": "What is the reviewer's sentiment?", "criteria": {"positive": "", "mixed": "", "negative": "", "furious": "angry and threatening action"}},
+     "safety": {"type": "noul", "instructions": "The review reports a safety hazard."},
+     "damage": {"type": "score", "instructions": "How damaging is this review to the brand?", "criteria": ["harmless", "minor", "moderate", "serious", "severe"]}
+   }},
+  {"id": "positive", "state": "this is the best doc I've ever read",
+   "questions": {"pos": {"type": "score", "instructions": "How positive is this?", "criteria": ["very negative", "negative", "neutral", "positive", "very positive"]}}}
+]

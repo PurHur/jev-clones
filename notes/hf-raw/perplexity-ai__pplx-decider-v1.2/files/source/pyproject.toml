@@ -1,0 +1,24 @@
+[project]
+name = "pplx-decider"
+version = "0.3.0"
+description = "Inference for the pplx joint decider (one sequence per request, one readout per question)"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+dependencies = [
+  "torch==2.14.0",
+  "torchvision==0.29.0",
+  "transformers==5.17.0",
+  "safetensors==0.8.0",
+  "pillow==12.3.0",
+  "huggingface-hub==1.31.0",
+]
+
+[project.optional-dependencies]
+fast = ["flash-linear-attention==0.5.2"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pplx_decider"]

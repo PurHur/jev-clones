@@ -1,0 +1,37 @@
+{
+ "ztc_version": "1.0",
+ "base_model": "Qwen/Qwen3.5-9B",
+ "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+ "probe_file": "ztc_probe.npz",
+ "curve_probe_file": "ztc_curve_probe.npz",
+ "hidden_dim": 4096,
+ "layer": "last",
+ "token": "last_non_pad",
+ "max_length": 2048,
+ "template": "다음은 어떤 문제와 그에 대한 답변이다. 이 답변이 옳은지 판단하라.\n\n[문제]\n%s\n\n[답변]\n%s\n\n이 답변은 옳은가?",
+ "thresholds": {
+  "review": -0.3499426770249868,
+  "clear": 0.11775459663604514
+ },
+ "measured": {
+  "leaderboard_auc": 0.6506,
+  "surface_baseline": 0.6223,
+  "n": 2018,
+  "n_wrong": 508,
+  "per_domain_lodo": {
+   "전문시험(법·수학·생물)": 0.7623,
+   "생물·의학": 0.631,
+   "상식·다단계추론": 0.5881,
+   "재난·안전 지침": 0.5862,
+   "과학추론": 0.6764
+  },
+  "per_domain_baseline": {
+   "전문시험(법·수학·생물)": 0.7138,
+   "생물·의학": 0.5908,
+   "상식·다단계추론": 0.542,
+   "재난·안전 지침": 0.5949,
+   "과학추론": 0.7272
+  },
+  "protocol": "2,018 items, corrected set; leave-one-domain-out; hyper-parameters chosen inside training domains only; per-domain then size-weighted. Curved probe produces the reported figure."
+ }
+}

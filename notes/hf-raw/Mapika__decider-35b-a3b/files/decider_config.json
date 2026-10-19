@@ -1,0 +1,13 @@
+{
+ "temperature": 1.08,
+ "neutralize_none": false,
+ "version": "35b-a3b-v1",
+ "base": "Qwen/Qwen3.5-35B-A3B-Base",
+ "max_options": 255,
+ "max_state_tokens": 32768,
+ "schema_first": false,
+ "schema_first_trained": true,
+ "isolated_levels": true,
+ "release_date": "2026-09-20",
+ "stage": "one public-mixture epoch (463M tokens) with Muon, routed experts frozen; runs/moe_optimizer_ab_v1/muon step 16287; temperature fitted on the in-task regression half"
+}

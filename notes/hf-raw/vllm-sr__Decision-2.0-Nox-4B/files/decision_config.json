@@ -1,0 +1,1369 @@
+{
+  "architecture": "qwen3.5-text-endpoints-global-query-shared-bilinear-mlp",
+  "head_variant": "shared",
+  "backbone_model_type": "qwen3_5",
+  "prompt_version": "decision2-segmented-options-global-query-v1",
+  "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+  "source_stage": "base",
+  "head_dim": 256,
+  "max_options": 255,
+  "text_parameter_count": 4205751296,
+  "parameter_dtype": "float32",
+  "autocast_dtype": "bfloat16",
+  "head_compute_dtype": "float32",
+  "attention": "sdpa",
+  "checkpoint_format": "full",
+  "training_mode": "materialized-lora",
+  "loss_version": "decision2-valid-k-ce-plus-optional-brier-and-replay-kl-v1",
+  "lora_origin": {
+    "source": {
+      "source_name": "1001bb4d826a52d1f399e183466143f4da7b741b",
+      "files_sha256": {
+        "config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+        "model.safetensors-00001-of-00002.safetensors": "df547074dce70532a0493e5433152bd17a65efb89088cfabc2e7e2371a93d712",
+        "model.safetensors-00002-of-00002.safetensors": "590fbaac095dd31db886c322d9d2f7df47777966391acf306ddddc3e4e3a15ef",
+        "model.safetensors.index.json": "eae340074abb0a5f31a6621f7ae8e8248a7c1790df04a722c4e4b70c2a6d1dbb",
+        "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+        "tokenizer_config.json": "3891e840d7dc5fca0af33d3a25083a735e36fe06214e3f707024820cb6b9f89c",
+        "video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+        "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    },
+    "adapter": {
+      "model_sha256": "ccca7956eb022a604ea7e67f978f16e057f326b6c0523626595f6a871f04a489",
+      "files_sha256": {
+        "checkpoint/adapter/adapter_config.json": "bf5efc236e0a7c260d17e10da6b707d5579b8d489889c44b53611a269333644b",
+        "checkpoint/adapter/adapter_model.safetensors": "f2aa6fae90c4f785d4cfa6f2100a10ddc80381640681e2951332149f4cb00f10",
+        "checkpoint/chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+        "checkpoint/decision_config.json": "743cc633e97b66bc9a7663dca7bea3a704b3487bb303960171b0b922ff3e933e",
+        "checkpoint/decision_head.safetensors": "f5f489daf0a429007d317e7d9238e3334c8d04c40ffd41b18766873ffa0f1a05",
+        "checkpoint/tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+        "checkpoint/tokenizer_config.json": "353c083805d863719e54973335a38e252a92e1ac64d32b83bb0b333cc1644ef2",
+        "source/config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "source/merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+        "source/model.safetensors-00001-of-00002.safetensors": "df547074dce70532a0493e5433152bd17a65efb89088cfabc2e7e2371a93d712",
+        "source/model.safetensors-00002-of-00002.safetensors": "590fbaac095dd31db886c322d9d2f7df47777966391acf306ddddc3e4e3a15ef",
+        "source/model.safetensors.index.json": "eae340074abb0a5f31a6621f7ae8e8248a7c1790df04a722c4e4b70c2a6d1dbb",
+        "source/preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "source/tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+        "source/tokenizer_config.json": "3891e840d7dc5fca0af33d3a25083a735e36fe06214e3f707024820cb6b9f89c",
+        "source/video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+        "source/vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    },
+    "configuration": {
+      "rank": 128,
+      "alpha": 256,
+      "dropout": 0.05,
+      "target_modules": [
+        "layers.0.mlp.gate_proj",
+        "layers.0.mlp.up_proj",
+        "layers.0.mlp.down_proj",
+        "layers.0.linear_attn.in_proj_qkv",
+        "layers.0.linear_attn.in_proj_z",
+        "layers.0.linear_attn.in_proj_b",
+        "layers.0.linear_attn.in_proj_a",
+        "layers.0.linear_attn.out_proj",
+        "layers.1.mlp.gate_proj",
+        "layers.1.mlp.up_proj",
+        "layers.1.mlp.down_proj",
+        "layers.1.linear_attn.in_proj_qkv",
+        "layers.1.linear_attn.in_proj_z",
+        "layers.1.linear_attn.in_proj_b",
+        "layers.1.linear_attn.in_proj_a",
+        "layers.1.linear_attn.out_proj",
+        "layers.2.mlp.gate_proj",
+        "layers.2.mlp.up_proj",
+        "layers.2.mlp.down_proj",
+        "layers.2.linear_attn.in_proj_qkv",
+        "layers.2.linear_attn.in_proj_z",
+        "layers.2.linear_attn.in_proj_b",
+        "layers.2.linear_attn.in_proj_a",
+        "layers.2.linear_attn.out_proj",
+        "layers.3.mlp.gate_proj",
+        "layers.3.mlp.up_proj",
+        "layers.3.mlp.down_proj",
+        "layers.3.self_attn.q_proj",
+        "layers.3.self_attn.k_proj",
+        "layers.3.self_attn.v_proj",
+        "layers.3.self_attn.o_proj",
+        "layers.4.mlp.gate_proj",
+        "layers.4.mlp.up_proj",
+        "layers.4.mlp.down_proj",
+        "layers.4.linear_attn.in_proj_qkv",
+        "layers.4.linear_attn.in_proj_z",
+        "layers.4.linear_attn.in_proj_b",
+        "layers.4.linear_attn.in_proj_a",
+        "layers.4.linear_attn.out_proj",
+        "layers.5.mlp.gate_proj",
+        "layers.5.mlp.up_proj",
+        "layers.5.mlp.down_proj",
+        "layers.5.linear_attn.in_proj_qkv",
+        "layers.5.linear_attn.in_proj_z",
+        "layers.5.linear_attn.in_proj_b",
+        "layers.5.linear_attn.in_proj_a",
+        "layers.5.linear_attn.out_proj",
+        "layers.6.mlp.gate_proj",
+        "layers.6.mlp.up_proj",
+        "layers.6.mlp.down_proj",
+        "layers.6.linear_attn.in_proj_qkv",
+        "layers.6.linear_attn.in_proj_z",
+        "layers.6.linear_attn.in_proj_b",
+        "layers.6.linear_attn.in_proj_a",
+        "layers.6.linear_attn.out_proj",
+        "layers.7.mlp.gate_proj",
+        "layers.7.mlp.up_proj",
+        "layers.7.mlp.down_proj",
+        "layers.7.self_attn.q_proj",
+        "layers.7.self_attn.k_proj",
+        "layers.7.self_attn.v_proj",
+        "layers.7.self_attn.o_proj",
+        "layers.8.mlp.gate_proj",
+        "layers.8.mlp.up_proj",
+        "layers.8.mlp.down_proj",
+        "layers.8.linear_attn.in_proj_qkv",
+        "layers.8.linear_attn.in_proj_z",
+        "layers.8.linear_attn.in_proj_b",
+        "layers.8.linear_attn.in_proj_a",
+        "layers.8.linear_attn.out_proj",
+        "layers.9.mlp.gate_proj",
+        "layers.9.mlp.up_proj",
+        "layers.9.mlp.down_proj",
+        "layers.9.linear_attn.in_proj_qkv",
+        "layers.9.linear_attn.in_proj_z",
+        "layers.9.linear_attn.in_proj_b",
+        "layers.9.linear_attn.in_proj_a",
+        "layers.9.linear_attn.out_proj",
+        "layers.10.mlp.gate_proj",
+        "layers.10.mlp.up_proj",
+        "layers.10.mlp.down_proj",
+        "layers.10.linear_attn.in_proj_qkv",
+        "layers.10.linear_attn.in_proj_z",
+        "layers.10.linear_attn.in_proj_b",
+        "layers.10.linear_attn.in_proj_a",
+        "layers.10.linear_attn.out_proj",
+        "layers.11.mlp.gate_proj",
+        "layers.11.mlp.up_proj",
+        "layers.11.mlp.down_proj",
+        "layers.11.self_attn.q_proj",
+        "layers.11.self_attn.k_proj",
+        "layers.11.self_attn.v_proj",
+        "layers.11.self_attn.o_proj",
+        "layers.12.mlp.gate_proj",
+        "layers.12.mlp.up_proj",
+        "layers.12.mlp.down_proj",
+        "layers.12.linear_attn.in_proj_qkv",
+        "layers.12.linear_attn.in_proj_z",
+        "layers.12.linear_attn.in_proj_b",
+        "layers.12.linear_attn.in_proj_a",
+        "layers.12.linear_attn.out_proj",
+        "layers.13.mlp.gate_proj",
+        "layers.13.mlp.up_proj",
+        "layers.13.mlp.down_proj",
+        "layers.13.linear_attn.in_proj_qkv",
+        "layers.13.linear_attn.in_proj_z",
+        "layers.13.linear_attn.in_proj_b",
+        "layers.13.linear_attn.in_proj_a",
+        "layers.13.linear_attn.out_proj",
+        "layers.14.mlp.gate_proj",
+        "layers.14.mlp.up_proj",
+        "layers.14.mlp.down_proj",
+        "layers.14.linear_attn.in_proj_qkv",
+        "layers.14.linear_attn.in_proj_z",
+        "layers.14.linear_attn.in_proj_b",
+        "layers.14.linear_attn.in_proj_a",
+        "layers.14.linear_attn.out_proj",
+        "layers.15.mlp.gate_proj",
+        "layers.15.mlp.up_proj",
+        "layers.15.mlp.down_proj",
+        "layers.15.self_attn.q_proj",
+        "layers.15.self_attn.k_proj",
+        "layers.15.self_attn.v_proj",
+        "layers.15.self_attn.o_proj",
+        "layers.16.mlp.gate_proj",
+        "layers.16.mlp.up_proj",
+        "layers.16.mlp.down_proj",
+        "layers.16.linear_attn.in_proj_qkv",
+        "layers.16.linear_attn.in_proj_z",
+        "layers.16.linear_attn.in_proj_b",
+        "layers.16.linear_attn.in_proj_a",
+        "layers.16.linear_attn.out_proj",
+        "layers.17.mlp.gate_proj",
+        "layers.17.mlp.up_proj",
+        "layers.17.mlp.down_proj",
+        "layers.17.linear_attn.in_proj_qkv",
+        "layers.17.linear_attn.in_proj_z",
+        "layers.17.linear_attn.in_proj_b",
+        "layers.17.linear_attn.in_proj_a",
+        "layers.17.linear_attn.out_proj",
+        "layers.18.mlp.gate_proj",
+        "layers.18.mlp.up_proj",
+        "layers.18.mlp.down_proj",
+        "layers.18.linear_attn.in_proj_qkv",
+        "layers.18.linear_attn.in_proj_z",
+        "layers.18.linear_attn.in_proj_b",
+        "layers.18.linear_attn.in_proj_a",
+        "layers.18.linear_attn.out_proj",
+        "layers.19.mlp.gate_proj",
+        "layers.19.mlp.up_proj",
+        "layers.19.mlp.down_proj",
+        "layers.19.self_attn.q_proj",
+        "layers.19.self_attn.k_proj",
+        "layers.19.self_attn.v_proj",
+        "layers.19.self_attn.o_proj",
+        "layers.20.mlp.gate_proj",
+        "layers.20.mlp.up_proj",
+        "layers.20.mlp.down_proj",
+        "layers.20.linear_attn.in_proj_qkv",
+        "layers.20.linear_attn.in_proj_z",
+        "layers.20.linear_attn.in_proj_b",
+        "layers.20.linear_attn.in_proj_a",
+        "layers.20.linear_attn.out_proj",
+        "layers.21.mlp.gate_proj",
+        "layers.21.mlp.up_proj",
+        "layers.21.mlp.down_proj",
+        "layers.21.linear_attn.in_proj_qkv",
+        "layers.21.linear_attn.in_proj_z",
+        "layers.21.linear_attn.in_proj_b",
+        "layers.21.linear_attn.in_proj_a",
+        "layers.21.linear_attn.out_proj",
+        "layers.22.mlp.gate_proj",
+        "layers.22.mlp.up_proj",
+        "layers.22.mlp.down_proj",
+        "layers.22.linear_attn.in_proj_qkv",
+        "layers.22.linear_attn.in_proj_z",
+        "layers.22.linear_attn.in_proj_b",
+        "layers.22.linear_attn.in_proj_a",
+        "layers.22.linear_attn.out_proj",
+        "layers.23.mlp.gate_proj",
+        "layers.23.mlp.up_proj",
+        "layers.23.mlp.down_proj",
+        "layers.23.self_attn.q_proj",
+        "layers.23.self_attn.k_proj",
+        "layers.23.self_attn.v_proj",
+        "layers.23.self_attn.o_proj",
+        "layers.24.mlp.gate_proj",
+        "layers.24.mlp.up_proj",
+        "layers.24.mlp.down_proj",
+        "layers.24.linear_attn.in_proj_qkv",
+        "layers.24.linear_attn.in_proj_z",
+        "layers.24.linear_attn.in_proj_b",
+        "layers.24.linear_attn.in_proj_a",
+        "layers.24.linear_attn.out_proj",
+        "layers.25.mlp.gate_proj",
+        "layers.25.mlp.up_proj",
+        "layers.25.mlp.down_proj",
+        "layers.25.linear_attn.in_proj_qkv",
+        "layers.25.linear_attn.in_proj_z",
+        "layers.25.linear_attn.in_proj_b",
+        "layers.25.linear_attn.in_proj_a",
+        "layers.25.linear_attn.out_proj",
+        "layers.26.mlp.gate_proj",
+        "layers.26.mlp.up_proj",
+        "layers.26.mlp.down_proj",
+        "layers.26.linear_attn.in_proj_qkv",
+        "layers.26.linear_attn.in_proj_z",
+        "layers.26.linear_attn.in_proj_b",
+        "layers.26.linear_attn.in_proj_a",
+        "layers.26.linear_attn.out_proj",
+        "layers.27.mlp.gate_proj",
+        "layers.27.mlp.up_proj",
+        "layers.27.mlp.down_proj",
+        "layers.27.self_attn.q_proj",
+        "layers.27.self_attn.k_proj",
+        "layers.27.self_attn.v_proj",
+        "layers.27.self_attn.o_proj",
+        "layers.28.mlp.gate_proj",
+        "layers.28.mlp.up_proj",
+        "layers.28.mlp.down_proj",
+        "layers.28.linear_attn.in_proj_qkv",
+        "layers.28.linear_attn.in_proj_z",
+        "layers.28.linear_attn.in_proj_b",
+        "layers.28.linear_attn.in_proj_a",
+        "layers.28.linear_attn.out_proj",
+        "layers.29.mlp.gate_proj",
+        "layers.29.mlp.up_proj",
+        "layers.29.mlp.down_proj",
+        "layers.29.linear_attn.in_proj_qkv",
+        "layers.29.linear_attn.in_proj_z",
+        "layers.29.linear_attn.in_proj_b",
+        "layers.29.linear_attn.in_proj_a",
+        "layers.29.linear_attn.out_proj",
+        "layers.30.mlp.gate_proj",
+        "layers.30.mlp.up_proj",
+        "layers.30.mlp.down_proj",
+        "layers.30.linear_attn.in_proj_qkv",
+        "layers.30.linear_attn.in_proj_z",
+        "layers.30.linear_attn.in_proj_b",
+        "layers.30.linear_attn.in_proj_a",
+        "layers.30.linear_attn.out_proj",
+        "layers.31.mlp.gate_proj",
+        "layers.31.mlp.up_proj",
+        "layers.31.mlp.down_proj",
+        "layers.31.self_attn.q_proj",
+        "layers.31.self_attn.k_proj",
+        "layers.31.self_attn.v_proj",
+        "layers.31.self_attn.o_proj"
+      ],
+      "target_dimensions": {
+        "layers.0.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.0.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.0.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.0.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.0.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.0.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.0.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.0.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.1.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.1.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.1.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.1.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.1.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.1.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.1.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.1.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.2.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.2.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.2.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.2.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.2.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.2.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.2.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.2.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.3.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.3.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.3.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.3.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.3.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.3.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.3.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.4.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.4.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.4.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.4.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.4.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.4.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.4.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.4.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.5.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.5.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.5.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.5.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.5.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.5.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.5.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.5.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.6.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.6.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.6.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.6.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.6.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.6.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.6.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.6.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.7.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.7.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.7.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.7.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.7.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.7.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.7.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.8.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.8.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.8.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.8.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.8.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.8.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.8.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.8.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.9.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.9.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.9.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.9.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.9.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.9.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.9.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.9.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.10.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.10.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.10.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.10.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.10.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.10.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.10.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.10.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.11.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.11.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.11.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.11.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.11.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.11.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.11.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.12.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.12.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.12.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.12.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.12.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.12.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.12.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.12.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.13.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.13.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.13.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.13.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.13.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.13.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.13.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.13.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.14.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.14.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.14.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.14.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.14.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.14.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.14.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.14.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.15.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.15.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.15.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.15.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.15.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.15.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.15.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.16.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.16.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.16.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.16.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.16.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.16.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.16.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.16.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.17.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.17.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.17.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.17.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.17.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.17.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.17.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.17.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.18.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.18.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.18.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.18.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.18.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.18.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.18.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.18.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.19.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.19.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.19.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.19.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.19.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.19.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.19.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.20.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.20.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.20.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.20.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.20.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.20.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.20.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.20.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.21.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.21.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.21.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.21.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.21.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.21.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.21.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.21.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.22.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.22.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.22.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.22.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.22.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.22.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.22.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.22.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.23.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.23.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.23.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.23.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.23.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.23.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.23.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.24.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.24.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.24.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.24.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.24.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.24.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.24.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.24.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.25.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.25.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.25.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.25.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.25.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.25.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.25.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.25.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.26.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.26.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.26.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.26.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.26.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.26.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.26.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.26.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.27.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.27.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.27.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.27.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.27.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.27.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.27.self_attn.o_proj": [
+          4096,
+          2560
+        ],
+        "layers.28.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.28.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.28.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.28.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.28.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.28.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.28.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.28.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.29.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.29.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.29.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.29.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.29.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.29.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.29.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.29.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.30.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.30.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.30.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.30.linear_attn.in_proj_qkv": [
+          2560,
+          8192
+        ],
+        "layers.30.linear_attn.in_proj_z": [
+          2560,
+          4096
+        ],
+        "layers.30.linear_attn.in_proj_b": [
+          2560,
+          32
+        ],
+        "layers.30.linear_attn.in_proj_a": [
+          2560,
+          32
+        ],
+        "layers.30.linear_attn.out_proj": [
+          4096,
+          2560
+        ],
+        "layers.31.mlp.gate_proj": [
+          2560,
+          9216
+        ],
+        "layers.31.mlp.up_proj": [
+          2560,
+          9216
+        ],
+        "layers.31.mlp.down_proj": [
+          9216,
+          2560
+        ],
+        "layers.31.self_attn.q_proj": [
+          2560,
+          8192
+        ],
+        "layers.31.self_attn.k_proj": [
+          2560,
+          1024
+        ],
+        "layers.31.self_attn.v_proj": [
+          2560,
+          1024
+        ],
+        "layers.31.self_attn.o_proj": [
+          4096,
+          2560
+        ]
+      },
+      "source_kind": "base",
+      "source_fingerprint": {
+        "source_name": "1001bb4d826a52d1f399e183466143f4da7b741b",
+        "files_sha256": {
+          "config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+          "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+          "model.safetensors-00001-of-00002.safetensors": "df547074dce70532a0493e5433152bd17a65efb89088cfabc2e7e2371a93d712",
+          "model.safetensors-00002-of-00002.safetensors": "590fbaac095dd31db886c322d9d2f7df47777966391acf306ddddc3e4e3a15ef",
+          "model.safetensors.index.json": "eae340074abb0a5f31a6621f7ae8e8248a7c1790df04a722c4e4b70c2a6d1dbb",
+          "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+          "tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+          "tokenizer_config.json": "3891e840d7dc5fca0af33d3a25083a735e36fe06214e3f707024820cb6b9f89c",
+          "video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+          "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+        }
+      },
+      "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+      "peft_version": "0.21.0"
+    }
+  },
+  "full_training_source": {
+    "kind": "merged-lora-base",
+    "base_revision": "1001bb4d826a52d1f399e183466143f4da7b741b",
+    "source_fingerprint": {
+      "source_name": "1001bb4d826a52d1f399e183466143f4da7b741b",
+      "files_sha256": {
+        "config.json": "ddc63e1c717afa86c865bb5e01313d89d72bb53b97ad4a8a03ba8510c0621670",
+        "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+        "model.safetensors-00001-of-00002.safetensors": "df547074dce70532a0493e5433152bd17a65efb89088cfabc2e7e2371a93d712",
+        "model.safetensors-00002-of-00002.safetensors": "590fbaac095dd31db886c322d9d2f7df47777966391acf306ddddc3e4e3a15ef",
+        "model.safetensors.index.json": "eae340074abb0a5f31a6621f7ae8e8248a7c1790df04a722c4e4b70c2a6d1dbb",
+        "preprocessor_config.json": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516",
+        "tokenizer.json": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927",
+        "tokenizer_config.json": "3891e840d7dc5fca0af33d3a25083a735e36fe06214e3f707024820cb6b9f89c",
+        "video_preprocessor_config.json": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085",
+        "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    }
+  },
+  "merged_from": {
+    "checkpoint": "/runs/4b/arms/full/4b-4b-LHS17IB4-lrh-s1/checkpoint-0001249",
+    "model_sha256": "ccca7956eb022a604ea7e67f978f16e057f326b6c0523626595f6a871f04a489"
+  },
+  "soup": {
+    "method": "uniform weight average (FP32)",
+    "members": [
+      {
+        "path": "/runs/4b/soup/4b-LHS17IB4-lrh/build/4b-LHS17IB4-lrh",
+        "model_sha256": "0b40be9478c041e964ce340d3985369bd67b15260c1205b7cf2b7928004fe7f9"
+      },
+      {
+        "path": "/runs/4b/soup/4b-SDMLIB4-lrh/build/4b-SDMLIB4-lrh",
+        "model_sha256": "de1ab06b31ad1971944699c4637f02a7fae6c2b445f59a08dfdceae2eb64f668"
+      },
+      {
+        "path": "/runs/4b/soup/4b-LHS17ML-lrh/build/4b-LHS17ML-lrh",
+        "model_sha256": "a9ab8c812046e56f13c16465559f51211c9167387236e4884b24864cfa3037e1"
+      },
+      {
+        "path": "/runs/4b/soup/4b-LHS17IB4X-lrh/build/4b-LHS17IB4X-lrh",
+        "model_sha256": "77f3dba12bce2405df9d47ec294532748c5e9867dbda5e6145c14bd556b3ef26"
+      }
+    ]
+  },
+  "initialization": "uniform-soup-of-full-checkpoints"
+}

@@ -1,0 +1,243 @@
+{
+  "passed": true,
+  "step": 2446,
+  "rows": 1497,
+  "max_logit_delta": 0.0,
+  "changed_answers": 0,
+  "actual": {
+    "count": 1497,
+    "accuracy": 0.9044756179024717,
+    "ece": 0.015921474840787767,
+    "brier": 0.1394829723098351,
+    "nll": 0.2658263903148321,
+    "reliability": [
+      {
+        "lower": 0.0,
+        "upper": 0.06666666666666667,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.06666666666666667,
+        "upper": 0.13333333333333333,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.13333333333333333,
+        "upper": 0.2,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.26666666666666666,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.26666666666666666,
+        "upper": 0.3333333333333333,
+        "count": 2,
+        "confidence": 0.31135624793986905,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.3333333333333333,
+        "upper": 0.4,
+        "count": 4,
+        "confidence": 0.3795988209317241,
+        "accuracy": 0.25
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.4666666666666667,
+        "count": 10,
+        "confidence": 0.4338508780415893,
+        "accuracy": 0.3
+      },
+      {
+        "lower": 0.4666666666666667,
+        "upper": 0.5333333333333333,
+        "count": 28,
+        "confidence": 0.5125212159584523,
+        "accuracy": 0.5357142857142857
+      },
+      {
+        "lower": 0.5333333333333333,
+        "upper": 0.6,
+        "count": 43,
+        "confidence": 0.566683448744739,
+        "accuracy": 0.37209302325581395
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.6666666666666666,
+        "count": 44,
+        "confidence": 0.6362345661097399,
+        "accuracy": 0.7045454545454546
+      },
+      {
+        "lower": 0.6666666666666666,
+        "upper": 0.7333333333333333,
+        "count": 43,
+        "confidence": 0.7020891051909374,
+        "accuracy": 0.6976744186046512
+      },
+      {
+        "lower": 0.7333333333333333,
+        "upper": 0.8,
+        "count": 61,
+        "confidence": 0.7703773393839396,
+        "accuracy": 0.7540983606557377
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.8666666666666667,
+        "count": 73,
+        "confidence": 0.8348056071263737,
+        "accuracy": 0.821917808219178
+      },
+      {
+        "lower": 0.8666666666666667,
+        "upper": 0.9333333333333333,
+        "count": 151,
+        "confidence": 0.9052102422947349,
+        "accuracy": 0.8807947019867549
+      },
+      {
+        "lower": 0.9333333333333333,
+        "upper": 1.0,
+        "count": 1038,
+        "confidence": 0.985088586516298,
+        "accuracy": 0.9816955684007708
+      }
+    ],
+    "zero_probability_count": 0,
+    "soft_count": 280,
+    "soft_nll": 0.3364909261778375,
+    "soft_brier": 0.04574330485746806
+  },
+  "expected": {
+    "count": 1497,
+    "accuracy": 0.9044756179024717,
+    "ece": 0.015921474840787767,
+    "brier": 0.1394829723098351,
+    "nll": 0.2658263903148321,
+    "reliability": [
+      {
+        "lower": 0.0,
+        "upper": 0.06666666666666667,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.06666666666666667,
+        "upper": 0.13333333333333333,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.13333333333333333,
+        "upper": 0.2,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.26666666666666666,
+        "count": 0,
+        "confidence": null,
+        "accuracy": null
+      },
+      {
+        "lower": 0.26666666666666666,
+        "upper": 0.3333333333333333,
+        "count": 2,
+        "confidence": 0.31135624793986905,
+        "accuracy": 0.0
+      },
+      {
+        "lower": 0.3333333333333333,
+        "upper": 0.4,
+        "count": 4,
+        "confidence": 0.3795988209317241,
+        "accuracy": 0.25
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.4666666666666667,
+        "count": 10,
+        "confidence": 0.4338508780415893,
+        "accuracy": 0.3
+      },
+      {
+        "lower": 0.4666666666666667,
+        "upper": 0.5333333333333333,
+        "count": 28,
+        "confidence": 0.5125212159584523,
+        "accuracy": 0.5357142857142857
+      },
+      {
+        "lower": 0.5333333333333333,
+        "upper": 0.6,
+        "count": 43,
+        "confidence": 0.566683448744739,
+        "accuracy": 0.37209302325581395
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.6666666666666666,
+        "count": 44,
+        "confidence": 0.6362345661097399,
+        "accuracy": 0.7045454545454546
+      },
+      {
+        "lower": 0.6666666666666666,
+        "upper": 0.7333333333333333,
+        "count": 43,
+        "confidence": 0.7020891051909374,
+        "accuracy": 0.6976744186046512
+      },
+      {
+        "lower": 0.7333333333333333,
+        "upper": 0.8,
+        "count": 61,
+        "confidence": 0.7703773393839396,
+        "accuracy": 0.7540983606557377
+      },
+      {
+        "lower": 0.8,
+        "upper": 0.8666666666666667,
+        "count": 73,
+        "confidence": 0.8348056071263737,
+        "accuracy": 0.821917808219178
+      },
+      {
+        "lower": 0.8666666666666667,
+        "upper": 0.9333333333333333,
+        "count": 151,
+        "confidence": 0.9052102422947349,
+        "accuracy": 0.8807947019867549
+      },
+      {
+        "lower": 0.9333333333333333,
+        "upper": 1.0,
+        "count": 1038,
+        "confidence": 0.985088586516298,
+        "accuracy": 0.9816955684007708
+      }
+    ],
+    "zero_probability_count": 0,
+    "soft_count": 280,
+    "soft_nll": 0.3364909261778375,
+    "soft_brier": 0.04574330485746806
+  }
+}

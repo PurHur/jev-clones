@@ -1,0 +1,99 @@
+{%- set default_system = "Judge whether the document is relevant to the query. Answer Yes or No." -%}
+{%- set ns = namespace(system_text="", doc_visual=false, doc_text=false) -%}
+{%- for message in messages if message.role == "system" -%}
+    {%- if message.content is string -%}
+        {%- set ns.system_text = ns.system_text + message.content -%}
+    {%- else -%}
+        {%- for content in message.content -%}
+            {%- if 'text' in content -%}
+                {%- set ns.system_text = ns.system_text + content.text -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endfor -%}
+{%- if not ns.system_text -%}
+    {%- set ns.system_text = default_system -%}
+{%- endif -%}
+{%- for message in messages if message.role == "document" -%}
+    {%- if message.content is string -%}
+        {%- if message.content -%}
+            {%- set ns.doc_text = true -%}
+        {%- endif -%}
+    {%- else -%}
+        {%- for content in message.content -%}
+            {%- if content.type == 'image' or 'image' in content or 'image_url' in content or content.type == 'video' or 'video' in content -%}
+                {%- set ns.doc_visual = true -%}
+            {%- elif 'text' in content and content.text -%}
+                {%- set ns.doc_text = true -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endfor -%}
+{%- macro render_content(message) -%}
+    {%- if message.content is string -%}
+        {{- message.content -}}
+    {%- else -%}
+        {%- for content in message.content -%}
+            {%- if content.type == 'image' or 'image' in content or 'image_url' in content -%}
+                {{- '<|vision_start|><|image_pad|><|vision_end|>' -}}
+            {%- elif content.type == 'video' or 'video' in content -%}
+                {{- '<|vision_start|><|video_pad|><|vision_end|>' -}}
+            {%- elif 'text' in content -%}
+                {{- content.text -}}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endmacro -%}
+{%- macro render_visuals(message) -%}
+    {%- if message.content is not string -%}
+        {%- for content in message.content -%}
+            {%- if content.type == 'image' or 'image' in content or 'image_url' in content -%}
+                {{- '<|vision_start|><|image_pad|><|vision_end|>' -}}
+            {%- elif content.type == 'video' or 'video' in content -%}
+                {{- '<|vision_start|><|video_pad|><|vision_end|>' -}}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endmacro -%}
+{%- macro render_texts(message) -%}
+    {%- if message.content is string -%}
+        {{- message.content -}}
+    {%- else -%}
+        {%- for content in message.content -%}
+            {%- if content.type != 'image' and 'image' not in content and 'image_url' not in content and content.type != 'video' and 'video' not in content and 'text' in content -%}
+                {{- content.text -}}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endmacro -%}
+{%- set user_body -%}
+    {%- if ns.doc_visual -%}
+        {%- for message in messages if message.role == "document" -%}
+            {{- render_visuals(message) -}}
+        {%- endfor -%}
+        {{- 'Given a query, determine if the document image is relevant. The query is: ' -}}
+        {%- for message in messages if message.role == "query" -%}
+            {{- render_content(message) -}}
+        {%- endfor -%}
+        {%- if ns.doc_text -%}
+            {{- '\n\nDocument: ' -}}
+            {%- for message in messages if message.role == "document" -%}
+                {{- render_texts(message) -}}
+            {%- endfor -%}
+        {%- endif -%}
+    {%- else -%}
+        {{- 'Given a query, determine if the document is relevant. The query is: ' -}}
+        {%- for message in messages if message.role == "query" -%}
+            {{- render_content(message) -}}
+        {%- endfor -%}
+        {{- '\n\nDocument: ' -}}
+        {%- for message in messages if message.role == "document" -%}
+            {{- render_content(message) -}}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endset -%}
+{{- '<|im_start|>system\n' + ns.system_text|trim + '<|im_end|>\n' -}}
+{{- '<|im_start|>user\n' + user_body|trim + '<|im_end|>\n' -}}
+{%- if add_generation_prompt -%}
+    {{- '<|im_start|>assistant\n<think>\n\n</think>\n\n' -}}
+{%- endif -%}

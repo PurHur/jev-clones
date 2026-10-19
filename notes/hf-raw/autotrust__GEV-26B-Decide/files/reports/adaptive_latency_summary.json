@@ -1,0 +1,102 @@
+{
+ "per_benchmark": {
+  "BBH fixed-option tasks": {
+   "requests": 5507,
+   "questions_thinking_pct": 59.7,
+   "think_tokens_median": 3255.0,
+   "budget_hit_pct": 8.2,
+   "est_median_s_no_mtp": 5.27,
+   "est_median_s_mtp": 3.05
+  },
+  "CLadder": {
+   "requests": 5000,
+   "questions_thinking_pct": 51.1,
+   "think_tokens_median": 6431.5,
+   "budget_hit_pct": 33.4,
+   "est_median_s_no_mtp": 6.66,
+   "est_median_s_mtp": 3.85
+  },
+  "CRUXEval": {
+   "requests": 570,
+   "questions_thinking_pct": 41.8,
+   "think_tokens_median": 7143.0,
+   "budget_hit_pct": 41.2,
+   "est_median_s_no_mtp": 0.04,
+   "est_median_s_mtp": 0.05
+  },
+  "ChessBench": {
+   "requests": 5000,
+   "questions_thinking_pct": 87.6,
+   "think_tokens_median": 8192.0,
+   "budget_hit_pct": 75.5,
+   "est_median_s_no_mtp": 32.86,
+   "est_median_s_mtp": 18.8
+  },
+  "GPQA Diamond": {
+   "requests": 198,
+   "questions_thinking_pct": 86.9,
+   "think_tokens_median": 8192.0,
+   "budget_hit_pct": 65.7,
+   "est_median_s_no_mtp": 32.86,
+   "est_median_s_mtp": 18.8
+  },
+  "GSM8K": {
+   "requests": 2638,
+   "questions_thinking_pct": 5.3,
+   "think_tokens_median": 888.5,
+   "budget_hit_pct": 7.9,
+   "est_median_s_no_mtp": 0.04,
+   "est_median_s_mtp": 0.05
+  },
+  "HLE": {
+   "requests": 513,
+   "questions_thinking_pct": 87.9,
+   "think_tokens_median": 8192.0,
+   "budget_hit_pct": 61.4,
+   "est_median_s_no_mtp": 32.86,
+   "est_median_s_mtp": 18.8
+  },
+  "MMLU-Pro": {
+   "requests": 12024,
+   "questions_thinking_pct": 78.4,
+   "think_tokens_median": 5361.0,
+   "budget_hit_pct": 28.0,
+   "est_median_s_no_mtp": 16.56,
+   "est_median_s_mtp": 9.49
+  },
+  "MuSR": {
+   "requests": 756,
+   "questions_thinking_pct": 51.2,
+   "think_tokens_median": 4781.0,
+   "budget_hit_pct": 11.4,
+   "est_median_s_no_mtp": 5.41,
+   "est_median_s_mtp": 3.13
+  },
+  "SATA-Bench": {
+   "requests": 1650,
+   "questions_thinking_pct": 21.1,
+   "think_tokens_median": 2600.0,
+   "budget_hit_pct": 1.1,
+   "est_median_s_no_mtp": 15.18,
+   "est_median_s_mtp": 8.71
+  }
+ },
+ "all_ten": {
+  "requests": 33856,
+  "questions_thinking_pct": 51.0,
+  "requests_thinking_pct": 65.9,
+  "est_latency_no_mtp": {
+   "median_s": 13.4,
+   "p90_s": 32.9
+  },
+  "est_latency_mtp": {
+   "median_s": 7.7,
+   "p90_s": 18.8
+  }
+ },
+ "assumptions": "single request on one idle B200: System 1 ~45 ms; thinking ~250 tokens/s without and ~438 tokens/s with speculative decoding (gemma-4-26B-A4B-it-assistant); ~50 ms answer read-out",
+ "settings": {
+  "threshold": 0.8,
+  "think_budget": 8192
+ }
+}

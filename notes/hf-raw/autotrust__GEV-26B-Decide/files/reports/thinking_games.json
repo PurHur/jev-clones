@@ -1,0 +1,131 @@
+{
+ "settings": {
+  "thinking": "auto",
+  "threshold": 0.8,
+  "think_budget": 8192,
+  "model": "autotrust/GEV-26B-Decide"
+ },
+ "one_move_puzzles": {
+  "minesweeper": {
+   "n": 200,
+   "chance": 0.25,
+   "system1": 0.21,
+   "adaptive": 0.86,
+   "thought": 1.0
+  },
+  "wordle": {
+   "n": 200,
+   "chance": 0.125,
+   "system1": 0.52,
+   "adaptive": 1.0,
+   "thought": 0.985
+  },
+  "connect4": {
+   "n": 200,
+   "chance": 0.1451190476190474,
+   "system1": 0.54,
+   "adaptive": 0.995,
+   "thought": 0.95
+  },
+  "sudoku": {
+   "n": 200,
+   "chance": 0.1111111111111108,
+   "system1": 0.76,
+   "adaptive": 0.995,
+   "thought": 0.925
+  },
+  "game24": {
+   "n": 200,
+   "chance": 0.166666666666667,
+   "system1": 0.89,
+   "adaptive": 1.0,
+   "thought": 0.74
+  },
+  "maze": {
+   "n": 200,
+   "chance": 0.4841666666666666,
+   "system1": 0.485,
+   "adaptive": 0.68,
+   "thought": 0.815
+  }
+ },
+ "chess_mate_in_one_choice16": {
+  "n": 200,
+  "system1": 0.465,
+  "adaptive": 0.78
+ },
+ "snake": {
+  "system1": {
+   "food": 3,
+   "steps": 18,
+   "alive": false,
+   "seconds": 35
+  },
+  "adaptive": {
+   "food": 11,
+   "steps": 90,
+   "alive": false,
+   "seconds": 1870
+  }
+ },
+ "2048": {
+  "system1": {
+   "moves": 151,
+   "score": 1476,
+   "max_tile": 128,
+   "sec_per_move": 0.5795704402670955,
+   "seconds": 88
+  },
+  "adaptive": {
+   "moves": 109,
+   "score": 1016,
+   "max_tile": 128,
+   "sec_per_move": 28.29594740955108,
+   "seconds": 3084
+  }
+ },
+ "c4": {
+  "system1": {
+   "win": 1,
+   "loss": 5,
+   "draw": 0,
+   "seconds": 63
+  },
+  "adaptive": {
+   "win": 1,
+   "loss": 4,
+   "draw": 1,
+   "seconds": 2037
+  }
+ },
+ "flappy": {
+  "system1": {
+   "pipes_passed": 0,
+   "frames": 23,
+   "alive": false,
+   "sec_per_decision": 1.7842689804408862,
+   "seconds": 41
+  },
+  "adaptive": {
+   "pipes_passed": 0,
+   "frames": 38,
+   "alive": false,
+   "sec_per_decision": 35.43289421734057,
+   "seconds": 1347
+  }
+ },
+ "quickdraw": {
+  "system1": {
+   "top1_30pct_strokes": 0.469,
+   "top1_60pct_strokes": 0.731,
+   "top1_100pct_strokes": 0.944,
+   "seconds": 53
+  },
+  "adaptive": {
+   "top1_30pct_strokes": 0.403,
+   "top1_60pct_strokes": 0.728,
+   "top1_100pct_strokes": 0.95,
+   "seconds": 859
+  }
+ }
+}

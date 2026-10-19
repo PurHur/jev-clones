@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "model": "strands-decider-26B-A4B-gemma4-v2-2610-soup3",
+  "checkpoint": "<redacted>/strands-decider-26B-A4B-gemma4-v2-2610-soup3",
+  "base_model": "google/gemma-4-26B-A4B-it",
+  "num_slots": 24,
+  "max_length": 4096,
+  "temperature": 0.702122181653982,
+  "device": "cuda",
+  "prefix_cache": true
+}

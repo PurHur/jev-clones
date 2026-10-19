@@ -1,0 +1,9 @@
+transformers==5.17.0
+flash-linear-attention==0.5.2
+safetensors==0.8.0
+pillow==12.3.0
+numpy==2.5.3
+fastapi==0.141.1
+uvicorn==0.52.4
+httpx==0.28.1
+# Also install torch==2.14.0 and torchvision==0.29.0 for your accelerator.

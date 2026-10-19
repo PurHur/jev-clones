@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "model": "g26-e2b-code-soup3",
+  "checkpoint": "<redacted>/g26-e2b-code-soup3",
+  "base_model": "google/gemma-4-E2B-it",
+  "num_slots": 24,
+  "max_length": 4096,
+  "temperature": 0.7997762858861774,
+  "device": "cuda",
+  "prefix_cache": true
+}

@@ -1,0 +1,100 @@
+{
+ "LICENSE": {
+  "bytes": 19347,
+  "sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0"
+ },
+ "LICENSE-APACHE-2.0": {
+  "bytes": 11544,
+  "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+ },
+ "NOTICE": {
+  "bytes": 812,
+  "sha256": "be14cddf8300ca5548f42160327c1e2d716ec2d085dda6b08944daa8556d2ab1"
+ },
+ "README.md": {
+  "bytes": 8695,
+  "sha256": "0481aa444631b4ac9678c27404b367523282bee596f3842178ed1221a3bd1b20"
+ },
+ "assets/hero_stats.png": {
+  "bytes": 71903,
+  "sha256": "44436381d98cb9b45b1f3d8f2f4c21e25047eff57941e15d98c7d3a53e4a425b"
+ },
+ "assets/jevbench_families.png": {
+  "bytes": 308200,
+  "sha256": "7b78efd3625df1052d65987577e96be626d446e3f9b8e4c11b1f8fb7cca670d3"
+ },
+ "assets/latency.png": {
+  "bytes": 110758,
+  "sha256": "a221aeb0271917d517f51ea099aec94c7be6c8692e33fabbd3ed39b0a5ef6401"
+ },
+ "chat_template.jinja": {
+  "bytes": 7756,
+  "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+ },
+ "config.json": {
+  "bytes": 2920,
+  "sha256": "fde46eed93822bbe8e0300bd69ded4e1d880bf401f35761d9dc3e936586849d5"
+ },
+ "generation_config.json": {
+  "bytes": 116,
+  "sha256": "62153eb6c69f2e1f426beaa8002b7186437e949c7588167085df14e10e9c0a73"
+ },
+ "helper/shim.py": {
+  "bytes": 26080,
+  "sha256": "81a22f1b1b8912a465059207ef9f60b7c6c16b4de6372305d867efbe38a1987a"
+ },
+ "helper/shim_mlx.py": {
+  "bytes": 6028,
+  "sha256": "7c12264a092dd92fd866022712dd58b387a579f91e84cecf0deedc9ca43c08f0"
+ },
+ "model-00001-of-00004.safetensors": {
+  "bytes": 4942706120,
+  "sha256": "8e15ecbed01fedeac9c723b786b4c1f83adabf913f80cdca6d489a7e6ca1e039"
+ },
+ "model-00002-of-00004.safetensors": {
+  "bytes": 4987757928,
+  "sha256": "75fe5aa1598fb612cf6936f7d5c7e281fb27524123f1b0898d6ab8bb93a37379"
+ },
+ "model-00003-of-00004.safetensors": {
+  "bytes": 4954810240,
+  "sha256": "cb33f1a30334bbc0d56b7c26c8d273ce298cf4cb0efa074ed594e1f70a7cf2df"
+ },
+ "model-00004-of-00004.safetensors": {
+  "bytes": 3934446832,
+  "sha256": "d8f5bc5a6b1700076e0180d318e1a3c1a0a8cfd5b207d77fd8b787912afe4e8c"
+ },
+ "model.safetensors.index.json": {
+  "bytes": 69253,
+  "sha256": "941305ff9f77551e145a6cea976ef456cd5cb208cbece99f168376c752fcf96c"
+ },
+ "processor_config.json": {
+  "bytes": 1220,
+  "sha256": "bfbc24af59a3e73a9cd0653b8d4ae758dfaec4e3e6c15dfb1c6c8ee8d5683c85"
+ },
+ "serve/SERVE.md": {
+  "bytes": 4740,
+  "sha256": "c3edb1478d36113951dfe18375e3d2841d885128ec55be22f8b1e9cf05018fdf"
+ },
+ "tokenizer.json": {
+  "bytes": 19989325,
+  "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523"
+ },
+ "tokenizer_config.json": {
+  "bytes": 1165,
+  "sha256": "792fa3f0cb88b111e54ef3134c873531008c4df471d108da17903426e308aa7b"
+ },
+ "_release": {
+  "name": "OpenJev Flash 9B v1",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "source_adapter_sha256": "a4a77d576dedc65c7ebfeff1ba927290d3336ae63ad93cef38c773650501a00a",
+  "helper_sha256": "81a22f1b1b8912a465059207ef9f60b7c6c16b4de6372305d867efbe38a1987a",
+  "calibration": {
+   "READOUT_T": 1.07,
+   "READOUT_NOUL_T": 1.074766,
+   "READOUT_NOUL_BIAS": 0,
+   "READOUT_TARGETED": 1,
+   "READOUT_INSTR_STYLE": "pyrepr"
+  }
+ }
+}

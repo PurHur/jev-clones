@@ -1,0 +1,121 @@
+{
+  "repo_id": "perplexity-ai/pplx-decider-flash-v1.2",
+  "private": true,
+  "architecture": "Qwen3_5Model",
+  "joint_protocol": {
+    "version": 3,
+    "template": "joint-question-inline-readout-v1",
+    "marker": "<|fim_suffix|>",
+    "readout_offset": 0,
+    "max_questions": null,
+    "max_length": null,
+    "usage": "nonpadding_joint_sequence_including_template_and_image_positions"
+  },
+  "attention_mode": "noncausal_full_attention",
+  "temperature": 1.5539092221462472,
+  "max_pixels": 1638400,
+  "base_model": "Qwen/Qwen3.5-4B",
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "decision_index_0_3": 58.88,
+  "decision_index_0_3_one_question_per_request": 60.05,
+  "vision_decision_index_0_3": 72.53,
+  "lineage": [
+    "fine-tuned from Qwen/Qwen3.5-4B",
+    "distilled from the pplx-decider-v1.2 decision models",
+    "model soup of several training runs"
+  ],
+  "files": {
+    "LICENSE": {
+      "bytes": 11544,
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+    },
+    "NOTICE": {
+      "bytes": 132,
+      "sha256": "381fb81e814716a5ef8e5eae26a08607d052cf12f019dba9da9e81298ef5cb75"
+    },
+    "README.md": {
+      "bytes": 12502,
+      "sha256": "e1a491fab951015ffdc67b7c4be21ac691d3492377ae69694682bf7ce9ca8821"
+    },
+    "chat_template.jinja": {
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+    },
+    "config.json": {
+      "bytes": 2898,
+      "sha256": "1bdb718faa99e32673f1622ea2f536affe20867bcb4703888aac9a030ec59e22"
+    },
+    "decision_config.json": {
+      "bytes": 5435,
+      "sha256": "6d59a4e66f459596cad6f3ff932c635e379f1dc1c49819357869de8abe01722f"
+    },
+    "joint_config.json": {
+      "bytes": 248,
+      "sha256": "ecc88efc2a8ebd81ddf93f7d722e35b2829fd7526b5ce754db53395aa49fb510"
+    },
+    "model-00001-of-00002.safetensors": {
+      "bytes": 4972946624,
+      "sha256": "1c1a0c1ab331c7aec1b4b7932eabf80593b56c694fe2b779209c0e0413df1cef"
+    },
+    "model-00002-of-00002.safetensors": {
+      "bytes": 4105669472,
+      "sha256": "21ba8301660e066f5849b60b1a36a242fc54ca18dd9bd526fdcbc50889171b70"
+    },
+    "model.safetensors.index.json": {
+      "bytes": 61898,
+      "sha256": "0597ef32377f77ec490bbce02e5e3fd1d0b8e3b00b2ef500cd9306d445ab0f5c"
+    },
+    "processor_config.json": {
+      "bytes": 1219,
+      "sha256": "b4b905eee2d1cf96dcbdac1c68b35113c8151958a4c1f76667242b01168572cd"
+    },
+    "readout.safetensors": {
+      "bytes": 1305712,
+      "sha256": "6751578171026190d4db8078e97162b404fd984646e0e9aec13844e4dd5b1711"
+    },
+    "requirements-fast.txt": {
+      "bytes": 50,
+      "sha256": "2c1d756f1be3b408ddacad3485f140a9099c066ec5ae83ecce9c916bd0046b3c"
+    },
+    "requirements.txt": {
+      "bytes": 113,
+      "sha256": "ba5651e48af38608f3c43bbb8557a5b1a8b33082b8be86e6fb186332f0f7016d"
+    },
+    "source/pyproject.toml": {
+      "bytes": 583,
+      "sha256": "d89014942e02c01f0bbc3f4f2be4034cc6910f2efba91c5747947996a403ad78"
+    },
+    "source/src/pplx_decider/__init__.py": {
+      "bytes": 569,
+      "sha256": "48c26c24432476f2e4a43486d60e24ee0a6e124093a38fb8803686e99fecb5b3"
+    },
+    "source/src/pplx_decider/fast.py": {
+      "bytes": 19003,
+      "sha256": "afef05e1935be967b6ab6015bea3c86933dd5a45b7f349b0ed2ab5788a66cdbc"
+    },
+    "source/src/pplx_decider/model.py": {
+      "bytes": 13460,
+      "sha256": "ab5f42bd051d9e04cb9266e378d96dd72684c7a7f074efd9fc5117508e3dee91"
+    },
+    "source/src/pplx_decider/protocol.py": {
+      "bytes": 12572,
+      "sha256": "b29d7a50d7214bd42397f8d3ddd5b5706cb8da2b257e175bf89b5a8da455d6a0"
+    },
+    "source/src/pplx_decider/py.typed": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "source/src/pplx_decider/types.py": {
+      "bytes": 2550,
+      "sha256": "3de3e545d81692346f65c0f4ff9843952696a12f7b357cf6a5d0e8545badff8a"
+    },
+    "tokenizer.json": {
+      "bytes": 19989492,
+      "sha256": "6f32ce20dc35f57a7f9ad1eac03525bd7d30f9df8cea6507e958279cc3657706"
+    },
+    "tokenizer_config.json": {
+      "bytes": 1268,
+      "sha256": "188cf0b9db5cfd6e92f1b63c646f5975be6f8383c6c9a2fa5dc2b48a8b229402"
+    }
+  }
+}

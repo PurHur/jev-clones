@@ -1,0 +1,13 @@
+{
+  "method": "resample_noul_1to1",
+  "mode": "undersample",
+  "epoch": 0,
+  "noul_y_raw": 1932,
+  "noul_n_raw": 1932,
+  "noul_y_epoch": 1932,
+  "noul_n_epoch": 1932,
+  "noul_balanced": true,
+  "y_n_ratio": 1.0,
+  "n_choice_score": 4890,
+  "n_epoch_total": 8754
+}

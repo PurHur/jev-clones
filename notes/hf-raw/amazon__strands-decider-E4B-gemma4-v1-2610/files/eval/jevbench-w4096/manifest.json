@@ -1,0 +1,17 @@
+{
+  "adapter": "typesafe",
+  "dataset_hash": "dc3995d8ae1e2fc8e81ce38431add509eb8bb39b85aadfd0c7c32079382dde51",
+  "delay_s": 0.0,
+  "endpoint": "http://127.0.0.1:8199",
+  "finished_utc": "2026-10-07T04:43:06.730613+00:00",
+  "key_env_used": false,
+  "n_attempted": 231,
+  "n_planned": 231,
+  "request_options": {},
+  "requested_model": "strands-decider-E4B-gemma4-v2-2610-soup3",
+  "resolved_models": [
+    "strands-decider-E4B-gemma4-v2-2610-soup3"
+  ],
+  "run_label": "strands-decider-E4B-gemma4-v2-2610-soup3",
+  "started_utc": "2026-10-07T04:42:18.904101+00:00"
+}

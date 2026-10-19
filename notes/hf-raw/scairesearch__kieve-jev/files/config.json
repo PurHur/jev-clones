@@ -1,0 +1,19 @@
+{
+  "params": {
+    "tokenizer": "hf:answerdotai/ModernBERT-base",
+    "vocab_size": 50368,
+    "variant": "jev",
+    "objective": "ce",
+    "lora_rank": 16,
+    "lora_scale": 10.0
+  },
+  "fixed": {
+    "config_class": "base",
+    "use_ops": true,
+    "device": "cuda",
+    "max_state": 160,
+    "max_question": 112,
+    "max_pair": 64,
+    "max_options": 12
+  }
+}

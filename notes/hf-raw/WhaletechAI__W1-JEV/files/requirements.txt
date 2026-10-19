@@ -1,0 +1,4 @@
+# Install the CUDA PyTorch wheel first; see usage.md.
+torch==2.10.0
+transformers==4.57.6
+tokenizers==0.22.2

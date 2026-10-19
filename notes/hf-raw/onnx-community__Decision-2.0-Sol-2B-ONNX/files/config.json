@@ -1,0 +1,26 @@
+{
+  "architectures": [
+    "Decision2Model"
+  ],
+  "model_type": "qwen3_5_text",
+  "hidden_size": 2048,
+  "num_hidden_layers": 24,
+  "vocab_size": 248320,
+  "decision2": {
+    "description": "Decision 2.0 (vLLM Semantic Router): one prompt per question (Context / Task type / Question / Options as JSON {description, key} segments / Decision:). The graph returns the CandidateHead score of each option's last token against the final token; add score_bias[L] for an L-level score, then softmax (temperature 1).",
+    "source": "vllm-sr/Decision-2.0-Sol-2B",
+    "max_input_tokens": 16384,
+    "score_bias": {},
+    "dtypes": [
+      "q8",
+      "q4f16"
+    ]
+  },
+  "transformers.js_config": {
+    "use_external_data_format": {
+      "model_quantized.onnx": 1,
+      "model_q4f16.onnx": 1
+    },
+    "dtype": "q8"
+  }
+}

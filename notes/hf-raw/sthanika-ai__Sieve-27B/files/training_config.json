@@ -1,0 +1,99 @@
+{
+ "model": "Sieve-27B",
+ "how_it_was_made": "One LoRA run with a pointer head trained from scratch on data/train.jsonl; the checkpoint was chosen on the calibration split and the temperature fitted there.",
+ "training_data": {
+  "published": false,
+  "files": {
+   "train.jsonl": {
+    "sha256": "49a66ce3c83cfca4adc9877687dd697700c924613633433c9078b63182c5c194",
+    "records": 153988
+   },
+   "calibration.jsonl": {
+    "sha256": "9e7f35d072e062e44149b8c68e5f352b845e67b249892758dd8e4fc19a9a28b5",
+    "records": 30776
+   },
+   "test.jsonl": {
+    "sha256": "60ab9f609e55df1f60bfdf6643b9bc12aa19ad4a9041dac6809b9b7ca23a6163",
+    "records": 123177
+   }
+  }
+ },
+ "recipe": {
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "adapter": {
+   "type": "LoRA",
+   "rank": 32,
+   "alpha": 64,
+   "dropout": 0.05,
+   "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+    "in_proj_qkv",
+    "in_proj_z",
+    "in_proj_a",
+    "in_proj_b",
+    "out_proj"
+   ]
+  },
+  "pointer_head": {
+   "projection_dim": 256,
+   "initialisation": "from scratch",
+   "dtype": "float32"
+  },
+  "optimiser": {
+   "name": "AdamW",
+   "learning_rate": 5e-05,
+   "pointer_head_learning_rate": 5e-05,
+   "beta2": 0.999,
+   "beta1": "cycled 0.85-0.95 by the OneCycle schedule",
+   "weight_decay": 0.01,
+   "gradient_clip_norm": 1.0
+  },
+  "schedule": {
+   "name": "OneCycle",
+   "warmup_fraction": 0.1,
+   "beta1_cycled": [
+    0.85,
+    0.95
+   ]
+  },
+  "epochs": 1,
+  "records_per_step": 32,
+  "micro_batch_token_budget": 12288,
+  "precision": "bf16 backbone, fp32 LoRA and pointer head, gradient checkpointing",
+  "max_state_tokens": 16384,
+  "max_question_and_options_tokens": 16384,
+  "over_long_records": "dropped (never truncated)",
+  "loss": "cross-entropy over each question's options (soft-target cross-entropy where a record gives a target distribution), per-question weights; a record's questions are averaged and every record weighs the same, its augmented variants sharing its weight",
+  "augmentation": {
+   "choice_options_permuted": true,
+   "yes_no_and_rating_scale_options": "kept in their served order",
+   "p_none_of_the_above_as_answer": 0.1,
+   "p_none_of_the_above_as_wrong_option": 0.12,
+   "p_irrelevant_distractor_option": 0.15,
+   "p_none_of_the_above_minimal_pair": 0.25,
+   "not_augmented": "soft targets, and questions that already offer a none/other option"
+  },
+  "random_seed": 0
+ },
+ "selection": "highest accuracy on a fixed 2001-question sample of the calibration split, lower NLL breaks ties; fixed before training",
+ "temperature": {
+  "value": 1.0499999999999945,
+  "fit": "negative log-likelihood on the calibration split (43309 questions, 10% of the training mix, disjoint from train and test); that split is used only to fit T and choose the checkpoint; 1.0 = raw logits"
+ },
+ "selected_checkpoint": {
+  "step": 4500,
+  "eval": {
+   "step": 4500,
+   "acc": 0.9050474762618691,
+   "nll": 0.2621131632739443,
+   "n": 2001
+  }
+ }
+}

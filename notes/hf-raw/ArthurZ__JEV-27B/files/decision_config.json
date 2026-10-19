@@ -1,0 +1,47 @@
+{
+  "labels": {
+    "noul": [
+      "false",
+      "true"
+    ],
+    "score": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "choice": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "N",
+      "O",
+      "P"
+    ]
+  },
+  "temperature": {
+    "noul": 1.0143134751376188,
+    "choice": 1.0161280671450397,
+    "score": 1.0036213515883572
+  },
+  "calibration": null,
+  "noul_band": null,
+  "noul_options": [
+    "false",
+    "true"
+  ],
+  "sort_choices": false,
+  "sanitize_control_tokens": true
+}

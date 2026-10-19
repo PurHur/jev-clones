@@ -1,0 +1,16 @@
+{
+ "name": "kenning-xl-v0.6-full",
+ "base_model": "Qwen/Qwen3-1.7B",
+ "max_length": 1536,
+ "temperature": {
+  "choice": 1.2214,
+  "noul": 1.284,
+  "score": 0.1353
+ },
+ "trained_on": "/work/datasets/v06-train-sub.jsonl",
+ "val_accuracy": {
+  "zero_shot": 0.5893037336024218,
+  "trained": 0.8678102926337034
+ },
+ "created": "2026-10-06T17:54:05Z"
+}

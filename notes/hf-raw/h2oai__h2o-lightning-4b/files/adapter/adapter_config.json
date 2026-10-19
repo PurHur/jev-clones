@@ -1,0 +1,25 @@
+{
+"base_model_name_or_path": "Qwen/Qwen3.5-4B",
+"peft_type": "LORA",
+"task_type": "CAUSAL_LM",
+"r": 64,
+"lora_alpha": 128,
+"target_modules": [
+"q_proj",
+"k_proj",
+"v_proj",
+"o_proj",
+"in_proj_qkv",
+"in_proj_z",
+"in_proj_a",
+"in_proj_b",
+"out_proj",
+"gate_proj",
+"up_proj",
+"down_proj"
+],
+"bias": "none",
+"use_rslora": false,
+"use_dora": false,
+"modules_to_save": null
+}

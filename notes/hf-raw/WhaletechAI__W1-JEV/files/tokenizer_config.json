@@ -1,0 +1,24 @@
+{
+  "backend": "tokenizers",
+  "bos_token": "<|endoftext|>",
+  "clean_up_tokenization_spaces": false,
+  "eos_token": "<|endoftext|>",
+  "additional_special_tokens": [
+    "<fim_prefix>",
+    "<fim_middle>",
+    "<fim_suffix>",
+    "<|file_sep|>",
+    "<|repo_sep|>",
+    "<|system|>",
+    "<|user|>",
+    "<|assistant|>",
+    "<|thought|>",
+    "<|code_start|>",
+    "<|code_end|>"
+  ],
+  "mask_token": "<mask>",
+  "model_max_length": 4096,
+  "pad_token": "<|padding|>",
+  "tokenizer_class": "PreTrainedTokenizerFast",
+  "unk_token": "<unk>"
+}

@@ -1,0 +1,130 @@
+{
+ "s1": {
+  "rows_replaced": 33864,
+  "decision_index": 58.02,
+  "scores": {
+   "balanced_skill": 58.02,
+   "balanced_raw": 67.32,
+   "breadth_skill": 56.94
+  },
+  "areas": [
+   {
+    "id": "knowledge",
+    "skill": 0.4293,
+    "raw": 0.5472,
+    "coverage": 1.0,
+    "n": 10
+   },
+   {
+    "id": "language",
+    "skill": 0.6358,
+    "raw": 0.7439,
+    "coverage": 1.0,
+    "n": 10
+   },
+   {
+    "id": "retrieval",
+    "skill": 0.6788,
+    "raw": 0.7575,
+    "coverage": 1.0,
+    "n": 6
+   },
+   {
+    "id": "tools",
+    "skill": 0.6973,
+    "raw": 0.7204,
+    "coverage": 1.0,
+    "n": 5
+   },
+   {
+    "id": "arts",
+    "skill": 0.4147,
+    "raw": 0.5615,
+    "coverage": 1.0,
+    "n": 7
+   }
+  ],
+  "knowledge_benchmarks": {
+   "GPQA Diamond": 0.42857142857142855,
+   "GSM8K": 0.976497346474602,
+   "ChessBench": 0.2366,
+   "MuSR": 0.6728723404255319,
+   "SATA-Bench": 0.3424242424242424,
+   "CRUXEval": 0.6754385964912281,
+   "CLadder": 0.7102,
+   "HLE": 0.08383233532934131,
+   "MMLU-Pro": 0.6501828457446809,
+   "BBH fixed-option tasks": 0.7504993644452514
+  }
+ },
+ "adaptive": {
+  "rows_replaced": 33864,
+  "decision_index": 62.48,
+  "scores": {
+   "balanced_skill": 62.48,
+   "balanced_raw": 70.66,
+   "breadth_skill": 62.0
+  },
+  "areas": [
+   {
+    "id": "knowledge",
+    "skill": 0.602,
+    "raw": 0.6765,
+    "coverage": 1.0,
+    "n": 10
+   },
+   {
+    "id": "language",
+    "skill": 0.6358,
+    "raw": 0.7439,
+    "coverage": 1.0,
+    "n": 10
+   },
+   {
+    "id": "retrieval",
+    "skill": 0.6788,
+    "raw": 0.7575,
+    "coverage": 1.0,
+    "n": 6
+   },
+   {
+    "id": "tools",
+    "skill": 0.6973,
+    "raw": 0.7204,
+    "coverage": 1.0,
+    "n": 5
+   },
+   {
+    "id": "arts",
+    "skill": 0.4147,
+    "raw": 0.5615,
+    "coverage": 1.0,
+    "n": 7
+   }
+  ],
+  "knowledge_benchmarks": {
+   "GPQA Diamond": 0.7857142857142857,
+   "GSM8K": 0.9912812736921911,
+   "ChessBench": 0.236,
+   "MuSR": 0.675531914893617,
+   "SATA-Bench": 0.35454545454545455,
+   "CRUXEval": 0.9070175438596492,
+   "CLadder": 0.8662,
+   "HLE": 0.17764471057884232,
+   "MMLU-Pro": 0.8464095744680851,
+   "BBH fixed-option tasks": 0.9202832758307609
+  }
+ },
+ "completed_with_adaptive_thinking": [
+  "BBH fixed-option tasks",
+  "CLadder",
+  "CRUXEval",
+  "ChessBench",
+  "GPQA Diamond",
+  "GSM8K",
+  "HLE",
+  "MMLU-Pro",
+  "MuSR",
+  "SATA-Bench"
+ ]
+}

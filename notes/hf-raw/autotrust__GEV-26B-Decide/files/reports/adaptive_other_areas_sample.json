@@ -1,0 +1,40 @@
+{
+ "note": "Adaptive thinking (threshold 0.8, budget 8,192) on five benchmarks outside Knowledge & Reasoning, before the run was stopped; System 1 rows from the server (BFCL, part of ToolRet) or from the complete System 1 run (the rest).",
+ "benchmarks": {
+  "BFCL": {
+   "metric": "case exact accuracy",
+   "system1": 0.9439197166469894,
+   "adaptive": 0.9604486422668241,
+   "answered": 1694,
+   "requests": 1694
+  },
+  "API-Bank": {
+   "metric": "accuracy",
+   "system1": 0.84251968503937,
+   "adaptive": 0.860236220472441,
+   "answered": 508,
+   "requests": 508
+  },
+  "CLINC150+OOS": {
+   "metric": "macro-F1",
+   "system1": 0.9329322696041208,
+   "adaptive": 0.9435733222101521,
+   "answered": 5456,
+   "requests": 5500
+  },
+  "ToolRet": {
+   "metric": "nDCG@10",
+   "system1": 0.6678507661770144,
+   "adaptive": 0.668784256490767,
+   "answered": 685,
+   "requests": 685
+  },
+  "BANKING77": {
+   "metric": "macro-F1",
+   "system1": 0.8799267700969118,
+   "adaptive": 0.8496561625080452,
+   "answered": 3080,
+   "requests": 3080
+  }
+ }
+}

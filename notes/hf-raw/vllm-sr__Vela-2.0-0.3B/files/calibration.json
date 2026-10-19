@@ -1,0 +1,274 @@
+{
+ "temperature": {
+  "choice": 1.378620982170105,
+  "score": 1.127790093421936,
+  "set": 1.0152497291564941,
+  "span": 0.29268157482147217
+ },
+ "span_temperature": 0.29268157482147217,
+ "thresholds": {
+  "set:p_cats": 0.3,
+  "set:r_cats": 0.5,
+  "set:*": 0.3,
+  "span:pii": 0.05,
+  "span:toxic": 0.1,
+  "span:halu": 0.55,
+  "span:tydiqa": 0.7,
+  "span:multiconer": 0.55,
+  "span:fewnerd": 0.45,
+  "span:*": 0.5
+ },
+ "pii_buckets": [
+  {
+   "name": "short",
+   "max_tokens": 1024,
+   "threshold": 0.75,
+   "dev_f1": 0.9905548996458088,
+   "dev_file": "Tier-0 PII dev (short)",
+   "n_dev": 888
+  },
+  {
+   "name": "4096",
+   "max_tokens": 6144,
+   "threshold": 0.001,
+   "dev_f1": 0.9668707238026647,
+   "dev_file": "long-PII dev, 4,096 tokens",
+   "n_dev": 300
+  },
+  {
+   "name": "8192",
+   "max_tokens": 1000000000000,
+   "threshold": 0.001,
+   "dev_f1": 0.923910558324569,
+   "dev_file": "long-PII dev, 8,192 tokens",
+   "n_dev": 300
+  }
+ ],
+ "pii_bucket_rule": "bucket = first entry whose max_tokens >= token count of the span part (Vela tokenizer, no specials); dev data exists only at <=207, 4,094 and 8,190 tokens",
+ "pii_types": [
+  "AGE",
+  "CREDIT_CARD",
+  "DATE_TIME",
+  "DOMAIN_NAME",
+  "EMAIL_ADDRESS",
+  "GPE",
+  "IBAN_CODE",
+  "IP_ADDRESS",
+  "NRP",
+  "ORGANIZATION",
+  "PERSON",
+  "PHONE_NUMBER",
+  "STREET_ADDRESS",
+  "TITLE",
+  "US_DRIVER_LICENSE",
+  "US_SSN",
+  "ZIP_CODE"
+ ],
+ "pii_schema": {
+  "text": "Which spans are personal information?",
+  "labels": {
+   "AGE": "a person's age",
+   "CREDIT_CARD": "a payment card number",
+   "DATE_TIME": "a date, time or date of birth",
+   "DOMAIN_NAME": "an internet domain name or website address",
+   "EMAIL_ADDRESS": "an e-mail address",
+   "GPE": "a country, city, state or other geopolitical place",
+   "IBAN_CODE": "an international bank account number (IBAN)",
+   "IP_ADDRESS": "an IPv4 or IPv6 address",
+   "NRP": "a nationality, religious or political group",
+   "ORGANIZATION": "the name of a company, institution or other organisation",
+   "PERSON": "a person's name",
+   "PHONE_NUMBER": "a telephone number",
+   "STREET_ADDRESS": "a street address or postal address",
+   "TITLE": "a personal or professional title such as Dr. or Mrs.",
+   "US_DRIVER_LICENSE": "a US driver's licence number",
+   "US_SSN": "a US social security number",
+   "ZIP_CODE": "a postal or ZIP code"
+  }
+ },
+ "halu_schema": {
+  "text": "Which spans of the answer are not supported by the context?",
+  "labels": {
+   "unsupported": "a claim not supported by the context"
+  }
+ },
+ "relevance_schema": {
+  "text": "How relevant is this candidate to the query?",
+  "levels": {
+   "not_relevant": "The candidate does not help with the query.",
+   "partially_relevant": "The candidate is related to the query but only partly helps.",
+   "highly_relevant": "The candidate directly helps with the query."
+  },
+  "values": {
+   "not_relevant": 0.0,
+   "partially_relevant": 0.5,
+   "highly_relevant": 1.0
+  }
+ },
+ "halu_dev": {
+  "n": 2874,
+  "threshold": 0.55,
+  "example_f1": 0.8897676717745922
+ },
+ "probability_convention": "choice/score: softmax(logits over the real options / T_type); abstain = softmax incl. [ABS] (last); set: sigmoid(logit / T_set) > threshold (set:<qid> or set:*); span: sigmoid(logit / T_span) per word x label, decoded at the threshold (pii: pii_length_rule of the span-part token count, then pii_sparse_gate; pii_buckets if no pii_length_rule / span:halu / span:toxic / span:<qid> / span:*)",
+ "sources": {
+  "calibration": "per-type temperature fit on dev NLL (R4b_s44)",
+  "r4": "r4 scorer dev results (R4b_s44)",
+  "threshold_metric": {
+   "set:p_cats": {
+    "metric": "micro_f1",
+    "best": 0.5592105263157895,
+    "at_0_5": 0.5228758169934641
+   },
+   "set:r_cats": {
+    "metric": "micro_f1",
+    "best": 0.7397260273972602,
+    "at_0_5": 0.7397260273972602
+   },
+   "set:*": {
+    "metric": "micro_f1",
+    "best": 0.5711402623612513,
+    "at_0_5": 0.5417661097852029
+   },
+   "span:pii": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.6808193620525546,
+    "at_0_5": 0.6029833613842384,
+    "n": [
+     888,
+     30,
+     30
+    ],
+    "oracle_unit_roundtrip": 1.0
+   },
+   "span:toxic": {
+    "metric": "mean_char_f1",
+    "objective": "mean over dev sets",
+    "best": 0.5514575065767688,
+    "at_0_5": 0.3932853002812014,
+    "n": [
+     2013
+    ],
+    "oracle_unit_roundtrip": 0.9992776299285484
+   },
+   "span:halu": {
+    "metric": "example_f1",
+    "objective": "mean over dev sets",
+    "best": 0.8897676717745922,
+    "at_0_5": 0.8874236874236874,
+    "n": [
+     2874
+    ],
+    "oracle_unit_roundtrip": 1.0
+   },
+   "span:tydiqa": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.3724015922158337,
+    "at_0_5": 0.36249509611612396,
+    "n": [
+     1999
+    ],
+    "oracle_unit_roundtrip": 0.9429714857428715
+   },
+   "span:multiconer": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.06451612903225806,
+    "at_0_5": 0.06283542039355992,
+    "n": [
+     3000
+    ],
+    "oracle_unit_roundtrip": 0.964930200885257
+   },
+   "span:fewnerd": {
+    "metric": "micro_f1",
+    "objective": "mean over dev sets",
+    "best": 0.1115713522180652,
+    "at_0_5": 0.10857223956854953,
+    "n": [
+     3000
+    ],
+    "oracle_unit_roundtrip": 1.0
+   }
+  },
+  "ece": {
+   "choice": {
+    "before": 0.03210371561036715,
+    "after": 0.006972371783434507,
+    "accuracy": 0.8812996227265049
+   },
+   "score": {
+    "before": 0.020441258651865753,
+    "after": 0.01892611364725164,
+    "accuracy": 0.5841470857491609
+   },
+   "set": {
+    "before": 0.0014918864459538743,
+    "after": 0.0013440851314500874
+   },
+   "span": {
+    "before": 0.05115356933856762,
+    "after": 0.004789844256276209
+   }
+  },
+  "n": {
+   "choice": 17759,
+   "score": 13108,
+   "set": 24718,
+   "span": 4000000
+  },
+  "pii_calibration": "pii_calibration_fit.json"
+ },
+ "pii_length_rule": {
+  "kind": "loglin_iso",
+  "anchors": [
+   {
+    "n_tokens": 21,
+    "threshold": 0.75
+   },
+   {
+    "n_tokens": 126,
+    "threshold": 0.05
+   },
+   {
+    "n_tokens": 254,
+    "threshold": 0.03504
+   },
+   {
+    "n_tokens": 510,
+    "threshold": 0.01205
+   },
+   {
+    "n_tokens": 1022,
+    "threshold": 0.005919
+   },
+   {
+    "n_tokens": 2046,
+    "threshold": 0.002037
+   },
+   {
+    "n_tokens": 3070,
+    "threshold": 0.001427
+   },
+   {
+    "n_tokens": 4094,
+    "threshold": 0.0007499
+   },
+   {
+    "n_tokens": 8190,
+    "threshold": 0.0003162
+   }
+  ],
+  "interpolation": "log(threshold) linear in log(n_tokens) between anchors; constant outside",
+  "token_count": "span-part token ids, Vela tokenizer, no special tokens",
+  "fitted_on": "dev: Tier-0 PII dev (short), mid-length PII dev (128..3,072 tokens), long-PII dev (4,096 and 8,192 tokens); per-bucket micro-F1-best threshold, ties -> lowest"
+ },
+ "pii_sparse_gate": {
+  "K": 3,
+  "t_sparse": 0.1,
+  "probe_threshold": 0.5,
+  "rule": "if the doc has <= K spans decoded at probe_threshold, threshold = max(length rule, t_sparse); K < 0 disables the gate"
+ }
+}

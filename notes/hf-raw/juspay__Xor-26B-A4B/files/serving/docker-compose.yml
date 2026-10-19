@@ -1,0 +1,51 @@
+services:
+  sglang:
+    image: prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f
+    restart: unless-stopped
+    shm_size: 32gb
+    volumes: ["${MODEL_DIR:?Set MODEL_DIR}:/model:ro"]
+    environment:
+      HF_HUB_OFFLINE: "1"
+      TOKENIZERS_PARALLELISM: "false"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${GPU_ID:-0}"]
+              capabilities: [gpu]
+    command: [python3, -m, sglang.launch_server, --model-path, /model, --trust-remote-code, --tp-size, "1", --host, 0.0.0.0, --port, "30000", --context-length, "131072", --max-prefill-tokens, "131072", --chunked-prefill-size, "16384", --mem-fraction-static, "0.80"]
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, "http://127.0.0.1:30000/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 10m
+  api:
+    image: prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f
+    restart: unless-stopped
+    depends_on:
+      sglang:
+        condition: service_healthy
+    ports: ["127.0.0.1:${API_PORT:-8000}:30002"]
+    volumes:
+      - ${MODEL_DIR:?Set MODEL_DIR}:/model:ro
+      - ./xn_base_server.py:/app/xn_base_server.py:ro
+    environment:
+      HF_HUB_OFFLINE: "1"
+      TOKENIZERS_PARALLELISM: "false"
+      XN_SGLANG_URL: http://sglang:30000
+      XN_MODEL_PATH: /model
+      XN_MODEL_ID: xor-26b-a4b-v1.2
+      XN_MAX_CONTEXT: "131072"
+      XN_TEMP_JSON: '{"choice":1.95,"noul":1.0,"score":1.0}'
+      XN_TWO_ORDER: "1"
+      XN_HOST: 0.0.0.0
+      XN_PORT: "30002"
+    entrypoint: [python3, -u, /app/xn_base_server.py]
+    healthcheck:
+      test: [CMD, curl, --fail, --silent, "http://127.0.0.1:30002/health"]
+      interval: 15s
+      timeout: 10s
+      retries: 3
+      start_period: 1m

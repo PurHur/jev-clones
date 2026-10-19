@@ -1,0 +1,39 @@
+{
+ "built": "2026-10-08T07:59:20",
+ "base_model": "Qwen/Qwen3.8-27B",
+ "base_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+ "files_sha256": {
+  ".gitattributes": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930",
+  "LICENSE": "6f11f9076e09fc1c0ffd1aaa7295bedea4fff14d93a008e0e2b42488d2f1ab30",
+  "README.md": "d0ec69cae5eeea9b6cc37e4842fc4b619157deb568e570fc796e2757f98f67f0",
+  "adapter_config.json": "6a5d4d7fb002f9e62453e72787240c0f6fd07e53988bed8234694a88aaaad54e",
+  "adapter_model.safetensors": "62cc35bb18f4583b0ae258b0c2132302b49c0ecb329b230547be6092cad0d821",
+  "head.pt": "0c8551e50cf39ebcc1e376701f4bcc4a7c2350b3cad63f33c653fbc5eb15c90d",
+  "result.json": "025332dc441799b3539f789fb5ef51536528d3f1e23d3fbc14b96428c311ff3a",
+  "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+  "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27",
+  "train.log": "eb60fbb63efb9e2ea52e3ecf9f9deab43d8a4b6361d780c3c009ffd88dd436a2",
+  "training_config.json": "a95d192de648549d6bf481982f767e49fccd2d79379bbb1069588562e0d7dd2f",
+  "training_metrics.json": "5a982e20100f00bb2c733587c09bb5a7f546fd46297c1af19291b5c1f19a0562"
+ },
+ "weights": "adapter_model.safetensors, adapter_config.json and head.pt are the selected checkpoint, unchanged; head.pt also stores the calibration temperature",
+ "training_data": {
+  "train.jsonl": {
+   "sha256": "49a66ce3c83cfca4adc9877687dd697700c924613633433c9078b63182c5c194",
+   "records": 153988
+  },
+  "calibration.jsonl": {
+   "sha256": "9e7f35d072e062e44149b8c68e5f352b845e67b249892758dd8e4fc19a9a28b5",
+   "records": 30776
+  },
+  "test.jsonl": {
+   "sha256": "60ab9f609e55df1f60bfdf6643b9bc12aa19ad4a9041dac6809b9b7ca23a6163",
+   "records": 123177
+  }
+ },
+ "environment": {
+  "torch": "2.8.0+cu128",
+  "transformers": "5.17.0",
+  "peft": "0.21.0"
+ }
+}

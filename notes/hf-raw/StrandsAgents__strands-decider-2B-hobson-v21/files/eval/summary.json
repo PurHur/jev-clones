@@ -1,0 +1,174 @@
+{
+  "internal": {
+    "eval: [2] gen:all_conditions": {
+      "accuracy": 0.824,
+      "n": 34
+    },
+    "eval: [2] gen:dates": {
+      "accuracy": 0.871,
+      "n": 31
+    },
+    "eval: [2] gen:exception": {
+      "accuracy": 0.946,
+      "n": 37
+    },
+    "eval: [2] gen:lookup_chain": {
+      "accuracy": 0.8,
+      "n": 40
+    },
+    "eval: [2] gen:numbers": {
+      "accuracy": 0.848,
+      "n": 33
+    },
+    "eval: [2] gen:precedence": {
+      "accuracy": 0.917,
+      "n": 36
+    },
+    "eval: [2] gen:rubric": {
+      "accuracy": 0.794,
+      "n": 34
+    },
+    "eval: [2] gen:surface_trap": {
+      "accuracy": 0.958,
+      "n": 48
+    },
+    "eval: [2] gen:tradeoff": {
+      "accuracy": 0.7,
+      "n": 40
+    },
+    "eval: [2] gen:underdetermined": {
+      "accuracy": 0.765,
+      "n": 17
+    },
+    "eval: [3] gen:all_conditions": {
+      "accuracy": 0.889,
+      "n": 9
+    },
+    "eval: [3] gen:borderline_rubric": {
+      "accuracy": 0.538,
+      "n": 13
+    },
+    "eval: [3] gen:cross_artefact": {
+      "accuracy": 0.677,
+      "n": 31
+    },
+    "eval: [3] gen:dates": {
+      "accuracy": 0.8,
+      "n": 10
+    },
+    "eval: [3] gen:definition_scope": {
+      "accuracy": 0.667,
+      "n": 12
+    },
+    "eval: [3] gen:exception": {
+      "accuracy": 1.0,
+      "n": 15
+    },
+    "eval: [3] gen:judge_action": {
+      "accuracy": 0.714,
+      "n": 7
+    },
+    "eval: [3] gen:lookup_chain": {
+      "accuracy": 0.7,
+      "n": 10
+    },
+    "eval: [3] gen:missing_fact": {
+      "accuracy": 0.621,
+      "n": 29
+    },
+    "eval: [3] gen:nested_exception": {
+      "accuracy": 0.692,
+      "n": 13
+    },
+    "eval: [3] gen:numbers": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:precedence": {
+      "accuracy": 0.909,
+      "n": 11
+    },
+    "eval: [3] gen:rubric": {
+      "accuracy": 0.667,
+      "n": 3
+    },
+    "eval: [3] gen:running_total": {
+      "accuracy": 0.826,
+      "n": 23
+    },
+    "eval: [3] gen:surface_trap": {
+      "accuracy": 0.0,
+      "n": 1
+    },
+    "eval: [3] gen:tie_break": {
+      "accuracy": 0.826,
+      "n": 23
+    },
+    "eval: [3] gen:underdetermined": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:version_in_force": {
+      "accuracy": 0.704,
+      "n": 27
+    },
+    "eval: [3] gen:withdrawn_instruction": {
+      "accuracy": 0.75,
+      "n": 8
+    },
+    "eval: [4] adequacy_hs2": {
+      "accuracy": 0.739,
+      "n": 234
+    },
+    "eval: [5] gen:adequacy": {
+      "accuracy": 0.788,
+      "n": 302
+    },
+    "eval: boardgame": {
+      "accuracy": 0.821,
+      "n": 900
+    },
+    "eval: contractnli": {
+      "accuracy": 0.865,
+      "n": 1026
+    },
+    "eval: held-out short tasks": {
+      "accuracy": 0.65,
+      "ece": 0.06,
+      "n": 6000,
+      "nll": 0.851
+    },
+    "eval: hotpotqa (held out)": {
+      "accuracy": 0.746,
+      "n": 959
+    },
+    "eval: musique": {
+      "accuracy": 0.882,
+      "n": 1199
+    },
+    "eval: musique, answerable": {
+      "accuracy": 0.886,
+      "n": 599
+    },
+    "eval: musique, unanswerable": {
+      "accuracy": 0.877,
+      "n": 600
+    }
+  },
+  "jevbench": [
+    {
+      "accuracy": 0.7619047619047619,
+      "arm": "w4096",
+      "brier": 0.32261680428571426,
+      "ece": 0.06391125541125536,
+      "n": 231,
+      "n_correct": 176,
+      "schema_validity_strict": 1.0,
+      "served": "these files",
+      "window": 4096
+    }
+  ],
+  "name": "hobson-2b-v21",
+  "role": "final",
+  "run_id": "v21b-s5"
+}

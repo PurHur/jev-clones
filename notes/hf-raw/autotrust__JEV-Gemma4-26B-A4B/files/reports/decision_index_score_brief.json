@@ -1,0 +1,49 @@
+{
+  "edition": "0.2.1",
+  "decision_index": 58.05,
+  "scores": {
+    "balanced_skill": 58.05,
+    "balanced_raw": 67.35,
+    "breadth_skill": 56.98
+  },
+  "areas": [
+    {
+      "id": "knowledge",
+      "skill": 0.4304,
+      "raw": 0.5484,
+      "coverage": 1.0,
+      "n": 10
+    },
+    {
+      "id": "language",
+      "skill": 0.6358,
+      "raw": 0.7439,
+      "coverage": 1.0,
+      "n": 10
+    },
+    {
+      "id": "retrieval",
+      "skill": 0.6788,
+      "raw": 0.7575,
+      "coverage": 1.0,
+      "n": 6
+    },
+    {
+      "id": "tools",
+      "skill": 0.6973,
+      "raw": 0.7204,
+      "coverage": 1.0,
+      "n": 5
+    },
+    {
+      "id": "arts",
+      "skill": 0.4147,
+      "raw": 0.5615,
+      "coverage": 1.0,
+      "n": 7
+    }
+  ],
+  "completed": 150317,
+  "complete": true,
+  "out": "/root/di-runs-fast/jev-gemma4-step7000"
+}

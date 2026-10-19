@@ -1,0 +1,242 @@
+{
+  "schema": "decision-nano-license-sources-v1",
+  "date": "2026-09-21",
+  "project_license": {
+    "spdx": "Apache-2.0",
+    "scope": "Decision original code, documentation and model-weight contributions; upstream MIT, Apache-2.0 and inherited tokenizer terms preserved",
+    "publisher_choice_explicit": true
+  },
+  "base_models": {
+    "vela": {
+      "api_url": "https://huggingface.co/api/models/vllm-sr/Vela-1.0-Encoder-307M/revision/fe9ccc074b781bc0e2e13c2c8d26f2640410636a",
+      "revision": "fe9ccc074b781bc0e2e13c2c8d26f2640410636a",
+      "license": "mit",
+      "base_model": "jhu-clsp/mmBERT-base",
+      "files": [
+        ".gitattributes",
+        "README.md",
+        "config.json",
+        "model.safetensors",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "readme": {
+        "url": "https://huggingface.co/vllm-sr/Vela-1.0-Encoder-307M/resolve/fe9ccc074b781bc0e2e13c2c8d26f2640410636a/README.md",
+        "sha256": "817df5015d443e6a9e6bbc870d8bd4f0f5c0d48e29b8f50f665319609838f7ef",
+        "bytes": 2046,
+        "local_file": "source-metadata/VELA_LICENSE_SOURCE_README.md"
+      }
+    },
+    "mmbert": {
+      "api_url": "https://huggingface.co/api/models/jhu-clsp/mmBERT-base",
+      "revision": "c5955035435e2bf121cde7f3c8863ef52ff35d82",
+      "license": "mit",
+      "base_model": null,
+      "files": [
+        ".gitattributes",
+        "README.md",
+        "config.json",
+        "pytorch_model.bin",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+      ],
+      "readme": {
+        "url": "https://huggingface.co/jhu-clsp/mmBERT-base/resolve/c5955035435e2bf121cde7f3c8863ef52ff35d82/README.md",
+        "sha256": "35724415037ee3159aa733c16050620cc19a76219112a6ceeb3949572e0b37e9",
+        "bytes": 29650,
+        "local_file": "source-metadata/MMBERT_LICENSE_SOURCE_README.md"
+      }
+    }
+  },
+  "transformers": [
+    {
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/753d61104116eefc8ffc977327b441ee0c8d599f/LICENSE",
+      "repository": "huggingface/transformers",
+      "revision": "753d61104116eefc8ffc977327b441ee0c8d599f",
+      "tag": "v4.57.6",
+      "upstream_file_sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+      "saved_file": "LICENSES/Transformers-Apache-2.0.txt",
+      "saved_sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049",
+      "saved_bytes": 11418,
+      "full_license": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/753d61104116eefc8ffc977327b441ee0c8d599f/src/transformers/models/modernbert/modeling_modernbert.py",
+      "repository": "huggingface/transformers",
+      "revision": "753d61104116eefc8ffc977327b441ee0c8d599f",
+      "tag": "v4.57.6",
+      "upstream_file_sha256": "1b23db2f59d3f80bd9af89fb6df3ce15affd90b5ffc09925e732450e694868ff",
+      "saved_file": "source-metadata/TRANSFORMERS_MODERNBERT_SOURCE_HEADER.txt",
+      "saved_sha256": "4577f1803f9dbe8b43f5da709f8750c798def2c33f7eb055d62baf286ed472c8",
+      "saved_bytes": 1497,
+      "full_license": false
+    }
+  ],
+  "local_modernbert_adaptation": {
+    "package_file": "native/policy/reference/modernbert_sdpa_layout.py",
+    "sha256": "0fb3a22db93ad76e30dfbfb3011de442149d97c565e139a3a55738287a1fbbc8",
+    "bytes": 3365,
+    "source_verified_against_planned_native_payload": true,
+    "terms": "Apache-2.0 for adapted upstream portions; project modifications separately identified in NOTICE"
+  },
+  "tokenizer_lineage": {
+    "configuration_url": "https://raw.githubusercontent.com/JHU-CLSP/mmBERT/108ffb376ad65c2512801bb88931933dcd286baf/configs/mmBERT-base.yaml",
+    "configuration": {
+      "file": "source-metadata/MMBERT_TOKENIZER_LINEAGE.yaml",
+      "sha256": "0ffa0f1c8388868a42cdbb8ec4b709db6eab4b3e33d8495f4e5f0c32bd15afd3",
+      "bytes": 2768
+    },
+    "declared_tokenizer_name": "google/gemma-2-9b",
+    "original_publisher_repository": "https://huggingface.co/google/gemma-2-9b",
+    "original_terms_url": "https://ai.google.dev/gemma/terms",
+    "scope_status": "UPSTREAM_TERMS_SUPPLEMENT_PACKAGED_DOWNLOAD_USE_AGREEMENT_NOT_YET_INTEGRATED",
+    "affected_planned_files": {
+      "native/tokenizer/special_tokens_map.json": {
+        "sha256": "6e3204c5a4004719c185007a745d1940471a6fb02521cfa0a00306dbb6bc5903",
+        "bytes": 1051
+      },
+      "native/tokenizer/tokenizer.json": {
+        "sha256": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f",
+        "bytes": 34363188
+      },
+      "native/tokenizer/tokenizer_config.json": {
+        "sha256": "74a259bb1a3811a7e3028adcd07a65765d866d5e66e0e883f0994ccfa67e8455",
+        "bytes": 46470
+      }
+    },
+    "no_gated_source_fetched": true
+  },
+  "distribution": {
+    "native_manifest_sha256": "da603662bc57e89ccfb51c972ed9c1f2825f267597353cf1337df9117a3dfabe",
+    "training_or_evaluation_data_included": false,
+    "laya_weights_or_sdk_source_included": false,
+    "installed_dependency_distributions_vendored": false
+  },
+  "superseded_draft": {
+    "sha256": "d9bc648b19d435e2173aeabbed6728b5fe4c1e766ac67c20faa934e98218c46f",
+    "bytes": 2419,
+    "preserved_at": "previous package-preview attribution draft"
+  },
+  "files": [
+    {
+      "file": "DISTRIBUTION_TERMS.md",
+      "bytes": 1251,
+      "sha256": "54a5895871af33845ee939f2e8f37b7f821cee8e89ff25ec1fd78e9cf83e9c63"
+    },
+    {
+      "file": "LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "file": "LICENSES/Transformers-Apache-2.0.txt",
+      "bytes": 11418,
+      "sha256": "77fd4710def9ec3c0f6225800e0235f15a425abd4a8b03559127fcd782612049"
+    },
+    {
+      "file": "LICENSES/Upstream-MIT.txt",
+      "bytes": 1191,
+      "sha256": "3ec44d2f046b27986e28e3b4705110a33b139e6392ef3868ff594a0453311038"
+    },
+    {
+      "file": "LICENSES/gemma/GEMMA_PROHIBITED_USE_POLICY.html",
+      "bytes": 4636,
+      "sha256": "7e50ae0c7a6386ab51d36aa868e1d20a4fb28cbcab38778a5dbdac6a445f5a96"
+    },
+    {
+      "file": "LICENSES/gemma/GEMMA_TERMS.html",
+      "bytes": 13510,
+      "sha256": "01ccbe2f6504a6a1364db0e5d6d91ed37309435229c322a29b20ee5daebebc1a"
+    },
+    {
+      "file": "LICENSES/gemma/Notice",
+      "bytes": 1088,
+      "sha256": "a7b8b1b625d4a140b4dd55ee4479db7d64b5cda047f2cbc1be9d21516b470921"
+    },
+    {
+      "file": "LICENSES/gemma/TOKENIZER_TERMS.md",
+      "bytes": 1345,
+      "sha256": "1ca30bf8cc8d1054f78ad3481ada9cf39a137cec9e383f18c3a9f0f56b8d4241"
+    },
+    {
+      "file": "LICENSING_STATUS.md",
+      "bytes": 1530,
+      "sha256": "d712981fd50f08c9374667f99c72ec4789eec474329c6f17521e4345562aa253"
+    },
+    {
+      "file": "NOTICE",
+      "bytes": 4359,
+      "sha256": "e24bef8d93593474468fbd0cdb1d524dc88468ca704db374b5fe75d649fbd1e5"
+    },
+    {
+      "file": "TRAINING_ATTRIBUTION.md",
+      "bytes": 4633,
+      "sha256": "a5479c69bfbd90b2b462eca25b6277912e21d847f0d90ca8ac03f6ae2faae5da"
+    },
+    {
+      "file": "source-metadata/MODEL_LICENSE_METADATA.json",
+      "bytes": 1514,
+      "sha256": "4cf02725616cb53c157894f219d388c71b488669355a2131adaa381b6d8e7208"
+    },
+    {
+      "file": "source-metadata/TRANSFORMERS_LICENSE_SOURCE.json",
+      "bytes": 1178,
+      "sha256": "b60e54814b6c70791318475ebd4737c29fe5816f3141df392144dd31ac316d77"
+    },
+    {
+      "file": "source-metadata/TRANSFORMERS_MODERNBERT_SOURCE_HEADER.txt",
+      "bytes": 1497,
+      "sha256": "4577f1803f9dbe8b43f5da709f8750c798def2c33f7eb055d62baf286ed472c8"
+    }
+  ],
+  "license_resolution_supplement": {
+    "product": "Decision-1.0-Kai",
+    "source_review": {
+      "file": "release/license-resolution-v1/REVIEW.md",
+      "sha256": "dce1b3a1ae3a536033898c8f514b151d56ed48bfe328a42d0d712c923da6db9f",
+      "bytes": 3932
+    },
+    "official_fetch_receipt": {
+      "file": "release/license-resolution-v1/OFFICIAL_FETCH_RECEIPT.json",
+      "sha256": "34a017f07218e98b8fbef4a738421f9d944ffff751edbe3be7419b272363d20b",
+      "bytes": 2223
+    },
+    "copies": [
+      {
+        "file": "LICENSES/gemma/GEMMA_PROHIBITED_USE_POLICY.html",
+        "sha256": "7e50ae0c7a6386ab51d36aa868e1d20a4fb28cbcab38778a5dbdac6a445f5a96",
+        "bytes": 4636
+      },
+      {
+        "file": "LICENSES/gemma/GEMMA_TERMS.html",
+        "sha256": "01ccbe2f6504a6a1364db0e5d6d91ed37309435229c322a29b20ee5daebebc1a",
+        "bytes": 13510
+      },
+      {
+        "file": "LICENSES/gemma/Notice",
+        "sha256": "a7b8b1b625d4a140b4dd55ee4479db7d64b5cda047f2cbc1be9d21516b470921",
+        "bytes": 1088
+      },
+      {
+        "file": "LICENSES/gemma/TOKENIZER_TERMS.md",
+        "sha256": "1ca30bf8cc8d1054f78ad3481ada9cf39a137cec9e383f18c3a9f0f56b8d4241",
+        "bytes": 1345
+      }
+    ],
+    "download_use_agreement_integrated": true,
+    "hf_gate_configured": false,
+    "legal_enforceability_determined": false,
+    "all_files_mit_claim": false,
+    "original_LICENSE_NOTICE_unchanged": false
+  },
+  "access_update": {
+    "date": "2026-09-21",
+    "public": true,
+    "gated": false,
+    "user_requested_license": "Apache-2.0",
+    "retained_third_party_terms": true,
+    "weights_and_runtime_unchanged": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "adapter_sha256": "0fd1bf62d764747b6f8531dbe153e79655fb0c8cbfdf5c85abae2d658974b944",
+  "base_model": "google/gemma-4-E4B-it",
+  "base_model_revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "base_model_revision_note": "Hub main when the g26 configs were written (2026-10-06); the loader does not pin it",
+  "code_commit": "unknown",
+  "format": "hobson-hf-export/1",
+  "gpu": null,
+  "head_sha256": "609cd2b6fdd4c65b6b5df1abfcb0c7a60dced2d50322e7610f64f5c92fbba113",
+  "hobson_config_sha256": "f2620549fc4f6533f58bef44de2e3d7a5d503b3d590f291965c7560006bd028b",
+  "host_shape": null,
+  "name": "strands-decider-E4B-gemma4-v1-2610",
+  "pipeline_wall_s": null,
+  "role": "final",
+  "run_id": "g26-e4b-code-soup3",
+  "source_checkpoint_fingerprint": "fb638bb4919a3ba7",
+  "source_head_pickle_sha256": "8f9ad6f76f5bc4da9e2b662abbc9202154d9646607518406a86e19b5c2c94e66",
+  "train_config_sha256": "293b690363bd40e7adab4718c0a19d24079e08f6a530eb1d342ac8ada8c8e201",
+  "train_wall_s": null
+}

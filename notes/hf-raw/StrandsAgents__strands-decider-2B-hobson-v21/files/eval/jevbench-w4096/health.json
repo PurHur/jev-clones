@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "model": "ckpt-s5-clean",
+  "checkpoint": "<redacted>/ckpt-s5-clean",
+  "base_model": "Qwen/Qwen3.5-2B-Base",
+  "num_slots": 24,
+  "max_length": 4096,
+  "temperature": 0.935220152138837,
+  "device": "cuda",
+  "prefix_cache": true,
+  "vision": false
+}

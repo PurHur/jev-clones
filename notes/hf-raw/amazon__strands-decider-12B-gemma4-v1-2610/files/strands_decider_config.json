@@ -1,0 +1,35 @@
+{
+  "base_model": "google/gemma-4-12B-it",
+  "num_slots": 24,
+  "head_hidden": 0,
+  "head_dropout": 0.05,
+  "max_length": 4096,
+  "torch_dtype": "bfloat16",
+  "head_init": "random",
+  "kl_frozen_weight": 0.3,
+  "head_type": "pointer",
+  "pointer_dim": 768,
+  "temperature": 0.7495913207526299,
+  "temperature_by_kind": {
+    "noul": 0.7748214534681725,
+    "choice": 0.6246374138527419,
+    "score": 0.9107136998460428
+  },
+  "ordinal_smoothing": 0.1,
+  "use_lora": true,
+  "lora_r": 48,
+  "lora_alpha": 96,
+  "lora_dropout": 0.05,
+  "lora_targets": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "full_weight_targets": [],
+  "force_bos": true,
+  "host_embeddings": false
+}

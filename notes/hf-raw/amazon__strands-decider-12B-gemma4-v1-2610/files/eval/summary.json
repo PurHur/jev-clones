@@ -1,0 +1,222 @@
+{
+  "internal": {
+    "eval: [2] gen:all_conditions": {
+      "accuracy": 0.912,
+      "n": 34
+    },
+    "eval: [2] gen:dates": {
+      "accuracy": 0.806,
+      "n": 31
+    },
+    "eval: [2] gen:exception": {
+      "accuracy": 0.973,
+      "n": 37
+    },
+    "eval: [2] gen:lookup_chain": {
+      "accuracy": 0.925,
+      "n": 40
+    },
+    "eval: [2] gen:numbers": {
+      "accuracy": 0.909,
+      "n": 33
+    },
+    "eval: [2] gen:precedence": {
+      "accuracy": 0.944,
+      "n": 36
+    },
+    "eval: [2] gen:rubric": {
+      "accuracy": 1.0,
+      "n": 34
+    },
+    "eval: [2] gen:surface_trap": {
+      "accuracy": 0.979,
+      "n": 48
+    },
+    "eval: [2] gen:tradeoff": {
+      "accuracy": 0.825,
+      "n": 40
+    },
+    "eval: [2] gen:underdetermined": {
+      "accuracy": 0.824,
+      "n": 17
+    },
+    "eval: [3] gen:all_conditions": {
+      "accuracy": 0.889,
+      "n": 9
+    },
+    "eval: [3] gen:borderline_rubric": {
+      "accuracy": 0.846,
+      "n": 13
+    },
+    "eval: [3] gen:cross_artefact": {
+      "accuracy": 0.903,
+      "n": 31
+    },
+    "eval: [3] gen:dates": {
+      "accuracy": 0.8,
+      "n": 10
+    },
+    "eval: [3] gen:definition_scope": {
+      "accuracy": 0.917,
+      "n": 12
+    },
+    "eval: [3] gen:exception": {
+      "accuracy": 0.933,
+      "n": 15
+    },
+    "eval: [3] gen:judge_action": {
+      "accuracy": 1.0,
+      "n": 7
+    },
+    "eval: [3] gen:lookup_chain": {
+      "accuracy": 1.0,
+      "n": 10
+    },
+    "eval: [3] gen:missing_fact": {
+      "accuracy": 0.862,
+      "n": 29
+    },
+    "eval: [3] gen:nested_exception": {
+      "accuracy": 0.846,
+      "n": 13
+    },
+    "eval: [3] gen:numbers": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:precedence": {
+      "accuracy": 1.0,
+      "n": 11
+    },
+    "eval: [3] gen:rubric": {
+      "accuracy": 1.0,
+      "n": 3
+    },
+    "eval: [3] gen:running_total": {
+      "accuracy": 0.87,
+      "n": 23
+    },
+    "eval: [3] gen:surface_trap": {
+      "accuracy": 0.0,
+      "n": 1
+    },
+    "eval: [3] gen:tie_break": {
+      "accuracy": 0.913,
+      "n": 23
+    },
+    "eval: [3] gen:underdetermined": {
+      "accuracy": 1.0,
+      "n": 1
+    },
+    "eval: [3] gen:version_in_force": {
+      "accuracy": 0.926,
+      "n": 27
+    },
+    "eval: [3] gen:withdrawn_instruction": {
+      "accuracy": 1.0,
+      "n": 8
+    },
+    "eval: [4] adequacy_hs2": {
+      "accuracy": 0.795,
+      "n": 234
+    },
+    "eval: [5] gen:adequacy": {
+      "accuracy": 0.884,
+      "n": 302
+    },
+    "eval: [6] code/bug_swapped_operands": {
+      "accuracy": 0.91,
+      "n": 89
+    },
+    "eval: [6] code/bug_variable_misuse": {
+      "accuracy": 0.831,
+      "n": 89
+    },
+    "eval: [6] code/bug_wrong_binary_operator": {
+      "accuracy": 0.798,
+      "n": 89
+    },
+    "eval: [6] code/commit_message": {
+      "accuracy": 0.989,
+      "n": 89
+    },
+    "eval: [6] code/correct_solution": {
+      "accuracy": 0.539,
+      "n": 89
+    },
+    "eval: [6] code/cwe_choice": {
+      "accuracy": 0.955,
+      "n": 89
+    },
+    "eval: [6] code/docstring_match": {
+      "accuracy": 0.955,
+      "n": 89
+    },
+    "eval: [6] code/exception_type": {
+      "accuracy": 0.876,
+      "n": 89
+    },
+    "eval: [6] code/exec_input": {
+      "accuracy": 0.81,
+      "n": 142
+    },
+    "eval: [6] code/exec_output": {
+      "accuracy": 0.863,
+      "n": 662
+    },
+    "eval: [6] code/needle_function": {
+      "accuracy": 0.99,
+      "n": 391
+    },
+    "eval: [6] code/review_needed": {
+      "accuracy": 0.607,
+      "n": 89
+    },
+    "eval: boardgame": {
+      "accuracy": 0.891,
+      "n": 900
+    },
+    "eval: contractnli": {
+      "accuracy": 0.876,
+      "n": 1026
+    },
+    "eval: held-out short tasks": {
+      "accuracy": 0.708,
+      "ece": 0.047,
+      "n": 6000,
+      "nll": 0.754
+    },
+    "eval: hotpotqa (held out)": {
+      "accuracy": 0.911,
+      "n": 959
+    },
+    "eval: musique": {
+      "accuracy": 0.936,
+      "n": 1199
+    },
+    "eval: musique, answerable": {
+      "accuracy": 0.947,
+      "n": 599
+    },
+    "eval: musique, unanswerable": {
+      "accuracy": 0.925,
+      "n": 600
+    }
+  },
+  "jevbench": [
+    {
+      "accuracy": 0.8658008658008658,
+      "arm": "w4096",
+      "brier": 0.17334571774891774,
+      "ece": 0.06096017316017332,
+      "n": 231,
+      "n_correct": 200,
+      "schema_validity_strict": 1.0,
+      "served": "these files",
+      "window": 4096
+    }
+  ],
+  "name": "strands-decider-12B-gemma4-v1-2610",
+  "role": "final",
+  "run_id": "g26-12b-code-soup3"
+}
