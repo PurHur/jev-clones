@@ -14,7 +14,7 @@
   --bg: #f6f7f9; --panel: #ffffff; --panel-2: #eef1f5; --line: #dde2ea; --grid: #e8ecf1;
   --ink: #12161d; --ink-2: #4b5462; --ink-3: #7a8494;
   --accent: #2f5bd3; --accent-soft: #e3eafb;
-  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --none: #b8bfca;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --none: #b8bfca; --zeiger: #c2417a;
   --good: #1f8a4c; --warn: #b7791f; --crit: #c53030;
   --f-display: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif;
   --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
@@ -25,13 +25,13 @@
   --bg: #0f1217; --panel: #171b22; --panel-2: #1e232c; --line: #2a313c; --grid: #232933;
   --ink: #edf0f4; --ink-2: #b4bcc8; --ink-3: #848e9c;
   --accent: #7c9cf0; --accent-soft: #1f2a44;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260; --zeiger: #e66fa0;
   --good: #48bb78; --warn: #ecc94b; --crit: #fc8181; color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #0f1217; --panel: #171b22; --panel-2: #1e232c; --line: #2a313c; --grid: #232933;
   --ink: #edf0f4; --ink-2: #b4bcc8; --ink-3: #848e9c;
   --accent: #7c9cf0; --accent-soft: #1f2a44;
-  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --none: #4a5260; --zeiger: #e66fa0;
   --good: #48bb78; --warn: #ecc94b; --crit: #fc8181; color-scheme: dark; }
 
 * { box-sizing: border-box; }
@@ -330,7 +330,7 @@ footer { color: var(--ink-3); font-size: 12.5px; padding-block: 0 30px; }
   </div>
   <div class="card">
     <h2>Most downloaded families</h2>
-    <p class="sub">Total HF downloads across a family's repos. AutoTrust (distilled from Jev) leads by an order of magnitude.</p>
+    <p class="sub">Total HF downloads across a family's repos, top 15 plus Zeiger. AutoTrust (distilled from Jev) leads by an order of magnitude.</p>
     <div class="chart" id="topdl"></div>
   </div>
   <div class="card zg">
@@ -378,6 +378,15 @@ const PAT = {
   D: { name: "Joint questions, no isolation", short: "Joint", c: "--s4",
        text: "Questions see each other on purpose. Helps related questions, hurts independent ones." },
 };
+const Z = M.find(m => m.id === "zeiger"), ZE = Z.own_eval;
+const ZL = { label: "Zeiger (ours)", c: "--zeiger" };
+function zVline(f, x, text, opts = {}) {
+  f.g.append("line").attr("x1", x).attr("x2", x).attr("y1", 0).attr("y2", f.ih).attr("stroke", "var(--zeiger)").attr("stroke-width", 2).attr("stroke-dasharray", "5 3");
+  const t = f.g.append("text").attr("x", x + (opts.left ? -6 : 6)).attr("y", opts.y ?? 12).attr("text-anchor", opts.left ? "end" : "start").attr("class", "lbl").text(text);
+  if (opts.sub) f.g.append("text").attr("x", x + (opts.left ? -6 : 6)).attr("y", (opts.y ?? 12) + 13).attr("text-anchor", opts.left ? "end" : "start").attr("class", "muted").text(opts.sub);
+  return t;
+}
+const zMark = (d, has) => has ? { ...d, c: "--zeiger", display: `${d.display ?? fmt(d.value)} · incl. Zeiger`, strong: true } : d;
 const READ = {
   "lm-labels": "LM-head label tokens", "code-matrix": "Separate code matrix", "pointer": "Pointer head",
   "marker-set": "Markers + set module", "scalar": "Scalar per candidate", "bi-encoder": "Bi-encoder cosine", "exotic": "Other",
@@ -443,7 +452,8 @@ function legend(id, items) {
 }
 function hbars(id, data, opts = {}) {
   // data: [{label, value, c, tip, sub}]
-  const w = widthOf(id), rowH = opts.rowH || 26, m = { t: 6, r: 56, b: 22, l: opts.left || 170 };
+  const longest = d3.max(data.filter(d => d.value > 0), d => String(d.display ?? (opts.fmt ? opts.fmt(d.value) : fmt(d.value))).length) || 4;
+  const w = widthOf(id), rowH = opts.rowH || 26, m = { t: 6, r: Math.min(300, Math.max(56, longest * 6 + 16)), b: 22, l: opts.left || 170 };
   const f = frame(id, w, data.length * rowH + m.t + m.b, m);
   const max = opts.max || d3.max(data, d => d.value) || 1;
   const x = (opts.log ? d3.scaleLog().domain([opts.min || 1, max * 1.3]) : d3.scaleLinear().domain([0, max * 1.05])).range([0, f.iw]);
@@ -537,7 +547,7 @@ function drawPatterns() {
     const ms = M.filter(m => m.pattern === k);
     return `<div class="pat"><div class="head"><span class="letter" style="background:var(${p.c})">${k}</span><h3>${p.name}</h3></div>
       ${patternSvg(k)}<p>${p.text}</p>
-      <div class="chips">${ms.map(m => `<button class="chip" data-id="${m.id}">${esc(m.name)}</button>`).join("")}</div></div>`;
+      <div class="chips">${ms.map(m => `<button class="chip" data-id="${m.id}"${m.id === "zeiger" ? ' style="border:2px solid var(--zeiger);font-weight:600"><i class="dot" style="background:var(--zeiger)"></i' : ""}>${esc(m.name)}</button>`).join("")}</div></div>`;
   }).join("");
   document.querySelectorAll("#patterns .chip").forEach(c => c.onclick = () => openModel(c.dataset.id));
 }
@@ -564,12 +574,13 @@ function drawRace() {
     .style("cursor", d => d.pm ? "pointer" : null)
     .on("mousemove", (ev, d) => showTip(ev, boardTip(d) + rows([["Repo created", d.created]])))
     .on("mouseleave", hideTip).on("click", (ev, d) => d.pm && openModel(d.pm.id));
+  zVline(f, x(new Date(Z.released)), "Zeiger 0.6B", { y: 10, sub: "published, not on the board" });
   const top = steps[steps.length - 1];
   f.g.append("text").attr("x", x(top.date) - 6).attr("y", y(top.score) - 9).attr("text-anchor", "end").attr("class", "lbl").text(top.name);
 }
 
 function drawSize() {
-  legend("lg-size", [...KINDS.map(k => ({ label: k.label, c: k.c })), { label: "Jev (hosted, size unknown)", c: "--ink", ring: true }]);
+  legend("lg-size", [...KINDS.map(k => ({ label: k.label, c: k.c })), { label: "Jev (hosted, size unknown)", c: "--ink", ring: true }, ZL]);
   const pts = B.filter(b => b.params);
   const w = widthOf("size"), m = { t: 12, r: 18, b: 34, l: 38 };
   const f = frame("size", w, 330, m);
@@ -585,6 +596,7 @@ function drawSize() {
   f.g.selectAll("circle").data(pts).join("circle").attr("cx", d => x(Math.max(0.1, d.params))).attr("cy", d => y(d.score)).attr("r", 4.5)
     .attr("fill", d => `var(${kindOf(d.kind).c})`).attr("fill-opacity", .85).attr("stroke", "var(--panel)").attr("stroke-width", 1.5)
     .on("mousemove", (ev, d) => showTip(ev, boardTip(d))).on("mouseleave", hideTip);
+  zVline(f, x(Z.params), "Zeiger 0.6B", { y: 10, sub: "no DI score yet" });
   document.getElementById("src-size").textContent = `${pts.length} entries with a parameter count · ${DATA.snapshot}`;
 }
 
@@ -593,9 +605,9 @@ function drawWave() {
     { label: "Company / lab", c: "--s1", test: k => k === "LAB" },
     { label: "Independent", c: "--s2", test: k => k === "IND" },
     { label: "Small / multimodal / language / task", c: "--s3", test: k => ["SMALL", "MM", "LANG", "TASK"].includes(k) },
-    { label: "Reference (kev, Laya, Zeiger)", c: "--ink", test: k => k === "REF" },
+    { label: "Reference (kev, Laya)", c: "--ink", test: k => k === "REF" },
   ];
-  legend("lg-wave", groups);
+  legend("lg-wave", [...groups, ZL]);
   const pts = F.filter(f => f.first && f.first >= "2026-09-10" && f.dl > 0).map(f => ({ ...f, date: new Date(f.first), g: groups.find(g => g.test(f.kind)) || groups[1] }));
   const w = widthOf("wave"), m = { t: 12, r: 18, b: 30, l: 44 };
   const f = frame("wave", w, 330, m);
@@ -610,6 +622,12 @@ function drawWave() {
     .attr("fill", d => `var(${d.g.c})`).attr("fill-opacity", .85).attr("stroke", "var(--panel)").attr("stroke-width", 1.5)
     .on("mousemove", (ev, d) => showTip(ev, `<b>${esc(d.name)}</b>${rows([["First upload", d.first], ["Downloads", fmt(d.dl)], ["Repos", d.repos], ["Kind", d.g.label]])}<div style="margin-top:6px;color:var(--ink-2)">${esc(d.arch.slice(0, 160))}</div>`))
     .on("mouseleave", hideTip);
+  const zp = pts.find(p => p.name.startsWith("Zeiger"));
+  if (zp) {
+    f.g.append("circle").attr("cx", x(zp.date)).attr("cy", y(zp.dl)).attr("r", 7).attr("fill", "var(--zeiger)").attr("stroke", "var(--panel)").attr("stroke-width", 2)
+      .on("mousemove", ev => showTip(ev, `<b>Zeiger (ours)</b>${rows([["First upload", zp.first], ["Downloads", fmt(zp.dl)]])}`)).on("mouseleave", hideTip);
+    f.g.append("text").attr("x", x(zp.date) + 10).attr("y", y(zp.dl) + 4).attr("class", "lbl").text(`Zeiger · ${zp.dl} downloads`);
+  }
   const top = pts.sort((a, b) => b.dl - a.dl)[0];
   f.g.append("text").attr("x", x(top.date) + 8).attr("y", y(top.dl) + 4).attr("class", "lbl").text("AutoTrust JEV/GEV");
 }
@@ -622,7 +640,7 @@ function drawBoard() {
   seg.querySelectorAll("button").forEach(b => b.onclick = () => { bKind = b.dataset.k; drawBoard(); });
   const q = document.getElementById("bf-q");
   q.oninput = () => { bQ = q.value.toLowerCase(); renderBoard(); };
-  legend("lg-board", [...Object.entries(PAT).map(([k, p]) => ({ label: `${k} · ${p.short}`, c: p.c })), { label: "Other entrant", c: "--none" }]);
+  legend("lg-board", [...Object.entries(PAT).map(([k, p]) => ({ label: `${k} · ${p.short}`, c: p.c })), { label: "Other entrant", c: "--none" }, ZL]);
   renderBoard();
   if (!drawn.boardExtras) { drawn.boardExtras = true; drawBases(); drawKinds(); drawBands(); drawSelfrep(); }
 }
@@ -636,6 +654,9 @@ function renderBoard() {
       tip: boardTip(b) + (pm ? `<div style="margin-top:6px;color:var(--ink-2)">Profiled · ${PAT[pm.pattern].name}. Click for details.</div>` : ""),
       onClick: pm ? () => openModel(pm.id) : null };
   });
+  if ((bKind === "all" || bKind === "full") && (!bQ || "zeiger ours qwen3-0.6b php-ai".includes(bQ)))
+    data.unshift({ label: "Zeiger 0.6B (ours)", value: 0, display: `not on the board · ${ZE.jev_sample} on Jev's general sample (Jev ${ZE.jev_on_sample})`,
+      c: "--zeiger", strong: true, tip: `<b>Zeiger 0.6B</b>${rows([["Decision Index", "not submitted"], ["Jev's general sample", ZE.jev_sample], ["Jev on that sample", ZE.jev_on_sample], ["Own general test top-1", ZE.general_top1]])}`, onClick: () => openModel("zeiger") });
   document.getElementById("boardchart").innerHTML = "";
   if (!data.length) { document.getElementById("boardchart").innerHTML = `<p class="sub" style="padding:12px 0">No entrant matches this filter.</p>`; return; }
   hbars("boardchart", data, { left: 250, trunc: 40, max: 72, rowH: 22 });
@@ -645,11 +666,12 @@ function drawBases() {
   const by = d3.groups(B.filter(b => b.base), b => b.base).filter(([, v]) => v.length >= 3)
     .map(([k, v]) => ({ base: k, n: v.length, best: d3.max(v, d => d.score) })).sort((a, b) => b.best - a.best);
   hbars("bases", by.map(d => ({ label: d.base.replace(/^[^/]+\//, ""), value: d.best, display: `${d.best.toFixed(1)} · ${d.n}×`, c: "--s1",
-    tip: `<b>${esc(d.base)}</b>${rows([["Entries", d.n], ["Best score", d.best.toFixed(2)]])}` })), { left: 150, max: 72, trunc: 22 });
+    tip: `<b>${esc(d.base)}</b>${rows([["Entries", d.n], ["Best score", d.best.toFixed(2)]])}` })).concat([{ label: "Qwen3-0.6B-Base", value: 0, display: "Zeiger's base · not on board", c: "--zeiger", strong: true,
+      tip: `<b>Qwen3-0.6B-Base</b><div style="color:var(--ink-2);margin-top:4px">Zeiger's backbone. No board entry uses it.</div>` }]), { left: 150, max: 72, trunc: 22 });
 }
 function drawKinds() {
-  const w = widthOf("kinds"), m = { t: 10, r: 14, b: 30, l: 128 };
-  const f = frame("kinds", w, 210, m);
+  const w = widthOf("kinds"), m = { t: 30, r: 14, b: 30, l: 128 };
+  const f = frame("kinds", w, 230, m);
   const x = d3.scaleLinear().domain([0, 72]).range([0, f.iw]);
   const y = d3.scaleBand().domain(KINDS.map(k => k.key)).range([0, f.ih]).padding(.25);
   f.g.append("g").attr("class", "gridline").call(d3.axisBottom(x).ticks(5).tickSize(f.ih).tickFormat(""));
@@ -663,6 +685,9 @@ function drawKinds() {
     const med = d3.median(vals, d => d.score);
     if (med != null) f.g.append("line").attr("x1", x(med)).attr("x2", x(med)).attr("y1", cy - 15).attr("y2", cy + 15).attr("stroke", "var(--ink)").attr("stroke-width", 2);
   });
+  const zy = -8;
+  f.g.append("rect").attr("x", -m.l + 4).attr("y", zy - 22 + 13).attr("width", 10).attr("height", 10).attr("rx", 2).attr("fill", "var(--zeiger)");
+  f.g.append("text").attr("x", -m.l + 18).attr("y", zy).attr("class", "lbl").text("Zeiger: full fine-tune, unscored");
 }
 function drawBands() {
   const bands = [[0, 1, "< 1B"], [1, 3, "1–3B"], [3, 6, "3–6B"], [6, 15, "6–15B"], [15, 25, "15–25B"], [25, 40, "25–40B"]];
@@ -671,6 +696,7 @@ function drawBands() {
     const top = v.sort((a, b) => b.score - a.score)[0];
     return top && { label: l, value: top.score, display: `${top.score.toFixed(1)} · ${top.name.slice(0, 26)}`, c: "--s1", tip: boardTip(top) + rows([["Entries in band", v.length]]) };
   }).filter(Boolean);
+  data.splice(1, 0, { label: "Zeiger 0.6B", value: 0, display: "ours · not on the board", c: "--zeiger", strong: true, tip: `<b>Zeiger 0.6B</b>${rows([["Band", "< 1B"], ["Decision Index", "not submitted"]])}` });
   const jev = B.find(b => b.slug === "jev-1.14.0");
   data.push({ label: "Jev 1.14", value: jev.score, display: jev.score.toFixed(2), c: "--panel-2", outline: true, strong: true, tip: boardTip(jev) });
   hbars("bands", data, { left: 70, max: 72 });
@@ -679,7 +705,8 @@ function drawSelfrep() {
   const list = M.filter(m => m.di != null && m.id !== "jev").sort((a, b) => b.di - a.di);
   hbars("selfrep", list.map(m => ({ label: m.name, value: m.di, display: `${m.di.toFixed(1)}${m.di_source === "board" ? "" : " · self"}`,
     c: m.di_source === "board" ? PAT[m.pattern].c : "--none", tip: `<b>${esc(m.name)}</b>${rows([["Score", m.di], ["Source", m.di_source], ["Pattern", PAT[m.pattern].short]])}`,
-    onClick: () => openModel(m.id) })), { left: 190, max: 72, trunc: 26 });
+    onClick: () => openModel(m.id) })).concat([{ label: "Zeiger 0.6B (ours)", value: 0, display: `no DI score · ${ZE.jev_sample} on Jev's general sample (Jev ${ZE.jev_on_sample})`, c: "--zeiger", strong: true,
+    tip: `<b>Zeiger 0.6B</b>${rows([["Decision Index", "not submitted"], ["Jev's general sample", ZE.jev_sample]])}`, onClick: () => openModel("zeiger") }]), { left: 190, max: 72, trunc: 26 });
 }
 
 /* ---------- Architecture ---------- */
@@ -716,7 +743,7 @@ function renderMatrix() {
   });
   const t = document.getElementById("matrix");
   t.innerHTML = `<thead><tr>${COLS.map(c => `<th data-k="${c.key}" ${mSort.key === c.key ? `aria-sort="${mSort.dir > 0 ? "ascending" : "descending"}"` : ""}>${c.label}${mSort.key === c.key ? (mSort.dir > 0 ? " ↑" : " ↓") : ""}</th>`).join("")}</tr></thead>
-  <tbody>${list.map(m => `<tr data-id="${m.id}">
+  <tbody>${list.map(m => `<tr data-id="${m.id}"${m.id === "zeiger" ? ' style="box-shadow:inset 4px 0 0 var(--zeiger);background:color-mix(in srgb, var(--zeiger) 8%, transparent)"' : ""}>
     <td><div class="nm">${esc(m.name)}</div><div class="org">${esc(m.org)}</div></td>
     <td><span class="grp ${m.group === "ours" ? "ours" : ""}">${GROUP[m.group]}</span></td>
     <td class="num">${m.params != null ? m.params : "–"}</td>
@@ -740,20 +767,21 @@ function drawHeat() {
     pats.forEach(p => {
       const ms = M.filter(m => m.readout === r && m.pattern === p);
       const a = ms.length ? 0.12 + 0.6 * ms.length / max : 0;
-      html += `<div class="cell" style="background:color-mix(in srgb, var(--s1) ${Math.round(a * 100)}%, var(--panel-2))" title="${esc(ms.map(m => m.name).join(", "))}">
-        <span class="n" style="color:${a > .45 ? "#fff" : "var(--ink)"}">${ms.length || ""}</span><span class="who" style="color:${a > .45 ? "#fff" : "var(--ink-2)"}">${esc(ms.slice(0, 3).map(m => m.name.split(" (")[0]).join(", "))}${ms.length > 3 ? " …" : ""}</span></div>`;
+      const hasZ = ms.some(m => m.id === "zeiger");
+      html += `<div class="cell" style="background:color-mix(in srgb, var(--s1) ${Math.round(a * 100)}%, var(--panel-2));${hasZ ? "outline:3px solid var(--zeiger);outline-offset:-1px" : ""}" title="${esc(ms.map(m => m.name).join(", "))}">
+        <span class="n" style="color:${a > .45 ? "#fff" : "var(--ink)"}">${ms.length || ""}</span><span class="who" style="color:${a > .45 ? "#fff" : "var(--ink-2)"}">${hasZ ? "<b>Zeiger</b>, " : ""}${esc(ms.filter(m => m.id !== "zeiger").slice(0, 3).map(m => m.name.split(" (")[0]).join(", "))}${ms.length > 3 ? " …" : ""}</span></div>`;
     });
   });
   el.innerHTML = html;
 }
 function drawReadouts() {
   const counts = Object.keys(READ).map(r => ({ r, ms: M.filter(m => m.readout === r) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length);
-  hbars("readouts", counts.map(d => ({ label: READ[d.r], value: d.ms.length, c: "--s1",
-    tip: `<b>${READ[d.r]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => m.name).join(", "))}</div>` })), { left: 170 });
+  hbars("readouts", counts.map(d => zMark({ label: READ[d.r], value: d.ms.length, c: "--s1",
+    tip: `<b>${READ[d.r]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => m.name).join(", "))}</div>` }, d.ms.some(m => m.id === "zeiger"))), { left: 170 });
 }
 function drawOpts() {
   const list = M.filter(m => m.max_options).sort((a, b) => b.max_options - a.max_options);
-  const f = hbars("opts", list.map(m => ({ label: m.name, value: m.max_options, c: m.id === "zeiger" ? "--s2" : "--s1", strong: m.id === "zeiger",
+  const f = hbars("opts", list.map(m => ({ label: m.name, value: m.max_options, c: m.id === "zeiger" ? "--zeiger" : "--s1", strong: m.id === "zeiger",
     tip: `<b>${esc(m.name)}</b>${rows([["Max options", fmt(m.max_options)], ["Context", m.ctx]])}`, onClick: () => openModel(m.id) })), { left: 190, log: true, min: 10, max: 1500, trunc: 26, rowH: 22 });
   const x = d3.scaleLog().domain([10, 1500 * 1.3]).range([0, f.iw]);
   f.g.append("line").attr("x1", x(255)).attr("x2", x(255)).attr("y1", 0).attr("y2", f.ih).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
@@ -762,12 +790,12 @@ function drawOpts() {
 function drawAttn() {
   const norm = a => /bidirectional encoder/.test(a) ? "Bidirectional encoder" : /noncausal/.test(a) ? "Causal + noncausal full-attn layers" : /conv/.test(a) ? "Causal conv/attention hybrid" : /unknown/.test(a) ? "Unknown (Jev)" : "Causal decoder";
   const by = d3.rollups(M, v => v, m => norm(m.attention)).sort((a, b) => b[1].length - a[1].length);
-  hbars("attn", by.map(([k, v]) => ({ label: k, value: v.length, c: "--s1", tip: `<b>${esc(k)}</b><div style="color:var(--ink-2);margin-top:4px">${esc(v.map(m => m.name).join(", "))}</div>` })), { left: 220, trunc: 36 });
+  hbars("attn", by.map(([k, v]) => zMark({ label: k, value: v.length, c: "--s1", tip: `<b>${esc(k)}</b><div style="color:var(--ink-2);margin-top:4px">${esc(v.map(m => m.name).join(", "))}</div>` }, v.some(m => m.id === "zeiger"))), { left: 220, trunc: 36 });
 }
 
 /* ---------- Calibration & training ---------- */
 function drawCalib() {
-  legend("lg-ece", [...KINDS.map(k => ({ label: k.label, c: k.c }))]);
+  legend("lg-ece", [...KINDS.map(k => ({ label: k.label, c: k.c })), ZL]);
   const pts = B.filter(b => b.ece != null);
   const w = widthOf("ece"), m = { t: 12, r: 18, b: 34, l: 38 };
   const f = frame("ece", w, 360, m);
@@ -781,12 +809,13 @@ function drawCalib() {
     .attr("r", d => isJev(d) ? 7 : 4.5).attr("fill", d => isJev(d) ? "var(--panel)" : `var(${kindOf(d.kind).c})`).attr("fill-opacity", d => isJev(d) ? 1 : .85)
     .attr("stroke", d => isJev(d) ? "var(--ink)" : "var(--panel)").attr("stroke-width", d => isJev(d) ? 2 : 1.5)
     .on("mousemove", (ev, d) => showTip(ev, boardTip(d))).on("mouseleave", hideTip);
+  zVline(f, x(ZE.general_ece), `Zeiger ECE ${ZE.general_ece.toFixed(3)}`, { y: f.ih - 30, sub: "own general test, no DI score" });
   pts.filter(isJev).forEach((j, i) => f.g.append("text").attr("x", x(j.ece) + 10).attr("y", y(j.score) + (i ? 16 : -6)).attr("class", "lbl").text(j.name.replace("Jev jev-", "Jev ")));
   const cnt = (k, list) => list.filter(m => m.calibration === k);
   hbars("calibs", Object.keys(CAL).map(k => ({ k, ms: cnt(k, M) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length)
-    .map(d => ({ label: CAL[d.k], value: d.ms.length, c: "--s1", tip: `<b>${CAL[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.calibration_note ? " (" + m.calibration_note + ")" : ""}`).join("; "))}</div>` })), { left: 170 });
+    .map(d => zMark({ label: CAL[d.k], value: d.ms.length, c: "--s1", tip: `<b>${CAL[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.calibration_note ? " (" + m.calibration_note + ")" : ""}`).join("; "))}</div>` }, d.ms.some(m => m.id === "zeiger"))), { left: 170 });
   hbars("signals", Object.keys(SIG).map(k => ({ k, ms: M.filter(m => m.signal === k) })).filter(d => d.ms.length).sort((a, b) => b.ms.length - a.ms.length)
-    .map(d => ({ label: SIG[d.k], value: d.ms.length, c: d.k === "jev" ? "--s2" : "--s1", tip: `<b>${SIG[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.signal_note ? " (" + m.signal_note + ")" : ""}`).join("; "))}</div>` })), { left: 220, trunc: 34 });
+    .map(d => zMark({ label: SIG[d.k], value: d.ms.length, c: d.k === "jev" ? "--s2" : "--s1", tip: `<b>${SIG[d.k]}</b><div style="color:var(--ink-2);margin-top:4px">${esc(d.ms.map(m => `${m.name}${m.signal_note ? " (" + m.signal_note + ")" : ""}`).join("; "))}</div>` }, d.ms.some(m => m.id === "zeiger"))), { left: 220, trunc: 34 });
   // histogram
   const vals = pts.map(d => d.ece);
   const bins = d3.bin().domain([0, 0.26]).thresholds(d3.range(0, 0.26, 0.02))(vals.filter(v => v < 0.26));
@@ -804,21 +833,24 @@ function drawCalib() {
   const j = B.find(b => b.slug === "jev-1.14.0");
   g.g.append("line").attr("x1", xh(j.ece)).attr("x2", xh(j.ece)).attr("y1", 0).attr("y2", g.ih).attr("stroke", "var(--ink)").attr("stroke-dasharray", "4 3");
   g.g.append("text").attr("x", xh(j.ece) + 4).attr("y", 10).attr("class", "lbl").text("Jev 1.14");
+  zVline(g, xh(ZE.general_ece), "Zeiger", { left: true, y: 10, sub: "own test" });
 }
 
 /* ---------- Ecosystem ---------- */
 function drawEco() {
-  hbars("backbones", A.backbone.map(([k, v]) => ({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` })), { left: 150 });
+  const zType = (d, yes) => yes ? { ...d, c: "--zeiger", strong: true, display: `${fmt(d.value)} · Zeiger's type` } : d;
+  hbars("backbones", A.backbone.map(([k, v]) => zType({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` }, k === "Qwen3")), { left: 150 });
   document.getElementById("src-arch").textContent = `${A.with_config} of ${A.repos} repos have a readable config · ${A.noncausal} set is_causal: false · scripts/hf_arch.py`;
-  hbars("mix", A.mix.map(([k, v]) => ({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` })), { left: 180 });
-  hbars("lora", A.lora.map(([k, v]) => ({ label: "r = " + k, value: v, c: "--s1", tip: `<b>LoRA rank ${k}</b>${rows([["Adapters", v]])}` })), { left: 70 });
+  hbars("mix", A.mix.map(([k, v]) => zType({ label: k, value: v, c: "--s1", tip: `<b>${esc(k)}</b>${rows([["Repos", v]])}` }, k === "Full attention only")), { left: 180 });
+  hbars("lora", A.lora.map(([k, v]) => ({ label: "r = " + k, value: v, c: "--s1", tip: `<b>LoRA rank ${k}</b>${rows([["Adapters", v]])}` }))
+    .concat([{ label: "no LoRA", value: 0, display: "Zeiger: all weights fine-tuned", c: "--zeiger", strong: true, tip: "<b>Zeiger</b><div style='color:var(--ink-2);margin-top:4px'>Full fine-tune of Qwen3-0.6B-Base plus an 18M head; no adapter.</div>" }]), { left: 70 });
   const KN = { LAB: "Company / lab", IND: "Independent", SMALL: "Small encoders", MM: "Multimodal", LANG: "Language-specific", TASK: "Task-specific", REF: "Reference" };
-  hbars("fkinds", d3.rollups(F, v => v.length, f => f.kind).sort((a, b) => b[1] - a[1]).map(([k, v]) => ({ label: KN[k] || k, value: v, c: "--s1",
-    tip: `<b>${esc(KN[k] || k)}</b>${rows([["Families", v], ["Downloads", fmt(d3.sum(F.filter(f => f.kind === k), f => f.dl))]])}` })), { left: 140 });
-  const top = [...F].sort((a, b) => b.dl - a.dl).slice(0, 15);
-  hbars("topdl", top.map(f => ({ label: f.name, value: f.dl, display: compact(f.dl), c: f.name.startsWith("JEV-9B") ? "--s2" : "--s1",
+  hbars("fkinds", d3.rollups(F, v => v.length, f => f.kind).sort((a, b) => b[1] - a[1]).map(([k, v]) => zMark({ label: KN[k] || k, value: v, c: "--s1",
+    tip: `<b>${esc(KN[k] || k)}</b>${rows([["Families", v], ["Downloads", fmt(d3.sum(F.filter(f => f.kind === k), f => f.dl))]])}` }, k === "REF")), { left: 140 });
+  const top = [...F].sort((a, b) => b.dl - a.dl).slice(0, 15).concat(F.filter(f => f.name.startsWith("Zeiger")));
+  hbars("topdl", top.map(f => ({ label: f.name, value: f.dl, display: compact(f.dl), c: f.name.startsWith("Zeiger") ? "--zeiger" : f.name.startsWith("JEV-9B") ? "--s2" : "--s1", strong: f.name.startsWith("Zeiger"),
     tip: `<b>${esc(f.name)}</b>${rows([["Downloads", fmt(f.dl)], ["First upload", f.first], ["Maker", f.maker], ["Main repo", f.main]])}<div style="margin-top:6px;color:var(--ink-2)">${esc(f.arch.slice(0, 180))}</div>` })),
-    { left: 260, log: true, min: 1000, max: 5e6, trunc: 44, fmt: compact });
+    { left: 260, log: true, min: 10, max: 5e6, trunc: 44, fmt: compact });
 }
 
 /* ---------- Profiles ---------- */
