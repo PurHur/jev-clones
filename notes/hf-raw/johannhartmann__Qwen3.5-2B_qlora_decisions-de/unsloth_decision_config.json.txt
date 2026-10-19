@@ -1,0 +1,31 @@
+{
+  "layout": "clef",
+  "max_len": 4096,
+  "temperature": [
+    1.1334842443466187,
+    0.8809957504272461,
+    0.6729159355163574
+  ],
+  "base_model": "unsloth/Qwen3.5-2B",
+  "load_in_4bit": true,
+  "training": {
+    "base": "unsloth/Qwen3.5-2B",
+    "subfolder": null,
+    "decision_head": "clef (new)",
+    "method": "qlora",
+    "objective": "soft_cross_entropy",
+    "dataset": "johannhartmann/decisions-de",
+    "steps": 1194,
+    "epochs": 2.0,
+    "heldout_decisions": 400,
+    "heldout_accuracy_base": 0.5025,
+    "heldout_accuracy": 0.8475,
+    "heldout_ece_base": 0.1375,
+    "heldout_ece": 0.0421,
+    "seconds": 4324.1,
+    "peak_memory_gb": 12.4,
+    "date": "2026-10-14T10:04:43+00:00"
+  },
+  "fine_tuned": true,
+  "folded_temperature": 1.5578663349151611
+}

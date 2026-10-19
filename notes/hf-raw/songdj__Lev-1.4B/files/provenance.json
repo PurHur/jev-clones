@@ -1,0 +1,26 @@
+{
+  "release_id": "Lev-1.4B-s0",
+  "base": "ByteDance/Ouro-1.4B",
+  "base_revision": "574fa66cb8bf5abdc979642d01cf2b79b16bfab1",
+  "source_artifact_sha256": {
+    "adapter_config.json": "d723904892f94f4698026916c9b0a4bf298bbf9d3997d36569fe173882f15a7a",
+    "adapter_model.safetensors": "389e76c7275c2b3dcedbe7a6547b29777b79dd6aa79fb1566cd4034db7a7f42d",
+    "chat_template.jinja": "609d03c963c8d8d0519c9212df62280bc6dd561013259c3b6cd0ee43f7910f58",
+    "head.pt": "3e52f34b5a35091575775105d65ee9f4c900c2ebd0ef04f93d738ac7a950776d",
+    "tokenizer.json": "c216bec798add1e3bfcdce7cf0c305e189982018cf098980e9fee9a8acf898e3",
+    "tokenizer_config.json": "2cb4f3da8930cb91e699303f79a78dbe96fb7effcef6752289a831875add6570"
+  },
+  "source_calibration_sha256": "ca3757339b9468f418fb6b6d2c38d732de22283ea1e91238c03a35acdbad97e8",
+  "upstream_card_sha256": "b819245a8c6036917de6eeb2468f515619dfe25a00f5ecc01eae08dea9118bec",
+  "upstream_declared_license": "apache-2.0",
+  "upstream_intended_use": "This model is intended for research purposes only. It is provided as-is without warranties for production use.",
+  "upstream_license_notice_files": [],
+  "transformations": [
+    "Rebuilt head metadata using fixed schema; removed args, suite hash and initialization provenance",
+    "Preserved all inference metadata and head tensors exactly",
+    "Pinned adapter base name and revision",
+    "Whitelisted tokenizer configuration; removed any name_or_path fields",
+    "Copied adapter and tokenizer payloads byte for byte",
+    "Included existing calibration metadata without fitting or reading examples"
+  ]
+}

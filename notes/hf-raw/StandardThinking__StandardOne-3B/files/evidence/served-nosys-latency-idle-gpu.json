@@ -1,0 +1,1728 @@
+{
+  "profile": "242",
+  "decisions": 242,
+  "measured": 242,
+  "failures": 0,
+  "warmup_excluded": 5,
+  "base_url": "http://127.0.0.1:30121",
+  "model": "jev-latest",
+  "temperature_sent": null,
+  "temperature_reported_by_server": [
+    1.3
+  ],
+  "raw": {
+    "p50_s": 0.022593129993765615,
+    "p95_s": 0.03323259013413917,
+    "mean_s": 0.02412359378866328
+  },
+  "leaderboard_adjusted_x2_plus_0.15s": {
+    "p50_s": 0.19518625998753122,
+    "p95_s": 0.21646518026827832
+  },
+  "speed_axis": {
+    "raw": 111.24459407550262,
+    "adjusted": 93.7416271006002
+  },
+  "input_tokens": {
+    "mean_per_decision": 279.92148760330576,
+    "max": 2192,
+    "total": 67741
+  },
+  "note": "Approximation: 146 judge and 24/109 held-out items are synthetic stand-ins with similar families and lengths, not the private leaderboard items.",
+  "per_item": [
+    {
+      "id": "internal-eval-v1/judge_hard/0022",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0226,
+      "input_tokens": 230,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00015",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0242,
+      "input_tokens": 222,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0314,
+      "input_tokens": 112,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00261",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0234,
+      "input_tokens": 241,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00279",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0275,
+      "input_tokens": 828,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0012",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0231,
+      "input_tokens": 231,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00207",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0212,
+      "input_tokens": 131,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0097",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0224,
+      "input_tokens": 217,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00109",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0445,
+      "input_tokens": 2155,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.033,
+      "input_tokens": 104,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0235,
+      "input_tokens": 108,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/multi_hop/0030",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0237,
+      "input_tokens": 303,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.021,
+      "input_tokens": 99,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0215,
+      "input_tokens": 108,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00165",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0274,
+      "input_tokens": 155,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/temporal_numeric/0045",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0229,
+      "input_tokens": 289,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00021",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0306,
+      "input_tokens": 165,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 146,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00080",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.042,
+      "input_tokens": 2179,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00188",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0279,
+      "input_tokens": 196,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00108",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0206,
+      "input_tokens": 137,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0002",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0223,
+      "input_tokens": 218,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00259",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0242,
+      "input_tokens": 207,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00217",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0427,
+      "input_tokens": 2180,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00178",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0241,
+      "input_tokens": 175,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0219,
+      "input_tokens": 105,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00132",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0226,
+      "input_tokens": 207,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00235",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0222,
+      "input_tokens": 212,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0216,
+      "input_tokens": 116,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00175",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.042,
+      "input_tokens": 2190,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00170",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0244,
+      "input_tokens": 267,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00087",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0202,
+      "input_tokens": 135,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00115",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0235,
+      "input_tokens": 194,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0223,
+      "input_tokens": 106,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00288",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.022,
+      "input_tokens": 203,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00151",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0223,
+      "input_tokens": 167,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00127",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0233,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 139,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00061",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0274,
+      "input_tokens": 958,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0216,
+      "input_tokens": 122,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0225,
+      "input_tokens": 138,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00288",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0238,
+      "input_tokens": 207,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00021",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0243,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00003",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0238,
+      "input_tokens": 243,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00059",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0229,
+      "input_tokens": 148,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0005",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0235,
+      "input_tokens": 233,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00055",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0238,
+      "input_tokens": 243,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 115,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00284",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0224,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0224,
+      "input_tokens": 138,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00258",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0217,
+      "input_tokens": 137,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00014",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0223,
+      "input_tokens": 166,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00189",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0244,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00145",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0256,
+      "input_tokens": 276,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00125",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0267,
+      "input_tokens": 272,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0000",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0227,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00035",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.022,
+      "input_tokens": 115,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00016",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0219,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0341,
+      "input_tokens": 143,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00289",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0219,
+      "input_tokens": 137,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0215,
+      "input_tokens": 100,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/temporal_numeric/0007",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0222,
+      "input_tokens": 289,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00096",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0482,
+      "input_tokens": 2192,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0221,
+      "input_tokens": 105,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00156",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0221,
+      "input_tokens": 137,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0302,
+      "input_tokens": 103,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 114,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00014",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.024,
+      "input_tokens": 191,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00031",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0218,
+      "input_tokens": 140,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00277",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0227,
+      "input_tokens": 157,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 125,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00179",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0227,
+      "input_tokens": 173,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00177",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0219,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00078",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0224,
+      "input_tokens": 169,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/long_policy/0081",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0245,
+      "input_tokens": 545,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00248",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 195,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0212,
+      "input_tokens": 127,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0211,
+      "input_tokens": 103,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0219,
+      "input_tokens": 118,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00261",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0223,
+      "input_tokens": 158,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00123",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0224,
+      "input_tokens": 218,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00210",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0238,
+      "input_tokens": 206,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00126",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0236,
+      "input_tokens": 227,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00275",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0219,
+      "input_tokens": 195,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00139",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0251,
+      "input_tokens": 279,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0215,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00219",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0227,
+      "input_tokens": 174,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00048",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0303,
+      "input_tokens": 210,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00220",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0283,
+      "input_tokens": 171,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0275,
+      "input_tokens": 113,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00268",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0298,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00111",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0229,
+      "input_tokens": 190,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00125",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.023,
+      "input_tokens": 156,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00139",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0228,
+      "input_tokens": 185,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00136",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0222,
+      "input_tokens": 138,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0223,
+      "input_tokens": 123,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0223,
+      "input_tokens": 105,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0050",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0228,
+      "input_tokens": 217,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00220",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0286,
+      "input_tokens": 192,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00063",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0225,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00144",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0253,
+      "input_tokens": 183,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00271",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 235,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 124,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00155",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0217,
+      "input_tokens": 182,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/ambiguous/0089",
+      "suite": "internal-eval-v1",
+      "seconds": 0.022,
+      "input_tokens": 244,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00047",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0215,
+      "input_tokens": 140,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00028",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0299,
+      "input_tokens": 1028,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00210",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0221,
+      "input_tokens": 177,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00124",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 209,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0069",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0219,
+      "input_tokens": 230,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00016",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0296,
+      "input_tokens": 1212,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00282",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0221,
+      "input_tokens": 205,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0218,
+      "input_tokens": 106,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0080",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0221,
+      "input_tokens": 230,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0211,
+      "input_tokens": 108,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00013",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0241,
+      "input_tokens": 229,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00109",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0207,
+      "input_tokens": 148,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00013",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.021,
+      "input_tokens": 155,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/long_policy/0020",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0244,
+      "input_tokens": 512,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0218,
+      "input_tokens": 127,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00229",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.031,
+      "input_tokens": 1350,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0213,
+      "input_tokens": 140,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00130",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0214,
+      "input_tokens": 166,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 124,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0219,
+      "input_tokens": 112,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00299",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0239,
+      "input_tokens": 231,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0213,
+      "input_tokens": 126,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00018",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.022,
+      "input_tokens": 164,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00277",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0251,
+      "input_tokens": 201,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00149",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0244,
+      "input_tokens": 255,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0211,
+      "input_tokens": 99,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0206,
+      "input_tokens": 93,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00007",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0332,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0287,
+      "input_tokens": 106,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00289",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0286,
+      "input_tokens": 235,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00120",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0275,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00175",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0269,
+      "input_tokens": 121,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00029",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 194,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00048",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.021,
+      "input_tokens": 191,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00225",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0288,
+      "input_tokens": 925,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00118",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.023,
+      "input_tokens": 142,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0224,
+      "input_tokens": 126,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00107",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0229,
+      "input_tokens": 196,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0214,
+      "input_tokens": 105,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00265",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0242,
+      "input_tokens": 199,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-04-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0218,
+      "input_tokens": 123,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00165",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0236,
+      "input_tokens": 217,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00256",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0212,
+      "input_tokens": 185,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00128",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 193,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00075",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.024,
+      "input_tokens": 305,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0213,
+      "input_tokens": 111,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00273",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0236,
+      "input_tokens": 223,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0006",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0224,
+      "input_tokens": 220,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00176",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 279,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00195",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0216,
+      "input_tokens": 136,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00242",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.023,
+      "input_tokens": 245,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0219,
+      "input_tokens": 144,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00297",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0228,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0030",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0216,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00005",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0212,
+      "input_tokens": 135,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00034",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.042,
+      "input_tokens": 2184,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00151",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0229,
+      "input_tokens": 206,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00286",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0227,
+      "input_tokens": 308,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0199,
+      "input_tokens": 93,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0209,
+      "input_tokens": 111,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00168",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0226,
+      "input_tokens": 202,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00215",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0228,
+      "input_tokens": 229,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-02-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0209,
+      "input_tokens": 98,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00030",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00299",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0212,
+      "input_tokens": 149,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0203,
+      "input_tokens": 103,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00237",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0214,
+      "input_tokens": 174,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0214,
+      "input_tokens": 96,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00116",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0221,
+      "input_tokens": 202,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 109,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00207",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0235,
+      "input_tokens": 197,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0213,
+      "input_tokens": 121,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0233,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0057",
+      "suite": "internal-eval-v1",
+      "seconds": 0.024,
+      "input_tokens": 228,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0222,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00041",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.025,
+      "input_tokens": 191,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.023,
+      "input_tokens": 139,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-01-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0229,
+      "input_tokens": 143,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-06-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0218,
+      "input_tokens": 119,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/multi_hop/0070",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0231,
+      "input_tokens": 290,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00072",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0212,
+      "input_tokens": 164,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/judge_hard/0098",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0235,
+      "input_tokens": 226,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00196",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0415,
+      "input_tokens": 2172,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0217,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00076",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0231,
+      "input_tokens": 230,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0051",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0231,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00038",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0426,
+      "input_tokens": 2170,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0213,
+      "input_tokens": 101,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-01-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0225,
+      "input_tokens": 105,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 103,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00174",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0247,
+      "input_tokens": 199,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00155",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0302,
+      "input_tokens": 1173,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00088",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0252,
+      "input_tokens": 633,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.021,
+      "input_tokens": 102,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-adequacy-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.022,
+      "input_tokens": 103,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0231,
+      "input_tokens": 140,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00069",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0223,
+      "input_tokens": 172,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00088",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0208,
+      "input_tokens": 169,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00264",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0234,
+      "input_tokens": 195,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00285",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0466,
+      "input_tokens": 2171,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00298",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0216,
+      "input_tokens": 181,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0214,
+      "input_tokens": 138,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00092",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0346,
+      "input_tokens": 176,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0205,
+      "input_tokens": 106,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00242",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0205,
+      "input_tokens": 183,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00251",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0214,
+      "input_tokens": 186,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00184",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0216,
+      "input_tokens": 187,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/temporal_numeric/0040",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0215,
+      "input_tokens": 290,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00230",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0299,
+      "input_tokens": 613,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00127",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0227,
+      "input_tokens": 168,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/probability/0003",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0347,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00176",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0243,
+      "input_tokens": 180,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-routing-05-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0225,
+      "input_tokens": 140,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00260",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0219,
+      "input_tokens": 191,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00042",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0245,
+      "input_tokens": 267,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00056",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0222,
+      "input_tokens": 159,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00052",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0216,
+      "input_tokens": 164,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00097",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 217,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00044",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0211,
+      "input_tokens": 135,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00146",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0211,
+      "input_tokens": 192,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00260",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0243,
+      "input_tokens": 231,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-04-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0227,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-03-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0226,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-intent-02-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0223,
+      "input_tokens": 110,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00031",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0254,
+      "input_tokens": 221,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00171",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0218,
+      "input_tokens": 171,
+      "temperature": 1.3
+    },
+    {
+      "id": "internal-eval-v1/ambiguous/0091",
+      "suite": "internal-eval-v1",
+      "seconds": 0.0222,
+      "input_tokens": 233,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-policy-05-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0215,
+      "input_tokens": 116,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00252",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0237,
+      "input_tokens": 210,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00291",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0235,
+      "input_tokens": 210,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00214",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0214,
+      "input_tokens": 200,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/adequacy/00033",
+      "suite": "judge-proxy-v1/adequacy",
+      "seconds": 0.0226,
+      "input_tokens": 154,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00213",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0265,
+      "input_tokens": 270,
+      "temperature": 1.3
+    },
+    {
+      "id": "judge-proxy-v1/heldout/routing/00104",
+      "suite": "judge-proxy-v1/routing",
+      "seconds": 0.0239,
+      "input_tokens": 219,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-extraction-03-0",
+      "suite": "jevbench-original",
+      "seconds": 0.0212,
+      "input_tokens": 109,
+      "temperature": 1.3
+    },
+    {
+      "id": "original-ordinal-06-1",
+      "suite": "jevbench-original",
+      "seconds": 0.0214,
+      "input_tokens": 135,
+      "temperature": 1.3
+    }
+  ]
+}

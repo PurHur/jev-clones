@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "release_id": "Lev-2.6B-s0",
+  "files": {
+    "LICENSE": {
+      "sha256": "6b08bb37982c233aa12bcbdf19106da12f3f4fcf800773ea42e28ebeddd34fb8",
+      "size": 11343
+    },
+    "NOTICE": {
+      "sha256": "dbc4f2d422b56c0f51dceaaa85a2ee42c86002410c3c1f0cfd75f3535107979a",
+      "size": 589
+    },
+    "README.md": {
+      "sha256": "32ab7478b38db72feac3822f7db88d8048c9a14d506665876ffb98695378e56d",
+      "size": 9798
+    },
+    "adapter_config.json": {
+      "sha256": "b503eef7837fad797b0025b3896e4b558a015e23655cdd0bfa2bf49f08497e74",
+      "size": 1223
+    },
+    "adapter_model.safetensors": {
+      "sha256": "c7e092e3d372ca52c949221031f5c32df5447c2bd7f3c2ce41af4bc5de06464d",
+      "size": 121196176
+    },
+    "chat_template.jinja": {
+      "sha256": "609d03c963c8d8d0519c9212df62280bc6dd561013259c3b6cd0ee43f7910f58",
+      "size": 503
+    },
+    "head.pt": {
+      "sha256": "2a8c8300f64c139602bd42fd1162831d0d0aa771dab903acb4b498699ae1e4f2",
+      "size": 4198847
+    },
+    "provenance.json": {
+      "sha256": "398a662f171948e8d03337f422664895f2a4e30e5a61f7ff24469e1e45d950da",
+      "size": 1601
+    },
+    "temperatures.json": {
+      "sha256": "424a6e69e5396db2f6993bd3f3495994f702506a9f7d591402bf8d7a267a5f42",
+      "size": 479
+    },
+    "tokenizer.json": {
+      "sha256": "c216bec798add1e3bfcdce7cf0c305e189982018cf098980e9fee9a8acf898e3",
+      "size": 3522859
+    },
+    "tokenizer_config.json": {
+      "sha256": "2cb4f3da8930cb91e699303f79a78dbe96fb7effcef6752289a831875add6570",
+      "size": 381
+    },
+    "validation.json": {
+      "sha256": "a8e4cd8fad63bb27fb6ef97e1a88e6295d5dc7dde4b5931b535d1b664592e0af",
+      "size": 1619
+    }
+  }
+}

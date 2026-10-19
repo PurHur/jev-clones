@@ -1,0 +1,235 @@
+{
+ "prompt": 2,
+ "orders": 1,
+ "method": "temperature per type and per option-count bucket (choice) by NLL on FIT; thresholds bound-controlled (one-sided 95% Clopper-Pearson on FIT), reported on CERT, frozen on test; ECE gate leave-one-family-out",
+ "temperature_per_prim": {
+  "choice": 1.1387886347566916,
+  "noul": 1.2065045308005216,
+  "score": 1.4142135623730947
+ },
+ "temperature_per_bucket": {
+  "choice": {
+   "2-10": 1.1387886347566916,
+   "11-26": 0.9856631986401876,
+   "27-255": 0.8908987181403392
+  }
+ },
+ "thresholds": {
+  "0.01": {
+   "confidence": 0.9603063709059048,
+   "method": "bound-controlled (one-sided 95% Clopper-Pearson on FIT)",
+   "cert_coverage": 0.5316804407713499,
+   "cert_error": 0.012089810017271163,
+   "cert_upper95": 0.01883585490037395,
+   "test_coverage": 0.5445093457943925,
+   "test_error": 0.0081527569191161,
+   "test_pl_coverage": 0.5983618133032058,
+   "test_pl_error": 0.004720320981826731,
+   "per_type": {
+    "choice": {
+     "confidence": 0.955780293716318,
+     "cert_coverage": 0.6387434554973822,
+     "cert_error": 0.003512880562060894,
+     "test_coverage": 0.6288548630580116,
+     "test_error": 0.007201646090534974
+    },
+    "noul": {
+     "confidence": 0.9938588318975837,
+     "cert_coverage": 0.1880466472303207,
+     "cert_error": 0.023255813953488413,
+     "test_coverage": 0.21758664955070603,
+     "test_error": 0.005899705014749235
+    },
+    "score": {
+     "confidence": null,
+     "cert_coverage": 0.0,
+     "cert_error": null,
+     "test_coverage": 0.0,
+     "test_error": null
+    }
+   }
+  },
+  "0.05": {
+   "confidence": 0.7658703814120923,
+   "method": "bound-controlled (one-sided 95% Clopper-Pearson on FIT)",
+   "cert_coverage": 0.78099173553719,
+   "cert_error": 0.040564373897707284,
+   "cert_upper95": 0.04933836686667952,
+   "test_coverage": 0.798481308411215,
+   "test_error": 0.04111192392099483,
+   "test_pl_coverage": 0.8521395283152097,
+   "test_pl_error": 0.026847862114683485,
+   "per_type": {
+    "choice": {
+     "confidence": 0.6979964427647848,
+     "cert_coverage": 0.8638743455497382,
+     "cert_error": 0.03203463203463208,
+     "test_coverage": 0.8684494285098123,
+     "test_error": 0.04122175316612864
+    },
+    "noul": {
+     "confidence": 0.8546567400470652,
+     "cert_coverage": 0.673469387755102,
+     "cert_error": 0.05627705627705626,
+     "test_coverage": 0.7233632862644416,
+     "test_error": 0.03194321206743567
+    },
+    "score": {
+     "confidence": 0.9073812412078998,
+     "cert_coverage": 0.2645161290322581,
+     "cert_error": 0.0,
+     "test_coverage": 0.4275092936802974,
+     "test_error": 0.017391304347826098
+    }
+   }
+  }
+ },
+ "gates": {
+  "ece_lofo": {
+   "choice": {
+    "n_families": 29,
+    "mean": 0.0699217255651234,
+    "weighted_mean": 0.0509176283375361,
+    "max": 0.2632532450979568,
+    "worst_family": "bev:Spatial and logical reasoning",
+    "worst_n": 73,
+    "mean_floor": 0.04883201378747203,
+    "pooled": 0.011429419384639901,
+    "n": 4427,
+    "gate": 0.05,
+    "pass": true
+   },
+   "noul": {
+    "n_families": 13,
+    "mean": 0.051177795628117875,
+    "weighted_mean": 0.04749813667832487,
+    "max": 0.10499320191475335,
+    "worst_family": "bev:Software security",
+    "worst_n": 62,
+    "mean_floor": 0.04096956567832145,
+    "pooled": 0.02805203292301033,
+    "n": 2249,
+    "gate": 0.05,
+    "pass": true
+   },
+   "score": {
+    "n_families": 8,
+    "mean": 0.12556463265502008,
+    "weighted_mean": 0.11850374411371442,
+    "max": 0.22676435409864082,
+    "worst_family": "bev:Financial reporting and banking",
+    "worst_n": 56,
+    "mean_floor": 0.09740320618662834,
+    "pooled": 0.0627047438516603,
+    "n": 461,
+    "gate": 0.05,
+    "pass": false
+   }
+  },
+  "automated_at": {
+   "0.01": 0.41985981308411213,
+   "0.05": 0.7740654205607477
+  },
+  "automated_error": {
+   "0.01": 0.006956037840845863,
+   "0.05": 0.03682463024449145
+  },
+  "automated_at_pooled": {
+   "0.01": 0.5445093457943925,
+   "0.05": 0.798481308411215
+  }
+ },
+ "noul_band": {
+  "cal_raw": {
+   "n": 2360,
+   "band_rate": 0.2173728813559322,
+   "acc_committed": 0.9339469409853817,
+   "acc": 0.8792372881355932
+  },
+  "cal_T": {
+   "n": 2360,
+   "band_rate": 0.26228813559322034,
+   "acc_committed": 0.9425617461229179,
+   "acc": 0.8792372881355932
+  },
+  "test_raw": {
+   "n": 3116,
+   "band_rate": 0.1800385109114249,
+   "acc_committed": 0.9467710371819961,
+   "acc": 0.889602053915276
+  },
+  "test_T": {
+   "n": 3116,
+   "band_rate": 0.21566110397946084,
+   "acc_committed": 0.954582651391162,
+   "acc": 0.889602053915276
+  }
+ },
+ "test": {
+  "raw": {
+   "choice": {
+    "n": 4637,
+    "ece": 0.012670867808920482,
+    "acc": 0.9051110631874056
+   },
+   "noul": {
+    "n": 3116,
+    "ece": 0.02047128108799219,
+    "acc": 0.889602053915276
+   },
+   "score": {
+    "n": 807,
+    "ece": 0.0732814282336869,
+    "acc": 0.7224287484510533
+   },
+   "all": {
+    "n": 8560,
+    "ece": 0.02004662795401971,
+    "acc": 0.8822429906542056
+   }
+  },
+  "T": {
+   "choice": {
+    "n": 4637,
+    "ece": 0.00964484542056618,
+    "acc": 0.9051110631874056
+   },
+   "noul": {
+    "n": 3116,
+    "ece": 0.0023563804683874767,
+    "acc": 0.889602053915276
+   },
+   "score": {
+    "n": 807,
+    "ece": 0.03356563051888946,
+    "acc": 0.7224287484510533
+   },
+   "all": {
+    "n": 8560,
+    "ece": 0.006862677210513634,
+    "acc": 0.8822429906542056
+   }
+  },
+  "per_bucket": {
+   "2-10": 0.8822429906542056
+  }
+ },
+ "n": {
+  "fit": 5211,
+  "cert": 2178,
+  "test": 8560,
+  "many_fit": 1323
+ },
+ "many_cert": {
+  "11-26": 0.5981308411214953,
+  "27-255": 0.7483443708609272
+ },
+ "engine": "eager",
+ "fitted_on": {
+  "split": "calibration FIT split (70% by twin group)",
+  "orders": 1,
+  "readouts": "basal-serve --mode eager, bf16"
+ },
+ "certified_on": "calibration CERT split (30%)",
+ "evaluated_on": "test (frozen)"
+}

@@ -1,0 +1,10 @@
+Lev — Copyright 2026 Lev contributors.
+
+This package contains a Lev LoRA adapter and decision head derived from ByteDance/Ouro-1.4B
+at revision 574fa66cb8bf5abdc979642d01cf2b79b16bfab1, whose model card declares Apache-2.0.
+Base weights are not included. See the pinned upstream card and provenance.json.
+
+The decision-model implementation is derived from Kev by Jared Palmer
+(https://github.com/jaredpalmer/kev), licensed under Apache-2.0.
+The Apache-2.0 license text is included; upstream terms remain applicable.
+No training or evaluation dataset text is included or relicensed here.

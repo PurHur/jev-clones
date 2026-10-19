@@ -1,0 +1,26 @@
+{
+  "release_id": "Lev-3B-s0",
+  "base": "Nanbeige/Nanbeige4.2-3B-Base",
+  "base_revision": "4a38e817c14b9f2c4b69b1e05cbda90395872f6b",
+  "source_artifact_sha256": {
+    "adapter_config.json": "d3befbf0a5d9171bdfc1f749e198de793851216f88d7247ac028c7d215e98826",
+    "adapter_model.safetensors": "017d953349cbe6385debb7e3f56431e1790170b2b082072ea19f917f287fd1ec",
+    "added_tokens.json": "9e3b127a27647df2c353cc1e5500826f7cdbe8bd15a458e368bba8422e9719cf",
+    "head.pt": "f3c2747de812974d8265509afb2b55e54a6cdc5e0dec37cdadb7563ce0f8bd8c",
+    "tokenizer.model": "fb41d04798b714520a9b075727b0226538b7330254299062742c50ec8374bc36",
+    "tokenizer_config.json": "1f54576c06a53f68d8ef0a7f9777a67ff975452a6ff57bcbed7d5d6b6f36a05a"
+  },
+  "source_calibration_sha256": "a1ed6ee5cd20519b0a4151b050870ffc1afe406b15116a1730e7c366b4655443",
+  "upstream_card_sha256": "d8b58e7f4c443be65e8ab4832ff06a6390620ee3e7563ed7553113334699e598",
+  "upstream_declared_license": "apache-2.0",
+  "upstream_intended_use": null,
+  "upstream_license_notice_files": [],
+  "transformations": [
+    "Rebuilt head metadata using fixed schema; removed args, suite hash and initialization provenance",
+    "Preserved all inference metadata and head tensors exactly",
+    "Pinned adapter base name and revision",
+    "Whitelisted tokenizer configuration; removed any name_or_path fields",
+    "Copied adapter and tokenizer payloads byte for byte",
+    "Included existing calibration metadata without fitting or reading examples"
+  ]
+}

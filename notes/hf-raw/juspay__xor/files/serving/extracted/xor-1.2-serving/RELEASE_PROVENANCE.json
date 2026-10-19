@@ -1,0 +1,80 @@
+{
+  "release": {
+    "model_id": "xor-1.2",
+    "release_date": "2026-09-28",
+    "precision": "bfloat16",
+    "parameters": 35107181936,
+    "weight_shards": 16,
+    "candidate": "F12 a24 (lora35-f12, merged at lora_alpha 24)",
+    "received_archive": "f12-a24-champion-52.23-v0.2.1.zip",
+    "received_archive_sha256": "0ba00678790e57555e842302a4540726b1c8503d7b199350c6a5eb4208c7133e"
+  },
+  "base_model": {
+    "repository": "Qwen/Qwen3.6-35B-A3B",
+    "revision": "995ad96eacd98c81ed38be0c5b274b04031597b0",
+    "revision_evidence": "All 26 weight shards and tokenizer.json of the merge input were hashed and matched the pinned revision; merges.txt, vocab.json and configuration.json matched the Xor 1.1 release copies of the same pinned files."
+  },
+  "adapter": {
+    "peft_type": "LORA",
+    "rank": 16,
+    "alpha": 32,
+    "merge_alpha": 24,
+    "merge_scale": 1.5,
+    "dropout": 0.05,
+    "target_tables": 310,
+    "config_sha256": "9fe94e209f1662e12cdad136c62b58b21e655a28c21e986618a76064fed71be3",
+    "weights_sha256": "eb52e577d5f9da0945f3743c3e50ccfc7fb20f3aa10ac6b56774ab76c092c1e0",
+    "peft_version": "0.21.0"
+  },
+  "merge": {
+    "method": "PEFT merge_and_unload(safe_merge=True) at lora_alpha 24 followed by BF16 save_pretrained, then re-split without changing any tensor into the 16-shard layout of Xor 1.1",
+    "script": "merge_box.py (supplied with the adapter archive), variant a24",
+    "script_sha256": "18ba79692fb89cadb7d42073bd60e9d44feeefc70a3fbff55672d3559adad40f",
+    "environment": {
+      "image": "lmsysorg/sglang@sha256:6bcaa47db52f78ce0d67863b8b2431221b79bc23204a80cad757fa819d00e921",
+      "torch": "2.13.0+cu130",
+      "transformers": "5.12.1",
+      "peft": "0.21.0",
+      "safetensors": "0.8.0",
+      "gpu": "1 x NVIDIA H200 NVL"
+    },
+    "trainer_merge_match": "The unsplit merge output was byte-identical (both weight shards, index and config) to the trainer's own F12 a24 merge.",
+    "reshard": {
+      "method": "Every tensor copied byte for byte into the shard assigned by the Xor 1.1 index; all 1026 tensors compared equal to the unsplit merge afterwards",
+      "layout_template_index_sha256": "f8448aa8b2fbf3519723b0c2965fc94ed64cafdd463381636a1df351952b3f1a",
+      "script_sha256": "276e342d4377e372149f6fb6ff5cd4c0adfc8952393677d6cf66ad2662acb4f9"
+    },
+    "merged_index_sha256": "f8448aa8b2fbf3519723b0c2965fc94ed64cafdd463381636a1df351952b3f1a",
+    "base_tokenizer_files_copied_from_pinned_base": [
+      "merges.txt",
+      "vocab.json",
+      "configuration.json"
+    ]
+  },
+  "serving": {
+    "sglang_image": "prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f",
+    "sglang_upstream_image": "lmsysorg/sglang@sha256:6bcaa47db52f78ce0d67863b8b2431221b79bc23204a80cad757fa819d00e921",
+    "sglang_patch_dockerfile_sha256": "e05f93d4537cad3e1837fff5e80f511ab1599cf64827cb87aa0853f3d4837d08",
+    "wrapper_sha256": "a44d9dcde4d2e48b43d6b367dae03a0d4e62edd05e639d1a483481435420ec21",
+    "compose_sha256": "24338aa871af898cec3b5dc1262d3e57926aefc5f9fe07e7f19ef231a118d32d",
+    "source_parent_commit": "fed366a6bc7c0f00b53253a4afc9eb29c811f931",
+    "tensor_parallel_size": 1,
+    "data_parallel_size": 1,
+    "marker_count": 255,
+    "marker_table_sha256": "b31e4bbcbaea107ca52f7edb8662061338b78d0172bbcc61052ffb116a524d97",
+    "temperature_map": {
+      "choice": 1.1,
+      "noul": 1.4,
+      "score": 1.0
+    },
+    "release_benchmark": "benchmarks/20260928-xor12-release-jevbench.json",
+    "release_benchmark_sha256": "1143ac7225a80466579a3abaa57da2d919dc3edfa96551e9b9db2cae41bdcc14"
+  },
+  "known_provenance_gaps": [
+    "The adapter artifact does not contain trainer_state.json.",
+    "adapter_config.json does not record the base revision; the pinned revision was verified by hashing the base files used by the merge before merging.",
+    "adapter_config.json records lora_alpha 32; the release merges at lora_alpha 24 (scale 1.5), the variant selected by the trainer. The alpha change is applied by merge_box.py at merge time.",
+    "The merge used merge_box.py supplied with the adapter rather than serving/merge_adapter.py; both call PEFT merge_and_unload(safe_merge=True).",
+    "The 19 mtp.* (multi-token prediction) tensors of the base checkpoint are not saved by the transformers model class used for the merge, as in Xor 1.1; MTP speculative decoding is not available."
+  ]
+}

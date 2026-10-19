@@ -1,0 +1,5 @@
+torch>=2.10,<2.11
+transformers==5.17.0
+sentence-transformers==6.1.0
+safetensors>=0.7
+tqdm>=4.67

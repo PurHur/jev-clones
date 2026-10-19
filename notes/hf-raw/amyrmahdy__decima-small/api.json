@@ -1,0 +1,57 @@
+{
+ "_id": "6ab908ffa4416b13ae434c1f",
+ "id": "amyrmahdy/decima-small",
+ "config": {
+  "model_type": "decima",
+  "architectures": [
+   "Decima"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en",
+   "fa",
+   "ar",
+   "ru",
+   "de",
+   "fr",
+   "es",
+   "pt",
+   "tr",
+   "hi",
+   "ta",
+   "zh",
+   "ja",
+   "ko",
+   "sw",
+   "ur",
+   "vi",
+   "th",
+   "el",
+   "bg"
+  ],
+  "library_name": "onnx",
+  "pipeline_tag": "zero-shot-classification",
+  "tags": [
+   "decision-model",
+   "system-one",
+   "jev",
+   "jev-alternative",
+   "typed-decisions",
+   "calibration",
+   "multilingual",
+   "onnx",
+   "int8",
+   "cpu",
+   "in-browser"
+  ],
+  "base_model": "intfloat/multilingual-e5-small"
+ },
+ "lastModified": "2026-10-19T11:42:09.000Z",
+ "downloads": 253,
+ "likes": 1,
+ "gated": false,
+ "sha": "49d22816336ec5068a28981d9cf51b5d6ca250e4",
+ "createdAt": "2026-09-27T12:15:59.000Z"
+}

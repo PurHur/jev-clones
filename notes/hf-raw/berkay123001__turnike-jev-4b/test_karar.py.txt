@@ -1,0 +1,417 @@
+"""karar.py icin 11 test: bagimsizlik, secim kurali, girdi dogrulama, CLI hatalari, istem birebirligi (istege bagli), 9 ornek
+(TR + EN), CLI, uzun metin / cok sik / cok soru, referans esdegerligi (istege bagli), FP8, birlesik agirlik +
+yukleme aninda FP8 (istege bagli).
+
+Ortam degiskenleri:
+    KARAR_ADAPTER   adaptor dizini ya da Hub kimligi (varsayilan: bu dizin)
+    KARAR_TABAN     taban model (varsayilan: Qwen/Qwen3.5-4B; yerel yol da olur)
+    KARAR_REFERANS  (istege bagli) olcum kodunun dizini (qwen35_decider.py); verilirse ayni girdi icin iki yolun
+                    olasiliklari karsilastirilir, verilmezse bu test ATLANDI sayilir.
+    KARAR_BIRLESIK  (istege bagli) birlesik agirlik dizini ya da Hub reposu (birlestir.py ciktisi); verilirse
+                    Karar(None, taban=..., fp8=True) yukleme aninda FP8 yolu adaptor + sonradan FP8 ile karsilastirilir.
+    python test_karar.py          # ya da: pytest -s test_karar.py
+Model en fazla uc kez yuklenir (bf16 karar, referans, FP8), sirayla; ayni anda tek 4B model bellekte (~9 GB).
+"""
+from __future__ import annotations
+
+import ast
+import gc
+import io
+import math
+import os
+import subprocess
+import sys
+import tempfile
+import time
+from contextlib import redirect_stderr, redirect_stdout
+from pathlib import Path
+
+import torch
+
+from karar import (MAKS_SORU, SEMBOLLER, VARSAYILAN_TABAN, Karar, girdi_dogrula, main, secenekler,
+                   soru_ayristir)
+
+BURASI = Path(__file__).resolve().parent
+ADAPTER = os.environ.get("KARAR_ADAPTER", str(BURASI))
+TABAN = os.environ.get("KARAR_TABAN", VARSAYILAN_TABAN)
+REFERANS = os.environ.get("KARAR_REFERANS")
+BIRLESIK = os.environ.get("KARAR_BIRLESIK")
+# bf16 ayni agirlik + ayni istem: iki yol ayni cekirdekleri kullanir; fark beklenmez, sinir gorev tanimindan.
+REFERANS_TOLERANS = 0.02
+# FP8 olasiliklari bf16'dan oynatir (olculen ort. |dp| .017, en buyuk .34, binlerce satirda); 9 ornekte gevsek sinir.
+FP8_TOLERANS = 0.25
+# En iyi iki secenek bu kadar yakinsa argmax karsilastirmasi yapilmaz.
+ARGMAX_PAYI = 0.10
+IZINLI_UCUNCU_PARTI = {"torch", "transformers", "peft", "torchao"}
+
+NOTA = "Diğer seçeneklerin hiçbiri doğru değil."
+EPOSTA = ("Konu: Proje ödevi hk.\nGönderen: Elif Yıldırım (öğrenci)\n\nHocam merhaba, BIL204 Veri Yapıları dersinin "
+          "2. proje ödevi bu cuma 23.59'da teslim ama geçen hafta ameliyat oldum, raporum ekte. Teslimi gelecek salıya "
+          "uzatabilir misiniz? Kodun yarısı hazır. İyi çalışmalar.")
+# (ad, metin, sorular, beklenen {anahtar: etiket} ya da None). Beklenenler yalniz acik ornekler icin.
+# Referans karsilastirmasina ek iki durum: 16+ soru (iki gecis) ve 62+ sik (iki asamali eleme).
+EK_REFERANS = [
+    ("on_sekiz_soru", "Siparişim 3 gün gecikti, 7 numaralı şubeyi aradım.",
+     {f"s{i}": {"type": "noul", "instructions": f"Metinde {i} sayısı geçiyor mu?"} for i in range(18)}),
+    ("yetmis_bir_sik", "Kartımı kaybettim, lütfen hemen iptal edin.",
+     {"Müşterinin niyeti nedir?": [f"niyet {i:02d}" for i in range(70)] + ["kart iptali"]}),
+]
+ORNEKLER = [
+    ("tr_ikili", "Aldığım kulaklık iki günde bozuldu. Ürünü geri gönderiyorum, paramın iadesini istiyorum.",
+     {"Yazar para iadesi ya da ürün iadesi istiyor mu?": {"type": "noul"}},
+     {"Yazar para iadesi ya da ürün iadesi istiyor mu?": "true"}),
+    ("tr_coktan", "Galatasaray, deplasmanda Fenerbahçe'yi 2-1 yenerek ligde liderliğini sürdürdü. Golleri ikinci "
+                  "yarıda attı.",
+     {"Bu haber metni hangi konu alanına giriyor?":
+      ["siyaset", "dünya", "ekonomi", "kültür", "sağlık", "spor", "teknoloji"]},
+     {"Bu haber metni hangi konu alanına giriyor?": "spor"}),
+    ("tr_hicbiri", "Soru: Türkiye Cumhuriyeti'nin başkenti hangi şehirdir?",
+     {"Hangi seçenek soruya doğru cevaptır?": ["İstanbul", "İzmir", "Bursa", NOTA]}, None),
+    ("tr_paket", EPOSTA,
+     {"Bir üniversite hocasının gelen kutusu. Bu e-posta hangi kutuya gitmeli?":
+      ["öğrenci-ders", "idari-yazışma", "araştırma-yayın", "tanıtım-reklam", "kişisel"],
+      "Bu e-posta hocanın yazılı bir cevap ya da onay vermesini bekliyor mu?": {"type": "noul"},
+      "Metinde belirli bir gün, tarih, saat ya da süre ifadesi geçiyor mu?": {"type": "noul"},
+      "Mesajın tonu nedir?": {"olumlu": "genel olarak olumlu", "olumsuz": "genel olarak olumsuz",
+                              "nötr": "duygu belirtmiyor, yalnızca bilgi aktarıyor"}},
+     {"Bir üniversite hocasının gelen kutusu. Bu e-posta hangi kutuya gitmeli?": "öğrenci-ders"}),
+    ("en_ikili", "WINNER!! You have been selected for a £900 prize reward. Call 09061701461 now to claim. "
+                 "Valid 12 hours only.",
+     {"is_spam": {"type": "noul", "instructions": "Is this SMS message spam?",
+                  "criteria": {"true": "The message is unsolicited spam or a scam.",
+                               "false": "The message is a normal personal or service message."}}},
+     {"is_spam": "true"}),
+    ("en_puan", "The food was cold, the waiter ignored us for 40 minutes and the bill was wrong. Never again.",
+     {"stars": {"type": "score", "instructions": "How many stars did the reviewer give the restaurant?",
+                "criteria": {"1": "1 star", "2": "2 stars", "3": "3 stars", "4": "4 stars", "5": "5 stars"}}},
+     None),
+    ("en_hicbiri_varken", "Question: Which gas do plants absorb from the air for photosynthesis?",
+     {"answer": {"type": "choice", "instructions": "Which option is the correct answer to `question`?",
+                 "criteria": {"A": "oxygen", "B": "carbon dioxide", "C": "nitrogen",
+                              "none": "None of the other options is correct."}}},
+     {"answer": "B"}),
+    ("en_paket", "Hi team, the production database has been down since 9am and customers cannot log in. "
+                 "Please escalate to the on-call engineer immediately. - Dana",
+     {"urgent": {"type": "noul", "instructions": "Does this message require immediate action?"},
+      "category": {"type": "choice", "instructions": "Which team should handle this message?",
+                   "criteria": {"billing": "payments, invoices, refunds", "infra": "servers, databases, outages",
+                                "sales": "pricing, new customers", "hr": "people, hiring, leave"}},
+      "sentiment": {"type": "choice", "instructions": "What is the tone of the message?",
+                    "criteria": ["positive", "neutral", "negative"]}},
+     {"urgent": "true", "category": "infra"}),
+    ("tr_kural", "Şirket, müşterilerinin telefon numaralarını kampanya mesajları için, açık rızaları alınmadan "
+                 "bir reklam ajansıyla paylaştı.",
+     {"Kural: Kişisel veri, ilgili kişinin açık rızası olmadan üçüncü kişilere aktarılamaz. Metindeki aktarım bu "
+      "kurala uygun mu?": ["evet, kurala uygun", "hayır, kuralı ihlal ediyor"]},
+     {"Kural: Kişisel veri, ilgili kişinin açık rızası olmadan üçüncü kişilere aktarılamaz. Metindeki aktarım bu "
+      "kurala uygun mu?": "hayır, kuralı ihlal ediyor"}),
+]
+
+_DURUM: dict = {}
+
+
+def _bosalt() -> None:
+    _DURUM.pop("karar", None)
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+
+def karar() -> Karar:
+    if "karar" not in _DURUM:
+        _DURUM["karar"] = Karar(ADAPTER, TABAN)
+    return _DURUM["karar"]
+
+
+def bf16_sonuclari() -> dict[str, dict[str, list[float]]]:
+    """9 ornegin bf16 olasiliklari (bir kez hesaplanir, referans ve FP8 testleri de kullanir)."""
+    if "bf16" not in _DURUM:
+        k = karar()
+        _DURUM["bf16"] = {ad: k.olasiliklar(metin, sorular) for ad, metin, sorular, _ in ORNEKLER}
+    return _DURUM["bf16"]
+
+
+def _en_buyuk_fark(a: dict[str, dict[str, list[float]]], b: dict[str, dict[str, list[float]]]) -> float:
+    return max(abs(x - y) for ad in a for s in a[ad] for x, y in zip(a[ad][s], b[ad][s]))
+
+
+def _argmax_uyumu(a, b) -> tuple[int, int]:
+    """(karsilastirilan, uyusan): yalniz a'da en iyi iki secenek ARGMAX_PAYI'ndan acik olan sorular."""
+    toplam = uyan = 0
+    for ad in a:
+        for s, pa in a[ad].items():
+            ilk_iki = sorted(pa, reverse=True)[:2]
+            if ilk_iki[0] - ilk_iki[1] < ARGMAX_PAYI:
+                continue
+            toplam += 1
+            uyan += int(pa.index(max(pa)) == b[ad][s].index(max(b[ad][s])))
+    return toplam, uyan
+
+
+# --- 1-4: modelsiz -------------------------------------------------------------
+def test_bagimsiz_yukleme() -> None:
+    """karar.py yalniz stdlib + torch/transformers/peft/torchao import eder ve tek basina kopyalanip yuklenir."""
+    agac = ast.parse((BURASI / "karar.py").read_text(encoding="utf-8"))
+    kokler = {a.name.split(".")[0] for d in ast.walk(agac) if isinstance(d, ast.Import) for a in d.names}
+    kokler |= {d.module.split(".")[0] for d in ast.walk(agac) if isinstance(d, ast.ImportFrom) and d.module}
+    yabanci = kokler - set(sys.stdlib_module_names) - IZINLI_UCUNCU_PARTI - {"__future__"}
+    assert not yabanci, f"beklenmeyen import: {yabanci}"
+    with tempfile.TemporaryDirectory() as gecici:
+        (Path(gecici) / "karar.py").write_text((BURASI / "karar.py").read_text(encoding="utf-8"), encoding="utf-8")
+        kod = ("import sys, karar; yasak = {'qwen35_decider', 'intern_decider', 'reranker_decider', 'train_qwen35'}; "
+               "print(sorted(yasak & set(sys.modules)), karar.Karar.__name__)")
+        ortam = {k: v for k, v in os.environ.items() if k != "PYTHONPATH"}
+        cikti = subprocess.run([sys.executable, "-c", kod], cwd=gecici, env=ortam, capture_output=True, text=True,
+                               timeout=300, check=True).stdout.strip()
+    print(f"yalitilmis import: {cikti}; ucuncu parti kokler: {sorted(kokler & IZINLI_UCUNCU_PARTI)}")
+    assert cikti == "[] Karar"
+
+
+def test_secim_kurali() -> None:
+    """secim(): argmax; hicbiri + esik ile temkinli secenek ancak p >= esik ise."""
+    from karar import secim
+    d = {"a": 0.30, "b": 0.25, "oos": 0.45}
+    assert secim(d) == "oos" and secim(d, "oos", 0.4) == "oos" and secim(d, "oos", 0.5) == "a"
+    assert secim({"oos": 1.0}, "oos", 0.9) == "oos" and secim({"x": 0.6, "y": 0.4}, "oos", 0.5) == "x"
+    try:
+        secim({})
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("bos dagilim ValueError vermeli")
+
+
+def test_hatali_girdi() -> None:
+    """Hatali her bicim ValueError; dogru bicimler kabul, alan adlari ve noul etiketleri dogru."""
+    kotuler = [("", {"a?": ["x", "y"]}), ("  ", {"a?": ["x", "y"]}), (None, {"a?": ["x", "y"]}),
+               ("m", {}), ("m", [("a?", ["x", "y"])]), ("m", {"a?": ["x"]}), ("m", {"a?": ["x", "x"]}),
+               ("m", {"a?": "evet"}), ("m", {"a?": ["x", " "]}), ("m", {"": ["x", "y"]}), ("m", {"a?": 3}),
+               ("m", {"a?": {"type": "bilinmeyen", "criteria": ["x", "y"]}}),
+               ("m", {"a?": {"type": "choice", "criteria": "x"}}), ("m", {"a?": {"type": "choice"}}),
+               ("m", {"a?": {"type": "noul", "criteria": ["evet", "hayır"]}}),
+               ("m", {"a <decision> b": ["x", "y"]}), ("m", {"a?": {"x": ""}}),
+               ("m", {"a?": {"type": "choice", "criteria": {"x": "y"}}}),
+               ("m", {"a?": {"type": "noul", "instruction": "yazim hatasi"}}),
+               ("m", {"a": {"type": "noul", "instructions": "x <decision> y"}}),
+               ("m", {"a?": ["x", "y <decision>"]}), ("m", {"a?": [str(i) for i in range(len(SEMBOLLER) ** 2 + 1)]})]
+    for metin, sorular in kotuler:
+        try:
+            girdi_dogrula(metin, sorular)
+        except ValueError:
+            continue
+        raise AssertionError(f"ValueError bekleniyordu: {metin!r} {sorular!r}")
+    tek = girdi_dogrula("m", {"Ton nedir?": ("a", "b")})
+    assert tek == [("Ton nedir?", "q", {"type": "choice", "instructions": "Ton nedir?", "criteria": {"a": "a", "b": "b"}})]
+    iki = girdi_dogrula("m", {"ton": ["a", "b"], "Acil mi?": {"type": "noul"}})
+    assert [ad for _, ad, _ in iki] == ["q1", "q2"]
+    assert [ad for _, ad, _ in girdi_dogrula("m", {"ton": ["a", "b"], "acil": {"type": "noul"}})] == ["ton", "acil"]
+    assert [ad for _, ad, _ in girdi_dogrula("m", {"ton\n": ["a", "b"]})] == ["q"]  # sonda satir sonu: alan adi degil
+    assert secenekler({"type": "noul"})[0] == ["false", "true"]
+    print(f"{len(kotuler)} hatali girdi reddedildi")
+
+
+def test_soru_ayristir_ve_cli_hatalari() -> None:
+    assert soru_ayristir("Ton?|olumlu| olumsuz |nötr") == ("Ton?", ["olumlu", "olumsuz", "nötr"])
+    for kotu in ("Ton?", "Ton?|tek", "|a|b", "Ton?|a|"):
+        try:
+            soru_ayristir(kotu)
+        except Exception:  # argparse.ArgumentTypeError
+            continue
+        raise AssertionError(f"kabul edilmemeliydi: {kotu!r}")
+    argv = ["--adapter", ADAPTER, "--metin", "m", "--soru", "Ton?|a|b", "--soru", "Ton?|c|d"]
+    try:
+        with redirect_stderr(io.StringIO()):
+            main(argv)
+    except SystemExit as cikis:
+        assert cikis.code == 2
+    else:
+        raise AssertionError("ayni --soru iki kez: SystemExit(2) bekleniyordu")
+    try:
+        Karar("/yok/boyle/bir/dizin", TABAN)
+    except FileNotFoundError as hata:
+        print(f"beklenen hata: {hata}")
+    else:
+        raise AssertionError("FileNotFoundError bekleniyordu")
+
+
+def test_istem_birebir() -> None:
+    """Yalniz tokenizer: karar.py'nin istem token'lari ve okuma konumlari olcum/egitim kodundakiyle birebir ayni
+    (9 ornek + kesilen uzun metin). KARAR_REFERANS yoksa atlanir."""
+    if not REFERANS:
+        print("ATLANDI: KARAR_REFERANS verilmedi")
+        _DURUM["atlanan"] = _DURUM.get("atlanan", 0) + 1
+        return
+    from transformers import AutoTokenizer
+
+    import karar as bizim
+
+    sys.path.insert(0, REFERANS)
+    import qwen35_decider as ref  # noqa: E402
+
+    tok = AutoTokenizer.from_pretrained(TABAN)
+    yer = bizim._tek_token(tok, bizim.YER_TOKEN, "yer")
+    assert yer == ref.yer_idi(tok) and bizim.SEMBOLLER == ref.SEMBOLLER and bizim.SISTEM == ref.SISTEM
+    durumlar = [(metin, sorular, 4096) for _, metin, sorular, _ in ORNEKLER]
+    durumlar.append(("\n\n".join([EPOSTA] * 30), ORNEKLER[3][2], 512))
+    for metin, sorular, sinir in durumlar:
+        alanlar = [(ad, istek["instructions"], secenekler(istek)[1]) for _, ad, istek in girdi_dogrula(metin, sorular)]
+        assert bizim.istem_kodla(tok, metin, alanlar, sinir, yer) == ref.istem_kodla(tok, metin, alanlar, sinir, yer)
+    print(f"{len(durumlar)} istem birebir ayni (biri {512} token sinirinda kesildi)")
+
+
+# --- 5-7: bf16 model ---------------------------------------------------------
+def test_dokuz_ornek() -> None:
+    """9 ornek (TR/EN; ikili, coktan secmeli, puan, 'hicbiri'li, cok soru paketli): bicim + acik orneklerde argmax."""
+    k = karar()
+    basla = time.perf_counter()
+    sonuc = bf16_sonuclari()
+    print(f"9 ornek: {(time.perf_counter() - basla) * 1000:.0f} ms toplam (ilk cagri isinma dahil)")
+    for ad, metin, sorular, beklenen in ORNEKLER:
+        dagilimlar = k.sor(metin, sorular)
+        assert list(dagilimlar) == list(sorular)
+        for soru, dagilim in dagilimlar.items():
+            assert list(dagilim) == secenekler(girdi_dogrula(metin, {soru: sorular[soru]})[0][2])[0]
+            assert math.isclose(sum(dagilim.values()), 1.0, abs_tol=1e-4)
+            assert [round(p, 6) for p in dagilim.values()] == [round(p, 6) for p in sonuc[ad][soru]]
+            en_iyi = max(dagilim, key=dagilim.get)
+            print(f"  {ad:18s} {soru[:48]:48s} -> {en_iyi} ({dagilim[en_iyi]:.3f})")
+            if beklenen and soru in beklenen:
+                assert en_iyi == beklenen[soru], f"{ad}: {soru} -> {en_iyi}, beklenen {beklenen[soru]}"
+
+
+def test_cli() -> None:
+    cikti = io.StringIO()
+    argv = ["--adapter", ADAPTER, "--taban", TABAN, "--metin", EPOSTA,
+            "--soru", "Mesajın tonu nedir?|olumlu|olumsuz|nötr",
+            "--soru", "Öğrenci teslim süresinin uzatılmasını istiyor mu?|evet|hayır"]
+    with redirect_stdout(cikti):
+        sonuc = main(argv, karar=karar())
+    print("CLI ciktisi:\n" + cikti.getvalue().strip())
+    assert set(sonuc) == {"Mesajın tonu nedir?", "Öğrenci teslim süresinin uzatılmasını istiyor mu?"}
+    assert max(sonuc["Öğrenci teslim süresinin uzatılmasını istiyor mu?"].items(), key=lambda x: x[1])[0] == "evet"
+
+
+def test_uzun_metin_cok_secenek_cok_soru() -> None:
+    """Sinir asan metin sondan kesilir; 62+ sik iki asamali eleme; 16+ soru dengeli paketler."""
+    k = karar()
+    eski, k.maks_istem_token = k.maks_istem_token, 512
+    try:
+        once = k.kesilen
+        uzun = k.sor("\n\n".join([EPOSTA] * 30), {"Mesajın tonu nedir?": ["olumlu", "olumsuz", "nötr"]})
+        assert k.kesilen == once + 1 and math.isclose(sum(uzun["Mesajın tonu nedir?"].values()), 1, abs_tol=1e-4)
+    finally:
+        k.maks_istem_token = eski
+    niyetler = [f"niyet {i:02d}" for i in range(70)] + ["kart iptali"]
+    cok = k.sor("Kartımı kaybettim, lütfen hemen iptal edin.", {"Müşterinin niyeti nedir?": niyetler})
+    p = cok["Müşterinin niyeti nedir?"]
+    sifir_disi = sum(v > 0 for v in p.values())
+    print(f"71 sik: sifir disi {sifir_disi}, en iyi {max(p, key=p.get)} ({max(p.values()):.3f})")
+    assert len(p) == 71 and sifir_disi <= len(SEMBOLLER) and math.isclose(sum(p.values()), 1, abs_tol=1e-4)
+    on_sekiz = {f"s{i}": {"type": "noul", "instructions": f"Metinde {i} sayısı geçiyor mu?"} for i in range(18)}
+    paket = k.sor("Siparişim 3 gün gecikti, 7 numaralı şubeyi aradım.", on_sekiz)
+    assert list(paket) == list(on_sekiz) and len(on_sekiz) > MAKS_SORU
+    print(f"18 soru -> {math.ceil(18 / MAKS_SORU)} gecis; s3 evet {paket['s3']['true']:.3f}, s5 evet {paket['s5']['true']:.3f}")
+
+
+# --- 8: referans (olcum kodu) ---------------------------------------------------
+def test_referans_esdeger() -> None:
+    """Ayni girdi: karar.py vs olcum kodundaki Qwen35Decider (kendi yuklemesiyle). max |dp| <= REFERANS_TOLERANS."""
+    if not REFERANS:
+        print("ATLANDI: KARAR_REFERANS verilmedi")
+        _DURUM["atlanan"] = _DURUM.get("atlanan", 0) + 1
+        return
+    bizim = dict(bf16_sonuclari())
+    k = karar()
+    bizim.update({ad: k.olasiliklar(metin, sorular) for ad, metin, sorular in EK_REFERANS})
+    del k  # yerel referans kalirsa model bellekten cikmaz
+    _bosalt()
+    sys.path.insert(0, REFERANS)
+    from qwen35_decider import Qwen35Decider  # noqa: E402 (yalniz bu testte, yerel olcum kodu)
+
+    ref = Qwen35Decider(TABAN, adapter=ADAPTER)
+    try:
+        onlarin = {}
+        for ad, metin, sorular in [o[:3] for o in ORNEKLER] + EK_REFERANS:
+            temiz = girdi_dogrula(metin, sorular)
+            istekler = {alan: istek for _, alan, istek in temiz}
+            olas = ref._olasiliklar(metin, list(istekler), istekler)
+            onlarin[ad] = {anahtar: olas[alan] for anahtar, alan, _ in temiz}
+    finally:
+        del ref
+        gc.collect()
+        torch.cuda.empty_cache() if torch.cuda.is_available() else None
+    fark = _en_buyuk_fark(bizim, onlarin)
+    toplam, uyan = _argmax_uyumu(bizim, onlarin)
+    _DURUM["referans_fark"] = fark
+    print(f"referans: max |dp| {fark:.5f} (sinir {REFERANS_TOLERANS}), argmax {uyan}/{toplam}")
+    assert fark <= REFERANS_TOLERANS and uyan == toplam
+
+
+# --- 9: FP8 -------------------------------------------------------------------
+def test_fp8() -> None:
+    """fp8=True yukler ve calisir; acik sorularda argmax bf16 ile ayni, |dp| gevsek sinirda."""
+    if not torch.cuda.is_available():
+        print("ATLANDI: CUDA yok")
+        _DURUM["atlanan"] = _DURUM.get("atlanan", 0) + 1
+        return
+    bizim = bf16_sonuclari()
+    _bosalt()
+    k8 = Karar(ADAPTER, TABAN, fp8=True)
+    try:
+        fp8 = {ad: k8.olasiliklar(metin, sorular) for ad, metin, sorular, _ in ORNEKLER}
+        basla = time.perf_counter()
+        k8.olasiliklar(EPOSTA, ORNEKLER[3][2])
+        torch.cuda.synchronize()
+        ms = (time.perf_counter() - basla) * 1000
+    finally:
+        del k8
+        gc.collect()
+        torch.cuda.empty_cache()
+    fark = _en_buyuk_fark(bizim, fp8)
+    toplam, uyan = _argmax_uyumu(bizim, fp8)
+    _DURUM["fp8_fark"] = fark
+    _DURUM["fp8"] = fp8
+    print(f"FP8: max |dp| {fark:.4f} (sinir {FP8_TOLERANS}), argmax {uyan}/{toplam}, 4 soru {ms:.0f} ms")
+    assert fark <= FP8_TOLERANS and uyan == toplam
+
+
+# --- 10: birlesik agirlik + yukleme aninda FP8 ------------------------------------
+def test_birlesik_fp8_akis() -> None:
+    """Karar(None, taban=BIRLESIK, fp8=True): katmanlar yuklenirken FP8 (TorchAoConfig). Sonradan FP8 ile ayni olasiliklar
+    (|dp| <= 1e-3), bf16 ile argmax uyumu; bf16 kopyasi olusmadigi icin tepe bellek bf16 yuklemesinden kucuk."""
+    if not BIRLESIK or not torch.cuda.is_available():
+        print("ATLANDI: KARAR_BIRLESIK verilmedi" if not BIRLESIK else "ATLANDI: CUDA yok")
+        _DURUM["atlanan"] = _DURUM.get("atlanan", 0) + 1
+        return
+    bizim = bf16_sonuclari()
+    _bosalt()
+    torch.cuda.reset_peak_memory_stats()
+    k8 = Karar(None, BIRLESIK, fp8=True)
+    try:
+        tepe = torch.cuda.max_memory_allocated() / 1e9
+        kuantize = sum(1 for _, m in k8.model.named_modules()
+                       if isinstance(m, torch.nn.Linear) and type(m.weight).__name__ != "Parameter")
+        akis = {ad: k8.olasiliklar(metin, sorular) for ad, metin, sorular, _ in ORNEKLER}
+    finally:
+        del k8
+        gc.collect()
+        torch.cuda.empty_cache()
+    fark_bf = _en_buyuk_fark(bizim, akis)
+    toplam, uyan = _argmax_uyumu(bizim, akis)
+    fark_fp8 = _en_buyuk_fark(_DURUM["fp8"], akis) if "fp8" in _DURUM else None
+    print(f"birlesik + akis FP8: kuantize lineer {kuantize}, tepe {tepe:.2f} GB, vs bf16 max |dp| {fark_bf:.4f} argmax "
+          f"{uyan}/{toplam}, vs sonradan FP8 max |dp| {'-' if fark_fp8 is None else f'{fark_fp8:.5f}'}")
+    assert kuantize > 0 and fark_bf <= FP8_TOLERANS and uyan == toplam
+    assert fark_fp8 is None or fark_fp8 <= 1e-3
+
+
+TESTLER = [test_bagimsiz_yukleme, test_secim_kurali, test_hatali_girdi, test_soru_ayristir_ve_cli_hatalari, test_istem_birebir,
+           test_dokuz_ornek, test_cli,
+           test_uzun_metin_cok_secenek_cok_soru, test_referans_esdeger, test_fp8, test_birlesik_fp8_akis]
+
+if __name__ == "__main__":
+    for test in TESTLER:
+        test()
+        print(f"GECTI {test.__name__}")
+    atlanan = _DURUM.get("atlanan", 0)
+    print(f"{len(TESTLER) - atlanan}/{len(TESTLER)} test gecti, {atlanan} atlandi")

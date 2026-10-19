@@ -1,0 +1,6 @@
+{
+  "temperature": 1.5157165665103978,
+  "fitted_on": "calibration partition",
+  "suite_sha256": "1b33e566d114f9eafeff55b36c221fadb2a4ae358a1b9cc68006e82c7cfad8f1",
+  "objective": "task-macro NLL on clean records, grid over [0.25, 4]"
+}

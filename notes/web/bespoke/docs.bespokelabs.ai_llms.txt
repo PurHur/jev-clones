@@ -1,0 +1,44 @@
+# Bespoke Labs
+
+- [Bespoke Labs docs](https://docs.bespokelabs.ai/index.md): Docs for Nimble, a fast, low-cost API from Bespoke Labs for text classification, routing, and moderation, with a probability for every answer.
+- [Nimble overview](https://docs.bespokelabs.ai/nimble/overview.md): A fast, low-cost API for text classification, routing, moderation, and LLM-as-a-judge scoring, with a probability for every answer.
+- [Nimble quickstart](https://docs.bespokelabs.ai/nimble/quickstart.md): Get an API key and classify your first piece of text with Nimble, using curl or Python.
+- [Agent skill](https://docs.bespokelabs.ai/nimble/agent-skill.md): Install the Nimble skill so coding agents like Claude Code, Codex, and Cursor can build with Nimble.
+- [Question types](https://docs.bespokelabs.ai/nimble/questions.md): How to write yes/no (noul), multiple-choice (choice), and rating (score) questions, and how to read the probabilities in the answers.
+- [TypeSafe SDK](https://docs.bespokelabs.ai/nimble/typesafe-sdk.md): Call Nimble from Python with TypeSafe's SDK.
+- [Limits and errors](https://docs.bespokelabs.ai/nimble/limits-and-errors.md): Request limits, the errors Nimble returns, and when to retry.
+- [Pricing](https://docs.bespokelabs.ai/nimble/pricing.md): What each Nimble model costs, how Nimble counts tokens, and how to get free credit.
+- [Curator overview](https://docs.bespokelabs.ai/curator/overview.md): Curator is an open-source Python library for building synthetic data pipelines with LLMs.
+- [Curator quickstart](https://docs.bespokelabs.ai/curator/quickstart.md): Install Curator and send your first prompts to an LLM.
+- [Key concepts](https://docs.bespokelabs.ai/curator/key-concepts.md): How curator.LLM uses the prompt and parse methods to turn one dataset into another.
+- [Structured output](https://docs.bespokelabs.ai/curator/structured-output.md): Use Pydantic models to get typed responses and chain LLM calls into a pipeline.
+- [Caching and recovery](https://docs.bespokelabs.ai/curator/caching.md): How Curator caches responses so you can resume failed runs and reuse finished ones.
+- [Curator Viewer](https://docs.bespokelabs.ai/curator/viewer.md): Watch and share your datasets in the hosted Curator Viewer while Curator generates them.
+- [Batch inference](https://docs.bespokelabs.ai/curator/batch.md): Send large jobs to provider batch APIs by setting batch=True.
+- [Online processing](https://docs.bespokelabs.ai/curator/guides/online-processing.md): Send requests in real time and control rate limits with backend parameters.
+- [LiteLLM](https://docs.bespokelabs.ai/curator/guides/litellm.md): Use the LiteLLM backend to reach Gemini, Together, DeepInfra, and many other providers.
+- [vLLM](https://docs.bespokelabs.ai/curator/guides/vllm.md): Run open models with vLLM, either inside your Python process or as a server.
+- [Ollama](https://docs.bespokelabs.ai/curator/guides/ollama.md): Generate data with a local model served by Ollama.
+- [Hugging Face Inference Providers](https://docs.bespokelabs.ai/curator/guides/hf-inference-providers.md): Use Hugging Face Inference Providers through the OpenAI-compatible backend.
+- [Multimodal data](https://docs.bespokelabs.ai/curator/guides/multimodal.md): Send images along with text in your prompts.
+- [Code execution](https://docs.bespokelabs.ai/curator/guides/code-execution.md): Run code that an LLM wrote with curator.CodeExecutor, locally or in a sandbox.
+- [Diverse QA dataset](https://docs.bespokelabs.ai/curator/recipes/diverse-qa.md): Build a dataset of question and answer pairs across many subjects with three chained LLM steps.
+- [SimpleStrat](https://docs.bespokelabs.ai/curator/recipes/simplestrat.md): Use the StratifiedGenerator block to get more varied answers to the same question.
+- [Reasoning traces](https://docs.bespokelabs.ai/curator/recipes/reasoning-traces.md): Collect Claude's thinking along with its answers using the Anthropic backend.
+- [Function calling data](https://docs.bespokelabs.ai/curator/recipes/function-calling.md): Generate function calls, with different tools and generation parameters for each row.
+- [Aspect-based sentiment analysis](https://docs.bespokelabs.ai/curator/finetuning/absa.md): Distill GPT-4o into a small Llama model for restaurant review sentiment, using Curator and Together fine-tuning.
+- [API reference](https://docs.bespokelabs.ai/curator/api-reference.md): Reference for curator.LLM, its backends and parameters, CuratorResponse, and environment variables.
+- [Authentication](https://docs.bespokelabs.ai/api-reference/authentication.md): Send your API key with every request.
+- [Ask questions](https://docs.bespokelabs.ai/api-reference/systemone.md): Nimble's System One endpoint: ask up to 64 yes/no, multiple-choice, or rating questions about text or JSON, and get a probability for every answer.
+
+## OpenAPI Specs
+
+- [openapi](/api-reference/openapi.yaml)
+
+## Optional
+
+- [GitHub](https://github.com/bespokelabsai)
+- [Console](https://console.bespokelabs.ai)
+
+
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

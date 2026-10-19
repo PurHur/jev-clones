@@ -1,0 +1,16 @@
+{
+  "temperature": 2.179078721266035,
+  "method": "softmax(candidate_logits / temperature)",
+  "model": "bespokelabs/Bespoke-Nimble-9B-v2",
+  "adapter_sha256": "1bd126be997be6d9a0c25ce483ccf858c31b3422d480c33f02ba47b614be68ae",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "prompt_code_sha256": "a0a0f94d0f65e972bc20d088678ad3d595ff1c42b9c0d78f96034526303f63fc",
+  "fitted_for_this_checkpoint": false,
+  "selection": "User requested transfer of the original model probability temperature; no evaluation-based selection",
+  "original_fitted_temperature": 2.179078721266035,
+  "github_source_revision": "54c2e82e8f613a7ab3a4d4072c50dfb9376db4e3",
+  "previous_helper_revision": "01ebf0ad9f31bceee6b263b2812446e01a01455b",
+  "previous_default_temperature": 1.0,
+  "new_inference": false
+}

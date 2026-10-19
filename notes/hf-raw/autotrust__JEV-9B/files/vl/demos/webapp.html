@@ -1,0 +1,119 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Acme Workspace</title>
+<style>
+  body { font-family: "DejaVu Sans", Arial, sans-serif; margin: 0; background: #f4f6f9; color: #1d2733; }
+  .top { background: #24324a; color: #fff; padding: 12px 20px; display: flex; align-items: center; gap: 18px; font-size: 18px; }
+  .top .brand { font-weight: bold; margin-right: auto; }
+  .main { padding: 18px 24px; }
+  .btn { display: inline-block; padding: 9px 16px; margin: 4px 6px 4px 0; border-radius: 6px; border: 1px solid #c5ccd6; background: #fff; cursor: pointer; font-size: 15px; }
+  .top .btn { color: #1d2733; }
+  .btn.primary { background: #2f6fde; color: #fff; border-color: #2f6fde; }
+  .btn.danger { color: #b3261e; }
+  .row { background: #fff; border: 1px solid #dde2e8; border-radius: 6px; padding: 10px 14px; margin: 6px 0; cursor: pointer; display: flex; gap: 16px; font-size: 15px; }
+  .row b { width: 170px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 230px); gap: 14px; }
+  .card { background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 12px; cursor: pointer; font-size: 15px; }
+  .card .img { height: 70px; border-radius: 6px; margin-bottom: 8px; }
+  .swatch { display: inline-block; width: 34px; height: 34px; border-radius: 50%; margin: 6px 10px 6px 0; border: 3px solid #fff; box-shadow: 0 0 0 1px #aaa; cursor: pointer; }
+  .swatch.sel { box-shadow: 0 0 0 3px #1d2733; }
+  .size { display: inline-block; padding: 8px 14px; border: 1px solid #aab; margin-right: 8px; border-radius: 4px; cursor: pointer; background: #fff; }
+  .size.sel { background: #1d2733; color: #fff; }
+  .side { width: 190px; float: left; }
+  .side .item { padding: 10px 12px; margin: 4px 0; border-radius: 6px; cursor: pointer; background: #fff; border: 1px solid #dde2e8; }
+  .side .item.sel { background: #dfe9fb; border-color: #2f6fde; }
+  .panel { margin-left: 215px; background: #fff; border: 1px solid #dde2e8; border-radius: 8px; padding: 16px 20px; min-height: 300px; }
+  .toggle { display: flex; align-items: center; justify-content: space-between; width: 470px; padding: 10px 0; border-bottom: 1px solid #eee; font-size: 15px; }
+  .sw { width: 52px; height: 28px; border-radius: 14px; background: #c9ced6; position: relative; cursor: pointer; }
+  .sw::after { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; background: #fff; top: 3px; left: 3px; }
+  .sw.on { background: #2e9d57; } .sw.on::after { left: 27px; }
+  .toast { margin-top: 14px; color: #2e9d57; font-weight: bold; }
+  h2 { margin: 6px 0 12px; font-size: 21px; }
+</style></head>
+<body><div id="app"></div>
+<script>
+// A tiny three-app workspace (mail, shop, settings) driven by window.S; every interactive element carries data-click.
+const P = new URLSearchParams(location.search);
+let seed = +(P.get("seed") || 1);
+function rnd() { seed = (seed * 1103515245 + 12345) % 2147483648; return seed / 2147483648; }
+function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+const app = P.get("app");
+const S = window.S = { app, view: "home", archived: [], deleted: [], cart: [], ordered: false, sel: {}, section: null, saved: {}, toggles: {} };
+const NAMES = shuffle(["Alice Chen", "Bob Martin", "Carla Diaz", "David Kim", "Emma Rossi", "Farid Khan", "Grace Lee", "Hugo Weber"]).slice(0, 6);
+const TOPICS = shuffle(["invoice for March", "team offsite", "contract renewal", "server outage", "lunch on Friday", "design review", "travel booking", "quarterly report"]).slice(0, 6);
+const MAILS = NAMES.map((n, i) => ({ id: i, from: n, subject: TOPICS[i] }));
+const PRODUCTS = shuffle(["T-shirt", "Hoodie", "Sneakers", "Backpack", "Cap", "Jacket"]).map((n, i) => ({ id: i, name: n, price: 19 + 7 * i }));
+const COLORS = { red: "#d93a3a", blue: "#2f6fde", green: "#2e9d57", black: "#222222", yellow: "#e8c21b" };
+const SIZES = ["S", "M", "L", "XL"];
+const SECTIONS = { Profile: ["Show online status", "Public profile"], Security: ["Two-factor authentication", "Login alerts"],
+                   Notifications: ["Email digests", "Push notifications"], Appearance: ["Dark mode", "Compact layout"] };
+const secOrder = shuffle(Object.keys(SECTIONS));
+for (const s in SECTIONS) for (const t of SECTIONS[s]) S.toggles[t] = false;
+window.WORLD = { MAILS, PRODUCTS, COLORS: Object.keys(COLORS), SIZES, SECTIONS };
+function el(html) { document.getElementById("app").innerHTML = html; }
+function click(k) { return `data-click="${k}"`; }
+function header(title) { return `<div class="top"><span class="brand">${title}</span><span class="btn" ${click("nav:help")}>Help</span><span class="btn" ${click("nav:account")}>Account</span></div>`; }
+function render() {
+  if (app === "mail") {
+    if (S.view === "home") {
+      const rows = MAILS.filter(m => !S.archived.includes(m.id) && !S.deleted.includes(m.id))
+        .map(m => `<div class="row" ${click("open:" + m.id)}><b>${m.from}</b><span>${m.subject}</span></div>`).join("");
+      el(header("Acme Mail") + `<div class="main"><h2>Inbox</h2><span class="btn primary" ${click("compose")}>Compose</span>${rows}</div>`);
+    } else {
+      const m = MAILS[S.open];
+      el(header("Acme Mail") + `<div class="main"><span class="btn" ${click("back")}>&larr; Back to inbox</span><h2>${m.subject}</h2>
+        <p>From: <b>${m.from}</b></p><p style="width:640px">Hi, please see the details about the ${m.subject} below. Let me know if you have questions.</p>
+        <span class="btn" ${click("reply")}>Reply</span><span class="btn" ${click("forward")}>Forward</span>
+        <span class="btn" ${click("archive")}>Archive</span><span class="btn danger" ${click("delete")}>Delete</span><span class="btn" ${click("unread")}>Mark unread</span></div>`);
+    }
+  } else if (app === "shop") {
+    const cartBtn = `<span class="btn" ${click("cart")}>Cart (${S.cart.length})</span>`;
+    if (S.view === "home") {
+      const cards = PRODUCTS.map(p => `<div class="card" ${click("product:" + p.id)}><div class="img" style="background:#e3e8ef"></div><b>${p.name}</b><br>$${p.price}</div>`).join("");
+      el(header("Acme Shop") + `<div class="main">${cartBtn}<h2>New arrivals</h2><div class="grid">${cards}</div></div>`);
+    } else if (S.view === "product") {
+      const p = PRODUCTS[S.product];
+      const sw = Object.entries(COLORS).map(([n, c]) => `<span class="swatch ${S.sel.color === n ? "sel" : ""}" style="background:${c}" ${click("color:" + n)}></span>`).join("");
+      const sz = SIZES.map(s => `<span class="size ${S.sel.size === s ? "sel" : ""}" ${click("size:" + s)}>${s}</span>`).join("");
+      el(header("Acme Shop") + `<div class="main"><span class="btn" ${click("back")}>&larr; All products</span>${cartBtn}<h2>${p.name} &mdash; $${p.price}</h2>
+        <p>Colour:</p><div>${sw}</div><p>Size:</p><div>${sz}</div><br><span class="btn primary" ${click("add")}>Add to cart</span>
+        ${S.added ? '<div class="toast">Added to cart</div>' : ""}</div>`);
+    } else if (S.view === "cart") {
+      const items = S.cart.map(c => `<div class="row"><b>${c.name}</b><span>${c.color}, size ${c.size}</span></div>`).join("") || "<p>Your cart is empty.</p>";
+      el(header("Acme Shop") + `<div class="main"><span class="btn" ${click("back")}>&larr; Continue shopping</span><h2>Your cart</h2>${items}
+        <span class="btn primary" ${click("checkout")}>Checkout</span><span class="btn danger" ${click("empty")}>Empty cart</span>
+        ${S.ordered ? '<div class="toast">Order placed. Thank you!</div>' : ""}</div>`);
+    }
+  } else if (app === "settings") {
+    const side = secOrder.map(s => `<div class="item ${S.section === s ? "sel" : ""}" ${click("section:" + s)}>${s}</div>`).join("");
+    let panel = "<p>Select a section on the left.</p>";
+    if (S.section) {
+      panel = `<h2>${S.section}</h2>` + SECTIONS[S.section].map(t => `<div class="toggle"><span>${t}</span><span class="sw ${S.toggles[t] ? "on" : ""}" ${click("toggle:" + t)}></span></div>`).join("")
+        + `<br><span class="btn primary" ${click("save")}>Save changes</span><span class="btn" ${click("cancel")}>Cancel</span>`
+        + (S.justSaved ? '<div class="toast">Settings saved</div>' : "");
+    }
+    el(header("Acme Settings") + `<div class="main"><div class="side">${side}</div><div class="panel">${panel}</div></div>`);
+  }
+}
+function act(k) {
+  const [a, v] = k.split(/:(.*)/s);
+  S.justSaved = false; S.added = false;
+  if (a === "open") { S.view = "mail"; S.open = +v; }
+  else if (a === "back") { S.view = "home"; }
+  else if (a === "archive") { S.archived.push(S.open); S.view = "home"; }
+  else if (a === "delete") { S.deleted.push(S.open); S.view = "home"; }
+  else if (a === "product") { S.view = "product"; S.product = +v; S.sel = {}; }
+  else if (a === "color") { S.sel.color = v; }
+  else if (a === "size") { S.sel.size = v; }
+  else if (a === "add") { if (S.sel.color && S.sel.size) { S.cart.push({ name: PRODUCTS[S.product].name, color: S.sel.color, size: S.sel.size }); S.added = true; } }
+  else if (a === "cart") { S.view = "cart"; }
+  else if (a === "checkout") { if (S.cart.length) S.ordered = true; }
+  else if (a === "empty") { S.cart = []; S.ordered = false; }
+  else if (a === "section") { S.section = v; }
+  else if (a === "toggle") { S.toggles[v] = !S.toggles[v]; }
+  else if (a === "save") { S.saved = Object.assign({}, S.toggles); S.justSaved = true; }
+  else if (a === "cancel") { for (const t in S.toggles) S.toggles[t] = !!S.saved[t]; }
+  render();
+}
+document.addEventListener("click", e => { const t = e.target.closest("[data-click]"); if (t) act(t.getAttribute("data-click")); });
+render();
+</script></body></html>

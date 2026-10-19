@@ -1,0 +1,27 @@
+{
+ "_id": "6acdff8fc266cf71b7638f00",
+ "id": "acl-research/MayaZ-68M",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "language": "en",
+  "library_name": "onnx",
+  "pipeline_tag": "text-classification",
+  "base_model": "jhu-clsp/ettin-encoder-68m",
+  "tags": [
+   "decision",
+   "classification",
+   "calibration",
+   "onnx",
+   "onnxruntime",
+   "modernbert",
+   "ettin"
+  ]
+ },
+ "lastModified": "2026-10-13T09:56:06.000Z",
+ "downloads": 12,
+ "likes": 1,
+ "gated": false,
+ "sha": "dea0c0143a9d570b9a4e1c698cf39f4978ed3360",
+ "createdAt": "2026-10-13T09:53:19.000Z"
+}

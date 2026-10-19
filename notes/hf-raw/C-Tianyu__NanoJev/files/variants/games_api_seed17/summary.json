@@ -1,0 +1,136 @@
+{
+  "best_step": 150,
+  "best_dev_target_ce": 0.7130707709730839,
+  "selected_on": "dev target CE",
+  "objective": "teacher",
+  "metrics_by_split": {
+    "dev": {
+      "questions": 504,
+      "objective": "teacher",
+      "eligible_questions": 501,
+      "target_ce": 0.7130707709730839,
+      "target_kl": 0.10754575952110457,
+      "target_tv": 0.1622813057690467,
+      "by_target_kind": {
+        "teacher_rounded_proxy": {
+          "n": 501,
+          "ce": 0.7130707709730839,
+          "kl": 0.10754575952110457,
+          "tv": 0.1622813057690467
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 501,
+          "ce": 0.7130707709730839,
+          "kl": 0.10754575952110457,
+          "tv": 0.1622813057690467
+        },
+        "gold_distribution": {
+          "n": 504,
+          "ce": 0.701963093111963,
+          "kl": 0.6602369393657108,
+          "tv": 0.4357824048845307
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "calibration": {
+      "questions": 500,
+      "objective": "teacher",
+      "eligible_questions": 500,
+      "target_ce": 0.7210497784051056,
+      "target_kl": 0.11017916320286496,
+      "target_tv": 0.1606939957216772,
+      "by_target_kind": {
+        "teacher_rounded_proxy": {
+          "n": 500,
+          "ce": 0.7210497784051056,
+          "kl": 0.11017916320286496,
+          "tv": 0.1606939957216772
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 500,
+          "ce": 0.7210497784051056,
+          "kl": 0.11017916320286496,
+          "tv": 0.1606939957216772
+        },
+        "gold_distribution": {
+          "n": 500,
+          "ce": 0.690937608859615,
+          "kl": 0.6533763270403429,
+          "tv": 0.43010127156540956
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "test": {
+      "questions": 487,
+      "objective": "teacher",
+      "eligible_questions": 487,
+      "target_ce": 0.7178738686092758,
+      "target_kl": 0.11519962202078171,
+      "target_tv": 0.16197697068307357,
+      "by_target_kind": {
+        "teacher_rounded_proxy": {
+          "n": 487,
+          "ce": 0.7178738686092758,
+          "kl": 0.11519962202078171,
+          "tv": 0.16197697068307357
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 487,
+          "ce": 0.7178738686092758,
+          "kl": 0.11519962202078171,
+          "tv": 0.16197697068307357
+        },
+        "gold_distribution": {
+          "n": 487,
+          "ce": 0.6580319982288982,
+          "kl": 0.6173470163730734,
+          "tv": 0.4194799845862883
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "ood": {
+      "questions": 173,
+      "objective": "teacher",
+      "eligible_questions": 172,
+      "target_ce": 0.7490552275394107,
+      "target_kl": 0.10398421448117022,
+      "target_tv": 0.14334074401012564,
+      "by_target_kind": {
+        "teacher_rounded_proxy": {
+          "n": 172,
+          "ce": 0.7490552275394107,
+          "kl": 0.10398421448117022,
+          "tv": 0.14334074401012564
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 172,
+          "ce": 0.7490552275394107,
+          "kl": 0.10398421448117022,
+          "tv": 0.14334074401012564
+        },
+        "gold_distribution": {
+          "n": 173,
+          "ce": 0.7033095694567321,
+          "kl": 0.660899529493104,
+          "tv": 0.43063586291702377
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    }
+  },
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "training_seconds": 182.26331992074847,
+  "max_gpu_allocated_gb": 12.375407104
+}

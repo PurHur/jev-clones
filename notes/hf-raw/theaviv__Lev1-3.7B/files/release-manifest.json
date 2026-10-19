@@ -1,0 +1,127 @@
+{
+ "files": {
+  "LICENSE": {
+   "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+   "size": 11358
+  },
+  "NOTICE": {
+   "sha256": "4cafacae8c3603c8d549fe016fc5877df396a244e3cc3cf26c95c53d31b5285f",
+   "size": 556
+  },
+  "README.md": {
+   "sha256": "b416f689645cb597ac554195b9821db2ec46f55d3d422848875dc27a1bd6bc0a",
+   "size": 6619
+  },
+  "adapter": {
+   "adapter_config.json": {
+    "sha256": "5c9e28484319fa80a72ef1e634d46893c8450d6d899ddac07b784d4af476909b",
+    "size": 1400
+   },
+   "adapter_model.safetensors": {
+    "sha256": "931fd94ae45f810b6e145f01ebb3f2e5c6067cdbfdf1b53fc10352597facf9a1",
+    "size": 271386864
+   }
+  },
+  "chat_template.jinja": {
+   "sha256": "a892cd0b0195599f283a8c706787520d9a6747640efb2f4dec4144b0abb62590",
+   "size": 51034
+  },
+  "config.json": {
+   "sha256": "a98a4dc771aadcbe03a390d825723a42eaee2682758b29b7d44341d4f33d8ab4",
+   "size": 1756
+  },
+  "configuration_k2_horizon.py": {
+   "sha256": "5c2f993c1053d9462ebea6dea416c897fddfbb4a5edd904e486936b20d4badc5",
+   "size": 3529
+  },
+  "generation_config.json": {
+   "sha256": "f644cf8e6d20b067d058c719c9df409e71715f00aec54876f1a5412f664544ef",
+   "size": 124
+  },
+  "lev1": {
+   "__init__.py": {
+    "sha256": "9e7c29f76e0c0f2c4741f9188e86a4bf9c02903737dea16c83be2165ff03e22c",
+    "size": 100
+   },
+   "engine.py": {
+    "sha256": "26c818c2163cb7db10d376e85e7f54befb48ddb23a0f48e0b11d8ba787175450",
+    "size": 14271
+   },
+   "pack.py": {
+    "sha256": "c457f80427eed400718c44af372f4e6bb3bc8a15502b0507d4e1c553d4ef9a59",
+    "size": 2692
+   },
+   "template.py": {
+    "sha256": "906cbf2847e8e749db1fc611c3bfd18f20833b56a784532cc582afe9293949c1",
+    "size": 3837
+   }
+  },
+  "model-00001-of-00010.safetensors": {
+   "sha256": "1449242a96f557168e83e89e07988fab5e01439fce7352ed91d02ee61951353e",
+   "size": 1283195008
+  },
+  "model-00002-of-00010.safetensors": {
+   "sha256": "88be70d67d96f249c3e7351612731f9232740eeb3bdf14fa46dfb632cffece23",
+   "size": 1283195024
+  },
+  "model-00003-of-00010.safetensors": {
+   "sha256": "2de37fe631ff83f36144ae26fd0f9d3e14ea1c35e3d861b6e7c8230ed5af2feb",
+   "size": 996203080
+  },
+  "model-00004-of-00010.safetensors": {
+   "sha256": "4f7855b76e723b9eb1861e7fa8cd8ff4177823d1f8ae607b700dbff8b3049b6c",
+   "size": 996198192
+  },
+  "model-00005-of-00010.safetensors": {
+   "sha256": "f9424cd36cf67b5f35a7aa534faa221787a0c37e99457b5d6f6d6b6363c2de06",
+   "size": 996203472
+  },
+  "model-00006-of-00010.safetensors": {
+   "sha256": "a507df6597fae85a2a491c0dbc4b0773121432970745610a27bc026800710f6e",
+   "size": 996203488
+  },
+  "model-00007-of-00010.safetensors": {
+   "sha256": "190b67e7c75e9bd5991c0206bd249047ffdf2eb8d9215d7b0d6217ffc79db29f",
+   "size": 996197904
+  },
+  "model-00008-of-00010.safetensors": {
+   "sha256": "9ecfb36072fba373e9a5c29a7d304ca0eab08fe34ef7d01e761449301befd846",
+   "size": 996198240
+  },
+  "model-00009-of-00010.safetensors": {
+   "sha256": "66680b9a622e743a4be697819696437b7921f0f80abd5d6e6d31490bcce2188f",
+   "size": 996203480
+  },
+  "model-00010-of-00010.safetensors": {
+   "sha256": "57720aea9fad93d2d0ee2357f4d8438102b7b231d544bafd08978ac19fa2d837",
+   "size": 576750520
+  },
+  "model.safetensors.index.json": {
+   "sha256": "4a5dbd85fc62fe4c50b1740b64cc7f82793b500b8597f9d1fbadb2181789bf55",
+   "size": 26958
+  },
+  "modeling_k2_horizon.py": {
+   "sha256": "fb09e010956bd51cfa7d4055b4381cff34c9e06164066b49e3546f38b2e6242f",
+   "size": 49535
+  },
+  "tokenizer.json": {
+   "sha256": "838d767b7c9925ff257feb20eaa4299a8e3cc35bb3d805589c373f51d2cc3cb6",
+   "size": 20637260
+  },
+  "tokenizer_config.json": {
+   "sha256": "7be8f8f10d4f8fd410d578193a7e30eeb837aaa8c30b3107f84a54fcb65c2558",
+   "size": 330
+  }
+ },
+ "r1": false,
+ "sha256": {
+  "adapter": "931fd94ae45f810b6e145f01ebb3f2e5c6067cdbfdf1b53fc10352597facf9a1",
+  "data_manifest": "a3ae0385338a6e6d4cb3b842ce87c83bb851d7c61fae17d54f7778e3fc03a7d8",
+  "scores": "4987f507f3aae89be44f9c3dc6fe4e689900c62cba522df538d2d64d6056b04e",
+  "train_record": "013ff52cf405cecffbd64cb09afc0c15d32245fef86be3c1ea51555628682215"
+ },
+ "source": {
+  "commit": "d39c558c40a1e996ff546aa80fa7885e40470b19",
+  "dirty": false
+ }
+}

@@ -1,0 +1,26 @@
+{
+  "backend": "tokenizers",
+  "clean_up_tokenization_spaces": true,
+  "cls_token": "[CLS]",
+  "extra_special_tokens": [
+    "<fake_token_around_image>",
+    "<image>",
+    "<end_of_utterance>"
+  ],
+  "is_local": false,
+  "legacy": false,
+  "local_files_only": false,
+  "mask_token": "[MASK]",
+  "model_input_names": [
+    "input_ids",
+    "attention_mask",
+    "pixel_values",
+    "pixel_attention_mask"
+  ],
+  "model_max_length": 8192,
+  "pad_token": "[PAD]",
+  "processor_class": "Idefics3Processor",
+  "sep_token": "[SEP]",
+  "tokenizer_class": "TokenizersBackend",
+  "unk_token": "[UNK]"
+}

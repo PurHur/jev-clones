@@ -1,0 +1,14 @@
+{
+ "backbone": "intfloat/multilingual-e5-small",
+ "scorer_layers": 2,
+ "heads": 6,
+ "ffn": 1536,
+ "dropout": 0.1,
+ "max_state_tokens": 512,
+ "max_choice_tokens": 64,
+ "temperature": 0.9355568358032639,
+ "question_in_state": true,
+ "question_in_choices": true,
+ "state_prefix": "query: ",
+ "choice_prefix": "passage: "
+}

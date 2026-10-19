@@ -1,0 +1,17 @@
+{
+  "method": "rlcd",
+  "stage": "vision_top",
+  "epochs": 3,
+  "world_size": 8,
+  "total_records": 90000,
+  "steps": 84,
+  "optimizer_steps": 168,
+  "trainable_parameters": {
+    "vision": 50384896,
+    "merger": 25174016,
+    "lora": 33638400,
+    "head": 1048576
+  },
+  "initialization_sha256": "43dc3701bb35af4a351e54b35cbdbcacf48feff1ab70fee4af646ae983403519",
+  "checkpoint_sha256": "836622efe78fe757e2627aa6050c223d461c424ea430a1c110c15e6f42f5a012"
+}

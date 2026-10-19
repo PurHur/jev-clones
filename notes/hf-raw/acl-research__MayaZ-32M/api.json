@@ -1,0 +1,27 @@
+{
+ "_id": "6acdff3a9105403d2fd495bd",
+ "id": "acl-research/MayaZ-32M",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "language": "en",
+  "library_name": "onnx",
+  "pipeline_tag": "text-classification",
+  "base_model": "jhu-clsp/ettin-encoder-32m",
+  "tags": [
+   "decision",
+   "classification",
+   "calibration",
+   "onnx",
+   "onnxruntime",
+   "modernbert",
+   "ettin"
+  ]
+ },
+ "lastModified": "2026-10-13T09:53:17.000Z",
+ "downloads": 14,
+ "likes": 1,
+ "gated": false,
+ "sha": "513be58e251e60d3350d230abd83a305f28c1773",
+ "createdAt": "2026-10-13T09:51:54.000Z"
+}

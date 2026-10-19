@@ -1,0 +1,13 @@
+{
+  "release": "v3-12026",
+  "model": "bespokelabs/Bespoke-Nimble-9B",
+  "adapter_sha256": "29ef39b072dee97287947455337879c1e916705c2f727287922a2d81f5e2f20a",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "max_context_tokens": 8192,
+  "max_choices": 255,
+  "artifact_type": "PEFT LoRA adapter",
+  "weights_unchanged_from_evaluated_checkpoint": true
+}

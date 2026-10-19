@@ -1,0 +1,12 @@
+# Test edilen surumler (Python 3.12, CUDA 12.8, RTX 5060 Ti; test_karar.py bunlarla gecti):
+#   torch 2.11.0, transformers 5.17.0, peft 0.21.0, safetensors 0.8.0, accelerate 1.15.0, torchao 0.18.0
+# Alt sinirlar bu surumlerden geriye dogru denenmedi. Qwen3.5 mimarisi transformers 5.x gerektirir.
+torch>=2.5
+transformers>=5.17,<6
+peft>=0.21
+safetensors
+accelerate
+# Opsiyonel:
+#   torchao>=0.18           karar.py --fp8 / Karar(..., fp8=True)   (CUDA, sm_89+)
+#   causal-conv1d           lineer-dikkat katmanlari icin hizli cekirdek (yoksa saf torch, ayni sonuc, daha yavas)
+#   flash-linear-attention  ayni katmanlarin gated-delta cekirdekleri (ayni kosul)

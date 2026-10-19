@@ -1,0 +1,27 @@
+{
+  "format_version": 1,
+  "tasks": [
+    "choice",
+    "noul",
+    "score"
+  ],
+  "query_length": 4096,
+  "document_length": 2048,
+  "cls_token_id": 50281,
+  "sep_token_id": 50282,
+  "pad_token_id": 50283,
+  "model_sha256": "1a27d9ce0f44ddb8e3247aec245e3c05e2425996d5ff0def114a093c58c464de",
+  "heads_sha256": "03aaa7864b6fd5c08c5ca57f233b65f907226ad43579c91f0998f5eaf51f7aac",
+  "weights_sha256": "e4c2587853fa9073b022c18801857733abf2950bb765fe37e434b6baaae18ac7",
+  "model_file": "model.onnx",
+  "model_bytes": 29023607,
+  "source_model_sha256": "b3b55bba127f6d3eca5c3f4762e04b77b1bef301e3242132a58fca5e93813b52",
+  "quantization": {
+    "embedding": "rowwise_symmetric_int8",
+    "blocks": "fp32",
+    "heads": "fp32",
+    "integer_matmuls": 0
+  },
+  "source_repository": "hotchpotch/bekko-system-one-v0-17m",
+  "source_revision": "2c3f04e55e8d0764620ee46fc86be33e408d1ebd"
+}

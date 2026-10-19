@@ -1,0 +1,6 @@
+*
+!app.py
+!smoke_test.py
+!requirements.txt
+!strands_decider/
+strands_decider/__pycache__

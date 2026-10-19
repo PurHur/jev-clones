@@ -1,0 +1,24 @@
+{
+  "state": "The customer was charged twice and needs a refund.",
+  "model": "xor-lite",
+  "questions": {
+    "urgent": {
+      "type": "noul",
+      "instructions": "Does the customer need prompt help?"
+    },
+    "department": {
+      "type": "choice",
+      "instructions": "Which department should handle this?",
+      "criteria": {
+        "billing": "Payments, refunds, and invoices",
+        "technical": "Software bugs and outages",
+        "sales": "Pricing and purchasing"
+      }
+    },
+    "mood": {
+      "type": "score",
+      "instructions": "How frustrated is the customer?",
+      "criteria": ["Calm", "Frustrated", "Very frustrated"]
+    }
+  }
+}

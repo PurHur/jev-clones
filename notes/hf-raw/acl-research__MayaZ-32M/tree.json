@@ -1,0 +1,62 @@
+[
+ {
+  "type": "file",
+  "oid": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+  "size": 1519,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "3223b7bf242820c6e5a47021367aa7f26f8711cb",
+  "size": 1069,
+  "path": "LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "3343aadf14e68f65446980127e9d45c2352f49be",
+  "size": 5197,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "aedf6f795109182754920e61e43012b3e122d5bb",
+  "size": 546,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "988032ec69a083c5ad11bb7f5506436c77af8611",
+  "size": 135771740,
+  "lfs": {
+   "oid": "9e3dea779e8b6381eb6a21417e5df1c770bc5c730ee021f6848a2071bc04c6a1",
+   "size": 135771740,
+   "pointerSize": 134
+  },
+  "xetHash": "66ce9ee9739f00b3740a300aed7cfe41f3f6e8db8235970b94b0f38914756248",
+  "path": "mayaz_fp32.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "f56103d6b49e8b51f300f11261b0961435c7f18f",
+  "size": 96141312,
+  "lfs": {
+   "oid": "918c441111230113c21ce77af2ad146fa5cbd0baf4b4a671474eaa46d103ae0b",
+   "size": 96141312,
+   "pointerSize": 133
+  },
+  "xetHash": "33d8f9bc0d4aa435768ff3fa62d83cf1c826e898ee5cce9eb38d49a5fc202e35",
+  "path": "mayaz_int8.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "67e5c3a2fbd9c5ced24dfb639187690361ef7d60",
+  "size": 673,
+  "path": "temperatures.json"
+ },
+ {
+  "type": "file",
+  "oid": "de3f3e316b66f3885df49ab2c0fff3e477ff1680",
+  "size": 2132967,
+  "path": "tokenizer.json"
+ }
+]

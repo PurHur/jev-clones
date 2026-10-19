@@ -1,0 +1,9 @@
+{
+  "date": "2026-09-26",
+  "weights_changed": false,
+  "invalid_family_aggregate": "genmcq",
+  "overall_macro_micro": "Historical values include invalid AOKVQA labels; not validated overall performance",
+  "source": "dataset_scores_v11.md",
+  "raw_reports": "Preserved historical evidence; not recomputed or silently relabeled",
+  "v12": "Experimental, not a released replacement"
+}

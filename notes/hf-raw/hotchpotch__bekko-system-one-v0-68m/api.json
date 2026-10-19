@@ -1,0 +1,27 @@
+{
+ "_id": "6abb75b836f33cad70b51d76",
+ "id": "hotchpotch/bekko-system-one-v0-68m",
+ "config": {},
+ "cardData": {
+  "base_model": [
+   "cross-encoder/ettin-reranker-68m-v1"
+  ],
+  "language": [
+   "en"
+  ],
+  "library_name": "sentence-transformers",
+  "tags": [
+   "modernbert",
+   "typed-decisions",
+   "classification",
+   "scoring",
+   "custom-code"
+  ]
+ },
+ "lastModified": "2026-09-30T20:18:59.000Z",
+ "downloads": 0,
+ "likes": 3,
+ "gated": false,
+ "sha": "ab7685f23e5edbc1acb12ced4f2c4e12591efa69",
+ "createdAt": "2026-09-29T08:24:24.000Z"
+}

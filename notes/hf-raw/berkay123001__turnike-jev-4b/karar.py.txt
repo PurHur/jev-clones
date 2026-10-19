@@ -1,0 +1,483 @@
+"""Turnike-JEV-4B tek dosyalik cikarim modulu: Qwen3.5 (0.8B / 4B / 9B) + LoRA adaptoru ile tek geciste cok soruluk karar.
+
+Model metin uretmez. Metin ("State") ve sorular ("Decision schema") tek bir sohbet istemine yazilir; asistanin
+cevabi bir JSON iskeletidir, her soru icin bir yer tutucu. Her sorunun siklari tek-token sembollere eslenir
+(A, B, C, ...; en fazla 62). Her yer tutucudan HEMEN ONCEKI konumdaki gizli durum yalniz o sorunun sembol
+satirlariyla (lm_head'in 62 satiri, fp32) carpilir; softmax o sorunun siklari arasinda alinir. Sonuc: her soru
+icin secenek -> olasilik. Bir metnin en fazla 16 sorusu tek ileri geciste cevaplanir; fazlasi dengeli paketlere
+bolunur. 62'den fazla sikli soru iki asamali eleme ile cozulur (finale kalmayan siklar 0 olasilik).
+
+Bagimsizdir: egitim/olcum koduna import bagimliligi yok; istem bicimi buraya kopyalandi ve egitimdekiyle
+birebir ayni olmali (degistirirseniz kalite duser). Bagimliliklar: torch, transformers, peft (+ accelerate);
+FP8 icin torchao. causal-conv1d ve flash-linear-attention kuruluysa transformers lineer-dikkat katmanlarinda
+bunlari kullanir (opsiyonel hizlandirici; yoksa saf torch yolu, ayni sonuc, daha yavas).
+
+Kullanim:
+    from karar import Karar
+    k = Karar("berkay123001/turnike-jev-4b")       # ya da yerel adaptor dizini
+    k.sor("Kulaklık bozuk geldi, paramı geri istiyorum.",
+          {"Yazar para iadesi istiyor mu?": ["evet", "hayır"],
+           "Mesajın tonu nedir?": {"olumlu": "memnun", "olumsuz": "şikâyetçi", "nötr": "duygu yok"}})
+
+Soru bicimleri ({anahtar: tanim}):
+    ["a", "b", ...]                         coktan secmeli; secenek metni = etiket
+    {"etiket": "aciklama", ...}             coktan secmeli; etiket -> aciklama
+    {"type": "noul"}                        evet/hayir; donus anahtarlari "false"/"true"
+    {"type": "choice"|"score"|"noul", "instructions": "...", "criteria": {...}}   tam bicim
+Anahtarlarin hepsi kisa tanimlayiciysa (orn. "iade_istiyor") istemde alan adi olarak kullanilir, soru metni
+"instructions"tan ya da anahtardan gelir; degilse alan adlari q / q1..qN olur ve anahtar soru metnidir.
+
+CLI:
+    python karar.py --adapter . --metin "..." --soru "Ton?|olumlu|olumsuz|nötr" [--fp8]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import re
+import sys
+import warnings
+from pathlib import Path
+
+import torch
+
+# --- Sabitler -----------------------------------------------------------------
+VARSAYILAN_TABAN = "Qwen/Qwen3.5-4B"
+VERI_TIPI = torch.bfloat16
+DIKKAT_UYGULAMASI = "sdpa"
+# Istem token siniri; asilirsa metin sondan kesilir. Egitim 1536 ile yapildi, olcumler 4096 ile.
+MAKS_ISTEM_TOKEN = 4096
+MIN_METIN_TOKEN = 16
+KACIS_PAYI = 64  # JSON kacislari (\n, \") metni uzatir; kesme butcesinden dusulur
+MAKS_SORU = 16  # tek geciste en fazla soru; fazlasi dengeli paketlere bolunur
+ISARET = "<decision>"  # iskelet metnindeki yer tutucu dizge (token degil; metin bundan bolunur)
+YER_TOKEN = "?"  # yer tutucunun yerine konan token (egitimde de ayni)
+SEMBOLLER = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+MAKS_SECENEK = len(SEMBOLLER) ** 2  # iki asamali elemede her parcadan en az bir finalist kalir
+SISTEM = ("You are a careful decision assistant. Use the state and decision schema in the user message to make the "
+          "requested decisions. For every field, choose exactly one answer symbol (e.g. A, B, C, ...) from its listed "
+          "options and return one valid JSON object mapping each field name to its chosen symbol. Use the field names "
+          "and symbols exactly as given. Do not include explanations, Markdown, or extra text.")
+KULLANICI_GIRIS = "Return one answer for every field using the supplied answer symbols.\n\n## State\n"
+NOUL_EVET = "The answer is yes (affirmative, or align with the claim)."
+NOUL_HAYIR = "The answer is no (negative, or disagree with the claim)."
+# Bu aciklamalar modele gonderilmez, yerine varsayilan Ingilizce evet/hayir aciklamasi yazilir (egitimdeki gibi).
+NOUL_VARSAYILAN = {"yes", "no", "evet", "hayır", "hayir"}
+TIPLER = ("choice", "score", "noul")
+TAM_BICIM_ANAHTARLARI = {"type", "instructions", "criteria"}
+ALAN_ADI = re.compile(r"^[A-Za-z_][A-Za-z0-9_]{0,63}$")
+# FP8: lineer-dikkat projeksiyonlarindan cikisi 128'den kucuk olanlar (in_proj_a/b) zaten disarida kalir.
+FP8_MIN_CIKIS = 128
+# Yukleme aninda FP8 (birlesik agirliklar, TorchAoConfig) icin haric kaliplari: fp8_uygula'nin kuraliyla (dil modeli
+# lineerleri; 16'ya bolunmeyen ya da cikisi kucuk olanlar haric) 0.8B / 4B / 9B'de birebir ayni kume: gorme kulesi, lm_head,
+# in_proj_a / in_proj_b (16-32 cikis). transformers kaliplari parametre adinin basindan regex ile eslestirir.
+FP8_YUKLEME_HARIC = (r".*\.visual\.", "lm_head", r".*\.in_proj_a\.", r".*\.in_proj_b\.")
+CLI_SORU_AYRACI = "|"
+ADAPTOR_DOSYALARI = ("adapter_config.json", "adapter_model.safetensors")
+
+
+# --- Soru bicimi --------------------------------------------------------------
+def secenekler(soru: dict) -> tuple[list[str], list[tuple[str, str]]]:
+    """Tam bicim soru -> (donus etiketleri, istemdeki (deger, aciklama) ciftleri). noul: once no, sonra yes."""
+    tip, crit = soru.get("type", "choice"), soru.get("criteria")
+    if tip == "noul":
+        hayir, evet = NOUL_HAYIR, NOUL_EVET
+        if isinstance(crit, dict):
+            degerler = {str(k).lower(): str(v) for k, v in crit.items()}
+            if not {v.strip().lower() for v in degerler.values()} <= NOUL_VARSAYILAN:
+                evet = next((degerler[k] for k in ("true", "yes", "1") if k in degerler), evet)
+                hayir = next((degerler[k] for k in ("false", "no", "0") if k in degerler), hayir)
+        return ["false", "true"], [("no", hayir), ("yes", evet)]
+    if isinstance(crit, dict):
+        ciftler = [(str(k), str(v) if v not in (None, "") else str(k)) for k, v in crit.items()]
+    else:
+        ciftler = [(str(i), str(v)) for i, v in enumerate(crit or [])]
+    return [k for k, _ in ciftler], ciftler
+
+
+def _tam_bicim(anahtar: str, tanim) -> dict:
+    """Kullanici tanimi -> {"type", "instructions", "criteria"} (dogrulanmis)."""
+    if isinstance(tanim, (list, tuple)):
+        secim = [str(s) for s in tanim]
+        if any(not s.strip() for s in secim):
+            raise ValueError(f"'{anahtar}': bos secenek olamaz")
+        if len(set(secim)) != len(secim):
+            raise ValueError(f"'{anahtar}': secenekler tekrarlanamaz")
+        istek = {"type": "choice", "instructions": anahtar, "criteria": {s: s for s in secim}}
+    elif isinstance(tanim, dict) and set(tanim) & TAM_BICIM_ANAHTARLARI:
+        bilinmeyen = sorted(set(map(str, tanim)) - TAM_BICIM_ANAHTARLARI)
+        if bilinmeyen:
+            raise ValueError(f"'{anahtar}': tam bicimde bilinmeyen anahtar: {', '.join(bilinmeyen)} "
+                             f"(gecerli: {', '.join(sorted(TAM_BICIM_ANAHTARLARI))})")
+        istek = {"type": tanim.get("type", "choice"), "instructions": tanim.get("instructions") or anahtar,
+                 "criteria": tanim.get("criteria")}
+    elif isinstance(tanim, dict):
+        istek = {"type": "choice", "instructions": anahtar, "criteria": dict(tanim)}
+    else:
+        raise ValueError(f"'{anahtar}': tanim list, tuple ya da dict olmali, gelen: {type(tanim).__name__}")
+    if istek["type"] not in TIPLER:
+        raise ValueError(f"'{anahtar}': bilinmeyen type {istek['type']!r} (gecerli: {', '.join(TIPLER)})")
+    if not isinstance(istek["instructions"], str) or not istek["instructions"].strip():
+        raise ValueError(f"'{anahtar}': soru metni (instructions) bos olmayan bir str olmali")
+    if ISARET in istek["instructions"]:
+        raise ValueError(f"'{anahtar}': soru metni '{ISARET}' iceremez")
+    crit = istek["criteria"]
+    if istek["type"] == "noul":
+        if crit is not None and not isinstance(crit, dict):
+            raise ValueError(f"'{anahtar}': noul criteria verilecekse dict olmali ({{'true': ..., 'false': ...}})")
+        if crit and any(ISARET in str(v) for v in crit.values()):
+            raise ValueError(f"'{anahtar}': secenekler '{ISARET}' iceremez")
+        return istek
+    if not isinstance(crit, (dict, list, tuple)):
+        raise ValueError(f"'{anahtar}': criteria dict ya da list olmali")
+    etiketler, ciftler = secenekler(istek)
+    if len(ciftler) < 2:
+        raise ValueError(f"'{anahtar}': en az iki secenek gerekli")
+    if any(not e.strip() or not a.strip() for e, a in ciftler):
+        raise ValueError(f"'{anahtar}': bos etiket ya da aciklama olamaz")
+    if len(set(etiketler)) != len(etiketler):
+        raise ValueError(f"'{anahtar}': secenek etiketleri tekrarlanamaz")
+    if len(ciftler) > MAKS_SECENEK:
+        raise ValueError(f"'{anahtar}': en fazla {MAKS_SECENEK} secenek (iki asamali eleme siniri)")
+    if any(ISARET in e or ISARET in a for e, a in ciftler):
+        raise ValueError(f"'{anahtar}': secenekler '{ISARET}' iceremez")
+    return istek
+
+
+def girdi_dogrula(metin: str, sorular: dict) -> list[tuple[str, str, dict]]:
+    """Metin + {anahtar: tanim} denetimi; (anahtar, istem alan adi, tam bicim soru) listesi dondurur."""
+    if not isinstance(metin, str) or not metin.strip():
+        raise ValueError("metin bos olmayan bir str olmali")
+    if not isinstance(sorular, dict) or not sorular:
+        raise ValueError("sorular bos olmayan bir dict olmali: {soru: [secenek, ...]}")
+    if any(not isinstance(k, str) or not k.strip() for k in sorular):
+        raise ValueError("soru anahtari bos olmayan bir str olmali")
+    if any(ISARET in k for k in sorular):
+        raise ValueError(f"soru anahtari '{ISARET}' iceremez")
+    istekler = [_tam_bicim(k, v) for k, v in sorular.items()]
+    if all(ALAN_ADI.fullmatch(k) for k in sorular):
+        adlar = list(sorular)
+    else:
+        adlar = ["q"] if len(sorular) == 1 else [f"q{i + 1}" for i in range(len(sorular))]
+    return list(zip(sorular, adlar, istekler))
+
+
+# --- Istem kodlama (egitimdeki istem_kodla'nin kopyasi) -----------------------
+def kullanici_metni(state: str, alanlar) -> str:
+    """State JSON dizgesi olarak, sonra sema satirlari: 'ad: talimat' + '    A = deger: aciklama'."""
+    satirlar = []
+    for ad, talimat, ciftler in alanlar:
+        satirlar.append(f"{ad}: {talimat}")
+        satirlar += [f"    {s} = {deger}: {aciklama}" for s, (deger, aciklama) in zip(SEMBOLLER, ciftler)]
+    durum = json.dumps(state, ensure_ascii=False, indent=2)
+    return KULLANICI_GIRIS + durum + "\n## Decision schema\n" + "\n".join(satirlar)
+
+
+def sablon_metni(tok, state: str, alanlar) -> str:
+    """Sohbet sablonu (bos dusunme blogu dahil); asistan cevabi alan basina bir ISARET iceren JSON iskeleti."""
+    iskelet = json.dumps({ad: ISARET for ad, _, _ in alanlar}, ensure_ascii=False, indent=4)
+    mesajlar = [{"role": "system", "content": SISTEM},
+                {"role": "user", "content": kullanici_metni(state, alanlar)},
+                {"role": "assistant", "content": iskelet}]
+    return tok.apply_chat_template(mesajlar, tokenize=False, add_generation_prompt=False, enable_thinking=False)
+
+
+def _parcala(tok, metin: str, yer_id: int) -> tuple[list[int], list[int]]:
+    """Metni ISARET'ten boler, parcalari ayri tokenler; (ids, her isaretten hemen onceki konum)."""
+    parcalar = metin.split(ISARET)
+    ids: list[int] = []
+    konumlar: list[int] = []
+    for i, parca in enumerate(parcalar):
+        ids += tok(parca, add_special_tokens=False)["input_ids"]
+        if i < len(parcalar) - 1:
+            konumlar.append(len(ids) - 1)
+            ids.append(yer_id)
+    return ids, konumlar
+
+
+def istem_kodla(tok, state: str, alanlar, max_length: int, yer_id: int) -> tuple[list[int], list[int], bool]:
+    """(ids, okuma konumlari, kesildi). Sinir asilirsa yalniz metin sondan kesilir."""
+    state = str(state).replace(ISARET, "<decision >")
+    ids, konum = _parcala(tok, sablon_metni(tok, state, alanlar), yer_id)
+    if len(ids) <= max_length:
+        return ids, konum, False
+    sabit = len(_parcala(tok, sablon_metni(tok, "", alanlar), yer_id)[0])
+    st = tok(state, add_special_tokens=False)["input_ids"]
+    butce = max(max_length - sabit - KACIS_PAYI, MIN_METIN_TOKEN)
+    while True:
+        ids, konum = _parcala(tok, sablon_metni(tok, tok.decode(st[:butce]), alanlar), yer_id)
+        if len(ids) <= max_length or butce <= MIN_METIN_TOKEN:
+            return ids, konum, True
+        butce = int(butce * 0.9)
+
+
+def _tek_token(tok, metin: str, ne: str) -> int:
+    ids = tok.encode(metin, add_special_tokens=False)
+    if len(ids) != 1:
+        raise ValueError(f"{ne} tek token degil: {metin!r} -> {ids}")
+    return ids[0]
+
+
+def dengeli_bol(ogeler: list, parca_sayisi: int) -> list[list]:
+    """Sirayi koruyarak neredeyse esit parcalar."""
+    boy, artik = divmod(len(ogeler), parca_sayisi)
+    sonuc, bas = [], 0
+    for i in range(parca_sayisi):
+        son = bas + boy + (1 if i < artik else 0)
+        sonuc.append(ogeler[bas:son])
+        bas = son
+    return sonuc
+
+
+# --- FP8 (opsiyonel, torchao) -------------------------------------------------
+def fp8_uygula(model):
+    """torchao FP8: dinamik aktivasyon + satir basina agirlik olcegi, hizli birikim.
+
+    Yalniz dil modeli lineerleri; disarida: lm_head (sembol satirlari fp32 okunur), gorme kulesi, boyutu 16'ya
+    bolunmeyenler ve cikisi FP8_MIN_CIKIS'tan kucukler. LoRA onceden birlestirilmis olmali.
+    """
+    try:
+        from torchao.float8.inference import Float8MMConfig
+        from torchao.quantization import Float8DynamicActivationFloat8WeightConfig, quantize_
+        from torchao.quantization.granularity import PerRow
+    except ImportError as hata:
+        raise RuntimeError("fp8=True icin torchao gerekli: pip install torchao") from hata
+
+    def istenen(module, ad: str) -> bool:
+        return (isinstance(module, torch.nn.Linear) and ".language_model." in f".{ad}" and "lm_head" not in ad
+                and module.in_features % 16 == 0 and module.out_features % 16 == 0
+                and module.out_features >= FP8_MIN_CIKIS)
+
+    ayar = Float8DynamicActivationFloat8WeightConfig(granularity=PerRow(),
+                                                     mm_config=Float8MMConfig(use_fast_accum=True))
+    quantize_(model, ayar, filter_fn=istenen)
+    return model
+
+
+def fp8_yukleme_ayari():
+    """Yukleme aninda FP8 (transformers TorchAoConfig): fp8_uygula ile ayni torchao tarifi, ayni haric kume.
+
+    Birlesik agirliklarda bf16 kopyasi hic olusmaz; katmanlar yuklenirken FP8'e cevrilir (9B ~10 GB, 16 GB karta sigar).
+    """
+    try:
+        from torchao.float8.inference import Float8MMConfig
+        from torchao.quantization import Float8DynamicActivationFloat8WeightConfig
+        from torchao.quantization.granularity import PerRow
+        from transformers import TorchAoConfig
+    except ImportError as hata:
+        raise RuntimeError("fp8=True icin torchao gerekli: pip install torchao") from hata
+    ayar = Float8DynamicActivationFloat8WeightConfig(granularity=PerRow(),
+                                                     mm_config=Float8MMConfig(use_fast_accum=True))
+    return TorchAoConfig(quant_type=ayar, modules_to_not_convert=list(FP8_YUKLEME_HARIC))
+
+
+def secim(dagilim: dict[str, float], hicbiri: str | None = None, esik: float | None = None) -> str:
+    """Karar kurali: argmax; hicbiri verilirse o secenek yalniz p(hicbiri) >= esik ise secilir, yoksa en iyi somut secenek.
+
+    Model "yukaridakilerden hicbiri" / "oos" turu secenege temkinli yaklasir (dengeli hicbiri egitimi). Niyet yonlendirme gibi
+    islerde esik 0.5-0.6 yanlis "hicbiri" kararlarini azaltir (clinc150: 9B 0.850 -> 0.873 @0.6); kapi/denetim islerinde
+    (belirsizi isaretlemek faydaliysa) argmax (esik=None) daha uygundur: ayni esik dengeli hicbiri testinde 3-4 puan kaybettirir.
+    """
+    if not dagilim:
+        raise ValueError("bos dagilim")
+    en = max(dagilim, key=dagilim.get)
+    if hicbiri is not None and esik is not None and en == hicbiri and dagilim[hicbiri] < esik:
+        digerleri = [s for s in dagilim if s != hicbiri]
+        if digerleri:
+            en = max(digerleri, key=dagilim.get)
+    return en
+
+
+# --- Model --------------------------------------------------------------------
+def _adaptor_yolu(adapter: str | Path) -> str:
+    """Yerel dizinse gerekli dosyalar var mi (~ acilir); degilse Hub kimligi sayilir."""
+    ham = str(adapter)
+    yol = Path(ham).expanduser()
+    if not yol.exists():
+        if ham.count("/") != 1 or ham.startswith((".", "/", "~")):
+            raise FileNotFoundError(f"adaptor bulunamadi: '{ham}' (yerel dizin yok, Hub kimligi de degil)")
+        return ham
+    eksik = [ad for ad in ADAPTOR_DOSYALARI if not (yol / ad).exists()]
+    if eksik:
+        raise FileNotFoundError(f"adaptor dizini eksik: {yol} icinde {', '.join(eksik)} yok")
+    return str(yol)
+
+
+def _adaptor_tabani(adapter: str) -> str:
+    """Adaptorun adapter_config.json'undaki base_model_name_or_path (yerel dizin ya da Hub kimligi; peft okur)."""
+    from peft import PeftConfig
+
+    try:
+        taban = PeftConfig.from_pretrained(adapter).base_model_name_or_path
+    except (OSError, ValueError) as hata:
+        raise FileNotFoundError(f"adaptorun adapter_config.json dosyasi okunamadi: '{adapter}' ({hata})") from hata
+    if not taban:
+        raise FileNotFoundError(f"adapter_config.json icinde base_model_name_or_path yok: {adapter}")
+    return taban
+
+
+class Karar:
+    """Qwen3.5 (0.8B / 4B / 9B) + LoRA karar katmani. Bir ornek bircok metinde kullanilabilir."""
+
+    def __init__(self, adapter: str | Path | None, taban: str | None = None, device: str | None = None,
+                 fp8: bool = False, maks_istem_token: int = MAKS_ISTEM_TOKEN) -> None:
+        """adapter=None: taban zaten birlestirilmis agirliklardir (birlestir.py ciktisi ya da onun Hub reposu).
+        taban=None: adaptor varsa adapter_config.json'daki taban (0.8B / 4B / 9B dogru eslesir), yoksa Qwen3.5-4B."""
+        from transformers import AutoTokenizer, Qwen3_5ForConditionalGeneration
+
+        if not isinstance(maks_istem_token, int) or maks_istem_token < 256:
+            raise ValueError("maks_istem_token en az 256 olan bir int olmali")
+        adapter = None if adapter is None else _adaptor_yolu(adapter)
+        if taban is None:
+            taban = _adaptor_tabani(adapter) if adapter is not None else VARSAYILAN_TABAN
+        if adapter is None and taban == VARSAYILAN_TABAN:
+            warnings.warn("adaptor yok ve taban egitimsiz Qwen3.5-4B: sifir-atis calisir (karar modeli degil).",
+                          stacklevel=2)
+        self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        if fp8 and self.device.type != "cuda":
+            raise RuntimeError("fp8=True yalniz CUDA'da calisir (FP8 matris carpimi, sm_89+)")
+        if self.device.type == "cpu":
+            warnings.warn("CUDA yok: model CPU'da bf16 calisir ama cok yavastir.", stacklevel=2)
+        try:
+            self.tok = AutoTokenizer.from_pretrained(taban)
+            if adapter is None:
+                # Birlesik agirliklar dogrudan cihaza yuklenir; fp8=True ise katmanlar yuklenirken FP8'e cevrilir
+                # (bf16 kopyasi olusmaz: 9B ~10 GB ile 16 GB karta sigar, RAM gerekmez).
+                model = Qwen3_5ForConditionalGeneration.from_pretrained(
+                    taban, dtype=VERI_TIPI, attn_implementation=DIKKAT_UYGULAMASI, device_map=str(self.device),
+                    quantization_config=fp8_yukleme_ayari() if fp8 else None)
+            else:
+                # CPU'ya yuklenir, LoRA CPU'da birlestirilir, sonra cihaza tasinir (olcum koduyla ayni yol).
+                model = Qwen3_5ForConditionalGeneration.from_pretrained(
+                    taban, dtype=VERI_TIPI, attn_implementation=DIKKAT_UYGULAMASI)
+        except OSError as hata:
+            raise FileNotFoundError(f"taban model yuklenemedi: '{taban}' ({hata})") from hata
+        if adapter is not None:
+            from peft import PeftModel
+
+            try:
+                model = PeftModel.from_pretrained(model, adapter).merge_and_unload()
+            except (OSError, ValueError) as hata:
+                raise FileNotFoundError(f"adaptor yuklenemedi: '{adapter}' ({hata})") from hata
+            model = model.to(self.device)
+            if fp8:
+                model = fp8_uygula(model)
+        self.model = model.eval()
+        self.model.requires_grad_(False)
+        self.fp8, self.maks_istem_token = fp8, maks_istem_token
+        self.yer_id = _tek_token(self.tok, YER_TOKEN, "yer tutucu")
+        self.sembol_id = torch.tensor([_tek_token(self.tok, s, "sembol") for s in SEMBOLLER])
+        self.govde = self.model.model.language_model
+        bas = self.model.lm_head
+        # Aday sembollerin cikis agirliklari (fp32 kopya): okuma 62 x H carpim, tam sozluk (248k) hesaplanmaz.
+        self.sembol_agirlik = bas.weight[self.sembol_id.to(bas.weight.device)].detach().float().clone()
+        # Metin yolu yalniz dil govdesini (self.govde) ve yukaridaki sembol satirlarini kullanir: gorme kulesi ve tam
+        # lm_head (248k satir; 9B'de baglanmamis, ~2 GB) bellekten cikarilir. Bagli (tied) sozlukte lm_head embed ile
+        # ayni tensor oldugundan yalniz kule kazandirir.
+        self.model.lm_head = None
+        if getattr(self.model.model, "visual", None) is not None:
+            self.model.model.visual = None
+        if self.device.type == "cuda":
+            torch.cuda.empty_cache()
+        self.kesilen = 0  # sinira sigmayip metni kesilen gecis sayisi
+
+    @torch.inference_mode()
+    def _gecis(self, metin: str, alanlar) -> list[torch.Tensor]:
+        """Tek ileri gecis; alan basina sembol log-olasiliklari."""
+        ids, konum, kesildi = istem_kodla(self.tok, metin, alanlar, self.maks_istem_token, self.yer_id)
+        self.kesilen += int(kesildi)
+        if len(konum) != len(alanlar):
+            raise ValueError("isaret sayisi tutmuyor (alan adi ya da metin istem bicimini bozuyor)")
+        giris = torch.tensor([ids], device=self.device)
+        konum_t = torch.tensor(konum, device=self.device)
+        gizli = self.govde(input_ids=giris, use_cache=False).last_hidden_state[0, konum_t]
+        logit = torch.nn.functional.linear(gizli.float(), self.sembol_agirlik).cpu()
+        return [torch.log_softmax(logit[i, :len(c)], dim=-1) for i, (_, _, c) in enumerate(alanlar)]
+
+    def _buyuk_soru(self, metin: str, ad: str, talimat: str, ciftler) -> list[float]:
+        """62+ sik: dengeli parcalarda eleme, her parcadan en iyi floor(62/k) finale; finalde tek gecis."""
+        k = math.ceil(len(ciftler) / len(SEMBOLLER))
+        kalan = len(SEMBOLLER) // k
+        finalist: list[int] = []
+        for parca in dengeli_bol(list(range(len(ciftler))), k):
+            log_p = self._gecis(metin, [(ad, talimat, [ciftler[i] for i in parca])])[0]
+            finalist += [parca[j] for j in torch.topk(log_p, min(kalan, len(parca))).indices.tolist()]
+        finalist.sort()
+        olasilik = torch.softmax(self._gecis(metin, [(ad, talimat, [ciftler[i] for i in finalist])])[0], -1)
+        tum = [0.0] * len(ciftler)
+        for i, p in zip(finalist, olasilik.tolist()):
+            tum[i] = p
+        return tum
+
+    def olasiliklar(self, metin: str, sorular: dict) -> dict[str, list[float]]:
+        """{anahtar: [p, ...]} secenek sirasiyla (noul: [false, true])."""
+        temiz = girdi_dogrula(metin, sorular)
+        sonuc: dict[str, list[float]] = {}
+        normal = []
+        for anahtar, ad, istek in temiz:
+            _, ciftler = secenekler(istek)
+            if len(ciftler) > len(SEMBOLLER):
+                sonuc[anahtar] = self._buyuk_soru(metin, ad, istek["instructions"], ciftler)
+            else:
+                normal.append((anahtar, (ad, istek["instructions"], ciftler)))
+        if normal:
+            for paket in dengeli_bol(normal, math.ceil(len(normal) / MAKS_SORU)):
+                log_p = self._gecis(metin, [alan for _, alan in paket])
+                for (anahtar, _), lp in zip(paket, log_p):
+                    sonuc[anahtar] = torch.softmax(lp, dim=-1).tolist()
+        return {anahtar: sonuc[anahtar] for anahtar, _, _ in temiz}
+
+    def sor(self, metin: str, sorular: dict) -> dict[str, dict[str, float]]:
+        """Her soru icin etiket -> olasilik (secenekler arasinda softmax, toplam 1)."""
+        olas = self.olasiliklar(metin, sorular)
+        return {anahtar: dict(zip(secenekler(istek)[0], olas[anahtar]))
+                for anahtar, _, istek in girdi_dogrula(metin, sorular)}
+
+
+# --- CLI ----------------------------------------------------------------------
+def soru_ayristir(ifade: str) -> tuple[str, list[str]]:
+    """'Soru?|a|b|c' -> ('Soru?', ['a', 'b', 'c'])."""
+    parcalar = [p.strip() for p in ifade.split(CLI_SORU_AYRACI)]
+    if len(parcalar) < 3 or not parcalar[0] or not all(parcalar[1:]):
+        bicim = f"Soru?{CLI_SORU_AYRACI}a{CLI_SORU_AYRACI}b"
+        raise argparse.ArgumentTypeError(f"--soru bicimi '{bicim}' olmali: {ifade!r}")
+    return parcalar[0], parcalar[1:]
+
+
+def arguman_ayristirici() -> argparse.ArgumentParser:
+    p = argparse.ArgumentParser(description="Metin + sorular -> secenek olasiliklari (tek geciste).")
+    p.add_argument("--adapter", default=None,
+                   help="adaptor dizini ya da Hub kimligi (verilmezse --taban birlestirilmis agirlik sayilir)")
+    p.add_argument("--taban", default=None,
+                   help="taban model (Hub kimligi ya da yerel yol); verilmezse adaptorun adapter_config.json tabani")
+    p.add_argument("--metin", required=True, help="karar verilecek metin")
+    p.add_argument("--soru", action="append", required=True, type=soru_ayristir,
+                   help=f"'Soru?{CLI_SORU_AYRACI}secenek1{CLI_SORU_AYRACI}secenek2...' (tekrarlanabilir)")
+    p.add_argument("--cihaz", default=None, help="cuda / cpu (varsayilan: varsa cuda)")
+    p.add_argument("--fp8", action="store_true", help="torchao FP8 (CUDA; ~%%20-25 daha hizli, olasiliklar biraz oynar)")
+    p.add_argument("--maks-istem-token", type=int, default=MAKS_ISTEM_TOKEN)
+    return p
+
+
+def main(argv: list[str] | None = None, karar: Karar | None = None) -> dict[str, dict[str, float]]:
+    """CLI giris noktasi. karar verilirse model yeniden yuklenmez (testler icin)."""
+    ayristirici = arguman_ayristirici()
+    args = ayristirici.parse_args(argv)
+    sorular = [soru for soru, _ in args.soru]
+    tekrar = sorted({soru for soru in sorular if sorular.count(soru) > 1})
+    if tekrar:
+        ayristirici.error(f"ayni --soru birden cok kez verildi: {', '.join(tekrar)}")
+    try:
+        karar = karar or Karar(args.adapter, args.taban, args.cihaz, args.fp8, args.maks_istem_token)
+        sonuc = karar.sor(args.metin, dict(args.soru))
+    except (FileNotFoundError, ValueError, RuntimeError) as hata:
+        print(f"hata: {hata}", file=sys.stderr)
+        raise SystemExit(1) from hata
+    print(json.dumps({s: {k: round(v, 4) for k, v in d.items()} for s, d in sonuc.items()},
+                     ensure_ascii=False, indent=1))
+    return sonuc
+
+
+if __name__ == "__main__":
+    main()

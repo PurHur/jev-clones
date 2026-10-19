@@ -1,0 +1,30 @@
+{
+ "head": {
+  "hidden_size": 4096,
+  "n_taps": 2,
+  "d": 1024,
+  "heads": 16,
+  "ffn": 2816,
+  "route_blocks": 2,
+  "interact_blocks": 2,
+  "dropout": 0.1,
+  "n_roles": 5,
+  "ord_hidden": 256,
+  "max_nodes": 4096,
+  "grad_checkpoint": true,
+  "taps": [
+   "final",
+   25
+  ],
+  "template": "schema-v1"
+ },
+ "taps": [
+  "final",
+  25
+ ],
+ "template": "schema-v1-nosys",
+ "step": 1040,
+ "lora_rank": 64,
+ "snapshot": "/scratch/schema-head/models/StandardOne-8B-SH",
+ "preview": true
+}

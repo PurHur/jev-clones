@@ -1,0 +1,53 @@
+{
+ "version": "v4",
+ "date": "2026-10-13",
+ "backbone_base": {
+  "repo": "StandardThinking/StandardOne-8B",
+  "revision": "ac495d1c221297f0ae951941eff27bcf58b5ce52",
+  "version": "v2.2"
+ },
+ "fine_tune": {
+  "lora_rank": 64,
+  "lora_alpha": 128,
+  "merge": "fp32 merge, bfloat16 save",
+  "stages": [
+   "v2 (merged, tag v2)",
+   "hardgen-v1 hard decision items (2,241), soft gold 0.8, + replay and guard rows (136 steps)",
+   "repair: policy/long-context/multi-hop + hardgen replay (57 steps)",
+   "v3 (tag v3)",
+   "further training on decision data, mostly our own synthetic items, with replay (two rounds)"
+  ],
+  "merged_sha256": {
+   "model-00001-of-00004.safetensors": "d0345f59c1ab70263c2cb6358d35f16d6746863ce5a8f82fb518c634b3e0a330",
+   "model-00002-of-00004.safetensors": "8f111e08ed570fd24016d5f05a86b287e4a4e57fbf774f6daadd986c1f27cfd3",
+   "model-00003-of-00004.safetensors": "e8fb1baed0909e9e1db50ad12db2d08bb1d9c7402e316d33f34342a0009145a6",
+   "model-00004-of-00004.safetensors": "f8942acdc65c1c879b43ce035c67ada346b72cd3bc98df7215596114ce7ead72"
+  }
+ },
+ "head": {
+  "taps": [
+   "final",
+   25
+  ],
+  "template": "schema-v1-nosys",
+  "sha256": "bebf61516be797077ec76a585c2b8015386d3b5f2a532361c8f88f30b65cd424"
+ },
+ "prompt_format": "chat template with an empty default system message (SH_SYSTEM_PROMPT=none)",
+ "release": "StandardOne-8B-SH",
+ "evaluation": {
+  "engine": "Standard One engine (SGLang fork ad26e8b179), 1 x AMD Instinct MI350X, 2026-10-13",
+  "engine_clean_accuracy": {
+   "internal-eval-v1.heldout": 84.5,
+   "internal-eval-hardproxy-v1.heldout": 45.5,
+   "internal-eval-v2-realistic.heldout": 88.83,
+   "jevbench-easy": 100.0,
+   "jevbench-original": 94.44,
+   "jevbench-hard": 75.68,
+   "longctx-dev": 88.0,
+   "winogrande-dev": 95.02,
+   "repair5k-validation-policy-judgment": 67.33
+  },
+  "decision_index_0.3_public_index": 57.4,
+  "decision_index_note": "self-scored with the official kit (apolinario/decision-index), all 140,178 scoreable requests"
+ }
+}

@@ -1,0 +1,90 @@
+{
+ "temperatures": {
+  "default": 1.1,
+  "noul": 1.1009,
+  "choice": 1.0995,
+  "score": 1.101,
+  "noul:en": 1.0343,
+  "choice:en": 1.0595,
+  "score:en": 1.1096,
+  "choice:tr": 1.1294,
+  "noul:tr": 1.084,
+  "choice:de": 1.1128,
+  "noul:de": 1.2321
+ },
+ "fitted_on": 3224,
+ "min_group": 150,
+ "conformal": {
+  "choice": {
+   "0.8": 0.253677,
+   "0.9": 0.452395,
+   "0.95": 0.761684
+  },
+  "choice:en": {
+   "0.8": 0.269223,
+   "0.9": 0.447148,
+   "0.95": 0.652362
+  },
+  "default": {
+   "0.8": 0.36373,
+   "0.9": 0.543153,
+   "0.95": 0.740182
+  },
+  "score": {
+   "0.8": 0.515885,
+   "0.9": 0.636667,
+   "0.95": 0.720185
+  },
+  "score:en": {
+   "0.8": 0.520076,
+   "0.9": 0.614209,
+   "0.95": 0.668892
+  },
+  "choice:tr": {
+   "0.8": 0.316164,
+   "0.9": 0.623151,
+   "0.95": 0.811351
+  },
+  "choice:de": {
+   "0.8": 0.21048,
+   "0.9": 0.323735,
+   "0.95": 0.726777
+  }
+ },
+ "auto_threshold": {
+  "choice": 0.25,
+  "noul": 0.0,
+  "score": 0.0
+ },
+ "auto_fit": {
+  "choice": {
+   "threshold": 0.25,
+   "accuracy_off": 0.9296,
+   "accuracy_auto": 0.9437,
+   "accuracy_on": 0.8873,
+   "reasoning_share": 0.0141,
+   "pairs": 71
+  },
+  "noul": {
+   "threshold": 0.0,
+   "accuracy_off": 0.9107,
+   "accuracy_auto": 0.9107,
+   "accuracy_on": 0.9107,
+   "reasoning_share": 0.0,
+   "pairs": 56
+  },
+  "score": {
+   "threshold": 0.0,
+   "accuracy_off": 0.7895,
+   "accuracy_auto": 0.7895,
+   "accuracy_on": 0.7368,
+   "reasoning_share": 0.0,
+   "pairs": 19
+  }
+ },
+ "fit": {
+  "suite": "data/splits/v2/calib-all.jsonl",
+  "decisions": 3224,
+  "date": "2026-10-01"
+ }
+}

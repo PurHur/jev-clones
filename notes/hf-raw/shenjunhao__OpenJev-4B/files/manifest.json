@@ -1,0 +1,54 @@
+{
+  "artifact_format_version": 1,
+  "stage": "decision-rlcd",
+  "backend_id": "qwen35",
+  "adapter_api_version": 1,
+  "files": {
+    "backbone/config.json": {
+      "sha256": "9e4ce6e2ed427625478fcba18c27019a4ef3e79a69f2b1ed5c371195c33d3aea",
+      "bytes": 1977
+    },
+    "backbone/model-00001-of-00003.safetensors": {
+      "sha256": "104b0319e4056baf4f98142ba96c700d74192c5fe75d760a42591cc978edfe79",
+      "bytes": 3991295368
+    },
+    "backbone/model-00002-of-00003.safetensors": {
+      "sha256": "dbc8fabeb0e3e8de46cc27f39e02cb2ed17748a54854ec31ca72dd7fa40d5a1e",
+      "bytes": 3979828128
+    },
+    "backbone/model-00003-of-00003.safetensors": {
+      "sha256": "03f15fc4f5773f2ca6bcd863d968ae2db0c002b206dd357d2edfa2e68a4e8289",
+      "bytes": 440425856
+    },
+    "backbone/model.safetensors.index.json": {
+      "sha256": "1602d52e38d81586af85bc4ce29ce082c5fc5877c763b1ebcab7545320016599",
+      "bytes": 33047
+    },
+    "calibration.json": {
+      "sha256": "501bd45e7e374de95f38d200d498979845bf271269c64a7416bc2ae42c0cd378",
+      "bytes": 44
+    },
+    "decision_head.safetensors": {
+      "sha256": "38a7d7383c61c835b04a54d41395bdabdeec0dc5bc135370ac1a6fe5560443d7",
+      "bytes": 37809208
+    },
+    "openjev_config.json": {
+      "sha256": "490c371a9a8fe930ad0eca8b14cb6a244e04dca19d6346d0b0d151059d25608b",
+      "bytes": 458
+    },
+    "tokenizer/chat_template.jinja": {
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "bytes": 7756
+    },
+    "tokenizer/tokenizer.json": {
+      "sha256": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "bytes": 19989325
+    },
+    "tokenizer/tokenizer_config.json": {
+      "sha256": "bee8eba30f0eb4af73c0fe2cd06d0f89b657d7819941c438157ec42f7c80ea87",
+      "bytes": 1123
+    }
+  },
+  "model_name": "OpenJev-4B",
+  "provenance": {}
+}

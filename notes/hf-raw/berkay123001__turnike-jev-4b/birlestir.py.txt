@@ -1,0 +1,139 @@
+"""LoRA adaptorunu Qwen3.5-4B tabanina birlestirip tek basina yuklenebilen agirlik dizini yazar (bf16 safetensors).
+
+Cikti, karar.py'de adaptorsuz kullanilir: Karar(None, taban="<cikti dizini ya da Hub reposu>"). Birlestirme
+karar.py'nin calisirken yaptigiyla ayni (CPU'da bf16 merge_and_unload), bu yuzden olasiliklar ayni olmali;
+--dogrula bunu bir ornek uzerinde (GPU, iki model sirayla) kontrol eder.
+
+    python birlestir.py --adapter <adaptor dizini> --cikti birlesik/ [--taban Qwen/Qwen3.5-4B] [--dogrula]
+
+Gerekli: ~10-12 GB bos RAM (CPU'da birlestirme), ~9 GB disk.
+"""
+from __future__ import annotations
+
+import argparse
+import gc
+import json
+import shutil
+import sys
+from pathlib import Path
+
+import torch
+
+from karar import VARSAYILAN_TABAN, VERI_TIPI, Karar, _adaptor_yolu
+
+PARCA_BOYU = "5GB"
+DOGRULAMA_METNI = "Aldığım kulaklık iki günde bozuldu, paramın iadesini istiyorum."
+DOGRULAMA_SORULARI = {"iade": {"type": "noul", "instructions": "Yazar para iadesi istiyor mu?"},
+                      "ton": ["olumlu", "olumsuz", "nötr"]}
+DOGRULAMA_TOLERANS = 1e-3
+EK_DOSYALAR = ("LICENSE",)
+ISLEMCI_DOSYALARI = ("preprocessor_config.json", "video_preprocessor_config.json")
+# Ad ve repo kimlikleri isim.txt'den isim_uygula.py ile yazilir (elle degistirmeyin).
+MODEL_ADI = "Turnike-JEV-4B"
+ANA_REPO = "berkay123001/turnike-jev-4b"
+BIRLESIK_REPO = "berkay123001/turnike-jev-4b-merged"
+BIRLESIK_KART = """---
+license: apache-2.0
+base_model:
+- {taban}
+- {ana}
+base_model_relation: merge
+pipeline_tag: text-classification
+language:
+- tr
+- en
+tags:
+- decision
+- decision-model
+- typed-decisions
+- system-one
+- jev
+- noul
+- choice
+- score
+- turkish
+---
+
+# {ad} — Open-Weight Decision Model (merged bf16 weights)
+
+The LoRA adapter [{ana}](https://huggingface.co/{ana}) merged into {taban} (bf16, same merge that
+`karar.py` performs at load time). Use it without PEFT:
+
+```python
+from karar import Karar   # karar.py from {ana}
+k = Karar(None, taban="{birlesik}")
+k.sor("Kulaklık bozuk geldi, paramı geri istiyorum.", {{"Yazar iade istiyor mu?": {{"type": "noul"}}}})
+```
+
+Model card, evaluation, training data, limitations and declarations (training data not released; not distilled
+from a commercial decision API; AI assistance): see [{ana}](https://huggingface.co/{ana}).
+License: Apache-2.0 (base model {taban}: Apache-2.0, Copyright 2026 Alibaba Cloud).
+"""
+
+
+def birlestir(adapter: str, taban: str, cikti: Path, ad: str = None, ana: str = None, birlesik: str = None,
+              taban_ad: str = None) -> None:
+    from peft import PeftModel
+    from transformers import AutoProcessor, AutoTokenizer, Qwen3_5ForConditionalGeneration
+
+    if cikti.exists() and any(cikti.iterdir()):
+        raise FileExistsError(f"cikti dizini bos degil: {cikti}")
+    cikti.mkdir(parents=True, exist_ok=True)
+    model = Qwen3_5ForConditionalGeneration.from_pretrained(taban, dtype=VERI_TIPI, attn_implementation="sdpa")
+    model = PeftModel.from_pretrained(model, _adaptor_yolu(adapter)).merge_and_unload()
+    model.save_pretrained(cikti, safe_serialization=True, max_shard_size=PARCA_BOYU)
+    AutoTokenizer.from_pretrained(taban).save_pretrained(cikti)
+    # Gorme on-isleyicisi: metin yolu kullanmaz ama dizin taban gibi eksiksiz yuklenebilsin. AutoProcessor
+    # torchvision/pillow ister; yoksa yerel tabandaki yapilandirma dosyalari dogrudan kopyalanir.
+    try:
+        AutoProcessor.from_pretrained(taban).save_pretrained(cikti)
+    except Exception as hata:  # noqa: BLE001 (ImportError dahil; agirliklar zaten yazildi)
+        kopyalanan = [ad for ad in ISLEMCI_DOSYALARI if (Path(taban) / ad).is_file()]
+        for ad in kopyalanan:
+            shutil.copy2(Path(taban) / ad, cikti / ad)
+        print(f"not: AutoProcessor kullanilamadi ({type(hata).__name__}); kopyalanan: {kopyalanan or 'yok'}",
+              file=sys.stderr)
+    burasi = Path(__file__).resolve().parent
+    for ek in EK_DOSYALAR:
+        if (burasi / ek).exists():
+            shutil.copy2(burasi / ek, cikti / ek)
+    kart = BIRLESIK_KART.format(ad=ad or MODEL_ADI, ana=ana or ANA_REPO, birlesik=birlesik or BIRLESIK_REPO,
+                                taban=taban_ad or (taban if taban.count("/") == 1 and not taban.startswith((".", "/")) else VARSAYILAN_TABAN))
+    (cikti / "README.md").write_text(kart, encoding="utf-8")
+    print(f"yazildi: {cikti} ({sum(f.stat().st_size for f in cikti.iterdir()) / 1e9:.2f} GB)")
+
+
+def dogrula(adapter: str, taban: str, cikti: Path) -> float:
+    """Ayni ornek: adaptor + taban vs birlesik dizin. En buyuk |dp| dondurur."""
+    sonuclar = []
+    for kurulum in ((adapter, taban), (None, str(cikti))):
+        k = Karar(*kurulum)
+        sonuclar.append(k.olasiliklar(DOGRULAMA_METNI, DOGRULAMA_SORULARI))
+        del k
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+    a, b = sonuclar
+    fark = max(abs(x - y) for s in a for x, y in zip(a[s], b[s]))
+    print(json.dumps({"adaptor": a, "birlesik": b, "max_fark": fark}, ensure_ascii=False))
+    return fark
+
+
+def main(argv: list[str] | None = None) -> None:
+    p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    p.add_argument("--adapter", required=True, help="adaptor dizini ya da Hub kimligi")
+    p.add_argument("--taban", default=VARSAYILAN_TABAN)
+    p.add_argument("--cikti", type=Path, required=True)
+    p.add_argument("--dogrula", action="store_true", help="birlestirdikten sonra bir ornekte esdegerlik kontrolu")
+    p.add_argument("--ad", default=None, help=f"kart basligi (varsayilan {MODEL_ADI}); aile: Turnike-JEV-9B")
+    p.add_argument("--ana-repo", default=None, help=f"adaptor reposu (varsayilan {ANA_REPO})")
+    p.add_argument("--birlesik-repo", default=None, help=f"birlesik repo (varsayilan {BIRLESIK_REPO})")
+    p.add_argument("--taban-ad", default=None, help="kartta yazilacak taban Hub kimligi (--taban yerel yolsa, orn. Qwen/Qwen3.5-9B)")
+    args = p.parse_args(argv)
+    birlestir(args.adapter, args.taban, args.cikti, args.ad, args.ana_repo, args.birlesik_repo, args.taban_ad)
+    if args.dogrula and dogrula(args.adapter, args.taban, args.cikti) > DOGRULAMA_TOLERANS:
+        raise SystemExit(f"birlesik agirlik adaptorle ayni sonucu vermiyor (> {DOGRULAMA_TOLERANS})")
+
+
+if __name__ == "__main__":
+    main()

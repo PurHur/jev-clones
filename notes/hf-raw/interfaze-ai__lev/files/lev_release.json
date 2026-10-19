@@ -1,0 +1,23 @@
+{
+  "name": "lev",
+  "preset": "4b-instruct",
+  "step": 18750,
+  "base_model": "Qwen/Qwen3.5-4B",
+  "lora_rank": 32,
+  "mode_b_head": true,
+  "calibrated": true,
+  "noul_readout": "rating",
+  "prompt_style": "chat",
+  "files": [
+    "adapter_config.json",
+    "adapter_model.safetensors",
+    "chat_template.jinja",
+    "mode_b_head.pt",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "calibration.json"
+  ],
+  "metrics": {},
+  "created": "2026-09-24T06:29:31+00:00",
+  "adapter_scale": 0.25
+}

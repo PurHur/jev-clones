@@ -1,0 +1,81 @@
+{
+ "method": "decision on the unweighted mean accuracy over choice_suites (served predictions): native unless served leads by >= 1.0 pp and the offline cross-check agrees; report_only suites play no part",
+ "choice_suites": [
+  "judge-proxy-v1",
+  "internal-eval-hardproxy-v1",
+  "distprob-val-v2",
+  "internal-eval-v2-realistic",
+  "musique-mc",
+  "squad2-abstain",
+  "contractnli",
+  "paws-x-en",
+  "hard-eval-v4",
+  "consistency-eval-v1"
+ ],
+ "report_only_suites": [
+  "jevbench-easy",
+  "jevbench-original",
+  "jevbench-hard"
+ ],
+ "size": "8B",
+ "basis": "served predictions (SGLang 0.5.20 + jev-adapter, no system prompt, T=1, one option order)",
+ "arms": {
+  "native": {
+   "wording": "native (jev-adapter --prompt-wording native --native-system-prompt none)",
+   "served_choice_suites": {
+    "judge-proxy-v1": 89.33,
+    "internal-eval-hardproxy-v1": 53.0,
+    "distprob-val-v2": 81.18,
+    "internal-eval-v2-realistic": 90.83,
+    "musique-mc": 77.6,
+    "squad2-abstain": 83.8,
+    "contractnli": 73.4,
+    "paws-x-en": 77.6,
+    "hard-eval-v4": 61.25,
+    "consistency-eval-v1": 77.92
+   },
+   "served_mean": 76.591,
+   "report_only_jevbench_served": {
+    "jevbench-easy": 100.0,
+    "jevbench-original": 93.06,
+    "jevbench-hard": 54.95
+   },
+   "per_type_T": {
+    "choice": 0.85,
+    "noul": 0.85,
+    "score": 0.7
+   }
+  },
+  "served": {
+   "wording": "served (jev-adapter --prompt-wording served)",
+   "served_choice_suites": {
+    "judge-proxy-v1": 90.33,
+    "internal-eval-hardproxy-v1": 51.67,
+    "distprob-val-v2": 81.85,
+    "internal-eval-v2-realistic": 90.0,
+    "musique-mc": 77.2,
+    "squad2-abstain": 83.2,
+    "contractnli": 72.2,
+    "paws-x-en": 77.2,
+    "hard-eval-v4": 62.62,
+    "consistency-eval-v1": 77.83
+   },
+   "served_mean": 76.41,
+   "report_only_jevbench_served": {
+    "jevbench-easy": 100.0,
+    "jevbench-original": 98.61,
+    "jevbench-hard": 56.76
+   },
+   "per_type_T": {
+    "choice": 0.8,
+    "noul": 0.9,
+    "score": 0.95
+   }
+  }
+ },
+ "chosen": "native",
+ "chosen_wording": "native (jev-adapter --prompt-wording native --native-system-prompt none)",
+ "margin_pp": 0.181,
+ "rule": "served only if its served mean leads native by >= 1.0 pp and the offline check agrees; otherwise native",
+ "served_lead_pp": -0.181
+}

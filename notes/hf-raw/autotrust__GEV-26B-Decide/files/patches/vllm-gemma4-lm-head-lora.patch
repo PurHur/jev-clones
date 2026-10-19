@@ -1,0 +1,89 @@
+From f8a48c40b339da4bdfeb86cf8bf179f5e4e397d9 Mon Sep 17 00:00:00 2001
+From: yuhai-china <5901109+yuhai-china@users.noreply.github.com>
+Date: Tue, 29 Sep 2026 16:22:28 +0000
+Subject: [PATCH 1/2] [LoRA] Gemma-4: allow lm_head LoRA (declare
+ embedding_modules; tied lm_head) and raise LoRA vocab limit to 262144
+
+---
+ vllm/lora/layers/logits_processor.py | 6 ++++--
+ vllm/model_executor/models/gemma4.py | 7 +++++++
+ 2 files changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/vllm/lora/layers/logits_processor.py b/vllm/lora/layers/logits_processor.py
+index 0199437..33b6a2d 100644
+--- a/vllm/lora/layers/logits_processor.py
++++ b/vllm/lora/layers/logits_processor.py
+@@ -88,8 +88,10 @@ class LogitsProcessorWithLoRA(BaseLayerWithLoRA):
+         model_config: PretrainedConfig | None = None,
+     ) -> None:
+         # TODO: Verify if this condition can be further relaxed
+-        if self.base_layer.vocab_size > 258048:
+-            raise ValueError("When using LoRA, vocab size must be <= 258048")
++        # Raised from 258048 to 262144 so that Gemma-4 (vocab 262,144) can carry an
++        # lm_head LoRA; verified by output parity for Gemma-4-26B-A4B.
++        if self.base_layer.vocab_size > 262144:
++            raise ValueError("When using LoRA, vocab size must be <= 262144")
+         self.lora_a_stacked = torch.zeros(
+             (
+                 max_loras,
+diff --git a/vllm/model_executor/models/gemma4.py b/vllm/model_executor/models/gemma4.py
+index 7f850f4..95c29de 100644
+--- a/vllm/model_executor/models/gemma4.py
++++ b/vllm/model_executor/models/gemma4.py
+@@ -1548,6 +1548,13 @@ class Gemma4ForCausalLM(
+             "up_proj",
+         ],
+     }
++    # Maps PEFT lm_head LoRA targets onto vLLM's logits-processor LoRA wrapper.
++    # Gemma-4 ties lm_head to the input embeddings; the LoRA delta is applied to
++    # the output logits only (before the final-logit soft cap), so the input
++    # embeddings and the base model's logits are unchanged when no LoRA is active.
++    embedding_modules = {
++        "lm_head": "output_embeddings",
++    }
+ 
+     def __init__(self, *, vllm_config: VllmConfig, prefix: str = ""):
+         config = _get_text_config(vllm_config.model_config.hf_config)
+-- 
+2.34.1
+
+
+From c7083ba5922c4822fe5a1efb7e9bd0d71c905ec1 Mon Sep 17 00:00:00 2001
+From: yuhai-china <5901109+yuhai-china@users.noreply.github.com>
+Date: Tue, 29 Sep 2026 21:46:44 +0000
+Subject: [PATCH 2/2] [LoRA] Dedupe aliased modules at activation (backport of
+ vllm-project/vllm#39816; fixes Gemma-4 LoRA silently reset)
+
+---
+ vllm/lora/model_manager.py | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/vllm/lora/model_manager.py b/vllm/lora/model_manager.py
+index d19bf31..8804dcb 100644
+--- a/vllm/lora/model_manager.py
++++ b/vllm/lora/model_manager.py
+@@ -336,8 +336,21 @@ class LoRAModelManager:
+             "Activating LoRA. int id: %d, slot index: %d", lora_model.id, index
+         )
+         self.lora_index_to_id[index] = lora_model.id
++        # Aliased module paths (e.g. Gemma-4 `model.layers.N` and
++        # `model.self_decoder.decoder_layers.N`) point to the same physical LoRA
++        # wrapper: pick one entry per physical module, preferring the path that has
++        # weights, so a later alias cannot reset weights that were just loaded
++        # (upstream vllm-project/vllm#39816, fixes #39815).
++        chosen_modules: dict = {}
+         for module_name, module in self.modules.items():
++            module_key = id(module)
+             module_lora = self._get_lora_layer_weights(lora_model, module_name)
++            if module_key not in chosen_modules:
++                chosen_modules[module_key] = (module_name, module, module_lora)
++            elif module_lora is not None and chosen_modules[module_key][2] is None:
++                chosen_modules[module_key] = (module_name, module, module_lora)
++
++        for module_name, module, module_lora in chosen_modules.values():
+             if not module_lora:
+                 module.reset_lora(index)
+                 logger.debug(
+-- 
+2.34.1
+

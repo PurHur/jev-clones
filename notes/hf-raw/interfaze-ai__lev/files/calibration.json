@@ -1,0 +1,23 @@
+{
+  "temperatures": {
+    "score:A": 1.8687166685806083,
+    "choice:A:small": 1.466031501359245,
+    "choice:A": 1.4606453602789027,
+    "noul:A": 1.282162150839547,
+    "choice:A:mid": 1.3228486325144098,
+    "choice:A:large": 1.4983293579095338,
+    "choice:B:large": 0.5794711375492776,
+    "choice:B": 0.5794711375492776
+  },
+  "fitted_on": "calibration (transfer-selected)",
+  "n_samples": {
+    "score:A": 12258,
+    "choice:A:small": 11480,
+    "choice:A": 14133,
+    "noul:A": 12073,
+    "choice:A:mid": 1138,
+    "choice:A:large": 1515,
+    "choice:B:large": 10227,
+    "choice:B": 10227
+  }
+}

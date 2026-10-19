@@ -1,0 +1,19 @@
+{
+  "state": "Look at the attached image.",
+  "model": "xor-1.2",
+  "images": [
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  ],
+  "questions": {
+    "color": {
+      "type": "choice",
+      "instructions": "What color is the attached image?",
+      "criteria": {
+        "red": "red",
+        "blue": "blue",
+        "green": "green",
+        "yellow": "yellow"
+      }
+    }
+  }
+}

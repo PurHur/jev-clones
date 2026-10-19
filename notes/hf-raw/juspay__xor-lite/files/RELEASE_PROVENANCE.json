@@ -1,0 +1,166 @@
+{
+  "release": {
+    "model_id": "xor-lite",
+    "version": "1.1",
+    "release_date": "2026-10-14",
+    "base_precision": "bfloat16",
+    "adapter_precision": "float32",
+    "head_precision": "float32",
+    "parameters": {
+      "base": 2516756480,
+      "adapter": 50233344,
+      "head": 1053184
+    },
+    "packaging": "base weights + LoRA adapter applied at runtime + pointer head; not merged"
+  },
+  "base_model": {
+    "repository": "openbmb/MiniCPM5-2B",
+    "revision": "12a3808a956f869c767195e9266b59c4d21d92e2",
+    "weights_sha256": "14fb8e7f0a18d53d1f239773758bf581cee7e456a4523a54622c3a245b64402c"
+  },
+  "release_base": {
+    "description": "linear bf16 weight average of two MiniCPM5-2B fine-tunes",
+    "weights_sha256": "b9f7511643278db19815269701454173a2d609fdf8c8c69012d3f651f95e7a54",
+    "components": [
+      {
+        "weight": 0.3,
+        "name": "xor-lite 1.0",
+        "weights_sha256": "09a2c895588d5beacb89fbc3a2effe5b787830256449cad2d0122368a254c8b3"
+      },
+      {
+        "weight": 0.7,
+        "name": "second campaign fine-tune",
+        "weights_sha256": "56b69b4c18fb97bc4e9377e431c98ae03c7ad487c05d277b016609c3ba9a8f85"
+      }
+    ],
+    "verification": "recomputing 0.7*a + 0.3*b in float32 and casting to bf16 reproduces all 381 tensors bit for bit"
+  },
+  "adapter": {
+    "peft_type": "LORA",
+    "rank": 32,
+    "alpha": 64,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "weights_sha256": "a180e7ee322dbcded87057abf64a3e62a60621c132385596bc049bef506b843c",
+    "config_sha256_as_trained": "2d9be914aa74a5a96b7c16a46328e3e30b6da855c8f01460ca8a5f0d9a17be62",
+    "config_sha256_released": "19adb88beaff8a2d199340cb17aaded3239c505a8389ce3375655450486d3035",
+    "config_change": "base_model_name_or_path set from a host path to '..'",
+    "peft_version": "0.19.2.dev0",
+    "peft_commit": "194cb8feb21c6623f61f30305e20fdbe2b842c10"
+  },
+  "head": {
+    "type": "pointer",
+    "pointer_dim": 256,
+    "pickle_sha256_as_trained": "fca0eb1d3dc2f1267b62abae3b62973d292fca5530117df16326d0e2fc6264b5",
+    "safetensors_sha256_released": "2ce980f316b3b0c4ca6411234cef1e5553a892c551275f33af4ca5187ca87203",
+    "conversion": "slot_head.pt state dict saved as head.safetensors; all 6 tensors bit-equal"
+  },
+  "training": {
+    "loss": "ce",
+    "kl_frozen_weight": 0.3,
+    "epochs": 1,
+    "steps": 8445,
+    "seed": 5,
+    "lr": 0.0001,
+    "head_lr": 0.001,
+    "max_length": 4096,
+    "record": "decider/train_config.json (host paths reduced to file names) and decider/history.json"
+  },
+  "handoff": {
+    "archive_sha256": "d674e875fb36decc725dbd4bed4e8b93c4f16391c9572515f3aabc77dd7399ec",
+    "verification": "every file in the archive matched the trainer's checkpoint and base on the training host"
+  },
+  "load_check": "decider/ loaded from the release tree gives hidden states bit-equal to the trainer's checkpoint",
+  "serving": {
+    "runtime": "PyTorch (strands_decider System One server)",
+    "python_image": "python:3.12.12-slim-bookworm@sha256:593bd06efe90efa80dc4eee3948be7c0fde4134606dd40d8dd8dbcade98e669c",
+    "torch": "2.13.0+cu130",
+    "transformers": "5.14.1",
+    "peft_commit": "194cb8feb21c6623f61f30305e20fdbe2b842c10",
+    "temperature": 1.0,
+    "shared_prefix_cache": false,
+    "workers": 1,
+    "max_choice_options": 255,
+    "score_levels": [
+      2,
+      10
+    ],
+    "files_sha256": {
+      "app.py": "1b10499c17b63e51af824160327e7323717755e6b8f1de527fef4bad012274ce",
+      "Dockerfile": "47c4a4ba945b0815b1880dff2a895ce54805b02e53c4595a77f8b224d6ea1834",
+      "docker-compose.yml": "a7b116660882d39cbec1cd4dc2266f8be85db19a0cec46bc6b5625d7aad731bf",
+      "requirements.txt": "a54f9003acdafeca37408e3a12037b3f3cb1ec8b3cc8b8bd0895c5ba2c49fb2e",
+      "run.sh": "82aa70bb508c1a826282287fa6825c1d1c37f98932114d77e62d31599fd3eb13",
+      "verify.sh": "ca4692ff65ef23267862828f714067aadbc7436d811a40a156ffa1e419dbc595",
+      "stop.sh": "136f24098b5be42949eca1b0f859bce397ce3f7b97b8a41056d3ac0ba49f2762",
+      "status.sh": "69ce85214bee8bebcdb60e144f846cd09ddf049b106342c5915495d10e68f7b6",
+      "smoke_test.py": "8a9916559af4b6c7ba0ae04313e0f1056b1462788954a2ba3656263ea4b99042"
+    },
+    "strands_decider": {
+      "source": "https://github.com/strands-labs/strands-decider",
+      "installed_version": "0.0.1.dev1+gf91487ab8.d20261003",
+      "note": "vendored unmodified from the training host; files unchanged since before the release checkpoint was trained",
+      "files_sha256": {
+        "__init__.py": "64440255949ecad2ddef1b0b9fe20e9a335b3bdf73bc9d659ace44becfdcf4f6",
+        "infer.py": "2061c68253639ea82bcc05997b30adb534a98c8154a3de8f4f45f6cf132f61f4",
+        "joint_head.py": "2c3b26464f166c8bf1bb9bb96e84881156999488f940572767e9c10fdd479129",
+        "modeling.py": "709afab8f5ec035729c255999244f96c2d5d2fe23ab091b62b28056117a83c38",
+        "prompting.py": "a4840ae24dda5a7f31f4659a622286216b5e3ec2ee09a534aa3a2a47c4778081",
+        "schema.py": "91e7e37039e27cffa1b98aec9903523c38d3fad480d492b187859bc7d20bffdd",
+        "server.py": "f24243caa974583f3368be3adcd498879a1c95a06e193970b11b8cc84d476317"
+      }
+    }
+  },
+  "evaluation": {
+    "benchmark": "Decision Index",
+    "edition": "0.3",
+    "kind": "self-run, public suite; not an official board entry",
+    "frozen_corpus_sha256": "18c9da42c17a74e258c22ee2d0ba48654df5ceadc7eb36fdebe3f3ef005ff5f7",
+    "completed_cases": 140178,
+    "complete": true,
+    "as_run": {
+      "index": 37.05,
+      "raw_index": 53.43,
+      "index_json_sha256": "1b3fd8b6d8c54e1e79b1c0e683b79f5f73cdf11cec464811ff03d5cfadf728ab",
+      "results_jsonl_sha256": "03f70049f5cfac5bc47494b727901140d71eb18e7e673887d3ce3c3437943d87",
+      "engine": "in-process pointer-head engine, one GPU"
+    },
+    "noul_correction": {
+      "defect": "the run's engine reported max(p_false, p_true) instead of p_true for noul questions whose criteria keys were not exactly [false, true]",
+      "rows_corrected": 4700,
+      "noul_questions_corrected": 14700,
+      "answers_that_changed_side": 10958,
+      "method": "each affected row sent to the released serving bundle; only its noul values replaced",
+      "benchmarks_changed": [
+        "59"
+      ]
+    },
+    "reported": {
+      "index": 37.51,
+      "raw_index": 53.66,
+      "breadth_skill": 34.74,
+      "index_json_sha256": "885d53488fa7311828e427e3e633e409832e624d3bcd98664b09344d87c27f14",
+      "results_jsonl_sha256": "3a21cce33c8ed02f554b9a0f51364ab29e70c2f21f3a4bb8ed35da1de7f27b04",
+      "published_as": "eval/decision-index-0.3.json"
+    },
+    "replay_check": {
+      "cases_sampled": 1000,
+      "choice_questions_matching": "2005 of 2007; the other two within 0.015"
+    }
+  },
+  "known_gaps": [
+    "training configuration of the 0.7 base component is not part of the release",
+    "the script that produced the base average was not recovered; the average was verified by recomputation",
+    "the adapter was saved with a development build of PEFT",
+    "training data includes ChessBench-style rows; ChessBench is an index benchmark",
+    "latency was not measured"
+  ]
+}

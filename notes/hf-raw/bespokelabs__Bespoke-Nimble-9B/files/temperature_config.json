@@ -1,0 +1,7 @@
+{
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "adapter_sha256": "29ef39b072dee97287947455337879c1e916705c2f727287922a2d81f5e2f20a",
+  "method": "softmax(candidate_logits / temperature)",
+  "note": "Checkpoint-specific evaluated default; prior releases calibration does not apply."
+}

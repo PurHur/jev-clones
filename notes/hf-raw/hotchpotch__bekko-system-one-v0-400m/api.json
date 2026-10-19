@@ -1,1 +1,27 @@
-{"_id":"6abbaa0b190e3e69989d3dfd","id":"hotchpotch/bekko-system-one-v0-400m","cardData":{"base_model":["cross-encoder/ettin-reranker-400m-v1"],"language":["en"],"library_name":"sentence-transformers","tags":["modernbert","typed-decisions","classification","scoring","custom-code"]},"config":{},"downloads":0,"likes":15,"lastModified":"2026-09-30T20:19:00.000Z","library_name":"sentence-transformers","tags":["sentence-transformers","onnx","safetensors","modernbert","typed-decisions","classification","scoring","custom-code","en","base_model:cross-encoder/ettin-reranker-400m-v1","base_model:quantized:cross-encoder/ettin-reranker-400m-v1","region:us"],"gated":false,"baseModels":{"relation":"quantized","models":[{"_id":"6a06e2c21e136d8ab69e3380","id":"cross-encoder/ettin-reranker-400m-v1"}]},"siblings":[{"rfilename":".gitattributes"},{"rfilename":"0_BekkoInference/backbone_config.json"},{"rfilename":"0_BekkoInference/inference_config.json"},{"rfilename":"0_BekkoInference/model.safetensors"},{"rfilename":"0_BekkoInference/tokenizer/tokenizer.json"},{"rfilename":"0_BekkoInference/tokenizer/tokenizer_config.json"},{"rfilename":"README.md"},{"rfilename":"config_sentence_transformers.json"},{"rfilename":"inference_v0.py"},{"rfilename":"modules.json"},{"rfilename":"onnx_browser/README.md"},{"rfilename":"onnx_browser/manifest.json"},{"rfilename":"onnx_browser/model.onnx"},{"rfilename":"onnx_browser/tokenizer.json"},{"rfilename":"onnx_browser/tokenizer_config.json"},{"rfilename":"requirements.txt"}],"createdAt":"2026-09-29T12:07:39.000Z"}
+{
+ "_id": "6abbaa0b190e3e69989d3dfd",
+ "id": "hotchpotch/bekko-system-one-v0-400m",
+ "config": {},
+ "cardData": {
+  "base_model": [
+   "cross-encoder/ettin-reranker-400m-v1"
+  ],
+  "language": [
+   "en"
+  ],
+  "library_name": "sentence-transformers",
+  "tags": [
+   "modernbert",
+   "typed-decisions",
+   "classification",
+   "scoring",
+   "custom-code"
+  ]
+ },
+ "lastModified": "2026-09-30T20:19:00.000Z",
+ "downloads": 0,
+ "likes": 15,
+ "gated": false,
+ "sha": "1960df5602bd93cc8d336fdebd9fb68a30926e13",
+ "createdAt": "2026-09-29T12:07:39.000Z"
+}

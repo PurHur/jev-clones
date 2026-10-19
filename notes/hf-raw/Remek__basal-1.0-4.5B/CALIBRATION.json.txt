@@ -1,0 +1,25 @@
+{
+ "version": "1.0.1",
+ "method": "one probability vector per item = mean of the original- and reversed-order canonical distributions (as served); temperature per question type fitted by NLL on the calibration split (English items sharing a state or source row with the test split removed); confidence thresholds chosen on the calibration split with equal confidences kept together, then applied once, frozen, to the test split",
+ "temperature_per_prim": {
+  "choice": 1.0748733399206964,
+  "noul": 1.4768261459394991,
+  "score": 1.1063695328888332
+ },
+ "thresholds": {
+  "0.01": {
+   "confidence": 0.9133519967189886,
+   "test_coverage": 0.5856308411214953,
+   "test_error": 0.012168362258128895,
+   "test_accepted": 5013,
+   "test_wrong": 61
+  },
+  "0.05": {
+   "confidence": 0.7439389485170212,
+   "test_coverage": 0.750233644859813,
+   "test_error": 0.04406726876362499,
+   "test_accepted": 6422,
+   "test_wrong": 283
+  }
+ }
+}

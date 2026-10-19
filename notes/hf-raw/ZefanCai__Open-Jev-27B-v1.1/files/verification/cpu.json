@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "method": "CPU safetensors and weights_only head load; pinned Qwen text architecture instantiated on meta",
+  "base_model_parameters_materialized": false,
+  "gpu_used": false,
+  "inference_rerun": false,
+  "adapter_tensors": 320,
+  "head_shapes": {
+    "weight": [
+      1,
+      5120
+    ],
+    "bias": [
+      1
+    ]
+  },
+  "trainable_parameters": 15471617,
+  "all_adapter_shapes_match_pinned_architecture": true,
+  "all_saved_tensors_finite_fp32": true,
+  "calibration_count_and_ids_verified": true,
+  "calibration_rows_belong_to_original_calibration_split": true,
+  "saved_temperature": 2.5343690298472983,
+  "training_completion_metadata_verified": true,
+  "limitations": [
+    "No fresh inference or numerical parity test on the 27B base model was run during packaging.",
+    "Full internal evaluation is a separate release gate and no incomplete metrics are included."
+  ]
+}

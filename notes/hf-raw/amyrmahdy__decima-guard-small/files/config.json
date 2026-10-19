@@ -1,0 +1,14 @@
+{
+  "model_type": "decima",
+  "architectures": [
+    "Decima"
+  ],
+  "base_model": "jhu-clsp/mmBERT-small",
+  "max_state_tokens": 2048,
+  "exports": {
+    "int8": "onnx/int8",
+    "fp32": "onnx/fp32",
+    "pytorch": "pytorch"
+  },
+  "usage": "from decima import Decima; Decima.from_pretrained('amyrmahdy/decima-guard-small')"
+}

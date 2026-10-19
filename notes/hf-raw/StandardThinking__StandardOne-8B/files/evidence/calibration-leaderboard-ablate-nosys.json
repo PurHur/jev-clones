@@ -1,0 +1,786 @@
+{
+ "arm_fitted": "original",
+ "inputs": [
+  "runs/ablate-r5-8b-nosys/predictions.jsonl"
+ ],
+ "fit_suites": [
+  "distprob-calib-v2",
+  "internal-eval-hardproxy-calib-v1"
+ ],
+ "temperature": 0.8500000000000001,
+ "objective": "leaderboard",
+ "axis_proxy_at_T1": 88.07514148307334,
+ "axis_proxy_at_T": 89.39493420296604,
+ "at_T1": {
+  "jevbench-easy": {
+   "original": {
+    "questions": 48,
+    "accuracy": 0.9791666666666666,
+    "ece_10bin": 0.05492118312761862,
+    "calibration_axis_ece_part": 89.01576337447628
+   },
+   "rotation": {
+    "questions": 48,
+    "accuracy": 0.9791666666666666,
+    "ece_10bin": 0.05492118312761862,
+    "calibration_axis_ece_part": 89.01576337447628
+   }
+  },
+  "jevbench-original": {
+   "original": {
+    "questions": 72,
+    "accuracy": 0.9722222222222222,
+    "ece_10bin": 0.09139810704127882,
+    "calibration_axis_ece_part": 81.72037859174424
+   },
+   "rotation": {
+    "questions": 72,
+    "accuracy": 0.9722222222222222,
+    "ece_10bin": 0.09139810704127882,
+    "calibration_axis_ece_part": 81.72037859174424
+   }
+  },
+  "jevbench-hard": {
+   "original": {
+    "questions": 111,
+    "accuracy": 0.5585585585585585,
+    "ece_10bin": 0.14352073043752922,
+    "calibration_axis_ece_part": 71.29585391249415
+   },
+   "rotation": {
+    "questions": 111,
+    "accuracy": 0.5585585585585585,
+    "ece_10bin": 0.14352073043752922,
+    "calibration_axis_ece_part": 71.29585391249415
+   }
+  },
+  "judge-proxy-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.8833333333333333,
+    "ece_10bin": 0.037457916102559934,
+    "calibration_axis_ece_part": 92.50841677948802
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.8833333333333333,
+    "ece_10bin": 0.037457916102559934,
+    "calibration_axis_ece_part": 92.50841677948802
+   }
+  },
+  "internal-eval-hardproxy-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.5266666666666666,
+    "ece_10bin": 0.041925456824368594,
+    "calibration_axis_ece_part": 91.61490863512628
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.5266666666666666,
+    "ece_10bin": 0.041925456824368594,
+    "calibration_axis_ece_part": 91.61490863512628
+   }
+  },
+  "internal-eval-hardproxy-v2": {
+   "original": {
+    "questions": 900,
+    "accuracy": 0.8433333333333334,
+    "ece_10bin": 0.08948587834522262,
+    "calibration_axis_ece_part": 82.10282433095549,
+    "probability_items": 80,
+    "mean_tv_distance": 0.1229657172506469,
+    "fidelity_part": 87.70342827493532,
+    "calibration_axis_estimate": 84.9031263029454
+   },
+   "rotation": {
+    "questions": 900,
+    "accuracy": 0.8433333333333334,
+    "ece_10bin": 0.08948587834522262,
+    "calibration_axis_ece_part": 82.10282433095549,
+    "probability_items": 80,
+    "mean_tv_distance": 0.1229657172506469,
+    "fidelity_part": 87.70342827493532,
+    "calibration_axis_estimate": 84.9031263029454
+   }
+  },
+  "internal-eval-hardproxy-v3": {
+   "original": {
+    "questions": 960,
+    "accuracy": 0.7552083333333334,
+    "ece_10bin": 0.08735852250592542,
+    "calibration_axis_ece_part": 82.52829549881491,
+    "probability_items": 120,
+    "mean_tv_distance": 0.2901798287985715,
+    "fidelity_part": 70.98201712014284,
+    "calibration_axis_estimate": 76.75515630947888
+   },
+   "rotation": {
+    "questions": 960,
+    "accuracy": 0.7552083333333334,
+    "ece_10bin": 0.08735852250592542,
+    "calibration_axis_ece_part": 82.52829549881491,
+    "probability_items": 120,
+    "mean_tv_distance": 0.2901798287985715,
+    "fidelity_part": 70.98201712014284,
+    "calibration_axis_estimate": 76.75515630947888
+   }
+  },
+  "internal-eval-hardproxy-calib-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.5583333333333333,
+    "ece_10bin": 0.043326916120365315,
+    "calibration_axis_ece_part": 91.33461677592693
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.5583333333333333,
+    "ece_10bin": 0.043326916120365315,
+    "calibration_axis_ece_part": 91.33461677592693
+   }
+  },
+  "distprob-calib-v2": {
+   "original": {
+    "questions": 916,
+    "accuracy": 0.8067685589519651,
+    "ece_10bin": 0.21569683672585738,
+    "calibration_axis_ece_part": 56.86063265482852,
+    "probability_items": 916,
+    "mean_tv_distance": 0.15184333809780262,
+    "fidelity_part": 84.81566619021974,
+    "calibration_axis_estimate": 70.83814942252414
+   },
+   "rotation": {
+    "questions": 916,
+    "accuracy": 0.8067685589519651,
+    "ece_10bin": 0.21569683672585738,
+    "calibration_axis_ece_part": 56.86063265482852,
+    "probability_items": 916,
+    "mean_tv_distance": 0.15184333809780262,
+    "fidelity_part": 84.81566619021974,
+    "calibration_axis_estimate": 70.83814942252414
+   }
+  },
+  "distprob-val-v2": {
+   "original": {
+    "questions": 1036,
+    "accuracy": 0.8262548262548263,
+    "ece_10bin": 0.24138813803021536,
+    "calibration_axis_ece_part": 51.72237239395693,
+    "probability_items": 1036,
+    "mean_tv_distance": 0.10756285377961519,
+    "fidelity_part": 89.24371462203848,
+    "calibration_axis_estimate": 70.4830435079977
+   },
+   "rotation": {
+    "questions": 1036,
+    "accuracy": 0.8262548262548263,
+    "ece_10bin": 0.24138813803021536,
+    "calibration_axis_ece_part": 51.72237239395693,
+    "probability_items": 1036,
+    "mean_tv_distance": 0.10756285377961519,
+    "fidelity_part": 89.24371462203848,
+    "calibration_axis_estimate": 70.4830435079977
+   }
+  },
+  "internal-eval-v2-realistic": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.9,
+    "ece_10bin": 0.08695022105009712,
+    "calibration_axis_ece_part": 82.60995578998059,
+    "probability_items": 120,
+    "mean_tv_distance": 0.11081345146552232,
+    "fidelity_part": 88.91865485344776,
+    "calibration_axis_estimate": 85.76430532171418
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.9,
+    "ece_10bin": 0.08695022105009712,
+    "calibration_axis_ece_part": 82.60995578998059,
+    "probability_items": 120,
+    "mean_tv_distance": 0.11081345146552232,
+    "fidelity_part": 88.91865485344776,
+    "calibration_axis_estimate": 85.76430532171418
+   }
+  },
+  "games-harness-eval-v1": {
+   "original": {
+    "questions": 360,
+    "accuracy": 0.9638888888888889,
+    "ece_10bin": 0.044962278747440826,
+    "calibration_axis_ece_part": 91.00754425051183
+   },
+   "rotation": {
+    "questions": 360,
+    "accuracy": 0.9638888888888889,
+    "ece_10bin": 0.044962278747440826,
+    "calibration_axis_ece_part": 91.00754425051183
+   }
+  },
+  "tetris-drought-eval-v1": {
+   "original": {
+    "questions": 120,
+    "accuracy": 0.6833333333333333,
+    "ece_10bin": 0.09665632869540049,
+    "calibration_axis_ece_part": 80.6687342609199
+   },
+   "rotation": {
+    "questions": 120,
+    "accuracy": 0.6833333333333333,
+    "ece_10bin": 0.09665632869540049,
+    "calibration_axis_ece_part": 80.6687342609199
+   }
+  },
+  "musique-mc": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.792,
+    "ece_10bin": 0.1905555418030256,
+    "calibration_axis_ece_part": 61.888891639394885
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.792,
+    "ece_10bin": 0.1905555418030256,
+    "calibration_axis_ece_part": 61.888891639394885
+   }
+  },
+  "squad2-abstain": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.838,
+    "ece_10bin": 0.09906661484285945,
+    "calibration_axis_ece_part": 80.1866770314281
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.838,
+    "ece_10bin": 0.09906661484285945,
+    "calibration_axis_ece_part": 80.1866770314281
+   }
+  },
+  "contractnli": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.738,
+    "ece_10bin": 0.052794876942178645,
+    "calibration_axis_ece_part": 89.44102461156427
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.738,
+    "ece_10bin": 0.052794876942178645,
+    "calibration_axis_ece_part": 89.44102461156427
+   }
+  },
+  "paws-x-en": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.774,
+    "ece_10bin": 0.05806977200000005,
+    "calibration_axis_ece_part": 88.38604559999999
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.774,
+    "ece_10bin": 0.05806977200000005,
+    "calibration_axis_ece_part": 88.38604559999999
+   }
+  },
+  "calib-public-v1": {
+   "original": {
+    "questions": 1200,
+    "accuracy": 0.7883333333333333,
+    "ece_10bin": 0.08406420036767286,
+    "calibration_axis_ece_part": 83.18715992646543
+   },
+   "rotation": {
+    "questions": 1200,
+    "accuracy": 0.7883333333333333,
+    "ece_10bin": 0.08406420036767286,
+    "calibration_axis_ece_part": 83.18715992646543
+   }
+  },
+  "shortcut-diagnostic-eval-v1": {
+   "original": {
+    "questions": 601,
+    "accuracy": 0.8386023294509152,
+    "ece_10bin": 0.0688669227644725,
+    "calibration_axis_ece_part": 86.2266154471055
+   },
+   "rotation": {
+    "questions": 601,
+    "accuracy": 0.8386023294509152,
+    "ece_10bin": 0.0688669227644725,
+    "calibration_axis_ece_part": 86.2266154471055
+   }
+  },
+  "consistency-eval-v1": {
+   "original": {
+    "questions": 1200,
+    "accuracy": 0.7766666666666666,
+    "ece_10bin": 0.0725575099165813,
+    "calibration_axis_ece_part": 85.48849801668375
+   },
+   "rotation": {
+    "questions": 1200,
+    "accuracy": 0.7766666666666666,
+    "ece_10bin": 0.0725575099165813,
+    "calibration_axis_ece_part": 85.48849801668375
+   }
+  },
+  "hard-eval-v4": {
+   "original": {
+    "questions": 800,
+    "accuracy": 0.61,
+    "ece_10bin": 0.06506552576475072,
+    "calibration_axis_ece_part": 86.98689484704985
+   },
+   "rotation": {
+    "questions": 800,
+    "accuracy": 0.61,
+    "ece_10bin": 0.06506552576475072,
+    "calibration_axis_ece_part": 86.98689484704985
+   }
+  },
+  "multihop-v4-eval": {
+   "original": {
+    "questions": 597,
+    "accuracy": 0.7169179229480737,
+    "ece_10bin": 0.10006403003213532,
+    "calibration_axis_ece_part": 79.98719399357293
+   },
+   "rotation": {
+    "questions": 597,
+    "accuracy": 0.7169179229480737,
+    "ece_10bin": 0.10006403003213532,
+    "calibration_axis_ece_part": 79.98719399357293
+   }
+  },
+  "ood-paraphrase-eval-v1": {
+   "original": {
+    "questions": 586,
+    "accuracy": 0.7866894197952219,
+    "ece_10bin": 0.09275922147430427,
+    "calibration_axis_ece_part": 81.44815570513914,
+    "probability_items": 70,
+    "mean_tv_distance": 0.27008534467469203,
+    "fidelity_part": 72.9914655325308,
+    "calibration_axis_estimate": 77.21981061883497
+   },
+   "rotation": {
+    "questions": 586,
+    "accuracy": 0.7866894197952219,
+    "ece_10bin": 0.09275922147430427,
+    "calibration_axis_ece_part": 81.44815570513914,
+    "probability_items": 70,
+    "mean_tv_distance": 0.27008534467469203,
+    "fidelity_part": 72.9914655325308,
+    "calibration_axis_estimate": 77.21981061883497
+   }
+  },
+  "gen-v5-eval": {
+   "original": {
+    "questions": 738,
+    "accuracy": 0.8008130081300813,
+    "ece_10bin": 0.06862755202134709,
+    "calibration_axis_ece_part": 86.27448959573059
+   },
+   "rotation": {
+    "questions": 738,
+    "accuracy": 0.8008130081300813,
+    "ece_10bin": 0.06862755202134709,
+    "calibration_axis_ece_part": 86.27448959573059
+   }
+  }
+ },
+ "at_T": {
+  "jevbench-easy": {
+   "original": {
+    "questions": 48,
+    "accuracy": 0.9791666666666666,
+    "ece_10bin": 0.03524161987063875,
+    "calibration_axis_ece_part": 92.95167602587226
+   },
+   "rotation": {
+    "questions": 48,
+    "accuracy": 0.9791666666666666,
+    "ece_10bin": 0.03524161987063875,
+    "calibration_axis_ece_part": 92.95167602587226
+   }
+  },
+  "jevbench-original": {
+   "original": {
+    "questions": 72,
+    "accuracy": 0.9722222222222222,
+    "ece_10bin": 0.05747967311316008,
+    "calibration_axis_ece_part": 88.50406537736798
+   },
+   "rotation": {
+    "questions": 72,
+    "accuracy": 0.9722222222222222,
+    "ece_10bin": 0.05747967311316008,
+    "calibration_axis_ece_part": 88.50406537736798
+   }
+  },
+  "jevbench-hard": {
+   "original": {
+    "questions": 111,
+    "accuracy": 0.5585585585585585,
+    "ece_10bin": 0.17667966122573142,
+    "calibration_axis_ece_part": 64.66406775485372
+   },
+   "rotation": {
+    "questions": 111,
+    "accuracy": 0.5585585585585585,
+    "ece_10bin": 0.17667966122573142,
+    "calibration_axis_ece_part": 64.66406775485372
+   }
+  },
+  "judge-proxy-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.8833333333333333,
+    "ece_10bin": 0.054559563806900344,
+    "calibration_axis_ece_part": 89.08808723861993
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.8833333333333333,
+    "ece_10bin": 0.054559563806900344,
+    "calibration_axis_ece_part": 89.08808723861993
+   }
+  },
+  "internal-eval-hardproxy-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.5266666666666666,
+    "ece_10bin": 0.07147612518045485,
+    "calibration_axis_ece_part": 85.70477496390903
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.5266666666666666,
+    "ece_10bin": 0.07147612518045485,
+    "calibration_axis_ece_part": 85.70477496390903
+   }
+  },
+  "internal-eval-hardproxy-v2": {
+   "original": {
+    "questions": 900,
+    "accuracy": 0.8433333333333334,
+    "ece_10bin": 0.053991315352306155,
+    "calibration_axis_ece_part": 89.20173692953877,
+    "probability_items": 80,
+    "mean_tv_distance": 0.11599699197747633,
+    "fidelity_part": 88.40030080225236,
+    "calibration_axis_estimate": 88.80101886589557
+   },
+   "rotation": {
+    "questions": 900,
+    "accuracy": 0.8433333333333334,
+    "ece_10bin": 0.053991315352306155,
+    "calibration_axis_ece_part": 89.20173692953877,
+    "probability_items": 80,
+    "mean_tv_distance": 0.11599699197747633,
+    "fidelity_part": 88.40030080225236,
+    "calibration_axis_estimate": 88.80101886589557
+   }
+  },
+  "internal-eval-hardproxy-v3": {
+   "original": {
+    "questions": 960,
+    "accuracy": 0.7552083333333334,
+    "ece_10bin": 0.07767264665837811,
+    "calibration_axis_ece_part": 84.46547066832437,
+    "probability_items": 120,
+    "mean_tv_distance": 0.3203937627499176,
+    "fidelity_part": 67.96062372500825,
+    "calibration_axis_estimate": 76.21304719666631
+   },
+   "rotation": {
+    "questions": 960,
+    "accuracy": 0.7552083333333334,
+    "ece_10bin": 0.07767264665837811,
+    "calibration_axis_ece_part": 84.46547066832437,
+    "probability_items": 120,
+    "mean_tv_distance": 0.3203937627499176,
+    "fidelity_part": 67.96062372500825,
+    "calibration_axis_estimate": 76.21304719666631
+   }
+  },
+  "internal-eval-hardproxy-calib-v1": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.5583333333333333,
+    "ece_10bin": 0.03356776673780446,
+    "calibration_axis_ece_part": 93.28644665243911
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.5583333333333333,
+    "ece_10bin": 0.03356776673780446,
+    "calibration_axis_ece_part": 93.28644665243911
+   }
+  },
+  "distprob-calib-v2": {
+   "original": {
+    "questions": 916,
+    "accuracy": 0.8067685589519651,
+    "ece_10bin": 0.18683086851036443,
+    "calibration_axis_ece_part": 62.63382629792711,
+    "probability_items": 916,
+    "mean_tv_distance": 0.1449657824650703,
+    "fidelity_part": 85.50342175349297,
+    "calibration_axis_estimate": 74.06862402571004
+   },
+   "rotation": {
+    "questions": 916,
+    "accuracy": 0.8067685589519651,
+    "ece_10bin": 0.18683086851036443,
+    "calibration_axis_ece_part": 62.63382629792711,
+    "probability_items": 916,
+    "mean_tv_distance": 0.1449657824650703,
+    "fidelity_part": 85.50342175349297,
+    "calibration_axis_estimate": 74.06862402571004
+   }
+  },
+  "distprob-val-v2": {
+   "original": {
+    "questions": 1036,
+    "accuracy": 0.8262548262548263,
+    "ece_10bin": 0.21362855032331066,
+    "calibration_axis_ece_part": 57.274289935337876,
+    "probability_items": 1036,
+    "mean_tv_distance": 0.10162736557917454,
+    "fidelity_part": 89.83726344208254,
+    "calibration_axis_estimate": 73.55577668871021
+   },
+   "rotation": {
+    "questions": 1036,
+    "accuracy": 0.8262548262548263,
+    "ece_10bin": 0.21362855032331066,
+    "calibration_axis_ece_part": 57.274289935337876,
+    "probability_items": 1036,
+    "mean_tv_distance": 0.10162736557917454,
+    "fidelity_part": 89.83726344208254,
+    "calibration_axis_estimate": 73.55577668871021
+   }
+  },
+  "internal-eval-v2-realistic": {
+   "original": {
+    "questions": 600,
+    "accuracy": 0.9,
+    "ece_10bin": 0.0665036226816713,
+    "calibration_axis_ece_part": 86.69927546366574,
+    "probability_items": 120,
+    "mean_tv_distance": 0.10493778102223708,
+    "fidelity_part": 89.5062218977763,
+    "calibration_axis_estimate": 88.10274868072102
+   },
+   "rotation": {
+    "questions": 600,
+    "accuracy": 0.9,
+    "ece_10bin": 0.0665036226816713,
+    "calibration_axis_ece_part": 86.69927546366574,
+    "probability_items": 120,
+    "mean_tv_distance": 0.10493778102223708,
+    "fidelity_part": 89.5062218977763,
+    "calibration_axis_estimate": 88.10274868072102
+   }
+  },
+  "games-harness-eval-v1": {
+   "original": {
+    "questions": 360,
+    "accuracy": 0.9638888888888889,
+    "ece_10bin": 0.02184635319154184,
+    "calibration_axis_ece_part": 95.63072936169164
+   },
+   "rotation": {
+    "questions": 360,
+    "accuracy": 0.9638888888888889,
+    "ece_10bin": 0.02184635319154184,
+    "calibration_axis_ece_part": 95.63072936169164
+   }
+  },
+  "tetris-drought-eval-v1": {
+   "original": {
+    "questions": 120,
+    "accuracy": 0.6833333333333333,
+    "ece_10bin": 0.11049695827247336,
+    "calibration_axis_ece_part": 77.90060834550533
+   },
+   "rotation": {
+    "questions": 120,
+    "accuracy": 0.6833333333333333,
+    "ece_10bin": 0.11049695827247336,
+    "calibration_axis_ece_part": 77.90060834550533
+   }
+  },
+  "musique-mc": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.792,
+    "ece_10bin": 0.13486604240531933,
+    "calibration_axis_ece_part": 73.02679151893614
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.792,
+    "ece_10bin": 0.13486604240531933,
+    "calibration_axis_ece_part": 73.02679151893614
+   }
+  },
+  "squad2-abstain": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.838,
+    "ece_10bin": 0.05573655874873827,
+    "calibration_axis_ece_part": 88.85268825025234
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.838,
+    "ece_10bin": 0.05573655874873827,
+    "calibration_axis_ece_part": 88.85268825025234
+   }
+  },
+  "contractnli": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.738,
+    "ece_10bin": 0.02914397113023941,
+    "calibration_axis_ece_part": 94.17120577395211
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.738,
+    "ece_10bin": 0.02914397113023941,
+    "calibration_axis_ece_part": 94.17120577395211
+   }
+  },
+  "paws-x-en": {
+   "original": {
+    "questions": 500,
+    "accuracy": 0.774,
+    "ece_10bin": 0.052597046548974354,
+    "calibration_axis_ece_part": 89.48059069020513
+   },
+   "rotation": {
+    "questions": 500,
+    "accuracy": 0.774,
+    "ece_10bin": 0.052597046548974354,
+    "calibration_axis_ece_part": 89.48059069020513
+   }
+  },
+  "calib-public-v1": {
+   "original": {
+    "questions": 1200,
+    "accuracy": 0.7883333333333333,
+    "ece_10bin": 0.04692776335400818,
+    "calibration_axis_ece_part": 90.61444732919837
+   },
+   "rotation": {
+    "questions": 1200,
+    "accuracy": 0.7883333333333333,
+    "ece_10bin": 0.04692776335400818,
+    "calibration_axis_ece_part": 90.61444732919837
+   }
+  },
+  "shortcut-diagnostic-eval-v1": {
+   "original": {
+    "questions": 601,
+    "accuracy": 0.8386023294509152,
+    "ece_10bin": 0.04566385758624237,
+    "calibration_axis_ece_part": 90.86722848275153
+   },
+   "rotation": {
+    "questions": 601,
+    "accuracy": 0.8386023294509152,
+    "ece_10bin": 0.04566385758624237,
+    "calibration_axis_ece_part": 90.86722848275153
+   }
+  },
+  "consistency-eval-v1": {
+   "original": {
+    "questions": 1200,
+    "accuracy": 0.7766666666666666,
+    "ece_10bin": 0.03654737270461749,
+    "calibration_axis_ece_part": 92.6905254590765
+   },
+   "rotation": {
+    "questions": 1200,
+    "accuracy": 0.7766666666666666,
+    "ece_10bin": 0.03654737270461749,
+    "calibration_axis_ece_part": 92.6905254590765
+   }
+  },
+  "hard-eval-v4": {
+   "original": {
+    "questions": 800,
+    "accuracy": 0.61,
+    "ece_10bin": 0.08232350161574703,
+    "calibration_axis_ece_part": 83.5352996768506
+   },
+   "rotation": {
+    "questions": 800,
+    "accuracy": 0.61,
+    "ece_10bin": 0.08232350161574703,
+    "calibration_axis_ece_part": 83.5352996768506
+   }
+  },
+  "multihop-v4-eval": {
+   "original": {
+    "questions": 597,
+    "accuracy": 0.7169179229480737,
+    "ece_10bin": 0.0693297434671131,
+    "calibration_axis_ece_part": 86.13405130657739
+   },
+   "rotation": {
+    "questions": 597,
+    "accuracy": 0.7169179229480737,
+    "ece_10bin": 0.0693297434671131,
+    "calibration_axis_ece_part": 86.13405130657739
+   }
+  },
+  "ood-paraphrase-eval-v1": {
+   "original": {
+    "questions": 586,
+    "accuracy": 0.7866894197952219,
+    "ece_10bin": 0.0577406986619374,
+    "calibration_axis_ece_part": 88.45186026761252,
+    "probability_items": 70,
+    "mean_tv_distance": 0.2945346301884306,
+    "fidelity_part": 70.54653698115693,
+    "calibration_axis_estimate": 79.49919862438472
+   },
+   "rotation": {
+    "questions": 586,
+    "accuracy": 0.7866894197952219,
+    "ece_10bin": 0.0577406986619374,
+    "calibration_axis_ece_part": 88.45186026761252,
+    "probability_items": 70,
+    "mean_tv_distance": 0.2945346301884306,
+    "fidelity_part": 70.54653698115693,
+    "calibration_axis_estimate": 79.49919862438472
+   }
+  },
+  "gen-v5-eval": {
+   "original": {
+    "questions": 738,
+    "accuracy": 0.8008130081300813,
+    "ece_10bin": 0.03632140751073094,
+    "calibration_axis_ece_part": 92.73571849785381
+   },
+   "rotation": {
+    "questions": 738,
+    "accuracy": 0.8008130081300813,
+    "ece_10bin": 0.03632140751073094,
+    "calibration_axis_ece_part": 92.73571849785381
+   }
+  }
+ }
+}

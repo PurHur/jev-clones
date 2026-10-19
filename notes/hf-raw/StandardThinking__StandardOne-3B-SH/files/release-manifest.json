@@ -1,0 +1,52 @@
+{
+ "version": "v3",
+ "date": "2026-10-13",
+ "backbone_base": {
+  "repo": "StandardThinking/StandardOne-3B",
+  "version": "v2.2"
+ },
+ "fine_tune": {
+  "lora_rank": 64,
+  "lora_alpha": 128,
+  "merge": "fp32 merge, bfloat16 save",
+  "stages": [
+   "v1 (3B SH stage A)",
+   "P7 teacher-label continuation (2,077 steps)",
+   "hardgen-v1 hard decision items, soft gold 0.8, + replay and guard rows (136 steps)",
+   "repair: policy/long-context/multi-hop + hardgen replay (57 steps)",
+   "v2 (tag v2)",
+   "further training on decision data, mostly our own synthetic items, with replay (two rounds)"
+  ],
+  "merged_sha256": {
+   "model-00001-of-00002.safetensors": "7bbaf208fa3fb08ee9b398f6593240fc6fbca3d69532c6bcb95f1f5e100b4a79",
+   "model-00002-of-00002.safetensors": "6709c9c93807c19c89b598e14904ab7c491bc5cca0185f10f4edfb25a820aac6"
+  }
+ },
+ "head": {
+  "taps": [
+   "final",
+   19
+  ],
+  "template": "schema-v1-nosys",
+  "parameters": 69513991,
+  "sha256": "86ab2a272b51d18fe7fffe78aab58bdf917d3b8ccf32b064efceeb5e19786aa7"
+ },
+ "prompt_format": "chat template with an empty default system message (SH_SYSTEM_PROMPT=none)",
+ "release": "StandardOne-3B-SH",
+ "evaluation": {
+  "engine": "Standard One engine (SGLang fork ad26e8b179), 1 x AMD Instinct MI350X, 2026-10-13, released weights (agrees with production on 1,427 of 1,431 parity questions)",
+  "engine_clean_accuracy": {
+   "internal-eval-v1.heldout": 85.33,
+   "internal-eval-hardproxy-v1.heldout": 38.33,
+   "internal-eval-v2-realistic.heldout": 89.17,
+   "jevbench-easy": 100.0,
+   "jevbench-original": 98.61,
+   "jevbench-hard": 63.96,
+   "longctx-dev": 85.33,
+   "winogrande-dev": 91.59,
+   "repair5k-validation-policy-judgment": 57.0
+  },
+  "decision_index_0.3_public_index": 51.53,
+  "decision_index_note": "self-scored with the official kit (apolinario/decision-index), all 140,178 scoreable requests"
+ }
+}

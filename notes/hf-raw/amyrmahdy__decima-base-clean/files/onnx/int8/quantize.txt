@@ -1,0 +1,3 @@
+method=nbits8
+src=base3
+Recipe(encoder=GraphRecipe(engine='nbits', per_channel=False, reduce_range=False, op_types=('MatMul', 'Gather', 'Gemm'), exclude=(), bits=8, block_size=32, accuracy_level=4, rowwise_embeddings=True), scorer=GraphRecipe(engine='dynamic', per_channel=True, reduce_range=False, op_types=('MatMul', 'Gather', 'Gemm'), exclude=(), bits=8, block_size=32, accuracy_level=4, rowwise_embeddings=False))

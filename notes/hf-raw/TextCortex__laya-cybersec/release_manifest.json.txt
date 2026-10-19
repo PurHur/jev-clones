@@ -1,0 +1,68 @@
+{
+  "type": "laya_r2a_release",
+  "repo_id": "TextCortex/laya-cybersec",
+  "checkpoint": "pi-r2a",
+  "previous_revision": "a75e214574d9cbbf89f2f5dcc48b2e98dbcc01f6",
+  "previous_version_tag": "pre-r2a-20261006",
+  "selected_epoch": 4,
+  "epochs_trained": 4,
+  "parameters": 321908998,
+  "files": {
+    "model.safetensors": {
+      "bytes": 643835524,
+      "sha256": "2d3ae4362dff323aba51d21cab8c53fd08ec718352dc38f7574feea7b6ec3935"
+    },
+    "README.md": {
+      "bytes": 13381,
+      "sha256": "b260e7b5e4e96e48a5cc77bcaa14f72481be7885d44a7de35f83aedbf8d72266"
+    },
+    "rl_agent_config.json": {
+      "bytes": 676,
+      "sha256": "83d5f9a75810375ade52314ac86063173226efe6ce5bfbcca3ed0ada13305b52"
+    },
+    "benchmark_results.json": {
+      "bytes": 4932,
+      "sha256": "373efea2db16b6901fdf6f62b2e674cdda7027b6cc1b008d277b51b6dcf8412b"
+    },
+    "latency_results.json": {
+      "bytes": 3011,
+      "sha256": "3d9c6ff37ff6941679ecff137b1b34167783d01e935dd8d641dc30729900a883"
+    },
+    "onnx/laya-cybersec.onnx": {
+      "bytes": 1287802788,
+      "sha256": "412d4ac021d9f178208d4c2a372891d9c6b70c7034517dccc3f37e45a4f8f7cf"
+    },
+    "onnx/validation.json": {
+      "bytes": 556,
+      "sha256": "5733ab6765703a00cff3f2f3713c1ab5a2e3dc4b8bba4368467bccbe4090c9e1"
+    },
+    "onnx/SHA256SUMS": {
+      "bytes": 85,
+      "sha256": "13d2681d3f7ee92e52ab2871fe34fe5751942335b14fa4e47f12cc73e145c179"
+    },
+    "encoder/config.json": {
+      "bytes": 1938,
+      "sha256": "83f6916d13ef0f556ac461f28308dc2bffa7ebeadee8ec9e2db5812020ea5bb4"
+    },
+    "tokenizer/tokenizer_config.json": {
+      "bytes": 524,
+      "sha256": "6c6b2d8e3c84ce0e671c129cd6b374b235d6f9863042a5836358d00a89bbb5a1"
+    },
+    "tokenizer/tokenizer.json": {
+      "bytes": 34363188,
+      "sha256": "609d8f4c067cd3950f88594c5a802616cea245823836ef5848ee4fc40aab5b6f"
+    },
+    "charts/README.md": {
+      "bytes": 288,
+      "sha256": "e8fe63288f258ad62026cc562d82805632a262c59176e89e24fe6b5d7af7929b"
+    },
+    "charts/r2a-auroc.png": {
+      "bytes": 148066,
+      "sha256": "f140f6c53e8a600de3868a4a691f6ecf49f52efc829d70e84590fe9e3d7aa8e5"
+    },
+    "charts/r2a-pdfs.png": {
+      "bytes": 102573,
+      "sha256": "fdb3e77945db14c3b665f5426cee4150c9e9f0d25c4882c3d7e6c517242acea7"
+    }
+  }
+}

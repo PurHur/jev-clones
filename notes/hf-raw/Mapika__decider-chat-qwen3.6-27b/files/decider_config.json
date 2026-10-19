@@ -1,0 +1,9 @@
+{
+ "version": "chat-qwen3.6-27b-v1",
+ "layout": "chat",
+ "temperature": 1.943,
+ "neutralize_none": false,
+ "isolated_levels": false,
+ "base": "Qwen/Qwen3.6-27B, unmodified weights",
+ "requires": "decider-ai>=1.5.0 (chat layout)"
+}

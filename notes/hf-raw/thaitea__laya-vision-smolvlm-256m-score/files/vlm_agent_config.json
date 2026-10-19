@@ -1,0 +1,19 @@
+{
+  "backbone": "HuggingFaceTB/SmolVLM-256M-Instruct",
+  "head_layers": 2,
+  "n_act": 2,
+  "max_len": 1024,
+  "head_max_len": 256,
+  "option_attention": "bidirectional",
+  "dtype": "fp32",
+  "temperature": [
+    2.2027783393859863,
+    1.365213394165039,
+    2.133272647857666
+  ],
+  "temperature_by_options": {},
+  "preprocess": "processor",
+  "image_size": 512,
+  "image_interpolation": "processor",
+  "readout": "terminator"
+}

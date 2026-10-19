@@ -1,0 +1,39 @@
+FROM lmsysorg/sglang@sha256:6bcaa47db52f78ce0d67863b8b2431221b79bc23204a80cad757fa819d00e921
+
+RUN python3 - <<'PY'
+from pathlib import Path
+
+path = Path(
+    "/sgl-workspace/sglang/python/sglang/srt/managers/"
+    "scheduler_components/batch_result_processor.py"
+)
+source = path.read_text()
+replacements = (
+    (
+        "v.tolist() for v in logits_output.next_token_top_logprobs_val",
+        "v.tolist() if torch.is_tensor(v) else v "
+        "for v in logits_output.next_token_top_logprobs_val",
+    ),
+    (
+        "x.tolist() for x in logits_output.next_token_top_logprobs_idx",
+        "x.tolist() if torch.is_tensor(x) else x "
+        "for x in logits_output.next_token_top_logprobs_idx",
+    ),
+    (
+        "v.tolist() for v in logits_output.next_token_token_ids_logprobs_val",
+        "v.tolist() if torch.is_tensor(v) else v "
+        "for v in logits_output.next_token_token_ids_logprobs_val",
+    ),
+)
+
+counts = tuple(source.count(old) for old, _ in replacements)
+if counts != (2, 2, 2):
+    raise SystemExit(f"Expected vulnerable occurrence counts (2, 2, 2), found {counts}")
+
+patched = source
+for old, new in replacements:
+    patched = patched.replace(old, new)
+
+path.write_text(patched)
+print(f"Patched {sum(counts)} vulnerable comprehensions in {path}")
+PY

@@ -1,0 +1,806 @@
+{
+  "model": "OpenJev-4B",
+  "comparison_models": {
+    "openjev": "OpenJev-4B",
+    "jev": "Jev",
+    "decider": "Decider 4B",
+    "jevk5": "JevK5 4B",
+    "intern": "Intern-Decision-4B"
+  },
+  "versions": {
+    "jev": "1.13.0",
+    "decider": "2.1",
+    "jevk5": "0.3"
+  },
+  "snapshot_date": "2026-09-29",
+  "rows": [
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Answer preference",
+      "n": 185,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 90.81,
+          "brier": 0.1236
+        },
+        "jev": {
+          "accuracy_percent": 88.11,
+          "brier": 0.1794
+        },
+        "decider": {
+          "accuracy_percent": 85.95,
+          "brier": 0.2263
+        },
+        "jevk5": {
+          "accuracy_percent": 77.84,
+          "brier": 0.3276
+        },
+        "intern": {
+          "accuracy_percent": 77.84,
+          "brier": 0.3142
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Code / database",
+      "n": 122,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 84.43,
+          "brier": 0.2128
+        },
+        "jev": {
+          "accuracy_percent": 83.61,
+          "brier": 0.2189
+        },
+        "decider": {
+          "accuracy_percent": 77.05,
+          "brier": 0.3293
+        },
+        "jevk5": {
+          "accuracy_percent": 72.95,
+          "brier": 0.3546
+        },
+        "intern": {
+          "accuracy_percent": 68.03,
+          "brier": 0.3364
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Commonsense context",
+      "n": 355,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 93.8,
+          "brier": 0.0854
+        },
+        "jev": {
+          "accuracy_percent": 96.9,
+          "brier": 0.0409
+        },
+        "decider": {
+          "accuracy_percent": 95.21,
+          "brier": 0.0687
+        },
+        "jevk5": {
+          "accuracy_percent": 93.8,
+          "brier": 0.1073
+        },
+        "intern": {
+          "accuracy_percent": 87.04,
+          "brier": 0.2096
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Constraint planning",
+      "n": 334,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 76.05,
+          "brier": 0.2944
+        },
+        "jev": {
+          "accuracy_percent": 75.75,
+          "brier": 0.2859
+        },
+        "decider": {
+          "accuracy_percent": 71.26,
+          "brier": 0.3685
+        },
+        "jevk5": {
+          "accuracy_percent": 64.37,
+          "brier": 0.4816
+        },
+        "intern": {
+          "accuracy_percent": 58.38,
+          "brier": 0.5222
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Deductive reasoning",
+      "n": 619,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 90.47,
+          "brier": 0.1389
+        },
+        "jev": {
+          "accuracy_percent": 94.51,
+          "brier": 0.0781
+        },
+        "decider": {
+          "accuracy_percent": 86.27,
+          "brier": 0.1861
+        },
+        "jevk5": {
+          "accuracy_percent": 79.97,
+          "brier": 0.2809
+        },
+        "intern": {
+          "accuracy_percent": 68.66,
+          "brier": 0.3848
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Emotion recognition",
+      "n": 9,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 100.0,
+          "brier": 0.0243
+        },
+        "jev": {
+          "accuracy_percent": 77.78,
+          "brier": 0.2353
+        },
+        "decider": {
+          "accuracy_percent": 100.0,
+          "brier": 0.0684
+        },
+        "jevk5": {
+          "accuracy_percent": 77.78,
+          "brier": 0.3633
+        },
+        "intern": {
+          "accuracy_percent": 77.78,
+          "brier": 0.369
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Evidence validation",
+      "n": 177,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 91.53,
+          "brier": 0.1221
+        },
+        "jev": {
+          "accuracy_percent": 90.96,
+          "brier": 0.1211
+        },
+        "decider": {
+          "accuracy_percent": 85.31,
+          "brier": 0.2103
+        },
+        "jevk5": {
+          "accuracy_percent": 88.14,
+          "brier": 0.196
+        },
+        "intern": {
+          "accuracy_percent": 84.18,
+          "brier": 0.2301
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Intent routing",
+      "n": 253,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 94.07,
+          "brier": 0.1045
+        },
+        "jev": {
+          "accuracy_percent": 93.28,
+          "brier": 0.1047
+        },
+        "decider": {
+          "accuracy_percent": 92.49,
+          "brier": 0.1223
+        },
+        "jevk5": {
+          "accuracy_percent": 87.75,
+          "brier": 0.1688
+        },
+        "intern": {
+          "accuracy_percent": 64.82,
+          "brier": 0.2352
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Knowledge QA",
+      "n": 572,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 95.63,
+          "brier": 0.0693
+        },
+        "jev": {
+          "accuracy_percent": 98.95,
+          "brier": 0.0202
+        },
+        "decider": {
+          "accuracy_percent": 96.85,
+          "brier": 0.0527
+        },
+        "jevk5": {
+          "accuracy_percent": 94.76,
+          "brier": 0.0847
+        },
+        "intern": {
+          "accuracy_percent": 88.99,
+          "brier": 0.1722
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Multi-hop reasoning",
+      "n": 211,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 92.42,
+          "brier": 0.0992
+        },
+        "jev": {
+          "accuracy_percent": 89.57,
+          "brier": 0.1274
+        },
+        "decider": {
+          "accuracy_percent": 73.93,
+          "brier": 0.3978
+        },
+        "jevk5": {
+          "accuracy_percent": 74.41,
+          "brier": 0.3046
+        },
+        "intern": {
+          "accuracy_percent": 64.45,
+          "brier": 0.4399
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Option logic",
+      "n": 287,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 51.92,
+          "brier": 0.5694
+        },
+        "jev": {
+          "accuracy_percent": 41.11,
+          "brier": 0.6551
+        },
+        "decider": {
+          "accuracy_percent": 34.84,
+          "brier": 0.7715
+        },
+        "jevk5": {
+          "accuracy_percent": 35.19,
+          "brier": 0.7176
+        },
+        "intern": {
+          "accuracy_percent": 28.22,
+          "brier": 0.7979
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Policy exceptions",
+      "n": 576,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 95.31,
+          "brier": 0.0688
+        },
+        "jev": {
+          "accuracy_percent": 90.97,
+          "brier": 0.1301
+        },
+        "decider": {
+          "accuracy_percent": 82.81,
+          "brier": 0.262
+        },
+        "jevk5": {
+          "accuracy_percent": 72.74,
+          "brier": 0.3858
+        },
+        "intern": {
+          "accuracy_percent": 63.89,
+          "brier": 0.463
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Quantitative reasoning",
+      "n": 330,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 69.09,
+          "brier": 0.3752
+        },
+        "jev": {
+          "accuracy_percent": 77.88,
+          "brier": 0.2841
+        },
+        "decider": {
+          "accuracy_percent": 51.21,
+          "brier": 0.6098
+        },
+        "jevk5": {
+          "accuracy_percent": 46.36,
+          "brier": 0.6636
+        },
+        "intern": {
+          "accuracy_percent": 37.58,
+          "brier": 0.7533
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Reading comprehension",
+      "n": 48,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 95.83,
+          "brier": 0.0523
+        },
+        "jev": {
+          "accuracy_percent": 100.0,
+          "brier": 0.0091
+        },
+        "decider": {
+          "accuracy_percent": 95.83,
+          "brier": 0.064
+        },
+        "jevk5": {
+          "accuracy_percent": 91.67,
+          "brier": 0.1074
+        },
+        "intern": {
+          "accuracy_percent": 89.58,
+          "brier": 0.1868
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Score rubrics",
+      "n": 135,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 78.52,
+          "brier": 0.2939
+        },
+        "jev": {
+          "accuracy_percent": 85.93,
+          "brier": 0.2055
+        },
+        "decider": {
+          "accuracy_percent": 72.59,
+          "brier": 0.3487
+        },
+        "jevk5": {
+          "accuracy_percent": 73.33,
+          "brier": 0.319
+        },
+        "intern": {
+          "accuracy_percent": 69.63,
+          "brier": 0.3827
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Temporal / numeric",
+      "n": 138,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 55.07,
+          "brier": 0.4695
+        },
+        "jev": {
+          "accuracy_percent": 64.49,
+          "brier": 0.4235
+        },
+        "decider": {
+          "accuracy_percent": 54.35,
+          "brier": 0.5197
+        },
+        "jevk5": {
+          "accuracy_percent": 53.62,
+          "brier": 0.5379
+        },
+        "intern": {
+          "accuracy_percent": 59.42,
+          "brier": 0.5422
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Hard",
+      "task": "Total",
+      "n": 4351,
+      "models": {
+        "openjev": {
+          "accuracy_percent": 85.57,
+          "brier": 0.1864
+        },
+        "jev": {
+          "accuracy_percent": 86.37,
+          "brier": 0.1733
+        },
+        "decider": {
+          "accuracy_percent": 78.88,
+          "brier": 0.2832
+        },
+        "jevk5": {
+          "accuracy_percent": 74.7,
+          "brier": 0.333
+        },
+        "intern": {
+          "accuracy_percent": 66.95,
+          "brier": 0.4069
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Constraint planning",
+      "n": 1,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.007
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.1412
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1338
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.0251
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.0258
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Evidence validation",
+      "n": 22,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.1066
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.0493
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1517
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.0773
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.0914
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Intent routing",
+      "n": 22,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.0681
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.157
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1366
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.1304
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.0838
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Policy exceptions",
+      "n": 18,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.0423
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.0606
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1128
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.0916
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.0674
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Probabilistic reasoning",
+      "n": 505,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.0278
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.1164
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1387
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.1092
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.1242
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Score rubrics",
+      "n": 30,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.0864
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.0895
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1653
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.1242
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.1746
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Temporal / numeric",
+      "n": 12,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.2168
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.0822
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.11
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.1283
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.1747
+        }
+      }
+    },
+    {
+      "group": "MMDM \u00b7 Soft",
+      "task": "Total",
+      "n": 610,
+      "models": {
+        "openjev": {
+          "accuracy_percent": null,
+          "brier": 0.0391
+        },
+        "jev": {
+          "accuracy_percent": null,
+          "brier": 0.1119
+        },
+        "decider": {
+          "accuracy_percent": null,
+          "brier": 0.1391
+        },
+        "jevk5": {
+          "accuracy_percent": null,
+          "brier": 0.1092
+        },
+        "intern": {
+          "accuracy_percent": null,
+          "brier": 0.1232
+        }
+      }
+    },
+    {
+      "group": "JevBench \u00b7 Public",
+      "task": "Original",
+      "models": {
+        "openjev": {
+          "accuracy_percent": 100.0,
+          "brier": 0.031173049329996292
+        },
+        "jev": {
+          "accuracy_percent": 98.61111111111111,
+          "brier": 0.028252777777777776
+        },
+        "decider": {
+          "accuracy_percent": 98.61111111111111,
+          "brier": 0.057440274164038074
+        },
+        "jevk5": {
+          "accuracy_percent": 94.44444444444444,
+          "brier": 0.10753610290390724
+        },
+        "intern": {
+          "accuracy_percent": 98.61111111111111,
+          "brier": 0.034003747946694876
+        }
+      },
+      "n": 72
+    },
+    {
+      "group": "JevBench \u00b7 Public",
+      "task": "Easy",
+      "models": {
+        "openjev": {
+          "accuracy_percent": 100.0,
+          "brier": 1.0634828094991897e-05
+        },
+        "jev": {
+          "accuracy_percent": 100.0,
+          "brier": 0.00019583333333333356
+        },
+        "decider": {
+          "accuracy_percent": 100.0,
+          "brier": 4.472370693105332e-05
+        },
+        "jevk5": {
+          "accuracy_percent": 100.0,
+          "brier": 0.0025092999623402795
+        },
+        "intern": {
+          "accuracy_percent": 100.0,
+          "brier": 0.0011188014255948035
+        }
+      },
+      "n": 48
+    },
+    {
+      "group": "JevBench \u00b7 Public",
+      "task": "Hard",
+      "models": {
+        "openjev": {
+          "accuracy_percent": 75.67567567567568,
+          "brier": 0.3469152429142525
+        },
+        "jev": {
+          "accuracy_percent": 72.07207207207207,
+          "brier": 0.35944144144144147
+        },
+        "decider": {
+          "accuracy_percent": 64.86486486486487,
+          "brier": 0.4685710696134996
+        },
+        "jevk5": {
+          "accuracy_percent": 77.47747747747748,
+          "brier": 0.31178986168730566
+        },
+        "intern": {
+          "accuracy_percent": 73.87387387387388,
+          "brier": 0.34391459157831894
+        }
+      },
+      "n": 111
+    },
+    {
+      "group": "JevBench \u00b7 Public",
+      "task": "Total",
+      "models": {
+        "openjev": {
+          "accuracy_percent": 88.31168831168831,
+          "brier": 0.17641801725969836
+        },
+        "jev": {
+          "accuracy_percent": 86.14718614718615,
+          "brier": 0.18156536796536796
+        },
+        "decider": {
+          "accuracy_percent": 82.68398268398268,
+          "brier": 0.2430702822720428
+        },
+        "jevk5": {
+          "accuracy_percent": 87.44588744588745,
+          "brier": 0.1838602617080718
+        },
+        "intern": {
+          "accuracy_percent": 87.01298701298701,
+          "brier": 0.17608870989516875
+        }
+      },
+      "n": 231
+    }
+  ],
+  "mmdm_hard_brier_n": 4294,
+  "mmdm_soft_brier_n": 610,
+  "mmdm_source_revision": "4af5dba7284e7f72f7ffeb2357c391520813d987",
+  "public_suite": "original72 + easy48 + hard111",
+  "notes": "MMDM cells retain dataset-card rounding; Public values retain stored precision. Accuracy is expressed as a percentage."
+}

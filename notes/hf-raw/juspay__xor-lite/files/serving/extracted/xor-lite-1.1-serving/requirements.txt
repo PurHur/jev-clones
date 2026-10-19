@@ -1,0 +1,13 @@
+# The environment the release checkpoint was trained and scored in. torch comes from the
+# CUDA 13.0 index in Dockerfile; PEFT is the development commit the adapter was saved with.
+torch==2.13.0
+transformers==5.14.1
+tokenizers==0.22.2
+peft @ git+https://github.com/huggingface/peft.git@194cb8feb21c6623f61f30305e20fdbe2b842c10
+accelerate==1.14.0
+safetensors==0.8.0
+huggingface_hub==1.24.0
+numpy==2.4.6
+pydantic==2.13.4
+fastapi==0.136.3
+uvicorn==0.51.0

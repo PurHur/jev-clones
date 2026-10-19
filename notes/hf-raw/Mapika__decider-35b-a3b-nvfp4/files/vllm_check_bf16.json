@@ -1,0 +1,25 @@
+{
+ "model": "/mnt/data/mark/projects/decider/runs/moe_optimizer_ab_v1/muon/model",
+ "temperature": 1.08,
+ "quantization": null,
+ "fixtures": {
+  "typesafe": {
+   "rows": 102,
+   "accuracy": 0.8529411764705882,
+   "nll": 0.3444518104668711,
+   "argmax_agreement_with_bf16": 0.9901960784313726,
+   "mean_total_variation_to_bf16": 0.010098663387364924,
+   "seconds": 2.8260700702667236,
+   "rows_per_second": 36.09252335005737
+  },
+  "general_validation": {
+   "rows": 847,
+   "accuracy": 0.89728453364817,
+   "nll": 0.3286932968313614,
+   "argmax_agreement_with_bf16": 0.9976387249114522,
+   "mean_total_variation_to_bf16": 0.004656189536747353,
+   "seconds": 1.6999497413635254,
+   "rows_per_second": 498.25002433343906
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+  "benchmark": "DeepSWE",
+  "split_seed": 42,
+  "stratification": ["candidate_count", "pass_count"],
+  "train_tasks": 75,
+  "heldout_tasks": 38,
+  "trained_tasks": 59,
+  "validation_tasks": 7,
+  "candidate_budget": 4,
+  "aggregation": {"type": "final_window_mean", "window": 12},
+  "heldout_rollouts": 151,
+  "clm_successes": 31,
+  "clm_accuracy": 0.8157894736842105,
+  "random_pick": 0.7368421052631579,
+  "oracle_any": 0.8947368421052632,
+  "checkpoint_sha256": "554989fe88635606cb978dc45a1ce083be1990c4a51e551ea3b6055ead1a029a",
+  "heldout_tasks_sha256": "d4e2e7639f9eace09fba50318a266111c080d591bfbe39d213c3ea611e7b65c1",
+  "task_split_sha256": "b10249b203f23e2742dff4f238558eddcd420869e1c2de540559735cda050431"
+}

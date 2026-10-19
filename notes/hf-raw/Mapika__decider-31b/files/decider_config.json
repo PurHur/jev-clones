@@ -1,0 +1,22 @@
+{
+ "version": "31b-v1",
+ "layout": "chat",
+ "temperature_by_options": {
+  "a": 2.042,
+  "b": 0.003,
+  "min": 0.05
+ },
+ "second_reading": {
+  "below": 0.7,
+  "temperature_by_options": {
+   "a": 1.953,
+   "b": 0.01,
+   "min": 0.05
+  }
+ },
+ "vllm_attention": "TRITON_ATTN",
+ "neutralize_none": false,
+ "isolated_levels": false,
+ "base": "google/gemma-4-31B-it, fine-tuned and merged, NVFP4 (MLP) / bf16 (attention) / FP8 KV cache",
+ "requires": "decider-ai>=1.9.0 with vLLM 0.29.0 (decider.serve_vllm: second_reading, vllm_attention)"
+}

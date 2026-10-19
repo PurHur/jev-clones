@@ -1,0 +1,68 @@
+{
+  "status": "cpu-package-verified",
+  "gpu_parity": "pending",
+  "model_inference_run": false,
+  "dataset_examples_read": false,
+  "seed": 0,
+  "depths": 4,
+  "head_loaded_with": "torch.load(weights_only=True, map_location='cpu')",
+  "head_tensors": {
+    "q.weight": {
+      "shape": [
+        256,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "exact_equal": true
+    },
+    "q.bias": {
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32",
+      "exact_equal": true
+    },
+    "k.weight": {
+      "shape": [
+        256,
+        2048
+      ],
+      "dtype": "torch.float32",
+      "exact_equal": true
+    },
+    "k.bias": {
+      "shape": [
+        256
+      ],
+      "dtype": "torch.float32",
+      "exact_equal": true
+    }
+  },
+  "head_schema": [
+    "base",
+    "base_revision",
+    "head",
+    "head_dim",
+    "holdout",
+    "loop",
+    "lora",
+    "option_isolation",
+    "special_embeddings",
+    "temperature",
+    "weights",
+    "weights_dtype"
+  ],
+  "inference_metadata_exactly_preserved": true,
+  "metadata_loader": "kev.checkpoint.Checkpoint: passed",
+  "pointer_head_strict_load": "passed",
+  "adapter_byte_identical": true,
+  "adapter_tensor_count": 336,
+  "base_revision_pinned_in_head_and_adapter": true,
+  "tokenizer_payload_byte_identical": true,
+  "private_metadata_and_credential_scan": "passed on metadata, cards, configuration and tensor names",
+  "remaining_gates": [
+    "Fresh-environment GPU inference parity on approved development examples",
+    "Compatible code release validation",
+    "Final public-release review and explicit visibility change"
+  ]
+}

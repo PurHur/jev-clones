@@ -1,0 +1,75 @@
+{
+  "repo_id": "bespokelabs/Bespoke-Nimble-9B-v2",
+  "source_run": "train-9b-4926-v1",
+  "training_examples": 4926,
+  "adapter_sha256": "1bd126be997be6d9a0c25ce483ccf858c31b3422d480c33f02ba47b614be68ae",
+  "original_adapter_files_sha256": {
+    "README.md": "bb29528044c9409e183ce924e4ea6f29f2b705d749287781b8ff2777b5209a55",
+    "adapter_config.json": "1df75a7dab267ee2e7d19ac28f789749c4117eadbbdf0d983c39710162511c25",
+    "adapter_model.safetensors": "1bd126be997be6d9a0c25ce483ccf858c31b3422d480c33f02ba47b614be68ae",
+    "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+    "schema_config.json": "6cd2bc766cc47a7cc73a561d613ac910795318cc3d0a4818d23df9917e93ffa2",
+    "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+    "tokenizer_config.json": "9cf04fffe3d8c3b85e439fb35c7acad0761ab51c422a8c4256d9f887c3a0be7d"
+  },
+  "source_modifications": {
+    "adapter_config.json": "Pinned base revision, originally null; weight bytes unchanged.",
+    "README.md": "Replaced auto-generated PEFT placeholder with release card."
+  },
+  "base_model": "Qwen/Qwen3.5-9B",
+  "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "runtime_versions": {
+    "torch": "2.8.0",
+    "transformers": "5.17.0",
+    "peft": "0.21.0",
+    "accelerate": "1.15.0",
+    "causal-conv1d": "1.7.0",
+    "flash-linear-attention": "0.5.2"
+  },
+  "gpu_reload_verification": {
+    "passed": true,
+    "probe_rows": 2,
+    "max_logit_difference": 0.0,
+    "adapter_sha256": {
+      "README.md": "bb29528044c9409e183ce924e4ea6f29f2b705d749287781b8ff2777b5209a55",
+      "adapter_config.json": "1df75a7dab267ee2e7d19ac28f789749c4117eadbbdf0d983c39710162511c25",
+      "adapter_model.safetensors": "1bd126be997be6d9a0c25ce483ccf858c31b3422d480c33f02ba47b614be68ae",
+      "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "schema_config.json": "6cd2bc766cc47a7cc73a561d613ac910795318cc3d0a4818d23df9917e93ffa2",
+      "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "tokenizer_config.json": "9cf04fffe3d8c3b85e439fb35c7acad0761ab51c422a8c4256d9f887c3a0be7d"
+    }
+  },
+  "new_gpu_run_for_upload": false,
+  "temperature_update": {
+    "temperature": 2.179078721266035,
+    "method": "softmax(candidate_logits / temperature)",
+    "model": "bespokelabs/Bespoke-Nimble-9B-v2",
+    "adapter_sha256": "1bd126be997be6d9a0c25ce483ccf858c31b3422d480c33f02ba47b614be68ae",
+    "base_model": "Qwen/Qwen3.5-9B",
+    "base_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+    "prompt_code_sha256": "a0a0f94d0f65e972bc20d088678ad3d595ff1c42b9c0d78f96034526303f63fc",
+    "fitted_for_this_checkpoint": false,
+    "selection": "User requested transfer of the original model probability temperature; no evaluation-based selection",
+    "original_fitted_temperature": 2.179078721266035,
+    "github_source_revision": "54c2e82e8f613a7ab3a4d4072c50dfb9376db4e3",
+    "previous_helper_revision": "01ebf0ad9f31bceee6b263b2812446e01a01455b",
+    "previous_default_temperature": 1.0,
+    "new_inference": false
+  },
+  "raw_temperature_guard": {
+    "default": 2.179078721266035,
+    "raw_temperature_requires": "temperature=1.0, allow_uncalibrated=True",
+    "weights_changed": false
+  },
+  "serving_extension": {
+    "max_choices": 255,
+    "config": "serving_config.json",
+    "legacy_prompt_parity_through": 26,
+    "weights_unchanged": true,
+    "training_contract_unchanged": true,
+    "previous_revision": "e1f8311ecbd1d65324bde706b639a6dd03a78007",
+    "temperature_unchanged": 2.179078721266035,
+    "wide_choice_temperature_fitted": false
+  }
+}

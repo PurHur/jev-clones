@@ -1,0 +1,23 @@
+{
+  "model": "runs/rep_fused",
+  "tokenizer": "Qwen/Qwen3.5-9B",
+  "chains": "data/chains_rep/rep.rank*.jsonl,data/chains_402b/chains.rank*.jsonl",
+  "data_dir": "data",
+  "out": "runs/orthrus_k4_402_deep",
+  "length": 2048,
+  "block": 4,
+  "delta_mode": "kvattn",
+  "blocks": 512,
+  "dense": true,
+  "batch_size": 2,
+  "lr": 0.0003,
+  "warmup": 200,
+  "steps": 20000,
+  "log_every": 100,
+  "limit": 0,
+  "seed": 0,
+  "compile": false,
+  "grad_checkpoint": true,
+  "profile_steps": 0,
+  "init": ""
+}

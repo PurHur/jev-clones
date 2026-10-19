@@ -1,0 +1,316 @@
+{
+ "rows": 64122,
+ "by_task_type": {
+  "element_grounding": 33072,
+  "action_prediction": 31050
+ },
+ "by_question_type": {
+  "click_target": 31662,
+  "operation": 31050,
+  "type_target": 1145,
+  "select_target": 265
+ },
+ "action_prediction_labels": {
+  "CLICK": 14364,
+  "SCROLL_DOWN": 6135,
+  "TYPE_TEXT": 3527,
+  "DONE": 2397,
+  "GO_BACK": 1553,
+  "WAIT": 1137,
+  "SCROLL_UP": 713,
+  "PRESS_ENTER": 362,
+  "SCROLL_REGION": 355,
+  "BLOCKED": 259,
+  "SELECT": 226,
+  "PRESS_ESCAPE": 22
+ },
+ "element_grounding_actions": {
+  "CLICK": 31662,
+  "TYPE_TEXT": 1145,
+  "SELECT": 265
+ },
+ "by_context_format": {
+  "structured": 57283,
+  "text": 6839
+ },
+ "by_context_format_and_task_type": {
+  "structured|action_prediction": 31050,
+  "structured|element_grounding": 26233,
+  "text|element_grounding": 6839
+ },
+ "by_question_type_and_format": {
+  "operation|structured": 31050,
+  "click_target|structured": 25465,
+  "click_target|text": 6197,
+  "type_target|text": 604,
+  "type_target|structured": 541,
+  "select_target|structured": 227,
+  "select_target|text": 38
+ },
+ "by_label_source": {
+  "live_annotation": 43890,
+  "trajectory": 20011,
+  "trajectory_corrected": 221
+ },
+ "by_task_source": {
+  "MolmoWeb": 47845,
+  "WebGym": 16277
+ },
+ "by_page_script": {
+  "Latin": 63529,
+  "CJK": 434,
+  "Cyrillic": 65,
+  "Devanagari": 53,
+  "Arabic": 36,
+  "Greek": 5
+ },
+ "num_options": {
+  "all": {
+   "n": 64122,
+   "min": 2,
+   "p25": 7,
+   "p50": 9,
+   "p75": 32,
+   "p90": 64,
+   "p99": 128,
+   "max": 137,
+   "mean": 26.8,
+   "sum": 1719824
+  },
+  "element_grounding": {
+   "n": 33072,
+   "min": 2,
+   "p25": 27,
+   "p50": 32,
+   "p75": 64,
+   "p90": 84,
+   "p99": 128,
+   "max": 137,
+   "mean": 45.6,
+   "sum": 1506705
+  },
+  "click_target": {
+   "n": 31662,
+   "min": 2,
+   "p25": 31,
+   "p50": 32,
+   "p75": 64,
+   "p90": 86,
+   "p99": 128,
+   "max": 137,
+   "mean": 47.2,
+   "sum": 1494326
+  },
+  "structured": {
+   "n": 57283,
+   "min": 2,
+   "p25": 7,
+   "p50": 8,
+   "p75": 32,
+   "p90": 64,
+   "p99": 128,
+   "max": 137,
+   "mean": 23.0,
+   "sum": 1319732
+  },
+  "action_prediction": {
+   "n": 31050,
+   "min": 3,
+   "p25": 6,
+   "p50": 7,
+   "p75": 8,
+   "p90": 9,
+   "p99": 10,
+   "max": 13,
+   "mean": 6.9,
+   "sum": 213119
+  },
+  "operation": {
+   "n": 31050,
+   "min": 3,
+   "p25": 6,
+   "p50": 7,
+   "p75": 8,
+   "p90": 9,
+   "p99": 10,
+   "max": 13,
+   "mean": 6.9,
+   "sum": 213119
+  },
+  "text": {
+   "n": 6839,
+   "min": 2,
+   "p25": 32,
+   "p50": 64,
+   "p75": 64,
+   "p90": 128,
+   "p99": 128,
+   "max": 128,
+   "mean": 58.5,
+   "sum": 400092
+  },
+  "type_target": {
+   "n": 1145,
+   "min": 2,
+   "p25": 2,
+   "p50": 2,
+   "p75": 3,
+   "p90": 4,
+   "p99": 11,
+   "max": 12,
+   "mean": 2.8,
+   "sum": 3238
+  },
+  "select_target": {
+   "n": 265,
+   "min": 2,
+   "p25": 7,
+   "p50": 26,
+   "p75": 54,
+   "p90": 81,
+   "p99": 123,
+   "max": 131,
+   "mean": 34.5,
+   "sum": 9141
+  }
+ },
+ "num_tokens": {
+  "all": {
+   "n": 64122,
+   "min": 77,
+   "p25": 2662,
+   "p50": 4262,
+   "p75": 6852,
+   "p90": 9730,
+   "p99": 15328,
+   "max": 16383,
+   "mean": 5108.6,
+   "sum": 327573009
+  },
+  "element_grounding": {
+   "n": 33072,
+   "min": 77,
+   "p25": 3917,
+   "p50": 5665,
+   "p75": 8444,
+   "p90": 11366,
+   "p99": 15726,
+   "max": 16383,
+   "mean": 6418.8,
+   "sum": 212283887
+  },
+  "click_target": {
+   "n": 31662,
+   "min": 315,
+   "p25": 4028,
+   "p50": 5791,
+   "p75": 8538,
+   "p90": 11463,
+   "p99": 15738,
+   "max": 16383,
+   "mean": 6564.8,
+   "sum": 207853294
+  },
+  "structured": {
+   "n": 57283,
+   "min": 891,
+   "p25": 2595,
+   "p50": 4102,
+   "p75": 6500,
+   "p90": 9332,
+   "p99": 15314,
+   "max": 16383,
+   "mean": 4956.7,
+   "sum": 283934425
+  },
+  "action_prediction": {
+   "n": 31050,
+   "min": 891,
+   "p25": 2145,
+   "p50": 3056,
+   "p75": 4468,
+   "p90": 6902,
+   "p99": 13229,
+   "max": 16371,
+   "mean": 3713.0,
+   "sum": 115289122
+  },
+  "operation": {
+   "n": 31050,
+   "min": 891,
+   "p25": 2145,
+   "p50": 3056,
+   "p75": 4468,
+   "p90": 6902,
+   "p99": 13229,
+   "max": 16371,
+   "mean": 3713.0,
+   "sum": 115289122
+  },
+  "text": {
+   "n": 6839,
+   "min": 77,
+   "p25": 3887,
+   "p50": 6102,
+   "p75": 8821,
+   "p90": 11587,
+   "p99": 15489,
+   "max": 16376,
+   "mean": 6380.8,
+   "sum": 43638584
+  },
+  "type_target": {
+   "n": 1145,
+   "min": 77,
+   "p25": 128,
+   "p50": 203,
+   "p75": 4354,
+   "p90": 5543,
+   "p99": 10689,
+   "max": 16364,
+   "mean": 2339.1,
+   "sum": 2678228
+  },
+  "select_target": {
+   "n": 265,
+   "min": 83,
+   "p25": 4992,
+   "p50": 5556,
+   "p75": 8341,
+   "p90": 13549,
+   "p99": 16260,
+   "max": 16378,
+   "mean": 6612.7,
+   "sum": 1752365
+  }
+ },
+ "grounding_num_options_bins": {
+  "2-2": 919,
+  "3-5": 946,
+  "6-10": 1090,
+  "11-20": 3239,
+  "21-32": 12060,
+  "33-64": 10501,
+  "65-128": 4307,
+  "129-255": 10
+ },
+ "num_tokens_bins": {
+  "0-1000": 777,
+  "1001-2000": 7397,
+  "2001-4000": 21493,
+  "4001-8000": 23008,
+  "8001-12000": 8342,
+  "12001-16384": 3105
+ },
+ "websites": {
+  "distinct": 1443
+ },
+ "distinct": {
+  "tasks": 3858,
+  "instances": 40230,
+  "tasks_by_source": {
+   "MolmoWeb": 2425,
+   "WebGym": 1433
+  }
+ }
+}

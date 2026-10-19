@@ -1,0 +1,86 @@
+[
+ {
+  "type": "directory",
+  "oid": "af18ed1d51931e98e32ad8d6772c13e4777da830",
+  "size": 0,
+  "path": "assets"
+ },
+ {
+  "type": "file",
+  "oid": "bde77e13687ef4d26f34952c2fe377b15ff0ba95",
+  "size": 1573,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "79a37aac3e1ec2082f6afd2942c98db80342b212",
+  "size": 28862,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "be0a7f5687aa81860cb18b8b77b744ab89d44714",
+  "size": 250537,
+  "lfs": {
+   "oid": "3ac4150ef015d3c26809aa6b0c1b7e8b8e3c29efa193eb92f84fb32c1ed3814a",
+   "size": 250537,
+   "pointerSize": 131
+  },
+  "xetHash": "a5dbca4a0c84f999f36c3c34841eb03fa44df073726bddceb3e5a7181e506523",
+  "path": "assets/pareto.png"
+ },
+ {
+  "type": "file",
+  "oid": "77e8db6db061adfe4c0b4ab856a71efda88a7222",
+  "size": 7522,
+  "path": "assets/plot_pareto.py"
+ },
+ {
+  "type": "file",
+  "oid": "62a37817d160914c2fffb215fa8fafc3a8e9f85c",
+  "size": 3308,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "a69b7414caf9a54a9e0878e3d065c0458ec634fe",
+  "size": 5010,
+  "path": "crivo.py"
+ },
+ {
+  "type": "file",
+  "oid": "796a3ecf28954b0f66d62350b6551b33d05277ef",
+  "size": 6515,
+  "path": "decision_index_engine.py"
+ },
+ {
+  "type": "file",
+  "oid": "718e706684c0529e0606432ba84d309a233808cd",
+  "size": 7042,
+  "path": "model.py"
+ },
+ {
+  "type": "file",
+  "oid": "1f0e73bb3d97cd34cd94c77297f090639f2c0a97",
+  "size": 598455652,
+  "lfs": {
+   "oid": "9022e370bb7ddf91297a64c0b538540acdd5c09dee5848ea854bb177577daab8",
+   "size": 598455652,
+   "pointerSize": 134
+  },
+  "xetHash": "a02212b7acd983a3b3b9d8a2b38b95fe17a5b54010d501430dd3e40b4c71773b",
+  "path": "model.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "d54ee2db9c20a994ac4a9bb232d7e66bb1b192bf",
+  "size": 3583508,
+  "path": "tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "12179ecdedada8e7388cf387c85d5f2b90f2a395",
+  "size": 534,
+  "path": "tokenizer_config.json"
+ }
+]

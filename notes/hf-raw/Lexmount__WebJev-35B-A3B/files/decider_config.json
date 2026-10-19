@@ -1,0 +1,11 @@
+{
+  "version": "WebJev-35B-A3B",
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "neutralize_none": false,
+  "base": "Qwen/Qwen3.5-35B-A3B-Base",
+  "max_options": 255,
+  "max_state_tokens": 32768,
+  "schema_first": false,
+  "isolated_levels": true
+}

@@ -1,0 +1,388 @@
+{
+  "schema_version": 1,
+  "repo_id": "ZefanCai/Open-Jev-27B-v1.1",
+  "artifact_type": "qwen_lora_adapter_plus_scalar_decision_head",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "base_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "base_weights_included": false,
+  "source_checkpoint_directory_sha256": "c49994563c3c4f04a99d9130203c4e526f4ae5086c84deec57698d18cb652e71",
+  "source_checkpoint_files_sha256": {
+    "adapter/README.md": "f9e934433c6ae81516474d416c6b1dcf5193fe08bf41205363cf0b5b33760c1e",
+    "adapter/adapter_config.json": "0a11cc4a895a0ef163c1d25a4e2a5600c362adb805b4ce9e6278de9e8c78946a",
+    "adapter/adapter_model.safetensors": "1c857224bd3609c6a71eacf7f71dd021115fcc0f791936b1fc332e915b548a81",
+    "head.pt": "76e382f122abfa4e0c467d860a8d142d2fb6d2a98dc0ef9e19870bfc6eb296b4",
+    "model.json": "394c4ccc4f880172571abd141e16d00bf9dc140d1e252bae4e9185ee4cf8c508",
+    "temperature.json": "185c0b85539d195d02a2d4949295f0400fc208d9eb7ac4e5e6c97ebd339a235f"
+  },
+  "packaged_inference_directory_sha256": "c49994563c3c4f04a99d9130203c4e526f4ae5086c84deec57698d18cb652e71",
+  "checkpoint_tree_preserved": true,
+  "packaging_omissions": [],
+  "training": {
+    "steps": 37160,
+    "max_length": 4096,
+    "lora_rank": 8,
+    "accumulation": 4,
+    "seed": 20260921,
+    "lr": 2e-05,
+    "head_lr": 5e-05,
+    "brier_weight": 0.1,
+    "training_sampling": "shuffled",
+    "commit": "7ac6bab261bd97efc3d446152999e94ae432e5b0",
+    "training_rows_consumed": 148640,
+    "resume_step": 28032,
+    "trainable_parameters": 15471617,
+    "identity_sha256": "9157ef46edc1177e59dd246c9e29142e87ee2545ccd4f591ae9222a1b2df4fe7",
+    "data_sha256": {
+      "train": "959dac64adc1717d92e9bb80371d4b940b2b5994f9e36e469b3eaed85883fdff",
+      "calibration": "6a02712bc6dce4c99cae3acfa54cf049553d12e4b795cfa4c170bd7de5732981",
+      "validation": "743ec57c076fee300bfe3e3eb364a8fb629addfd185724c0b66d58633bcd9372",
+      "test": "2cd250906060a570e0c596f7bb6ee7fb299fbf314e011a8c72ecb78d70248295",
+      "ood": "b575698e0f1006713ca736b96d1d8eb43a54d052e266c0f363b027b288f54498"
+    },
+    "data_manifest_sha256": "7b26f948d2ae11f20d7a18be437d1ada616fc479e1596ae94be7596787fe4e54",
+    "initialization_provenance": {
+      "kind": "ddp_snapshot_weights_only",
+      "source_manifest_sha256": "28aca3c8977191f976b0b961bd9924e4ba4ea511c6b627a887ae7cad937f41a5",
+      "source_training_state_sha256": "6ac6f647d4b6df7504e068b6f5408141f0f951c131b5f745272f94e0230b25d1",
+      "source_training_identity_sha256": "ad0ca316f7988163ba5ace364eea9d20104ad60e31bfaf2984a07bc013fb4a3f",
+      "source_distribution_sha256": "12559e06e61279e094226aded26834161eb6892ea6f42ae78f9defd8d07e22a1",
+      "source_completed_step": 26500,
+      "optimizer": "new_adamw_state",
+      "rng": "new_run_seed_and_rank_streams",
+      "step_cursor": 0,
+      "baseline_initialization": "warm_start_checkpoint"
+    },
+    "bitwise_ddp_continuation_claimed": false,
+    "dataset_name": "community-hard-mix-v2-final",
+    "unique_training_rows": 148639,
+    "wrapped_rows": 1,
+    "final_resume_manifest_sha256": "27cd0059093f13c36da66f0bdb2548c6b20aaeed45f72b046f08c1862fe77ba2",
+    "execution": {
+      "world_size": 4,
+      "backend": "nccl",
+      "device_type": "cuda",
+      "local_rows_per_step": 1,
+      "global_batch_size": 4,
+      "frozen_base": "BF16 FSDP2 per decoder layer and root; reshard_after_forward",
+      "trainables": "replicated FP32 LoRA/head; explicit gradient sum/4 before clipping",
+      "row_order": "train[(completed_steps * 4 + rank) % len(train)]",
+      "bitwise_ddp_equivalence": false,
+      "implementation_sha256": {
+        "train_shared.py": "d6cad3052e1fdf7476012ca290cadeb15cb3281b286b21e10bb9e73dd845cce7",
+        "sharded_model.py": "203ccce480104a3741058ad069ea243688d1e34aafdf6af214e64db7b6fb178b",
+        "shared_resources.py": "e910e6e556c8a4e1f6f404f7ae19ed8d5ad8bceb82e792f2b137498c4a989b48"
+      }
+    }
+  },
+  "calibration": {
+    "temperature": 2.5343690298472983,
+    "split": "calibration",
+    "n": 512,
+    "ids_sha256": "5c3dc72fe789a3e661a3b0d42b19e0b5483cf8e0df3727c999f1e01e764bf122"
+  },
+  "initialization": {
+    "kind": "weights_only_warm_start_from_previous_open_jev_27b",
+    "source_completed_step": 26500,
+    "source_dataset": "browser-drone-expansion-v1",
+    "source_data_manifest_sha256": "ba001b88787ce21576017897a0cbdedd5917ceb29ad3522b0e1fb7b4836d49df",
+    "source_snapshot_manifest_sha256": "28aca3c8977191f976b0b961bd9924e4ba4ea511c6b627a887ae7cad937f41a5",
+    "optimizer_for_new_mixture": "new AdamW state",
+    "new_mixture_step_cursor": 0
+  },
+  "public_data": {
+    "repo_id": "ZefanCai/Open-Jev-v1.1",
+    "repo_type": "dataset",
+    "config": "community-hard-mix-v2-redistributable",
+    "byte_identical_to_original_training_mixture": false,
+    "original_split_counts": {
+      "train": 148639,
+      "calibration": 26764,
+      "validation": 25482,
+      "test": 43301,
+      "ood": 84486
+    },
+    "public_split_counts": {
+      "train": 147139,
+      "calibration": 26675,
+      "validation": 25413,
+      "test": 43125,
+      "ood": 84267
+    },
+    "excluded_source": "wikispeedia-v1",
+    "excluded_training_rows": 1500,
+    "excluded_total_rows": 2053,
+    "reason": "Original Wikispeedia graph/path archive redistribution permission has not been confirmed."
+  },
+  "source_license_inventory": [
+    {
+      "component": "community-diversity-v2",
+      "manifest_sha256": "90a1f02ea457e65d3e3c40859fb73c5113e090fcc7dfe3cead72dbe6730bb2e1",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "wanli-decisions-v1",
+      "manifest_sha256": "38d50b03e62c63c561eff879351a73c426fec3a431b8cedd5edb0d564aa0f5af",
+      "declared_license": "CC-BY-4.0",
+      "note": null
+    },
+    {
+      "component": "browser-drone-expansion-v1",
+      "manifest_sha256": "ba001b88787ce21576017897a0cbdedd5917ceb29ad3522b0e1fb7b4836d49df",
+      "declared_license": null,
+      "note": "Aggregate source with per-component terms, including Wikispeedia with unconfirmed redistribution permission."
+    },
+    {
+      "component": "ir-control-v1",
+      "manifest_sha256": "5305dad7326fbf32aa006447137c5a3eb92872d90cde71302bc7efb39f882590",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "mailroom-control-v1",
+      "manifest_sha256": "afa9daabd5639a333c9adf8e89e7c7bbfcf84adfc051fb9843978c29703122f6",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "amount-extraction-control-v1",
+      "manifest_sha256": "6f89f81336ac36505c563193da27fca2155fa566175451854f0ac410979ea80b",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "entity-alignment-control-v1",
+      "manifest_sha256": "b3afddbeb926d57b7d7ea13c5fbda0fff878c647ea9ff1ee8a09b11d7f2f9eb5",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "email-selection-control-v1",
+      "manifest_sha256": "4c18cc791425003c5c8f052ce27ed034dfb54c79ddac24de13f7290ab3b3316c",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "phone-extraction-control-v1",
+      "manifest_sha256": "1001f1e04795308bf4f68db51076e8e1e1e47802986de54fc33b3b8d33548cfb",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "citation-control-v1",
+      "manifest_sha256": "069466d7536c579812bf2c870a9ea209d13a695005c299debffe61cd3aeffff4",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "sponsor-segment-control-v1",
+      "manifest_sha256": "6a143ede0485b22588fc92f4612f41428c46b1fa7d8f8cc0d32422d09b548f13",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "silent-failure-control-v1",
+      "manifest_sha256": "a7d326a480c0132dd608d0d7119a948bc16e36667e0ff7049e111f33c5445fac",
+      "declared_license": "CC0-1.0",
+      "note": null
+    },
+    {
+      "component": "context-retention-control-v1",
+      "manifest_sha256": "03badf69899809919e90bd299c5ddea4b3f8d646505d02f9544a1312e13bbd94",
+      "declared_license": "CC0-1.0",
+      "note": null
+    }
+  ],
+  "upstream_retrieval": {
+    "README.md": {
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B/raw/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/README.md",
+      "sha256": "57e4bdb258ee1a7d2635c5174ebd4e56abe392505cdb5f8bbb356b0dc4293641",
+      "bytes": 65012
+    },
+    "LICENSE": {
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B/raw/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/LICENSE",
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+      "bytes": 11544
+    },
+    "config.json": {
+      "url": "https://huggingface.co/Qwen/Qwen3.8-27B/raw/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0/config.json",
+      "sha256": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+      "bytes": 4312
+    },
+    "revision-api.json": {
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3.8-27B/revision/1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "sha256": "18803d62aeff63743add15cff5e7b6c8746a1df44b8006ba3070599824e0944f",
+      "bytes": 24096
+    }
+  },
+  "evaluation": {
+    "full_internal": {
+      "status": "passed_complete_full24_audit",
+      "publishable": true,
+      "report": "verification/internal-full.json",
+      "report_sha256": "19a154c1a6ed3935bac266ab04b8a395bc180739540127b4b3802190e3c34f97",
+      "independent_audit_sha256": "650642bac1c7440f7cdbaf044068b8870ef7a514510dfd8a6cb01756a9304795",
+      "campaign_manifest_sha256": "491a4ee96d1ef6509ead733daffdf2318f3bb43d9d5bf38715f2cd0be8a0a9d4",
+      "evaluation_code_commit": "9eebd42de6137735fc5fd85b499aa1ffa256426d",
+      "checkpoint_sha256": "c49994563c3c4f04a99d9130203c4e526f4ae5086c84deec57698d18cb652e71",
+      "coverage": {
+        "total": 127787,
+        "successful": 127787,
+        "failed": 0,
+        "missing": 0,
+        "duplicates": 0,
+        "imported": 4491,
+        "new": 123296,
+        "completed_groups": 6,
+        "owned_processes_remaining": 0
+      },
+      "panels": {
+        "old_test": {
+          "count": 10532,
+          "hard_count": 10046,
+          "soft_count": 486,
+          "hard_correct": 9876,
+          "accuracy": 0.9830778419271352,
+          "expected_accuracy": 0.954681027079432,
+          "nll": 0.13386432263131773,
+          "brier": 0.03458594885426232,
+          "expected_brier": 0.06263691316614574,
+          "multiclass_ece": 0.029161848979411622,
+          "ece_bins": 15
+        },
+        "expanded_test": {
+          "count": 43301,
+          "hard_count": 42789,
+          "soft_count": 512,
+          "hard_correct": 41357,
+          "accuracy": 0.966533454859894,
+          "expected_accuracy": 0.9595090315974361,
+          "nll": 0.12983825446990038,
+          "brier": 0.05746167254927552,
+          "expected_brier": 0.06460776054107147,
+          "multiclass_ece": 0.037463708716989785,
+          "ece_bins": 15
+        },
+        "old_ood": {
+          "count": 15920,
+          "hard_count": 15446,
+          "soft_count": 474,
+          "hard_correct": 14825,
+          "accuracy": 0.9597954162890069,
+          "expected_accuracy": 0.9430203212128463,
+          "nll": 0.15887220783486702,
+          "brier": 0.06296576556098005,
+          "expected_brier": 0.08029650520798853,
+          "multiclass_ece": 0.024102283529718986,
+          "ece_bins": 15
+        },
+        "expanded_ood": {
+          "count": 84486,
+          "hard_count": 83924,
+          "soft_count": 562,
+          "hard_correct": 80934,
+          "accuracy": 0.9643725275249034,
+          "expected_accuracy": 0.9606666609107841,
+          "nll": 0.13434172410803066,
+          "brier": 0.060333553335607484,
+          "expected_brier": 0.06415555195289763,
+          "multiclass_ece": 0.01820277638023621,
+          "ece_bins": 15
+        }
+      },
+      "protocol": {
+        "max_length": 4096,
+        "truncation": false,
+        "cache": false,
+        "row_batch_size": 1,
+        "temperature_fitted_on_evaluation": false,
+        "base_dtype": "BF16",
+        "head_dtype": "FP32",
+        "hard_accuracy": "Exact one-hot targets only; all rows contribute to probability metrics.",
+        "subset": "Old Test/OOD are content-identical subsets of expanded Test/OOD; panels overlap."
+      }
+    },
+    "jevbench": {
+      "status": "complete_independently_audited",
+      "report": "verification/jevbench.json",
+      "report_sha256": "9a78ffb3aecb113e26bf4d83fd5ad7467141e3bdf84535e90ba71d634ec2a85d",
+      "scope": "231 public tasks only, including 111 Hard; not the complete 534-task benchmark.",
+      "checkpoint_sha256": "c49994563c3c4f04a99d9130203c4e526f4ae5086c84deec57698d18cb652e71",
+      "max_length": 16384,
+      "temperature": 2.5343690298472983,
+      "overall": {
+        "n_planned": 231,
+        "n_attempted": 231,
+        "n_scorable": 231,
+        "n_valid": 231,
+        "n_correct": 197,
+        "accuracy": 0.8528138528138528,
+        "schema_validity": 1.0,
+        "schema_validity_strict": 1.0,
+        "n_renormalized": 0,
+        "operational_success": 1.0,
+        "brier_mean": 0.2419831167860275,
+        "ordinal_mae": 0.3798003972534468
+      },
+      "hard": {
+        "n_planned": 111,
+        "n_attempted": 111,
+        "n_valid": 111,
+        "n_correct": 80,
+        "accuracy": 0.7207207207207207
+      },
+      "comparison_baselines": [
+        {
+          "label": "Released Open-Jev 2B",
+          "overall": {
+            "n_correct": 150,
+            "n_planned": 231,
+            "accuracy": 0.6493506493506493
+          },
+          "hard": {
+            "n_correct": 46,
+            "n_planned": 111,
+            "accuracy": 0.4144144144144144
+          }
+        },
+        {
+          "label": "Released Open-Jev 9B",
+          "overall": {
+            "n_correct": 179,
+            "n_planned": 231,
+            "accuracy": 0.7748917748917749
+          },
+          "hard": {
+            "n_correct": 66,
+            "n_planned": 111,
+            "accuracy": 0.5945945945945946
+          }
+        },
+        {
+          "label": "Jev 1.13.0",
+          "overall": {
+            "n_correct": 200,
+            "n_planned": 231,
+            "accuracy": 0.8658008658008658
+          },
+          "hard": {
+            "n_correct": 81,
+            "n_planned": 111,
+            "accuracy": 0.7297297297297297
+          }
+        }
+      ]
+    },
+    "expected_original_test_rows": 43301,
+    "expected_original_ood_rows": 84486,
+    "latency_claims": null,
+    "sampled_training_metrics_included": false
+  },
+  "training_run_artifact_hashes": {
+    "run.json": "15721f8b41a7dd4e6a829c7fe06cec1e609f109169598edd1441bd79308a4e1b",
+    "summary.json": "c2870c2518100402c96b1ce1a7edec7f5a1afe5b322f37776f1477b5a8a3a8e6",
+    "reload_check.jsonl": "f84fa6b2bf418670301b12dac60cfddea4c41fe19be32e9bae57b9cadb2ecf07",
+    "calibration.jsonl": "2d9b457512d1b470d4c2c756fcba68d6c08bd0725df935e7096434b5a23164ae"
+  },
+  "scope": "Source hashes bind private training records without distributing raw records, prompts, targets or credentials."
+}

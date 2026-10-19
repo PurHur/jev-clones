@@ -1,0 +1,90 @@
+# Phocinae/Phocinae-Largha-150M-v1 — .eval_results/typed-decisions.yaml
+# Submitted: 2026-10-09 (v1.1 weights). Scorer conventions verified against the
+# benchmark's Uniform reference row (KL 0.444 / Brier 0.238 reproduced exactly).
+# 2026-10-15: the reported accuracy was changed from 0.906 to the clean re-score
+# 0.791, so that the auto-populated board matches the benchmark maintainers'
+# curated Table 2. The 0.906 lineage was measured on a test split the fine-tune
+# mix had partly seen; the maintainer's note on this ("the Hub's auto-populated
+# board reads each model repo's own eval results, so that entry is up to the
+# submitters") is in the dataset discussion #25.
+# After push, verify: GET https://huggingface.co/api/datasets/LocalLLaMA/typed-decisions/leaderboard
+#
+# 2026-10-15 (second change): the `revision:` pin was removed from all four entries.
+# It pinned the dataset at e039ebffcc280174dd354227424fb2b249f191de, which was the
+# dataset tip on 2026-10-08 but is now stale (tip is 7189f46b...). Every model that
+# currently appears on the auto-populated board omits this field; the four that pin a
+# now-stale revision - ours among them - do not appear at all. The rule is empirical,
+# not documented, so it is recorded here rather than presented as spec.
+
+- dataset:
+    id: LocalLLaMA/typed-decisions
+    task_id: accuracy
+  value: 0.791
+  date: '2026-10-15'
+  source:
+    url: https://huggingface.co/Phocinae/Phocinae-Largha-150M-v1/blob/main/BENCHMARKS.md
+    name: Phocinae self-host eval (BENCHMARKS.md)
+    user: Phocinae
+  notes: >
+    Specialist: fitted on the Typed Decisions train split (mmBERT-small base) — NOT zero-shot;
+    per the benchmark README this belongs to the "fitted/fine-tuned on train" table and is not
+    comparable with the zero-shot table. Test split, 400 cases / 2,000 decisions, one request
+    per case with the state and all five questions (README request shape), all answered, zero
+    errors. Accuracy = agreement with the gold label. One forward pass per question, no generated
+    tokens. Self-reported (self-host, no verifyToken). The submitted accuracy sits above the 0.735
+    teacher self-agreement ceiling — per the README this indicates the model is learning the
+    teacher's quirks (label-specificity), also probed via JevBench on the model card. zh
+    (machine-translated test cases; the training mix includes machine-translated + native Chinese
+    rows) has no benchmark task; see the model card.
+    Training-overlap disclosure (corrected 2026-10-10; re-audited 2026-10-12): the fine-tune mix
+    includes a 500-item error-correction pair pool mined from model predictions on this benchmark's
+    test rows. Overlap with this test split: 500 / 2,000 decisions across 282 / 400 cases (S1MB
+    typed-decisions subset: 82 / 100 cases, 151 / 500 decisions). This accuracy is therefore measured
+    on a test split this lineage has partly seen — read as "fitted on train, test-exposed", not zero-shot.
+    Full details: the model card's training-overlap disclosure. A clean re-score without the pool (same recipe,
+    pairs swapped back out) measures 0.791 — published in the dataset discussion
+    (2026-10-12).
+
+- dataset:
+    id: LocalLLaMA/typed-decisions
+    task_id: kl_from_gold
+  value: 0.0548
+  date: '2026-10-09'
+  source:
+    url: https://huggingface.co/Phocinae/Phocinae-Largha-150M-v1/blob/main/BENCHMARKS.md
+    name: Phocinae self-host eval (BENCHMARKS.md)
+    user: Phocinae
+  notes: >
+    KL(gold || prediction), mean over the 2,000 decisions; scored with the benchmark's
+    conventions (reproduced exactly from the README's Uniform reference row). Specialist:
+    fitted on the train split — not comparable with the zero-shot table. Self-reported. See the accuracy entry's overlap note: includes test-derived correction pairs; not zero-shot.
+
+- dataset:
+    id: LocalLLaMA/typed-decisions
+    task_id: brier
+  value: 0.0248
+  date: '2026-10-09'
+  source:
+    url: https://huggingface.co/Phocinae/Phocinae-Largha-150M-v1/blob/main/BENCHMARKS.md
+    name: Phocinae self-host eval (BENCHMARKS.md)
+    user: Phocinae
+  notes: >
+    Brier summed over options, mean over the 2,000 decisions; scored with the benchmark's
+    conventions (reproduced exactly from the README's Uniform reference row). Specialist:
+    fitted on the train split — not comparable with the zero-shot table. Self-reported. See the accuracy entry's overlap note: includes test-derived correction pairs; not zero-shot.
+
+- dataset:
+    id: LocalLLaMA/typed-decisions
+    task_id: ece
+  value: 0.2519
+  date: '2026-10-09'
+  source:
+    url: https://huggingface.co/Phocinae/Phocinae-Largha-150M-v1/blob/main/BENCHMARKS.md
+    name: Phocinae self-host eval (BENCHMARKS.md)
+    user: Phocinae
+  notes: >
+    ECE with the shipped temperature column (en, 15 equal-width bins), as computed by our scorer
+    and documented in BENCHMARKS.md (the benchmark README warns that submitters compute ECE
+    differently). An optional bundled calibration column (calib/) reaches 0.0168. Self-reported
+    (self-host, no verifyToken).
+    See the accuracy entry's overlap note: includes test-derived correction pairs; not zero-shot.

@@ -1,0 +1,489 @@
+
+One Decision Model Instead of a Ranking Team: Short-Video and News Recommendation with autotrust/JEV-27B-VL
+Hugging Face
+ Models 
+ Datasets 
+ Spaces 
+ Buckets 
+new
+ Docs 
+ Enterprise 
+Pricing
+Website
+Tasks
+HuggingChat
+Collections
+Languages
+Organizations
+Community
+Blog
+Posts
+Daily Papers
+Hardware
+Learn
+Discord
+Forum
+GitHub
+Solutions
+Team & Enterprise
+Hugging Face PRO
+Enterprise Support
+Inference Providers
+Inference Endpoints
+Storage Buckets
+Log In
+Sign Up
+ Back to Articles
+a]:hidden">
+		One Decision Model Instead of a Ranking Team: Short-Video and News Recommendation with autotrust/JEV-27B-VL
+Community Article
+Published
+					October 13, 2026
+ Upvote 
+22
++16
+Hai Yu
+cloudyu
+Follow
+autotrust
+Josh Liu
+AutoTrustAILab
+Follow
+autotrust
+:last-child]:mb-0">
+The idea
+What a ranking team builds today
+What replaces it
+Why one decision covers so much
+How the two demos work
+shorts.guru.so
+news.guru.so
+Results
+Quality without training
+Speed and cost
+Limitations
+Links
+Live demos:
+Short-video recommendation: 
+https://shorts.guru.so
+News search and recommendation: 
+https://news.guru.so
+		The idea
+Recommendation and search answer the same question over and over: 
+of these items, which one does this person want?
+Large platforms answer it with a stack of systems that are each built and trained separately. The stack includes content-understanding models, hand-designed features, recall models, click-prediction models, re-rankers, cold-start rules and moderation classifiers. Every part needs its own engineers, training data and retraining schedule.
+We ask the question directly instead. A decision model looks at what the user watched (covers and captions) and at the candidates, and returns a calibrated probability for each candidate in one forward pass. Those probabilities are the ranking. Nothing is trained for the product and no features are designed, and no logs are needed before the first recommendation.
+The short-video demo needs to see images, so it uses 
+autotrust/JEV-27B-VL
+. The news demo works on text only and uses 
+autotrust/JEV-27B
+ or 
+autotrust/JEV-35B
+.  JEV-27B-VL makes the same text decisions: on 1,000 decisions the mean probability difference is 0.010.
+		What a ranking team builds today
+By our estimate, recommendation ranking at a large short-video platform takes at least 100 engineers to build and run. The work splits roughly like this:
+Content understanding and visual recognition:
+ models that tag videos from frames, covers, audio and text, plus label taxonomies and annotation pipelines.
+Feature engineering:
+ user, item and cross features, a feature store, and keeping training-time and serving-time features consistent.
+Interest recall:
+ several recall channels (collaborative filtering, two-tower embedding models, tag and creator recall), each trained and tuned.
+Click and watch-time prediction:
+ building training samples from logs, training, online learning, calibration, and fusing several objectives.
+Re-ranking:
+ diversity, freshness and business rules, often with models of their own.
+Cold start:
+ separate strategies for new videos and new users, because everything above needs history.
+Safety:
+ moderation classifiers and the labelling behind them.
+Training platform:
+ data pipelines, scheduled retraining, model releases and A/B testing.
+Search is built the same way: query understanding and rewriting, human relevance ratings, learning-to-rank features and models, trained re-rankers, and answer generation.
+		What replaces it
+In shorts.guru.so and news.guru.so, each of these areas is either one decision by the model or a few lines of code:
+area
+today
+in our demos
+visual recognition
+trained tagging models
+the model looks at the covers itself, inside the ranking question
+topic and safety labels
+annotation teams and classifiers
+model decisions, with no annotation
+feature engineering
+feature design and a feature store
+none: raw captions and covers go into the question
+click / watch prediction
+models trained, retrained and calibrated on logs
+the probability of each option, calibrated and zero-shot
+interest recall
+several trained recall models
+an off-the-shelf embedding model for search, plus a short scoring function
+re-ranking
+rules and models
+the model compares the candidates in a batch with each other, plus a topic cap
+cold start
+separate strategies
+not needed: new videos are ranked from their content
+search relevance
+human ratings, learning-to-rank, trained re-rankers
+one decision per result
+retraining
+scheduled pipelines
+none
+What remains is a much smaller job: fetching candidates and serving them fast, writing and testing the questions, evaluation and A/B tests, and safety policy. We think about 10 engineers can own this, for recommendation and for search alike.
+		Why one decision covers so much
+It sees.
+ The model reads covers and captions, so content understanding happens inside ranking instead of in a separate tagging system.
+It reads the user's history at request time.
+ Interest is inferred from the last few videos on every request, instead of being learned into embeddings that need retraining. A like or a skip changes the very next batch.
+It returns calibrated probabilities in one forward pass, without generating text.
+ The numbers can be sorted, merged across sources (6 news feeds, 3 search engines) and thresholded (the safety gate, dropping weak candidates).
+It compares candidates directly.
+ One question ranks a whole batch, which is faster and more accurate than scoring each candidate on its own (results below).
+Behaviour changes with the question, not with retraining.
+ Adding "what the user asked for today" to the question turns the feed into a search-driven feed. Asking about importance instead of relevance turns a search ranker into a news recommender.
+		How the two demos work
+		shorts.guru.so
+The feed covers 8.9 million English videos from 2026 in 
+datasocial/tiktok-5.6B-videos
+, after keeping English, non-ad videos of 5 s to 10 min with at least 50k views.
+Candidates.
+ A short scoring function picks from a labelled pool of about 11,000 videos, using topic overlap with recent videos, shared hashtags, the same creator or sound, topic preferences and a weak popularity prior. Searches use 
+google/embeddinggemma-2
+, without fine-tuning, over all 8.9 million captions: about 60 ms per query.
+Ranking.
+ One multiple-choice question holds the covers and captions of the user's last 5 videos and of up to 8 candidates.
+Scheduling.
+ The next batch is requested when 3 videos are left. Ranking then uses the latest likes and skips and finishes while the user is still watching. If the model misses its deadline, the batch is shown in candidate order.
+The ranking question:
+state = [
+"Captions and covers of the videos this user watched most recently (oldest to newest):\n"
+]
+for
+ k, (caption, cover) 
+in
+enumerate
+(history, 
+1
+):
+    state += [
+f"
+{k}
+. 
+{caption}
+ "
+, {
+"image"
+: cover}, 
+"\n"
+]
+state += [
+"Candidate videos (caption, then cover):\n"
+]
+for
+ k, (caption, cover) 
+in
+enumerate
+(candidates, 
+1
+):
+    state += [
+f"#
+{k}
+{caption}
+ "
+, {
+"image"
+: cover}, 
+"\n"
+]
+r = requests.post(
+"https://api.scienceguru.ai/v1/decide"
+, headers=auth, json={
+"model"
+: 
+"jev-27b-vl"
+, 
+"kind"
+: 
+"choice"
+, 
+"state"
+: state,
+"question"
+: 
+"Which candidate video is this user most likely to watch next?"
+,
+"options"
+: [
+f"#
+{k}
+{caption[:
+60
+]}
+"
+for
+ k, (caption, _) 
+in
+enumerate
+(candidates, 
+1
+)],
+}).json()
+ranking = 
+sorted
+(
+zip
+(r[
+"probabilities"
+], candidates), key=
+lambda
+ x: -x[
+0
+])
+		news.guru.so
+Recommendation:
+ the latest headlines from 6 news feeds, with one importance decision per headline, all run concurrently. That is 60 decisions in 0.46 s.
+Search:
+ results from Google News, Bing News and Yahoo News, with one relevance decision per result. Each result gets P(relevant) and a 0–5 rating, and their average sets its rank. That is 22–24 decisions in 0.23–0.62 s. The page shows this order next to the engines' own order, and the top 8 results feed a short answer with citations.
+		Results
+		Quality without training
+task
+JEV, no training
+trained baseline
+short-video next watch, MicroLens-100k, 20 candidates (AUC)
+0.727 (covers only)
+item-based collaborative filtering on 59,045 users' logs: 0.728
+same task, top-5 hit rate
+0.590
+0.490
+news recommendation, MIND (AUC)
+0.642
+LightGBM trained on MIND with hand-crafted features: 0.616
+search re-ranking, TREC-COVID (nDCG@10)
+0.858
+bge-reranker-v2-m3, trained for re-ranking: 0.793
+The MicroLens and MIND numbers are from the model cards. On MicroLens, the AUC difference from collaborative filtering is 0.000 (95% interval −0.041 to +0.040). Collaborative filtering needs co-watch history, whereas the model only needs the cover.
+We also ran the exact question that shorts.guru.so uses (8 candidates, captions and covers) on 100 MicroLens users. It reached AUC 0.760, ranked the true next video first for 50% of users (random: 12.5%) and in the top 3 for 75% (random: 37.5%).
+		Speed and cost
+Asking one question per batch instead of one per candidate makes ranking both faster and more accurate. We tested this offline on 200 cases built from public YouTube playlists, each with 20 candidates, on one B200:
+method
+decisions per user
+AUC
+latency per user
+one yes/no question per candidate
+20
+0.905
+1.54 s
+one choice question for the batch
+1
+0.931
+0.42 s
+Live short-video ranking:
+ median 0.73 s per batch for the model call and 1.44 s end to end. Because each batch is ranked while the user watches the previous one, the user does not wait for it.
+Live news ranking:
+ 0.23–0.62 s per search and 0.46 s for 60 headlines.
+Capacity:
+ with 8 candidates per question, one API key (120 decisions per minute) ranks about 960 videos per minute. Self-hosted on one B200, the batch question ranks about 258 candidates per second.
+		Limitations
+Proxies, not production metrics.
+ The offline benchmarks come from other platforms, so production gains still need A/B tests. The team sizes above are our estimate, not a measurement.
+A cheap candidate stage remains.
+ It is arithmetic, not a trained model, because running a 27B model over millions of items per request is not practical.
+Unvalidated thresholds.
+ The safety threshold and the rule for dropping weak candidates have not been checked against labelled data.
+Licences.
+ datasocial/tiktok-5.6B-videos is CC BY-NC 4.0, and MIND is released under Microsoft Research terms.
+		Links
+Demos: 
+https://shorts.guru.so
+ and 
+https://news.guru.so
+Models: 
+autotrust/JEV-27B-VL
+, 
+autotrust/JEV-27B
+Data: 
+datasocial/tiktok-5.6B-videos
+, 
+MicroLens
+, 
+MIND
+Embedding model: 
+google/embeddinggemma-2
+ Models mentioned in this article 
+4
+autotrust/JEV-27B
+ Text Classification 
+•
+ 27B
+•
+Updated 
+8 days ago
+•
+ 240k
+•
+ 93
+autotrust/JEV-27B-VL
+ Image-Text-to-Text 
+•
+ 28B
+•
+Updated 
+5 days ago
+•
+ 1.93M
+•
+ 7.92k
+autotrust/JEV-35B
+ Text Classification 
+•
+ 36B
+•
+Updated 
+5 days ago
+•
+ 455k
+•
+ 2.83k
+google/embeddinggemma-2
+ Feature Extraction 
+•
+ 0.7B
+•
+Updated 
+13 days ago
+•
+ 168k
+•
+ 2.69k
+ Datasets mentioned in this article 
+2
+cloudyu/blog-assets
+ Viewer 
+•
+Updated 
+6 days ago
+•
+4
+•
+ 884
+•
+ 1
+datasocial/tiktok-5.6B-videos
+ Viewer 
+•
+Updated 
+12 days ago
+•
+5.6B
+•
+ 23.4k
+•
+ 362
+More from this author
+autotrust/JEV-27B-VL: a decision model that learned to see without a single image of training
+ 131
+September 30, 2026
+autotrust/JEV-27B: fast, calibrated decisions and full reasoning from one open model
+ 48
+September 27, 2026
+Community
+Edit
+Preview
+Upload images, audio, and videos by dragging in the text input, pasting, or 
+clicking here
+.
+Tap or paste here to upload images
+ Comment
+·
+Sign up
+ or 
+log in
+ to comment
+ Upvote 
+22
++10
+ Models mentioned in this article 
+4
+autotrust/JEV-27B
+ Text Classification 
+•
+ 27B
+•
+Updated 
+8 days ago
+•
+ 240k
+•
+ 93
+autotrust/JEV-27B-VL
+ Image-Text-to-Text 
+•
+ 28B
+•
+Updated 
+5 days ago
+•
+ 1.93M
+•
+ 7.92k
+autotrust/JEV-35B
+ Text Classification 
+•
+ 36B
+•
+Updated 
+5 days ago
+•
+ 455k
+•
+ 2.83k
+google/embeddinggemma-2
+ Feature Extraction 
+•
+ 0.7B
+•
+Updated 
+13 days ago
+•
+ 168k
+•
+ 2.69k
+ Datasets mentioned in this article 
+2
+cloudyu/blog-assets
+ Viewer 
+•
+Updated 
+6 days ago
+•
+4
+•
+ 884
+•
+ 1
+datasocial/tiktok-5.6B-videos
+ Viewer 
+•
+Updated 
+12 days ago
+•
+5.6B
+•
+ 23.4k
+•
+ 362
+ System theme
+Company
+TOS
+Privacy
+About
+Careers
+Website
+Models
+Datasets
+Spaces
+Pricing
+Docs

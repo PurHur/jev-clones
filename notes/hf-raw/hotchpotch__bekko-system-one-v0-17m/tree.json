@@ -1,0 +1,128 @@
+[
+ {
+  "type": "directory",
+  "oid": "a246943ffebde84685a77a610465fbbb54c1676d",
+  "size": 0,
+  "path": "0_BekkoInference"
+ },
+ {
+  "type": "directory",
+  "oid": "5d0469320fe4bbeaa7ddc1ce2c4b03319631da51",
+  "size": 0,
+  "path": "0_BekkoInference/tokenizer"
+ },
+ {
+  "type": "directory",
+  "oid": "2a13d30c9e669449302a50357a8a412d676ed225",
+  "size": 0,
+  "path": "onnx_browser"
+ },
+ {
+  "type": "file",
+  "oid": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+  "size": 1519,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "723139e07e8dc86b03557e0842a2c1658ba38d04",
+  "size": 1830,
+  "path": "0_BekkoInference/backbone_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "54b891571b4d3c37f6538551f1483dcb8c5d262c",
+  "size": 290,
+  "path": "0_BekkoInference/inference_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "ffe5abf5d582ed1531f17de3af22e626f78b6e99",
+  "size": 67198244,
+  "lfs": {
+   "oid": "ea20b04c63e3c48e277e7a9fecaeffae72511578febeb130f615f3e5b3b61b03",
+   "size": 67198244,
+   "pointerSize": 133
+  },
+  "xetHash": "488927091a0030bb48dae2bef2a66ec6481305e8edf06b840cd3c8d117373859",
+  "path": "0_BekkoInference/model.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "e44b5e2417b326ccef108a7970c237069de4075a",
+  "size": 3583327,
+  "path": "0_BekkoInference/tokenizer/tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "6c5a321020af200f9c510828078fbaae663b01c8",
+  "size": 487,
+  "path": "0_BekkoInference/tokenizer/tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "9e8e1b937a02ae1f2217889e479789bc44fab154",
+  "size": 33194,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "d373527534ae1d526a51fa8776148222f0bd73fc",
+  "size": 284,
+  "path": "config_sentence_transformers.json"
+ },
+ {
+  "type": "file",
+  "oid": "63ca2b403bc46ac3b720e51f03ae19a27308f6bc",
+  "size": 76948,
+  "path": "inference_v0.py"
+ },
+ {
+  "type": "file",
+  "oid": "97e77b92bd84fc71c62fd482004242f7ca86032c",
+  "size": 117,
+  "path": "modules.json"
+ },
+ {
+  "type": "file",
+  "oid": "de2e97ac4b5cbbcddb8a5a2a3e6e23a811138ce2",
+  "size": 3124,
+  "path": "onnx_browser/README.md"
+ },
+ {
+  "type": "file",
+  "oid": "d50b47a8f3de5cf5b1e7b120a85af5bc266a37d5",
+  "size": 880,
+  "path": "onnx_browser/manifest.json"
+ },
+ {
+  "type": "file",
+  "oid": "1bf71b625a8d9ed431b0cf97da425242dd3401ba",
+  "size": 29023607,
+  "lfs": {
+   "oid": "1a27d9ce0f44ddb8e3247aec245e3c05e2425996d5ff0def114a093c58c464de",
+   "size": 29023607,
+   "pointerSize": 133
+  },
+  "xetHash": "b9d3456123e8e311dad9b53fa07562ebf7d4677f11a9269f32f7df3f772749ec",
+  "path": "onnx_browser/model.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "e44b5e2417b326ccef108a7970c237069de4075a",
+  "size": 3583327,
+  "path": "onnx_browser/tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "be0cc5b7f4a572f8e47562d22dc641e88bca500b",
+  "size": 124,
+  "path": "onnx_browser/tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "78c42bab62ab96db1a37fdf7cd77eef4a41075bc",
+  "size": 96,
+  "path": "requirements.txt"
+ }
+]

@@ -1,0 +1,27 @@
+{
+ "_id": "6abb6853e0fab20d66b925dc",
+ "id": "hotchpotch/bekko-system-one-v0-17m",
+ "config": {},
+ "cardData": {
+  "base_model": [
+   "cross-encoder/ettin-reranker-17m-v1"
+  ],
+  "language": [
+   "en"
+  ],
+  "library_name": "sentence-transformers",
+  "tags": [
+   "modernbert",
+   "typed-decisions",
+   "classification",
+   "scoring",
+   "custom-code"
+  ]
+ },
+ "lastModified": "2026-09-30T20:18:57.000Z",
+ "downloads": 0,
+ "likes": 14,
+ "gated": false,
+ "sha": "b886a1f9b91f4e8368d7830080d52d955e2c8dfa",
+ "createdAt": "2026-09-29T07:27:15.000Z"
+}

@@ -1,0 +1,25 @@
+{
+ "model": "/mnt/data/mark/projects/decider/runs/moe_optimizer_ab_v1/muon/model_nvfp4",
+ "temperature": 1.08,
+ "quantization": "NVFP4 (ModelOpt 0.46.1, NVFP4_DEFAULT_CFG, 512 calibration prompts); for vLLM / TensorRT-LLM on Blackwell; the bf16 checkpoint is the reference",
+ "fixtures": {
+  "typesafe": {
+   "rows": 102,
+   "accuracy": 0.8431372549019608,
+   "nll": 0.3648713501022975,
+   "argmax_agreement_with_bf16": 0.9607843137254902,
+   "mean_total_variation_to_bf16": 0.050491656887313836,
+   "seconds": 1.993523359298706,
+   "rows_per_second": 51.1656908980902
+  },
+  "general_validation": {
+   "rows": 847,
+   "accuracy": 0.8819362455726092,
+   "nll": 0.33909610998107875,
+   "argmax_agreement_with_bf16": 0.9669421487603306,
+   "mean_total_variation_to_bf16": 0.02974127205877468,
+   "seconds": 3.0871644020080566,
+   "rows_per_second": 274.3618057558146
+  }
+ }
+}

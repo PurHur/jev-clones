@@ -1,0 +1,68 @@
+name: xor
+
+services:
+  sglang:
+    image: prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f
+    command:
+      - python3
+      - -m
+      - sglang.launch_server
+      - --model-path
+      - /models/xor
+      - --trust-remote-code
+      - --tp-size
+      - "${TP_SIZE:-1}"
+      - --dp-size
+      - "${DP_SIZE:-1}"
+      - --port
+      - "30000"
+      - --host
+      - 0.0.0.0
+      - --max-prefill-tokens
+      - "${MAX_PREFILL_TOKENS:-250000}"
+      - --mem-fraction-static
+      - "${MEM_FRACTION_STATIC:-0.85}"
+    environment:
+      CUDA_VISIBLE_DEVICES: "${CUDA_VISIBLE_DEVICES:-0}"
+      HF_HUB_OFFLINE: "1"
+    volumes:
+      - "${MODEL_DIR:?MODEL_DIR must be set}:/models/xor:ro"
+    gpus: all
+    ipc: host
+    restart: unless-stopped
+    networks:
+      - inference
+
+  jev-api:
+    image: xor-api:local
+    build:
+      context: .
+      dockerfile: Dockerfile.wrapper
+    environment:
+      OPENJEV_SGLANG_URL: http://sglang:30000
+      OPENJEV_MODEL_ID: xor-1.2
+      OPENJEV_MODEL_ALIAS: xor-1.2
+      OPENJEV_RELEASE_DATE: "2026-09-28"
+      OPENJEV_BACKEND: Qwen/Qwen3.6-35B-A3B
+      OPENJEV_TEMP_JSON: '{"choice":1.1,"noul":1.4,"score":1.0}'
+      OPENJEV_CACHE: "0"
+      OPENJEV_IMAGES: "1"
+      OPENJEV_REQSIG: ""
+    ports:
+      - "127.0.0.1:${API_PORT:-30002}:30002"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      - inference
+      - ingress
+
+networks:
+  inference:
+    internal: true
+  ingress:

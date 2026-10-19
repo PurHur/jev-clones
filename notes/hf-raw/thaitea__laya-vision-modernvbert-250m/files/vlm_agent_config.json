@@ -1,0 +1,19 @@
+{
+  "backbone": "ModernVBERT/modernvbert",
+  "head_layers": 2,
+  "n_act": 2,
+  "max_len": 1024,
+  "head_max_len": 256,
+  "option_attention": "causal",
+  "dtype": "fp32",
+  "temperature": [
+    2.7052860260009766,
+    1.0,
+    2.161961555480957
+  ],
+  "temperature_by_options": {},
+  "preprocess": "processor",
+  "image_size": 512,
+  "image_interpolation": "processor",
+  "readout": "mask"
+}

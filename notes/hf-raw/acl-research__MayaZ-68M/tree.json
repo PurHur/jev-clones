@@ -1,0 +1,74 @@
+[
+ {
+  "type": "file",
+  "oid": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+  "size": 1519,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "3223b7bf242820c6e5a47021367aa7f26f8711cb",
+  "size": 1069,
+  "path": "LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "75fc3f9e955b6f53d3c1d4d98315c93735b8f8ea",
+  "size": 5360,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "66a3d010a79eab12a390f1cb3e41ac5c387450bc",
+  "size": 546,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "52d725cd6d506d2661182800ff3acfecbddf8743",
+  "size": 287245542,
+  "lfs": {
+   "oid": "bfab2df56eb809656ef14b7db287b004c01f71fd17b8e7e032a353b9ad36e194",
+   "size": 287245542,
+   "pointerSize": 134
+  },
+  "xetHash": "4cca7bcb30ec7bd8bb783d45b41ec33702eb2596eaf583c6c4cee4faadea82aa",
+  "path": "mayaz_fp32.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "b13df1711a1410b36cf3dd1676874349def3881f",
+  "size": 159136401,
+  "lfs": {
+   "oid": "d42086749909560331a85d1e8b94e718bb8c3b52be6844b1349560e0b4625f2b",
+   "size": 159136401,
+   "pointerSize": 134
+  },
+  "xetHash": "46dd5740a2e59e0a22c3b6992a76458ffd392378fa4f5e507b523b9702af02d3",
+  "path": "mayaz_int8.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "a1579a598224179700345bf09cefec5d888cde9e",
+  "size": 81973288,
+  "lfs": {
+   "oid": "b8856f291988bbf0dac8b5e54ccc5b9ac2148d4c80936b8c1c6b294f26b85cba",
+   "size": 81973288,
+   "pointerSize": 133
+  },
+  "xetHash": "26777fbc417493a72d02d7813664727aba7255459b4873ea32c4608bdc41957e",
+  "path": "mayaz_int8_embed8.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "ed6e59e53107540f5613c11acdc322950d13534d",
+  "size": 680,
+  "path": "temperatures.json"
+ },
+ {
+  "type": "file",
+  "oid": "de3f3e316b66f3885df49ab2c0fff3e477ff1680",
+  "size": 2132967,
+  "path": "tokenizer.json"
+ }
+]

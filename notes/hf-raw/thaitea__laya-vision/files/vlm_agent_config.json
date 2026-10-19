@@ -1,0 +1,24 @@
+{
+  "backbone": "HuggingFaceTB/SmolVLM-256M-Instruct",
+  "head_layers": 2,
+  "n_act": 2,
+  "max_len": 1024,
+  "head_max_len": 256,
+  "option_attention": "block",
+  "dtype": "fp32",
+  "temperature": [
+    3.8573756217956543,
+    2.099752902984619,
+    3.0531070232391357
+  ],
+  "temperature_by_options": {},
+  "preprocess": "processor",
+  "image_size": 512,
+  "image_interpolation": "processor",
+  "readout": "terminator",
+  "image_split_edge": 0,
+  "loaded_from": {
+    "id": "/ckpt/smolvlm/cauldron-score-2ep-bidir-full/best",
+    "revision": null
+  }
+}

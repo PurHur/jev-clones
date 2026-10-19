@@ -1,0 +1,27 @@
+{
+ "_id": "6acdff0d9105403d2fd48f13",
+ "id": "acl-research/MayaZ-17M",
+ "config": {},
+ "cardData": {
+  "license": "mit",
+  "language": "en",
+  "library_name": "onnx",
+  "pipeline_tag": "text-classification",
+  "base_model": "jhu-clsp/ettin-encoder-17m",
+  "tags": [
+   "decision",
+   "classification",
+   "calibration",
+   "onnx",
+   "onnxruntime",
+   "modernbert",
+   "ettin"
+  ]
+ },
+ "lastModified": "2026-10-13T09:51:52.000Z",
+ "downloads": 15,
+ "likes": 1,
+ "gated": false,
+ "sha": "f90cd689b5d51c02bd2b3b9d988c2616a3cef188",
+ "createdAt": "2026-10-13T09:51:09.000Z"
+}

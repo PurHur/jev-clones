@@ -1,0 +1,30 @@
+{
+ "tier": "mayaz-17m",
+ "backbone": "jhu-clsp/ettin-encoder-17m",
+ "params": 17684480,
+ "enc_cfg": {
+  "vocab_size": 50368,
+  "hidden_size": 256,
+  "intermediate_size": 384,
+  "num_layers": 7,
+  "num_heads": 4,
+  "global_every": 3,
+  "local_window": 128,
+  "global_theta": 160000.0,
+  "local_theta": 160000.0,
+  "norm_eps": 1e-05,
+  "pad_id": 50283,
+  "dropout": 0.0
+ },
+ "head_cfg": {
+  "dropout": 0.1
+ },
+ "render": {
+  "max_positions": 512,
+  "max_tokens": 1536,
+  "opt_cap": 48,
+  "opt_min": 8,
+  "q_cap": 64,
+  "min_state_tokens": 128
+ }
+}

@@ -1,0 +1,62 @@
+[
+ {
+  "type": "file",
+  "oid": "a6344aac8c09253b3b630fb776ae94478aa0275b",
+  "size": 1519,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "0064f0a787ba74325dff0dd916db402645c8d603",
+  "size": 20865,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "a54bd58ad1c9eacfc50a92f9be16417adf742d9f",
+  "size": 4434,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "a69b7414caf9a54a9e0878e3d065c0458ec634fe",
+  "size": 5010,
+  "path": "crivo.py"
+ },
+ {
+  "type": "file",
+  "oid": "796a3ecf28954b0f66d62350b6551b33d05277ef",
+  "size": 6515,
+  "path": "decision_index_engine.py"
+ },
+ {
+  "type": "file",
+  "oid": "718e706684c0529e0606432ba84d309a233808cd",
+  "size": 7042,
+  "path": "model.py"
+ },
+ {
+  "type": "file",
+  "oid": "aa9ec85007e2e6e2c5c0948d9cd6a595fb243561",
+  "size": 273656292,
+  "lfs": {
+   "oid": "b9b8dcf0ddaf89c4d4a55bf47afeccf78596743a256bfd2e42a0f6961cc1b8e4",
+   "size": 273656292,
+   "pointerSize": 134
+  },
+  "xetHash": "c0f31568b5855232cde5200653c6116eb663ac07da70b2566e9aed84bcb58ba2",
+  "path": "model.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "d54ee2db9c20a994ac4a9bb232d7e66bb1b192bf",
+  "size": 3583508,
+  "path": "tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "12179ecdedada8e7388cf387c85d5f2b90f2a395",
+  "size": 534,
+  "path": "tokenizer_config.json"
+ }
+]

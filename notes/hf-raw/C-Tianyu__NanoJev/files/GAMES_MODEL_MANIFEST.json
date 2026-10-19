@@ -1,0 +1,842 @@
+{
+  "schema": "nanojev-games-model-release-v1",
+  "model_repository": "C-Tianyu/NanoJev",
+  "dataset_repository": "C-Tianyu/NanoJev-Data",
+  "base_model": "Qwen/Qwen3-0.6B",
+  "base_model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "weight_staging": "hard links to existing frozen weights; configuration and audit files are byte-for-byte copies; no symlinks",
+  "variants": [
+    {
+      "name": "local_atomic_seed17",
+      "path": "variants/local_atomic_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/local_atomic_seed17",
+      "weight_sha256": "2b06e4423861f47da7ca53ad9c23a26aebdbfe79de3a238b36c2954ae9c6abf0",
+      "best_step": 300,
+      "best_dev_target_ce": 0.48294000757494554,
+      "training_seconds": 242.69976669549942,
+      "objective": "gold_distribution",
+      "loss": "ce",
+      "data_source_directory": "data/local_maze_v1",
+      "data_files": [
+        {
+          "source_path": "data/local_maze_v1/train.jsonl",
+          "sha256": "502f2840f3e15ffac76554f35ef6c2e41c6e25f58f77b5ee3a2f1196cba0c41a",
+          "bytes": 754633
+        },
+        {
+          "source_path": "data/local_maze_v1/dev.jsonl",
+          "sha256": "bd7f9d4402112770f571210677e329e8673a38caa6bb798b744ee47bc793b9a5",
+          "bytes": 262359
+        },
+        {
+          "source_path": "data/local_maze_v1/calibration.jsonl",
+          "sha256": "94a233e71eaf3460c939bb0b4b147a0a951931001097070ea7ac8b4b78f39ace",
+          "bytes": 252234
+        },
+        {
+          "source_path": "data/local_maze_v1/test.jsonl",
+          "sha256": "be7783c395715f9fa2aae7c793c4e5b7c4b1dfe3fcb0880544b577e85b8f3b10",
+          "bytes": 232377
+        },
+        {
+          "source_path": "data/local_maze_v1/ood.jsonl",
+          "sha256": "e6772998a189880c780b6408c0e348c77324a28204e390767dec54f475d61f4e",
+          "bytes": 195310
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/local_atomic_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "2b06e4423861f47da7ca53ad9c23a26aebdbfe79de3a238b36c2954ae9c6abf0"
+        },
+        {
+          "path": "variants/local_atomic_seed17/config.json",
+          "bytes": 2498,
+          "sha256": "3a6b014a77eaa3a79155a9c0c84ce2c005b5a5c66fdf88445067657ac9def176"
+        },
+        {
+          "path": "variants/local_atomic_seed17/train_log.json",
+          "bytes": 85584,
+          "sha256": "5e2a39713c30d714dddd8b7d989aecf1a8105fee24e74b42ef8943a1fd4dff09"
+        },
+        {
+          "path": "variants/local_atomic_seed17/summary.json",
+          "bytes": 4341,
+          "sha256": "3da659f939b0cc8d44614d9258f8660482db548a3f62e6f5c8604f15a9770980"
+        },
+        {
+          "path": "variants/local_atomic_seed17/target_audit.json",
+          "bytes": 701867,
+          "sha256": "ae1cde9eeedf6e84266205fba29b32bcb58489ca7da4f17704d74d2964d6cc79"
+        },
+        {
+          "path": "variants/local_atomic_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/local_atomic_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/local_atomic_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/local_atomic_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    },
+    {
+      "name": "games_gold_seed17",
+      "path": "variants/games_gold_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/games_gold_seed17",
+      "weight_sha256": "5a395c56fad2a9bd4fb664ef78e1e06c19102886d97dd56dfe2676e5896c7e3a",
+      "best_step": 100,
+      "best_dev_target_ce": 0.6079203053015539,
+      "training_seconds": 186.51977808214724,
+      "objective": "gold_distribution",
+      "loss": "ce",
+      "data_source_directory": "data/scaled_games_v4b/policy",
+      "data_files": [
+        {
+          "source_path": "data/scaled_games_v4b/policy/train.jsonl",
+          "sha256": "af6065315d383bce2f137b3095cc9912aafe1edf0a3ee7c119c9b7af4a0ac399",
+          "bytes": 1776280
+        },
+        {
+          "source_path": "data/scaled_games_v4b/policy/dev.jsonl",
+          "sha256": "5e34f86e60dffce37d9454c4ffb978c987ba8467de35c5f79dab99bdb24f3d6b",
+          "bytes": 601279
+        },
+        {
+          "source_path": "data/scaled_games_v4b/policy/calibration.jsonl",
+          "sha256": "c2b279ecd835068c20bc328c34bca970feee1e8afab67b1f7dea0c201f0d824f",
+          "bytes": 584303
+        },
+        {
+          "source_path": "data/scaled_games_v4b/policy/test.jsonl",
+          "sha256": "54e573515e5d1e2c55308763a857d9bb46f2c02b2cbd23e50a4544587a69501c",
+          "bytes": 569530
+        },
+        {
+          "source_path": "data/scaled_games_v4b/policy/ood.jsonl",
+          "sha256": "ac4ea92590a95f40cd2134ad64f450c369601745b36d91ebf5692d9f39ea3135",
+          "bytes": 375280
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/games_gold_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "5a395c56fad2a9bd4fb664ef78e1e06c19102886d97dd56dfe2676e5896c7e3a"
+        },
+        {
+          "path": "variants/games_gold_seed17/config.json",
+          "bytes": 2562,
+          "sha256": "965c5905315315ff591d6c2eb581146b749104e65afdd463e3a3118f70baaaff"
+        },
+        {
+          "path": "variants/games_gold_seed17/train_log.json",
+          "bytes": 42887,
+          "sha256": "a1c2de04bf59f1da31ab4255be69a5b5960fde183b8a459d2cd8b1f7c618ae28"
+        },
+        {
+          "path": "variants/games_gold_seed17/summary.json",
+          "bytes": 4530,
+          "sha256": "f7de836505d40a4f779258155455fc1d3d8194e468cae269bcb942c13441ff5c"
+        },
+        {
+          "path": "variants/games_gold_seed17/target_audit.json",
+          "bytes": 1831844,
+          "sha256": "62e50d044875e9914b7edce5d1321c873eb923a31fefaf0a32d8a13e0e755b1b"
+        },
+        {
+          "path": "variants/games_gold_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/games_gold_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/games_gold_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/games_gold_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    },
+    {
+      "name": "games_api_seed17",
+      "path": "variants/games_api_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/games_api_seed17",
+      "weight_sha256": "45829fc896391847220b67dcf6fc0702427d2f184be384649bcf9343c1552477",
+      "best_step": 150,
+      "best_dev_target_ce": 0.7130707709730839,
+      "training_seconds": 182.26331992074847,
+      "objective": "teacher",
+      "loss": "ce",
+      "data_source_directory": "data/scaled_games_labeled_v4",
+      "data_files": [
+        {
+          "source_path": "data/scaled_games_labeled_v4/train.jsonl",
+          "sha256": "e21d05f1c34253687f4e7b78974503e7c05a7e145e4cbfc306246938d9f6317c",
+          "bytes": 1542530
+        },
+        {
+          "source_path": "data/scaled_games_labeled_v4/dev.jsonl",
+          "sha256": "fd7780fd6bf94263f5653cea8b3575925447981602dba61d0c7ff96b8433ea88",
+          "bytes": 524030
+        },
+        {
+          "source_path": "data/scaled_games_labeled_v4/calibration.jsonl",
+          "sha256": "9632b050ee1069c4393e275fc878c2681f9c36a501c4c6584df19b3fb88d76fd",
+          "bytes": 507336
+        },
+        {
+          "source_path": "data/scaled_games_labeled_v4/test.jsonl",
+          "sha256": "82b62b39f56bcd703e6e7c911aafb20203ff7b48ebf4f4f4c3444694e4823fa0",
+          "bytes": 494657
+        },
+        {
+          "source_path": "data/scaled_games_labeled_v4/ood.jsonl",
+          "sha256": "568c11c100126b3848fb29c9cd3d4b8dc22be42fe2df43a3bb3cf8e7b0128ae1",
+          "bytes": 348817
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/games_api_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "45829fc896391847220b67dcf6fc0702427d2f184be384649bcf9343c1552477"
+        },
+        {
+          "path": "variants/games_api_seed17/config.json",
+          "bytes": 2693,
+          "sha256": "509c449f3088e167f95ea284370763489ca182e787d7765efbcffc377b767931"
+        },
+        {
+          "path": "variants/games_api_seed17/train_log.json",
+          "bytes": 42439,
+          "sha256": "aca1693ee0a2c1c1c574416329e28a089adaa93014a071b09ac4350b62e12050"
+        },
+        {
+          "path": "variants/games_api_seed17/summary.json",
+          "bytes": 3996,
+          "sha256": "304fde47ce4cef20bd06ed088c55f4a8bc2c8da3f68e3f5a9520a5bdbf14dbdb"
+        },
+        {
+          "path": "variants/games_api_seed17/target_audit.json",
+          "bytes": 2012764,
+          "sha256": "28a1666127b407bbfdaf8bcf99ca386c66a814a37ef78221bda12cdce9f8ab38"
+        },
+        {
+          "path": "variants/games_api_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/games_api_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/games_api_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/games_api_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    },
+    {
+      "name": "events_ce_seed17",
+      "path": "variants/events_ce_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/events_ce_seed17",
+      "weight_sha256": "582c01139e29807b5f2690335271cf5647583cbfc3dd963d5967792bb3963992",
+      "best_step": 100,
+      "best_dev_target_ce": 0.47277030621569244,
+      "training_seconds": 96.74807532411069,
+      "objective": "observed_outcome",
+      "loss": "ce",
+      "data_source_directory": "data/scaled_games_v4/events",
+      "data_files": [
+        {
+          "source_path": "data/scaled_games_v4/events/train.jsonl",
+          "sha256": "4cebf698e4b71dc37d4d0e985b6577dd565ac370ac82b6f47f375aa6af69f8c9",
+          "bytes": 4061794
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/dev.jsonl",
+          "sha256": "0c352ee1064a5fb5d2aacad59cbea57afb897886d3d09e5ca108c866a5f893db",
+          "bytes": 1403407
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/calibration.jsonl",
+          "sha256": "4a8a8a2b81c3c46df6bb4c8690e97374dd0165cbef40566bb7f87c1f425d5562",
+          "bytes": 1345231
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/test.jsonl",
+          "sha256": "884bec71891668199925809d8708347f56f7bf06e8363e4a436347967b1423e3",
+          "bytes": 1299634
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/ood.jsonl",
+          "sha256": "3c00d845524634ca3b34559761cdaf0c52b7b7633d5517d1e7ee7f31697cea48",
+          "bytes": 1154862
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/events_ce_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "582c01139e29807b5f2690335271cf5647583cbfc3dd963d5967792bb3963992"
+        },
+        {
+          "path": "variants/events_ce_seed17/config.json",
+          "bytes": 2555,
+          "sha256": "52f0309ceeefe51d8cadda95b6f0985978b2d523d758194f682932892d82a566"
+        },
+        {
+          "path": "variants/events_ce_seed17/train_log.json",
+          "bytes": 28195,
+          "sha256": "c5e20da3ea98546ac71a9d2a264b53d52bcfb3387a7cd5a57d65c7cc03c9623e"
+        },
+        {
+          "path": "variants/events_ce_seed17/summary.json",
+          "bytes": 3840,
+          "sha256": "b5f1a6592da085ea88ca7676fbaf11b39874b097cdc70a3424c992010b27c3a5"
+        },
+        {
+          "path": "variants/events_ce_seed17/target_audit.json",
+          "bytes": 1334523,
+          "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+        },
+        {
+          "path": "variants/events_ce_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/events_ce_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/events_ce_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/events_ce_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    },
+    {
+      "name": "events_brier_seed17",
+      "path": "variants/events_brier_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/events_brier_seed17",
+      "weight_sha256": "0a8d8b14c97743eed4310d461a7ae5cff0400cb87eaa6dc1f8c5dc3c59988651",
+      "best_step": 100,
+      "best_dev_target_ce": 0.4421807345122086,
+      "training_seconds": 94.21064267028123,
+      "objective": "observed_outcome",
+      "loss": "brier",
+      "data_source_directory": "data/scaled_games_v4/events",
+      "data_files": [
+        {
+          "source_path": "data/scaled_games_v4/events/train.jsonl",
+          "sha256": "4cebf698e4b71dc37d4d0e985b6577dd565ac370ac82b6f47f375aa6af69f8c9",
+          "bytes": 4061794
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/dev.jsonl",
+          "sha256": "0c352ee1064a5fb5d2aacad59cbea57afb897886d3d09e5ca108c866a5f893db",
+          "bytes": 1403407
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/calibration.jsonl",
+          "sha256": "4a8a8a2b81c3c46df6bb4c8690e97374dd0165cbef40566bb7f87c1f425d5562",
+          "bytes": 1345231
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/test.jsonl",
+          "sha256": "884bec71891668199925809d8708347f56f7bf06e8363e4a436347967b1423e3",
+          "bytes": 1299634
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/ood.jsonl",
+          "sha256": "3c00d845524634ca3b34559761cdaf0c52b7b7633d5517d1e7ee7f31697cea48",
+          "bytes": 1154862
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/events_brier_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "0a8d8b14c97743eed4310d461a7ae5cff0400cb87eaa6dc1f8c5dc3c59988651"
+        },
+        {
+          "path": "variants/events_brier_seed17/config.json",
+          "bytes": 2561,
+          "sha256": "bca3a9b31a8f528bc144433f1b2f4f9f27f78f50ceb5957c99949e246c850ac2"
+        },
+        {
+          "path": "variants/events_brier_seed17/train_log.json",
+          "bytes": 28219,
+          "sha256": "e09fdb39c212589b56af8f5cbae6f51fa1d1f91de73a63636e8661a02f2312f9"
+        },
+        {
+          "path": "variants/events_brier_seed17/summary.json",
+          "bytes": 3829,
+          "sha256": "daaf0e3739fb244368662944e26b939278a31beac7c1c538ce3e72aa70536def"
+        },
+        {
+          "path": "variants/events_brier_seed17/target_audit.json",
+          "bytes": 1334523,
+          "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+        },
+        {
+          "path": "variants/events_brier_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/events_brier_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/events_brier_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/events_brier_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    },
+    {
+      "name": "events_paired_seed17",
+      "path": "variants/events_paired_seed17",
+      "source_checkpoint": "/home/rwang/nanojev_dev_v4_20260917/runs/events_paired_seed17",
+      "weight_sha256": "bbefcf829b9e36253ef46ab076f7d8fca00ffb33762e8358dbe780b3605bb777",
+      "best_step": 100,
+      "best_dev_target_ce": 0.45392147839038,
+      "training_seconds": 100.81704722624272,
+      "objective": "observed_outcome",
+      "loss": "paired_brier_pg",
+      "data_source_directory": "data/scaled_games_v4/events",
+      "data_files": [
+        {
+          "source_path": "data/scaled_games_v4/events/train.jsonl",
+          "sha256": "4cebf698e4b71dc37d4d0e985b6577dd565ac370ac82b6f47f375aa6af69f8c9",
+          "bytes": 4061794
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/dev.jsonl",
+          "sha256": "0c352ee1064a5fb5d2aacad59cbea57afb897886d3d09e5ca108c866a5f893db",
+          "bytes": 1403407
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/calibration.jsonl",
+          "sha256": "4a8a8a2b81c3c46df6bb4c8690e97374dd0165cbef40566bb7f87c1f425d5562",
+          "bytes": 1345231
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/test.jsonl",
+          "sha256": "884bec71891668199925809d8708347f56f7bf06e8363e4a436347967b1423e3",
+          "bytes": 1299634
+        },
+        {
+          "source_path": "data/scaled_games_v4/events/ood.jsonl",
+          "sha256": "3c00d845524634ca3b34559761cdaf0c52b7b7633d5517d1e7ee7f31697cea48",
+          "bytes": 1154862
+        }
+      ],
+      "files": [
+        {
+          "path": "variants/events_paired_seed17/best.safetensors",
+          "bytes": 2385039280,
+          "sha256": "bbefcf829b9e36253ef46ab076f7d8fca00ffb33762e8358dbe780b3605bb777"
+        },
+        {
+          "path": "variants/events_paired_seed17/config.json",
+          "bytes": 2671,
+          "sha256": "9bdffa977eb28e4692ba19f53b05a7ad9afd9f37665848f9db24de4e829f1acb"
+        },
+        {
+          "path": "variants/events_paired_seed17/train_log.json",
+          "bytes": 28356,
+          "sha256": "33f337e289dab3afce8199fc7b72a6c766634986f49276ba8581ea2210b673cf"
+        },
+        {
+          "path": "variants/events_paired_seed17/summary.json",
+          "bytes": 3817,
+          "sha256": "82de7efe05e55bedc75e5b50b5b9ca867aa1f100cb4c4430b9b67524c6e82de1"
+        },
+        {
+          "path": "variants/events_paired_seed17/target_audit.json",
+          "bytes": 1334523,
+          "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+        },
+        {
+          "path": "variants/events_paired_seed17/tokenizer/chat_template.jinja",
+          "bytes": 4168,
+          "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+        },
+        {
+          "path": "variants/events_paired_seed17/tokenizer/tokenizer.json",
+          "bytes": 11422650,
+          "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+        },
+        {
+          "path": "variants/events_paired_seed17/tokenizer/tokenizer_config.json",
+          "bytes": 692,
+          "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+        },
+        {
+          "path": "variants/events_paired_seed17/backbone_config/config.json",
+          "bytes": 1417,
+          "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+        }
+      ],
+      "initial_checkpoint_sha256": "fff62d1412685c1714eaa386acb603f9690371fb3cc8ad03dc41319302597c28",
+      "minimum_inference_patterns": [
+        "best.safetensors",
+        "config.json",
+        "tokenizer/*",
+        "backbone_config/*"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "variants/local_atomic_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "2b06e4423861f47da7ca53ad9c23a26aebdbfe79de3a238b36c2954ae9c6abf0"
+    },
+    {
+      "path": "variants/local_atomic_seed17/config.json",
+      "bytes": 2498,
+      "sha256": "3a6b014a77eaa3a79155a9c0c84ce2c005b5a5c66fdf88445067657ac9def176"
+    },
+    {
+      "path": "variants/local_atomic_seed17/train_log.json",
+      "bytes": 85584,
+      "sha256": "5e2a39713c30d714dddd8b7d989aecf1a8105fee24e74b42ef8943a1fd4dff09"
+    },
+    {
+      "path": "variants/local_atomic_seed17/summary.json",
+      "bytes": 4341,
+      "sha256": "3da659f939b0cc8d44614d9258f8660482db548a3f62e6f5c8604f15a9770980"
+    },
+    {
+      "path": "variants/local_atomic_seed17/target_audit.json",
+      "bytes": 701867,
+      "sha256": "ae1cde9eeedf6e84266205fba29b32bcb58489ca7da4f17704d74d2964d6cc79"
+    },
+    {
+      "path": "variants/local_atomic_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/local_atomic_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/local_atomic_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/local_atomic_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    },
+    {
+      "path": "variants/games_gold_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "5a395c56fad2a9bd4fb664ef78e1e06c19102886d97dd56dfe2676e5896c7e3a"
+    },
+    {
+      "path": "variants/games_gold_seed17/config.json",
+      "bytes": 2562,
+      "sha256": "965c5905315315ff591d6c2eb581146b749104e65afdd463e3a3118f70baaaff"
+    },
+    {
+      "path": "variants/games_gold_seed17/train_log.json",
+      "bytes": 42887,
+      "sha256": "a1c2de04bf59f1da31ab4255be69a5b5960fde183b8a459d2cd8b1f7c618ae28"
+    },
+    {
+      "path": "variants/games_gold_seed17/summary.json",
+      "bytes": 4530,
+      "sha256": "f7de836505d40a4f779258155455fc1d3d8194e468cae269bcb942c13441ff5c"
+    },
+    {
+      "path": "variants/games_gold_seed17/target_audit.json",
+      "bytes": 1831844,
+      "sha256": "62e50d044875e9914b7edce5d1321c873eb923a31fefaf0a32d8a13e0e755b1b"
+    },
+    {
+      "path": "variants/games_gold_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/games_gold_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/games_gold_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/games_gold_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    },
+    {
+      "path": "variants/games_api_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "45829fc896391847220b67dcf6fc0702427d2f184be384649bcf9343c1552477"
+    },
+    {
+      "path": "variants/games_api_seed17/config.json",
+      "bytes": 2693,
+      "sha256": "509c449f3088e167f95ea284370763489ca182e787d7765efbcffc377b767931"
+    },
+    {
+      "path": "variants/games_api_seed17/train_log.json",
+      "bytes": 42439,
+      "sha256": "aca1693ee0a2c1c1c574416329e28a089adaa93014a071b09ac4350b62e12050"
+    },
+    {
+      "path": "variants/games_api_seed17/summary.json",
+      "bytes": 3996,
+      "sha256": "304fde47ce4cef20bd06ed088c55f4a8bc2c8da3f68e3f5a9520a5bdbf14dbdb"
+    },
+    {
+      "path": "variants/games_api_seed17/target_audit.json",
+      "bytes": 2012764,
+      "sha256": "28a1666127b407bbfdaf8bcf99ca386c66a814a37ef78221bda12cdce9f8ab38"
+    },
+    {
+      "path": "variants/games_api_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/games_api_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/games_api_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/games_api_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    },
+    {
+      "path": "variants/events_ce_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "582c01139e29807b5f2690335271cf5647583cbfc3dd963d5967792bb3963992"
+    },
+    {
+      "path": "variants/events_ce_seed17/config.json",
+      "bytes": 2555,
+      "sha256": "52f0309ceeefe51d8cadda95b6f0985978b2d523d758194f682932892d82a566"
+    },
+    {
+      "path": "variants/events_ce_seed17/train_log.json",
+      "bytes": 28195,
+      "sha256": "c5e20da3ea98546ac71a9d2a264b53d52bcfb3387a7cd5a57d65c7cc03c9623e"
+    },
+    {
+      "path": "variants/events_ce_seed17/summary.json",
+      "bytes": 3840,
+      "sha256": "b5f1a6592da085ea88ca7676fbaf11b39874b097cdc70a3424c992010b27c3a5"
+    },
+    {
+      "path": "variants/events_ce_seed17/target_audit.json",
+      "bytes": 1334523,
+      "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+    },
+    {
+      "path": "variants/events_ce_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/events_ce_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/events_ce_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/events_ce_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    },
+    {
+      "path": "variants/events_brier_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "0a8d8b14c97743eed4310d461a7ae5cff0400cb87eaa6dc1f8c5dc3c59988651"
+    },
+    {
+      "path": "variants/events_brier_seed17/config.json",
+      "bytes": 2561,
+      "sha256": "bca3a9b31a8f528bc144433f1b2f4f9f27f78f50ceb5957c99949e246c850ac2"
+    },
+    {
+      "path": "variants/events_brier_seed17/train_log.json",
+      "bytes": 28219,
+      "sha256": "e09fdb39c212589b56af8f5cbae6f51fa1d1f91de73a63636e8661a02f2312f9"
+    },
+    {
+      "path": "variants/events_brier_seed17/summary.json",
+      "bytes": 3829,
+      "sha256": "daaf0e3739fb244368662944e26b939278a31beac7c1c538ce3e72aa70536def"
+    },
+    {
+      "path": "variants/events_brier_seed17/target_audit.json",
+      "bytes": 1334523,
+      "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+    },
+    {
+      "path": "variants/events_brier_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/events_brier_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/events_brier_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/events_brier_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    },
+    {
+      "path": "variants/events_paired_seed17/best.safetensors",
+      "bytes": 2385039280,
+      "sha256": "bbefcf829b9e36253ef46ab076f7d8fca00ffb33762e8358dbe780b3605bb777"
+    },
+    {
+      "path": "variants/events_paired_seed17/config.json",
+      "bytes": 2671,
+      "sha256": "9bdffa977eb28e4692ba19f53b05a7ad9afd9f37665848f9db24de4e829f1acb"
+    },
+    {
+      "path": "variants/events_paired_seed17/train_log.json",
+      "bytes": 28356,
+      "sha256": "33f337e289dab3afce8199fc7b72a6c766634986f49276ba8581ea2210b673cf"
+    },
+    {
+      "path": "variants/events_paired_seed17/summary.json",
+      "bytes": 3817,
+      "sha256": "82de7efe05e55bedc75e5b50b5b9ca867aa1f100cb4c4430b9b67524c6e82de1"
+    },
+    {
+      "path": "variants/events_paired_seed17/target_audit.json",
+      "bytes": 1334523,
+      "sha256": "7a9b2635cf87607e9f2a47fa1c2e037f1e5b13c18bcbbc5898cff09796222181"
+    },
+    {
+      "path": "variants/events_paired_seed17/tokenizer/chat_template.jinja",
+      "bytes": 4168,
+      "sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
+    },
+    {
+      "path": "variants/events_paired_seed17/tokenizer/tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "path": "variants/events_paired_seed17/tokenizer/tokenizer_config.json",
+      "bytes": 692,
+      "sha256": "1cc816812993bff176eb4f7495433b736f06fba9b6e7b05cac7b4a1780650c95"
+    },
+    {
+      "path": "variants/events_paired_seed17/backbone_config/config.json",
+      "bytes": 1417,
+      "sha256": "30c011854471509747858ac07ffb8a4dab2bc6c04035b184729b69500c557c54"
+    }
+  ],
+  "total_variant_files": 54,
+  "total_variant_bytes": 14387654859
+}

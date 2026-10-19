@@ -1,0 +1,27 @@
+name: xor-lite
+
+services:
+  xor-lite-api:
+    image: xor-lite-api:1.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      CUDA_VISIBLE_DEVICES: "${CUDA_VISIBLE_DEVICES:-0}"
+      XOR_LITE_MODEL_DIR: /models/xor-lite
+      XOR_LITE_MODEL_ID: xor-lite
+      XOR_LITE_RELEASE_DATE: "2026-10-14"
+    volumes:
+      - "${MODEL_DIR:?MODEL_DIR must be set}:/models/xor-lite:ro"
+    ports:
+      - "127.0.0.1:${API_PORT:-30002}:30002"
+    gpus: all
+    read_only: true
+    tmpfs:
+      # exec: Triton compiles a CUDA helper into /tmp and loads it on the first request.
+      - /tmp:size=256m,mode=1777,exec
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

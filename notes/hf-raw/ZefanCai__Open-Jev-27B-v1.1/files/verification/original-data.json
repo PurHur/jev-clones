@@ -1,0 +1,22 @@
+{
+  "train": {
+    "sha256": "959dac64adc1717d92e9bb80371d4b940b2b5994f9e36e469b3eaed85883fdff",
+    "rows": 148639
+  },
+  "calibration": {
+    "sha256": "6a02712bc6dce4c99cae3acfa54cf049553d12e4b795cfa4c170bd7de5732981",
+    "rows": 26764
+  },
+  "validation": {
+    "sha256": "743ec57c076fee300bfe3e3eb364a8fb629addfd185724c0b66d58633bcd9372",
+    "rows": 25482
+  },
+  "test": {
+    "sha256": "2cd250906060a570e0c596f7bb6ee7fb299fbf314e011a8c72ecb78d70248295",
+    "rows": 43301
+  },
+  "ood": {
+    "sha256": "b575698e0f1006713ca736b96d1d8eb43a54d052e266c0f363b027b288f54498",
+    "rows": 84486
+  }
+}

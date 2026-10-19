@@ -1,0 +1,41 @@
+{
+  "experiment": "train-9b-4926-v1",
+  "model": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "training_rows": 4926,
+  "training_epochs": 1,
+  "schedule_epochs": 3,
+  "schedule_steps": 1848,
+  "expected_optimizer_steps": 616,
+  "warmup_steps": 185,
+  "learning_rate": 5e-05,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "seed": 17,
+  "micro_batch": 2,
+  "accumulation": 4,
+  "effective_batch": 8,
+  "max_length": 8192,
+  "checkpoint_selection": "Fixed one epoch; no evaluation-based selection",
+  "training_source_sha256": "7081854731808ca23e2ebef803019438f94ba58a529ed07d304fe4523fcd9477",
+  "components": {
+    "original": 2826,
+    "contrastive-addition": 1000,
+    "longform-pilot": 100,
+    "decision-skills-local": 1000
+  },
+  "completed": {
+    "optimizer_steps": 616,
+    "epoch": 1.0,
+    "training_seconds": 1348.9090989840001,
+    "peak_gpu_gib": 24.503729343414307,
+    "metrics": {
+      "train_runtime": 1348.4172,
+      "train_samples_per_second": 10.96,
+      "train_steps_per_second": 1.37,
+      "train_loss": 0.6132799015416728,
+      "epoch": 1.0
+    }
+  }
+}

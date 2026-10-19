@@ -1,0 +1,127 @@
+{
+  "questions": 895,
+  "selection_ce": 1.099966921827301,
+  "selection_weights": {
+    "maze/policy": 0.3333333333333333,
+    "snake/policy": 0.3333333333333333,
+    "shooting/policy/basic": 0.1556701030927835,
+    "shooting/policy/predict_position": 0.17766323024054984
+  },
+  "missing_selection_cells": [],
+  "by_task_role": {
+    "maze/policy": {
+      "questions": 213,
+      "excluded_questions": 2,
+      "objective": "api_policy_distribution",
+      "ce": 0.8589600337765226,
+      "kl": 0.051581147933686504,
+      "tv": 0.1217077331750833,
+      "brier": 0.03819848860479012,
+      "target_argmax_agreement": 0.6901408450704225
+    },
+    "shooting/policy": {
+      "questions": 522,
+      "excluded_questions": 0,
+      "objective": "mixed_policy_supervision",
+      "ce": 2.236257485600368,
+      "kl": 1.9794723988444982,
+      "tv": 0.5701153039553551,
+      "brier": 1.0036582938668823,
+      "target_argmax_agreement": 0.41379310344827586
+    },
+    "snake/policy": {
+      "questions": 157,
+      "excluded_questions": 1,
+      "objective": "api_policy_distribution",
+      "ce": 0.6587520388739603,
+      "kl": 0.047534726034812624,
+      "tv": 0.09313694903700939,
+      "brier": 0.027153999423127233,
+      "target_argmax_agreement": 0.8471337579617835
+    }
+  },
+  "by_role_macro_task": {
+    "policy": {
+      "tasks_present": 3,
+      "questions": 892,
+      "ce": 1.251323186083617,
+      "kl": 0.6928627576043325,
+      "tv": 0.26165332872248265,
+      "brier": 0.35633692729826655,
+      "target_argmax_agreement": 0.6503559021601606
+    }
+  },
+  "by_selection_pool": {
+    "maze/policy": {
+      "questions": 213,
+      "ce": 0.8589600337765226,
+      "kl": 0.051581147933686504,
+      "tv": 0.1217077331750833,
+      "brier": 0.03819848860479012,
+      "target_argmax_agreement": 0.6901408450704225
+    },
+    "snake/policy": {
+      "questions": 157,
+      "ce": 0.6587520388739603,
+      "kl": 0.047534726034812624,
+      "tv": 0.09313694903700939,
+      "brier": 0.027153999423127233,
+      "target_argmax_agreement": 0.8471337579617835
+    },
+    "shooting/policy/predict_position": {
+      "questions": 138,
+      "ce": 0.9927711979345555,
+      "kl": 0.021453695858005183,
+      "tv": 0.06859149937633617,
+      "brier": 0.008869827125956159,
+      "target_argmax_agreement": 0.8913043478260869
+    },
+    "shooting/policy/basic": {
+      "questions": 384,
+      "ce": 2.6831353702302696,
+      "kl": 2.6831353702302696,
+      "tv": 0.75035042122594,
+      "brier": 1.3611603991019028,
+      "target_argmax_agreement": 0.2421875
+    }
+  },
+  "by_task_role_target_source": {
+    "maze/policy/api_policy_distribution": {
+      "questions": 213,
+      "ce": 0.8589600337765226,
+      "kl": 0.051581147933686504,
+      "tv": 0.1217077331750833,
+      "brier": 0.03819848860479012,
+      "target_argmax_agreement": 0.6901408450704225
+    },
+    "snake/policy/api_policy_distribution": {
+      "questions": 157,
+      "ce": 0.6587520388739603,
+      "kl": 0.047534726034812624,
+      "tv": 0.09313694903700939,
+      "brier": 0.027153999423127233,
+      "target_argmax_agreement": 0.8471337579617835
+    },
+    "shooting/policy/api_policy_distribution": {
+      "questions": 138,
+      "ce": 0.9927711979345555,
+      "kl": 0.021453695858005183,
+      "tv": 0.06859149937633617,
+      "brier": 0.008869827125956159,
+      "target_argmax_agreement": 0.8913043478260869
+    },
+    "shooting/policy/expert_action": {
+      "questions": 384,
+      "ce": 2.6831353702302696,
+      "kl": 2.6831353702302696,
+      "tv": 0.75035042122594,
+      "brier": 1.3611603991019028,
+      "target_argmax_agreement": 0.2421875
+    }
+  },
+  "excluded_by_selection_pool": {
+    "maze/policy": 2,
+    "snake/policy": 1
+  },
+  "notes": "Selection CE uses the explicitly declared population pools. Other task/role metrics are question means within each task. Policy CE/TV/KL measure API or expert target matching, not observed success; target sources are reported separately. Observed Boolean CE/Brier measure event prediction. Binary Brier sums both classes."
+}

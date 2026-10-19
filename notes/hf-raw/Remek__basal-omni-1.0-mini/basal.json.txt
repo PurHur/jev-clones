@@ -1,0 +1,12 @@
+{
+ "name": "basal-omni-1.0-mini",
+ "prompt": 2,
+ "base": "google/gemma-4-E4B-it@ee0ef6023621cff504d758262d4e04895a5af4a2",
+ "readout": {
+  "kind": "code logits",
+  "codes": 255,
+  "prefill": "{\"answer\": \"",
+  "templates": "prompt format 2 (docs/FORMAT2.md of the basal engine)"
+ },
+ "calibration": "CALIBRATION.json (one option order) and CALIBRATION.o2.json (two): per-type and per-bucket temperatures, certified thresholds, fitted on the served engine (--mode eager, bf16)"
+}

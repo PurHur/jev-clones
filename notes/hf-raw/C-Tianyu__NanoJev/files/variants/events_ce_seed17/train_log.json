@@ -1,0 +1,964 @@
+[
+  {
+    "step": 1,
+    "phase": "full",
+    "loss": 0.6698931157588959,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 1.206429815851152,
+    "batch_question_ids_sha256": "9815e3084b0060ca1bf3f53e09caa2e8ba2ecfbfa18cd5a90c1b6ca1dc29fbcb"
+  },
+  {
+    "step": 2,
+    "phase": "full",
+    "loss": 0.6899416968226433,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 1.9398853788152337,
+    "batch_question_ids_sha256": "0766e00bccd0b9d63535226a2a7454d88d591d6a1adb32befcd64d40174bd87c"
+  },
+  {
+    "step": 3,
+    "phase": "full",
+    "loss": 0.4910094514489174,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 2.678210761398077,
+    "batch_question_ids_sha256": "3eb8fb253ed8d59b98fd13fb12ae3aa08473ff98bf07f26c7537d8d4c6999318"
+  },
+  {
+    "step": 4,
+    "phase": "full",
+    "loss": 0.47546009719371796,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 3.3923207791522145,
+    "batch_question_ids_sha256": "b72b9555459b9660b8cfea9c061b0d69e21b213181cf19973fa9312c1d740e4c"
+  },
+  {
+    "step": 5,
+    "phase": "full",
+    "loss": 0.472549706697464,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 4.11856244970113,
+    "batch_question_ids_sha256": "851370879eecc2bb2b872bf9f26a90b0c422dbb910faa7ab99625462dd70126c"
+  },
+  {
+    "step": 6,
+    "phase": "full",
+    "loss": 0.47603993117809296,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 4.842001353390515,
+    "batch_question_ids_sha256": "a44ac9fef40754316a48915525e55ee3c8c5f613d2a3a206a70c53f6a360d6a1"
+  },
+  {
+    "step": 7,
+    "phase": "full",
+    "loss": 0.4351997897028923,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 5.562285288237035,
+    "batch_question_ids_sha256": "dd15d5df027d50d8bc83cc139ce58f36adf2613954b88024320afffaf4f275ce"
+  },
+  {
+    "step": 8,
+    "phase": "full",
+    "loss": 0.5573603184893727,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 6.283805459737778,
+    "batch_question_ids_sha256": "b16e21ce00030d172555d2ed47f3935798c5293130655f2d4bb114fab8d4f82e"
+  },
+  {
+    "step": 9,
+    "phase": "full",
+    "loss": 0.25312627106904984,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 7.027102201245725,
+    "batch_question_ids_sha256": "db13a8f636762d4e5c56f60dcecdc4a04f7acccee36ed4846fe242c110813e33"
+  },
+  {
+    "step": 10,
+    "phase": "full",
+    "loss": 0.5761465504765511,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 7.779015112668276,
+    "batch_question_ids_sha256": "d29a2ab7bae9372a6460e6d41d2320b0a13b55633fcc21e2a06f06a64a2b8f22"
+  },
+  {
+    "step": 11,
+    "phase": "full",
+    "loss": 0.4777762070298195,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 8.493401571176946,
+    "batch_question_ids_sha256": "e435c49e7cce06b5c387742c1cf2eae1fb3f57349a03ff3229713bf8e9179b7f"
+  },
+  {
+    "step": 12,
+    "phase": "full",
+    "loss": 0.7341089807450771,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 9.231942504644394,
+    "batch_question_ids_sha256": "52067a44724ec88a3f85cace2ddba01f511bb396cbf27877697e85efd4f0c68e"
+  },
+  {
+    "step": 13,
+    "phase": "full",
+    "loss": 0.3001631014049053,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 9.975338879972696,
+    "batch_question_ids_sha256": "d01e765c3bf9b2b1edf10d82d3b784f51514a21682d040badd6d9c1c29c3069f"
+  },
+  {
+    "step": 14,
+    "phase": "full",
+    "loss": 0.43069224059581757,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 10.703695585951209,
+    "batch_question_ids_sha256": "f7d76860a7e7abbd079278179b2a6054aa8b1bf90c6e38db91f414cf906eff6a"
+  },
+  {
+    "step": 15,
+    "phase": "full",
+    "loss": 0.5127209424972534,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 11.451611735858023,
+    "batch_question_ids_sha256": "1d089d97e3e6836ec1771dba1776d38f6a8ca414f96cc3c25fd0053ed3e27a44"
+  },
+  {
+    "step": 16,
+    "phase": "full",
+    "loss": 0.3563181236386299,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 12.173952360637486,
+    "batch_question_ids_sha256": "abd204307499e62673daa334cd3a4533448a0ef971b517e7acbf23783905ae91"
+  },
+  {
+    "step": 17,
+    "phase": "full",
+    "loss": 0.36245644837617874,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 12.8896827660501,
+    "batch_question_ids_sha256": "6d4029fa8044653ff0ccbe80e4371cccd55b6fc7c6462fb81d77f565bde1e2f5"
+  },
+  {
+    "step": 18,
+    "phase": "full",
+    "loss": 0.5653930976986885,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 13.62013566866517,
+    "batch_question_ids_sha256": "88ddecb0e43b996acf8e321896454ceb6e79095126d68380cfdc7c74ba66d04a"
+  },
+  {
+    "step": 19,
+    "phase": "full",
+    "loss": 0.5002457201480865,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 14.346520440652966,
+    "batch_question_ids_sha256": "3ba3b72125f7617c5cb4dfc031843bc10773d8aa7747ef6eef76ec813abc7a11"
+  },
+  {
+    "step": 20,
+    "phase": "full",
+    "loss": 0.6882804483175278,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 15.069504925049841,
+    "batch_question_ids_sha256": "a8fbfc400a3dd61e2468ddde908d8e6914e8742e66df75fa209575bbd49f674f"
+  },
+  {
+    "step": 21,
+    "phase": "full",
+    "loss": 0.3362383544445038,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 15.863264437764883,
+    "batch_question_ids_sha256": "49a7b1f6bb6891cd06f7c495942bbdbd98cfbd7435f49d77922ab364b9c1c5f5"
+  },
+  {
+    "step": 22,
+    "phase": "full",
+    "loss": 0.4032861888408661,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 16.61500151734799,
+    "batch_question_ids_sha256": "d93e27a20a5666b8fe2ea5489dac0a58f99a770bfb0d4ee6870d36621ed78dee"
+  },
+  {
+    "step": 23,
+    "phase": "full",
+    "loss": 0.5400929227471352,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 17.49686106480658,
+    "batch_question_ids_sha256": "88845418c486e4c7d856761b8aca680a7ca52ec59c84219e708745af76a445c2"
+  },
+  {
+    "step": 24,
+    "phase": "full",
+    "loss": 0.4465572461485863,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 18.21982985921204,
+    "batch_question_ids_sha256": "b7fcb8d686d0a87ea4fd6ded60d595c7ccc4b132fc739e047564d72f5944577f"
+  },
+  {
+    "step": 25,
+    "phase": "full",
+    "loss": 0.38778524473309517,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 18.957347061485052,
+    "batch_question_ids_sha256": "b2e6af990ea722e6cb276f57a736c23766306ae29b211bf00447d868b434c962"
+  },
+  {
+    "step": 26,
+    "phase": "full",
+    "loss": 0.46882137656211853,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 19.701538900844753,
+    "batch_question_ids_sha256": "67253956a0835f33db1fa53443fed54476a027338e0ffdd7726dcb48fbef1c9a"
+  },
+  {
+    "step": 27,
+    "phase": "full",
+    "loss": 0.4425557181239128,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 20.427865900099277,
+    "batch_question_ids_sha256": "b37cd333ba07e45e13875704fb0cc42b2f44fc5317737590bb27d88a7ce61452"
+  },
+  {
+    "step": 28,
+    "phase": "full",
+    "loss": 0.537452906370163,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 21.164012663066387,
+    "batch_question_ids_sha256": "d2a5a95e218ea89d7469dfdd8ff320de68f88ff52171675c0ccf7c9c3d95a891"
+  },
+  {
+    "step": 29,
+    "phase": "full",
+    "loss": 0.33650635927915573,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 21.895237404853106,
+    "batch_question_ids_sha256": "1c6aa40b463139c53b7a93df96c3a1db9c53fac3123be7e8dda4fc8f53bc7996"
+  },
+  {
+    "step": 30,
+    "phase": "full",
+    "loss": 0.18629102176055312,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 22.596429711207747,
+    "batch_question_ids_sha256": "be09ca5b88c61e0617249157b2d75545b12e403abaf2ff570be1e6d30856d742"
+  },
+  {
+    "step": 31,
+    "phase": "full",
+    "loss": 0.575798325240612,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 23.33407491259277,
+    "batch_question_ids_sha256": "08f4544d1dfa624e78df3609c0059204a16146f8421bf85c14d0b10b5926b448"
+  },
+  {
+    "step": 32,
+    "phase": "full",
+    "loss": 0.5029938481748104,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 24.04410624690354,
+    "batch_question_ids_sha256": "f8a0c95d4ce5a21d3b7bdd381eb7c9d15a251da10b33f0a8521a3e81eeb1450e"
+  },
+  {
+    "step": 33,
+    "phase": "full",
+    "loss": 0.3700496293604374,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 24.790576100349426,
+    "batch_question_ids_sha256": "4c396fcb15e0a31d52d00473dc2f3bee3767da23146fb5038b6e63d9ad5016c8"
+  },
+  {
+    "step": 34,
+    "phase": "full",
+    "loss": 0.3722036397084594,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 25.522674680687487,
+    "batch_question_ids_sha256": "c59ffed718f7ded62b1028779c65e8759de67070b26019e8642f75dd2e43a512"
+  },
+  {
+    "step": 35,
+    "phase": "full",
+    "loss": 0.6066184220835567,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 26.259713889099658,
+    "batch_question_ids_sha256": "0e54ce4db6221fac98c15ce77d50701153708881dda86adbcb2776637215c9bd"
+  },
+  {
+    "step": 36,
+    "phase": "full",
+    "loss": 0.7472243523225188,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 26.99773812200874,
+    "batch_question_ids_sha256": "24c257b893015e139aaec823c9fa8ed630a7d2df239552f229ebb832a7746723"
+  },
+  {
+    "step": 37,
+    "phase": "full",
+    "loss": 0.5684906765818596,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 27.740370864979923,
+    "batch_question_ids_sha256": "bc22d73d0ac85948fd9bbd0813992b093f9beb230652c6234447dbbbfb4add35"
+  },
+  {
+    "step": 38,
+    "phase": "full",
+    "loss": 0.36942679062485695,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 28.50852065719664,
+    "batch_question_ids_sha256": "6e47f7951fb42ce413ed2f4ce54d8832b534a3e9d0f2e35829a1608286227ef4"
+  },
+  {
+    "step": 39,
+    "phase": "full",
+    "loss": 0.3635300546884537,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 29.22664304729551,
+    "batch_question_ids_sha256": "b5bfa6d3b4f6544cb42bc8b82b7c88ad3430367ce2f47dd0c3182d7f55e26796"
+  },
+  {
+    "step": 40,
+    "phase": "full",
+    "loss": 0.40619706362485886,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 29.978176869452,
+    "batch_question_ids_sha256": "e356d8692763396b1f305f967bc42bbea222b3adcfd7355c8ffd489d7c4a8702"
+  },
+  {
+    "step": 41,
+    "phase": "full",
+    "loss": 0.5313360318541527,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 30.714267833158374,
+    "batch_question_ids_sha256": "eddf9bafc965ad35c8a9189e6a7b19eb336e5f2736ab490e5d0f7547f885b883"
+  },
+  {
+    "step": 42,
+    "phase": "full",
+    "loss": 0.2942931465804577,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 31.4632102586329,
+    "batch_question_ids_sha256": "93f507828c7fa8715902d87edef912b05fe2920c25f400745b5d4b1835ff1fcd"
+  },
+  {
+    "step": 43,
+    "phase": "full",
+    "loss": 0.43418202362954617,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 32.20179224293679,
+    "batch_question_ids_sha256": "50f72e83de9b1b9daf154f013aa536b1454d8d8c13b503ee6efa9007c721faa6"
+  },
+  {
+    "step": 44,
+    "phase": "full",
+    "loss": 0.5574786812067032,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 32.9865256017074,
+    "batch_question_ids_sha256": "71067cb1ca0d666b5a16e53227ae1840e468c0c39e879ef8004ac73520b396f9"
+  },
+  {
+    "step": 45,
+    "phase": "full",
+    "loss": 0.31117148976773024,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 33.79001239966601,
+    "batch_question_ids_sha256": "b9270e713e4fca02ecc7205c7ac1e320d3c87286eb7237ed0b02a4686b626bc4"
+  },
+  {
+    "step": 46,
+    "phase": "full",
+    "loss": 0.4900943711400032,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 34.549148452468216,
+    "batch_question_ids_sha256": "fbecc4d2e806b5b42f4f82a7e99465e1fceb5b7b61dfc3cd167654deeef897d0"
+  },
+  {
+    "step": 47,
+    "phase": "full",
+    "loss": 0.35709232836961746,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 35.28404710628092,
+    "batch_question_ids_sha256": "9fb1e3f8e3eb222e0e377eeedad5b0df90d11389465803b67a9b5090d2e79ca0"
+  },
+  {
+    "step": 48,
+    "phase": "full",
+    "loss": 0.3858681209385395,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 36.02657262887806,
+    "batch_question_ids_sha256": "8ec776449fb8174bd55b829feff0711ca000a9e09d903e741da6f91e2d21a136"
+  },
+  {
+    "step": 49,
+    "phase": "full",
+    "loss": 0.16362383612431586,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 36.99050153326243,
+    "batch_question_ids_sha256": "a20669c6cee5e157b8b54729bb88921f4ff6df89b4dda467ec25abb10f0e78da"
+  },
+  {
+    "step": 50,
+    "phase": "full",
+    "loss": 0.2581261422019452,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 37.71963926590979,
+    "batch_question_ids_sha256": "cab2a2f34731e8a959300614046a8b8fc4c926971dd5909a1a6e3de0ad3acb26",
+    "dev": {
+      "questions": 372,
+      "objective": "observed_outcome",
+      "eligible_questions": 372,
+      "target_ce": 0.5806565442146586,
+      "target_kl": 0.5806565442146586,
+      "target_tv": 0.27957613891343785,
+      "by_target_kind": {
+        "observed_outcome": {
+          "n": 372,
+          "ce": 0.5806565442146586,
+          "kl": 0.5806565442146586,
+          "tv": 0.27957613891343785
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 372,
+          "ce": 0.5856488371589073,
+          "kl": 0.31564624455137563,
+          "tv": 0.18229928321525732
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    }
+  },
+  {
+    "step": 51,
+    "phase": "full",
+    "loss": 0.5709785744547844,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 44.23742653615773,
+    "batch_question_ids_sha256": "46758e1c6996a3f1a932a11e8372539949f8ac8f4c0415b36f65c713e195096f"
+  },
+  {
+    "step": 52,
+    "phase": "full",
+    "loss": 0.22201280656736344,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 44.957907737232745,
+    "batch_question_ids_sha256": "d87fcd81d136c657c13e49aa033db193bfbb121e4a721fa86c16aad4c0a7c39d"
+  },
+  {
+    "step": 53,
+    "phase": "full",
+    "loss": 0.3642621487379074,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 45.691871273331344,
+    "batch_question_ids_sha256": "4fae217aef8823502570d85ef34334cdfe2994ba567eef62990a60ac5e3ede4a"
+  },
+  {
+    "step": 54,
+    "phase": "full",
+    "loss": 0.9462117776274681,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 46.41959032230079,
+    "batch_question_ids_sha256": "edbcfec53ad977392c69172be6901bdb4eee1725bf8fd83582f64ac6320e77cd"
+  },
+  {
+    "step": 55,
+    "phase": "full",
+    "loss": 0.618944376707077,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 47.144659521989524,
+    "batch_question_ids_sha256": "7af8e2cece43ae333d4687839255ee144e5968fc9aa063efa2ff6dd96c42d1b2"
+  },
+  {
+    "step": 56,
+    "phase": "full",
+    "loss": 0.520059403963387,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 47.87055600807071,
+    "batch_question_ids_sha256": "6d579036d49f401569b6e29499a444725fe7a64de0907bc07bd389fd352e615b"
+  },
+  {
+    "step": 57,
+    "phase": "full",
+    "loss": 0.292273685336113,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 48.57758554536849,
+    "batch_question_ids_sha256": "848946e51c61b43a984fc49047cb8c9f0fae9f28c6447d8b4ee2c74dafe198bc"
+  },
+  {
+    "step": 58,
+    "phase": "full",
+    "loss": 0.47000307217240334,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 49.29666138906032,
+    "batch_question_ids_sha256": "7a207cb4e3ff6157802e3b560ec0b63a488a8ab0eabaa5bcdea45eeeb107d3da"
+  },
+  {
+    "step": 59,
+    "phase": "full",
+    "loss": 0.4892919175326824,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 50.00856906082481,
+    "batch_question_ids_sha256": "6ed68210f517203266a035e4dc739a5e91ad1773fb37b2d954aabbc97ce44cc5"
+  },
+  {
+    "step": 60,
+    "phase": "full",
+    "loss": 0.3904850035905838,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 50.76625431701541,
+    "batch_question_ids_sha256": "cbce464330f46f2f323539fb9d7962cede14e7074be588012e1dfa684881e6d4"
+  },
+  {
+    "step": 61,
+    "phase": "full",
+    "loss": 0.3799959197640419,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 51.495480451732874,
+    "batch_question_ids_sha256": "7212e07d655e85ec9b791cd6cde65ec3e9ebfa5224d1854c76d9a8e98cc07be3"
+  },
+  {
+    "step": 62,
+    "phase": "full",
+    "loss": 0.37555741146206856,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 52.22409507166594,
+    "batch_question_ids_sha256": "768e8960dc65d1f0cc4b13cc2c90dbfe8db2c685cceb3a8ed4f834e59a13a2f5"
+  },
+  {
+    "step": 63,
+    "phase": "full",
+    "loss": 0.5196910500526428,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 52.95018903538585,
+    "batch_question_ids_sha256": "ce0e1bf7240822fc1f373178c20604e9dba0409aa63f2b51415a5f4db012ea78"
+  },
+  {
+    "step": 64,
+    "phase": "full",
+    "loss": 0.5655737966299057,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 53.69126392249018,
+    "batch_question_ids_sha256": "6b8c351645894c06829c8dffb3045f3a3081c0fcb0b24c924b9576410c78d47c"
+  },
+  {
+    "step": 65,
+    "phase": "full",
+    "loss": 0.2570880688726902,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 54.4230572860688,
+    "batch_question_ids_sha256": "06de39fb8b5de5ce866344dcb10447ed159378857789cc67daf23061f43e3e7f"
+  },
+  {
+    "step": 66,
+    "phase": "full",
+    "loss": 0.4608404226601124,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 55.15514244977385,
+    "batch_question_ids_sha256": "1728e00f1c3d6bfc533f2891740148ba51b40dcb766709fed2a21437282f6ee1"
+  },
+  {
+    "step": 67,
+    "phase": "full",
+    "loss": 0.2939162664115429,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 55.88841801136732,
+    "batch_question_ids_sha256": "26b40bee228ef411ff536ea5c58c9a2fe4790fcc250d1ec97719f5c2b6051983"
+  },
+  {
+    "step": 68,
+    "phase": "full",
+    "loss": 0.7479757890105247,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 56.6233723340556,
+    "batch_question_ids_sha256": "ebcd0c069c1aad6db15af178bfb86b95232c842c724cae991202c127dddf4df4"
+  },
+  {
+    "step": 69,
+    "phase": "full",
+    "loss": 0.5635014213621616,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 57.35782457515597,
+    "batch_question_ids_sha256": "021f795640c8ebe5b45f63378c3fb38ba2c849f5d70b747f653482f046de3fba"
+  },
+  {
+    "step": 70,
+    "phase": "full",
+    "loss": 0.6172329038381577,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 58.09276952967048,
+    "batch_question_ids_sha256": "968367da65a754ce0d7eb72abb8cbb64b558c86aa9d8adda10e119723caa2bb9"
+  },
+  {
+    "step": 71,
+    "phase": "full",
+    "loss": 0.3874517008662224,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 58.833030235022306,
+    "batch_question_ids_sha256": "5f2d81f647af85f4a48f30464c10a61c6a85b7d5d35f687d527ade870b0c1e7e"
+  },
+  {
+    "step": 72,
+    "phase": "full",
+    "loss": 0.7938513308763504,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 59.57471597567201,
+    "batch_question_ids_sha256": "6780ef3f330f6cd45a377b3f3c501ecc3ef2ae65d08769f207f4a68c152e3dbe"
+  },
+  {
+    "step": 73,
+    "phase": "full",
+    "loss": 0.3528990224003792,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 60.321714212186635,
+    "batch_question_ids_sha256": "d521c674f97a615228053a262b84518189f9580e2c73b32eee51bcef5ed76d29"
+  },
+  {
+    "step": 74,
+    "phase": "full",
+    "loss": 0.4417751505970955,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 61.217427681200206,
+    "batch_question_ids_sha256": "6c26d6bf906bf556525d65a2709f2f59a7cee21e2f62c8bad8c7015fcde12f89"
+  },
+  {
+    "step": 75,
+    "phase": "full",
+    "loss": 0.45803333818912506,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 61.9478549240157,
+    "batch_question_ids_sha256": "afabf643cddd0692428615c4aa81345acbbcdab1c52a5c9a48c815f9e2700755"
+  },
+  {
+    "step": 76,
+    "phase": "full",
+    "loss": 0.5286638140678406,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 62.70219527184963,
+    "batch_question_ids_sha256": "ba8ce0da2f777532f12642355dcce1c4d29f8e0865010f26b4bf03c56d7723d1"
+  },
+  {
+    "step": 77,
+    "phase": "full",
+    "loss": 0.4356435313820839,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 63.456245011650026,
+    "batch_question_ids_sha256": "9e0a4687654abac2570a41f8674ab95fcade2ac8e5e238d4661499dff7d58834"
+  },
+  {
+    "step": 78,
+    "phase": "full",
+    "loss": 0.3878141790628433,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 64.19278421159834,
+    "batch_question_ids_sha256": "e36ae8ba0c5eaffb1a534d69421fb9118e4f45453e90b83cbbf5f29ef284cafc"
+  },
+  {
+    "step": 79,
+    "phase": "full",
+    "loss": 0.4297530949115753,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 64.9118534643203,
+    "batch_question_ids_sha256": "171d14c1b2acfe9895a9353fe3dc68dcde6a998182a601a2746bf8fb10de20e3"
+  },
+  {
+    "step": 80,
+    "phase": "full",
+    "loss": 0.3846726156771183,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 65.67086058389395,
+    "batch_question_ids_sha256": "5091eab21841dd9384edd2c719867375591caf9d084ba03c065878eb451a5674"
+  },
+  {
+    "step": 81,
+    "phase": "full",
+    "loss": 0.6219327598810196,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 66.4101623352617,
+    "batch_question_ids_sha256": "f94cae69521603c0b60eb1cc6bb5370d2ea3d089f5b6bfd9a260b41a766ff974"
+  },
+  {
+    "step": 82,
+    "phase": "full",
+    "loss": 0.38340673968195915,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 67.12694064807147,
+    "batch_question_ids_sha256": "f804d3278fd4930c24d09af7cc2e1fc70170c35cac45cbed9779d59f2d765e08"
+  },
+  {
+    "step": 83,
+    "phase": "full",
+    "loss": 0.3208001106977463,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 67.86835037916899,
+    "batch_question_ids_sha256": "19b60c4f93e1ba7368b1f066c22c4ba32b8b66981562b2cbe2485da7433c07aa"
+  },
+  {
+    "step": 84,
+    "phase": "full",
+    "loss": 0.39219067245721817,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 68.58466890268028,
+    "batch_question_ids_sha256": "ebdf0b28c90afc00f6691d1a09af18f9f66ebaf71377d0ba210fc4892869014c"
+  },
+  {
+    "step": 85,
+    "phase": "full",
+    "loss": 0.3839174583554268,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 69.3296839715913,
+    "batch_question_ids_sha256": "4f04bf635d321e106f9856ba99a47fd6c2c033ae0450aa32c6dfe595a74ae4ed"
+  },
+  {
+    "step": 86,
+    "phase": "full",
+    "loss": 0.278085982427001,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 70.06139855179936,
+    "batch_question_ids_sha256": "ba9c22de6939f9c021221fe5a43ff5f50b15a70b21ed4effe8d97caf79b049ca"
+  },
+  {
+    "step": 87,
+    "phase": "full",
+    "loss": 0.3127078302204609,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 70.79180381260812,
+    "batch_question_ids_sha256": "c9f35e67c5374cdfd4ecee262a8723f0f688d0387f073072324c9d259d9f4323"
+  },
+  {
+    "step": 88,
+    "phase": "full",
+    "loss": 0.5134549420326948,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 71.52020991500467,
+    "batch_question_ids_sha256": "64ab5437c436a5c934bb05696c9b73f14c9838d3b210eeeb1114438303808400"
+  },
+  {
+    "step": 89,
+    "phase": "full",
+    "loss": 0.2528883069753647,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 72.25572444312274,
+    "batch_question_ids_sha256": "6ff06537c7c8217ebac7a64762ff5ee340f367a0f7652d25d5cd799c0d15cbac"
+  },
+  {
+    "step": 90,
+    "phase": "full",
+    "loss": 0.3719199150800705,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 72.99558722041547,
+    "batch_question_ids_sha256": "8fd09d36031bf8ee878da3b38a0694c5e416636fcd74e603f03dd205a9a3ab33"
+  },
+  {
+    "step": 91,
+    "phase": "full",
+    "loss": 0.3900993410497904,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 73.72918267734349,
+    "batch_question_ids_sha256": "322fb22dffd39fb986e5bfd20ac78a9963d2d5b01978598e3ea9ff285c9b09d3"
+  },
+  {
+    "step": 92,
+    "phase": "full",
+    "loss": 0.3622107747942209,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 74.43911021761596,
+    "batch_question_ids_sha256": "d0417dd44fb2608169bd7f2ab17d57acd203be7f8242f3c2e89ad317009a2e56"
+  },
+  {
+    "step": 93,
+    "phase": "full",
+    "loss": 0.37237807689234614,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 75.17962502967566,
+    "batch_question_ids_sha256": "57be67994833e0a92fac3ba6c7b6b1fe3b8383d53284136aad0b9a926f82aa1f"
+  },
+  {
+    "step": 94,
+    "phase": "full",
+    "loss": 0.26953236758708954,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 75.93803230766207,
+    "batch_question_ids_sha256": "9c3cbfa9806ac2c618d0a1e3ca3ef41c91b3a86c8aa45a36071383124ee71262"
+  },
+  {
+    "step": 95,
+    "phase": "full",
+    "loss": 0.40398708917200565,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 76.67349392175674,
+    "batch_question_ids_sha256": "100fb8785fb8c78e98988f555871d3d9a4ed2716c9bff93597e8a64de5e2db46"
+  },
+  {
+    "step": 96,
+    "phase": "full",
+    "loss": 0.34487732127308846,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 77.40921703819185,
+    "batch_question_ids_sha256": "c781c81a212d6bc7153d4ecdfb49ff5f6570c3bde61d9f7babaa983e433d7348"
+  },
+  {
+    "step": 97,
+    "phase": "full",
+    "loss": 0.3990098088979721,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 78.14464715123177,
+    "batch_question_ids_sha256": "8b19c5c7751e07c22469266bfa40bb1eaac4670fe203a8c3e8a289350956893c"
+  },
+  {
+    "step": 98,
+    "phase": "full",
+    "loss": 0.4635494127869606,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 78.87295348849148,
+    "batch_question_ids_sha256": "043573f3a457c1f8cfbcefabfef11e430a1dd573e779dd7e19f7dc26a4a1ebad"
+  },
+  {
+    "step": 99,
+    "phase": "full",
+    "loss": 0.3696139045059681,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 79.60388481710106,
+    "batch_question_ids_sha256": "933b002848b57b1ae58768d4d38da9823ca19226389dff7c41f6ba3e58ff14b6"
+  },
+  {
+    "step": 100,
+    "phase": "full",
+    "loss": 0.26828806940466166,
+    "questions": 16,
+    "microbatches": 4,
+    "elapsed_seconds": 80.44768039882183,
+    "batch_question_ids_sha256": "2a2b48544fe4380e81979729c21f00410faff377b407c4afdee1bef7530a71af",
+    "dev": {
+      "questions": 372,
+      "objective": "observed_outcome",
+      "eligible_questions": 372,
+      "target_ce": 0.47277030621569244,
+      "target_kl": 0.47277030621569244,
+      "target_tv": 0.26819442928540077,
+      "by_target_kind": {
+        "observed_outcome": {
+          "n": 372,
+          "ce": 0.47277030621569244,
+          "kl": 0.47277030621569244,
+          "tv": 0.26819442928540077
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 372,
+          "ce": 0.4926936688108985,
+          "kl": 0.22269107620336712,
+          "tv": 0.1714566637835109
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    }
+  }
+]

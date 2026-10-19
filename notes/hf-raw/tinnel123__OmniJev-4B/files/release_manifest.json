@@ -1,0 +1,67 @@
+{
+  "release": "v1.1",
+  "repo_id": "tinnel123/OmniJev-4B",
+  "base_model": "Qwen/Qwen3.5-4B",
+  "training_steps_this_stage": 3000,
+  "lora_rank": 32,
+  "files": {
+    "README.md": {
+      "bytes": 6674,
+      "sha256": "378a27639a2bbb39aff6c374ec9060bde14847f2148471032d773e984ea870ac"
+    },
+    "tokenizer.json": {
+      "bytes": 19989712,
+      "sha256": "2f838eae798ef282bfcbbeb01645e728680e9b8b493ef3e0c63ff2d9ed28a8c4"
+    },
+    "results_v11.json": {
+      "bytes": 1431463,
+      "sha256": "42b89f6eca618ccceb26e80fa9195ff5d432d1e7b2fcfdb15fd8918f0ea478ea"
+    },
+    "LICENSE": {
+      "bytes": 11720,
+      "sha256": "c35d34d2a8cc22ca043ecaf7989586960c9305d45a9ec81ff839b736a3ffbd21"
+    },
+    "results_v11_zh.md": {
+      "bytes": 81531,
+      "sha256": "e493b419458899b197a0bb23bd59380ad65753395ed0ad4f6215f3bba66dd827"
+    },
+    "ord.pt": {
+      "bytes": 10497109,
+      "sha256": "38c8e1bdb23f8ccd915dba75e05596d36fe2896f95c984166fc3713a027f5b68"
+    },
+    "adapter_config.json": {
+      "bytes": 1269,
+      "sha256": "0686ea535f56ee7733d29a861c2b0a498ac48c32c13b9a737c7322709e6851e5"
+    },
+    "tokenizer_config.json": {
+      "bytes": 1226,
+      "sha256": "feaa62c900dd7ec96738aa38df18eef2fac49269a987947a22f157cd70fe7bc3"
+    },
+    "head_meta.json": {
+      "bytes": 1061,
+      "sha256": "d184edd664ad85bbbb782157a8965db33c36d4a144d8b781d19f5c11cd2778ee"
+    },
+    "head.pt": {
+      "bytes": 29418795,
+      "sha256": "7b801a1901040e70559deb74eadb11709540ff65ef926213ecf881e4f4070320"
+    },
+    "processor_config.json": {
+      "bytes": 1189,
+      "sha256": "bcbca4244c9b61672113167b05f159dc8a33741661ef7b1fc72bf6812a770bcc"
+    },
+    "new_tok_emb.pt": {
+      "bytes": 22085,
+      "sha256": "cd78e3440c03c7ace689ddb3b05f860c5cc59b710a8202cbc8f8252de1cd18de"
+    },
+    "chat_template.jinja": {
+      "bytes": 7756,
+      "sha256": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715"
+    },
+    "adapter_model.safetensors": {
+      "bytes": 243854336,
+      "sha256": "96247914d7e2e68a7124c35c49393267c2beb98769d096f5172ed0043851f0f0"
+    }
+  },
+  "tensor_count": 400,
+  "metadata_change": "adapter_config.base_model_name_or_path normalized to public Qwen model ID; learned weights unchanged"
+}

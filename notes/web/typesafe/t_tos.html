@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover"
+  />
+  <title>Page Not Found | Framer</title>
+  <style>
+    /* Mirrors FramerStudio's empty state styles, see static/static.go. */
+    @font-face {
+      font-display: swap;
+      font-family: "Inter Variable UI";
+      font-style: normal;
+      font-weight: 100 900;
+      src: url("https://app.framerstatic.com/InterVariable.latin-5EYCRJRY.woff2")
+        format("woff2");
+    }
+
+    :root {
+      --background: #fff;
+      --text: #666;
+      --text-title: #222;
+      --button-background: #f3f3f3;
+      --button-background-hover: #eee;
+      --button-text: #333;
+      --selection-background: rgba(0, 0, 0, 0.1);
+      --selection-text: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background: #111;
+        --text: #999;
+        --text-title: #fff;
+        --button-background: #1f1f1f;
+        --button-background-hover: #262626;
+        --button-text: #fff;
+        --selection-background: rgba(255, 255, 255, 0.15);
+        --selection-text: #fff;
+        color-scheme: dark;
+      }
+    }
+
+    html {
+      height: 100%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      display: flex;
+      box-sizing: border-box;
+      padding: 24px;
+      min-height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      background-color: var(--background);
+      color: var(--text);
+      font-family:
+        "Inter Variable UI",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+      font-feature-settings:
+        "cv01" 1,
+        "cv05" 1,
+        "cv09" 1,
+        "cv11" 1;
+    }
+
+    ::selection {
+      background-color: var(--selection-background);
+      color: var(--selection-text);
+    }
+
+    h1 {
+      max-width: 200px;
+      margin: 15px 0 10px;
+      text-align: center;
+      text-wrap: balance;
+      color: var(--text-title);
+      font-size: 12px;
+      font-weight: 550;
+      line-height: 1;
+    }
+
+    p {
+      max-width: 200px;
+      margin: 0;
+      font-size: 12px;
+      font-weight: 450;
+      letter-spacing: 0;
+      line-height: 1.4;
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    a {
+      display: inline-flex;
+      height: 30px;
+      box-sizing: border-box;
+      padding: 0 10px;
+      margin-top: 15px;
+      background-color: var(--button-background);
+      border-radius: 8px;
+      color: var(--button-text);
+      font-size: 12px;
+      font-weight: 450;
+      letter-spacing: 0;
+      line-height: 1;
+      place-content: center;
+      place-items: center;
+      text-decoration: none;
+      transition: background-color 120ms ease;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--text-title);
+      outline-offset: 2px;
+    }
+
+    a:hover {
+      background-color: var(--button-background-hover);
+    }
+  </style>
+
+  <body>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="14"
+      height="21"
+      fill="currentColor"
+      overflow="visible"
+      style="color: var(--text-title)"
+    >
+      <path d="M14 0v7H7L0 0ZM0 7h7l7 7H7v7l-7-7Z" />
+    </svg>
+    <h1>Page not found</h1>
+    <p>This page doesn’t exist or has moved.</p>
+    <a href="/">Back to home</a>
+  </body>
+</html>

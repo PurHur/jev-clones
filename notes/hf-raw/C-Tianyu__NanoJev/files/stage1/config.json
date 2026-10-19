@@ -1,0 +1,66 @@
+{
+  "input": "/home/rwang/openjev_codex_20260917/research/private_pipeline_v2/merged.jsonl",
+  "output_dir": "/home/rwang/openjev_codex_20260917/runs/v2_teacher_seed17",
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "init_checkpoint": null,
+  "objective": "teacher",
+  "set_head": "attention",
+  "steps": 600,
+  "head_steps": 12,
+  "batch_questions": 12,
+  "microbatch_questions": 4,
+  "max_microbatch_tokens": 6000,
+  "eval_every": 50,
+  "max_length": 512,
+  "seed": 17,
+  "backbone_lr": 2e-05,
+  "head_lr": 0.0002,
+  "head_warmup_lr": 0.001,
+  "precision": "bf16",
+  "disable_native_triton": true,
+  "validate_only": false,
+  "self_check": false,
+  "schema_version": "openjev-decision-pipeline-v1",
+  "resolved_model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "initialization": "pretrained backbone with new decision head",
+  "data_sha256": {
+    "/home/rwang/openjev_codex_20260917/research/private_pipeline_v2/merged.jsonl": "7294765b80e751fc5aee7aba906b28a8ea80d6f147253d3f6c3e4f491de0b2d7"
+  },
+  "deps": {
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "safetensors": "0.8.0"
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "parameter_storage": "float32",
+  "forward_autocast": "bfloat16",
+  "parameter_count": 596250498,
+  "train_questions": 4133,
+  "all_train_questions": 4152,
+  "schema_counts": {
+    "records": 2312,
+    "questions_by_split": {
+      "train": 4152,
+      "dev": 552,
+      "calibration": 552,
+      "test": 1104,
+      "ood": 576
+    },
+    "eligible_by_split_objective": {
+      "calibration/gold_distribution": 552,
+      "calibration/teacher": 550,
+      "dev/gold_distribution": 552,
+      "dev/teacher": 548,
+      "ood/gold_distribution": 576,
+      "ood/teacher": 573,
+      "test/gold_distribution": 1104,
+      "test/teacher": 1100,
+      "train/gold_distribution": 4152,
+      "train/teacher": 4133
+    }
+  },
+  "loss": "per-question forward soft CE, equal question weight; complete candidate normalization",
+  "selection": "minimum dev target CE; held-out test first evaluated after training and checkpoint selection",
+  "parallelism": "complete candidate paths batched in one backbone call per microbatch; no prefix sharing"
+}

@@ -1,0 +1,45 @@
+{
+  "bespoke_eval": {
+    "n": 324,
+    "accuracy": 0.8271604938271605,
+    "nll": 0.7308274886209167,
+    "brier_to_reference": 0.31239001056754634,
+    "hard_label_ece10": 0.15284857863329301,
+    "hard_label_n": 324,
+    "soft_target_n": 0,
+    "soft_target_tvd": null,
+    "hard_label_nll": 0.7308274886209167,
+    "hard_label_brier": 0.31239001056754634,
+    "mean_confidence": 0.9726037056817401
+  },
+  "synthetic_jevbench_proxy": {
+    "n": 534,
+    "accuracy": 0.8258426966292135,
+    "axes": {
+      "intelligence": 78.5377656826666,
+      "calibration": 80.4126946325609,
+      "speed": 88.53288735436024,
+      "cost": 42.600857357940114
+    },
+    "composite": 69.86047453614847,
+    "invalid": 0,
+    "latency": {
+      "n": 242,
+      "p50_seconds": 0.1018778674999794,
+      "p95_seconds": 0.12314256449994894,
+      "endpoint_kind": "gpu"
+    },
+    "estimated_usd_per_1000": 0.08190393258426966,
+    "environment": "Modal H100 SXM80GB; GPU-resident HTTP loopback client and native scorer; serial concurrency1; no internet transit; no KV/prefix cache; no quantization; no generative decoding; one excluded synthetic warmup",
+    "reference_prices_per_million": [
+      0.1,
+      0.15
+    ],
+    "task_sha256": "1ed70789ec11f468e78e1da4151ebe69d509a46c11f4e69c2c27b1551bce4e78",
+    "input_sha256": "af2dab21b44fae8ea791678f3a96fff1f4a3cd5dbc1ee0814fac21bc2331dbe7"
+  },
+  "temperature": 1.0,
+  "candidate_orders": 1,
+  "official_jevbench": false,
+  "probability_source": "native allowed-token logits and softmax"
+}

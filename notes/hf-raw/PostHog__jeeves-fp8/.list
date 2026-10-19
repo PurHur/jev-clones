@@ -1,0 +1,9 @@
+.gitattributes
+LICENSE
+README.md
+chat_template.jinja
+config.json
+drafter_k4.config.json
+export.json
+model.safetensors.index.json
+tokenizer_config.json

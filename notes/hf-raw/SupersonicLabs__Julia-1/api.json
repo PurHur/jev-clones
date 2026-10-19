@@ -1,0 +1,28 @@
+{
+ "_id": "6ab3f06a4d047e01cce9e3c8",
+ "id": "SupersonicLabs/Julia-1",
+ "config": {},
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "jhu-clsp/mmBERT-small",
+  "library_name": "pytorch",
+  "tags": [
+   "decision-model",
+   "text-classification",
+   "multilingual",
+   "routing"
+  ]
+ },
+ "lastModified": "2026-09-26T22:03:07.000Z",
+ "downloads": 5818,
+ "likes": 487,
+ "gated": false,
+ "sha": "a85b127321d580d65176c89ced8273f305745d85",
+ "createdAt": "2026-09-23T15:29:46.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 144292870
+  },
+  "total": 144292870
+ }
+}

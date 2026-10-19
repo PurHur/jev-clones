@@ -1,0 +1,70 @@
+{
+  "type": "clef_cybersecurity_release",
+  "repo_id": "TextCortex/clef-cybersecurity",
+  "base_model": "Cloudflare/clef-flash",
+  "base_revision": "17f0b0ad64efb65d273590632833508766b2aae6",
+  "selected_epoch": 3,
+  "epochs_trained": 4,
+  "trained_parameters": 549897924,
+  "total_parameters": 9531576564,
+  "files": {
+    "benchmarks.json": {
+      "bytes": 4893,
+      "sha256": "2c605c591f19ed08a941fcc5d8ae985c943cecd9eadc5cdfd77903aa7b61ec14"
+    },
+    "clef_detector.json": {
+      "bytes": 11115,
+      "sha256": "62ca59359d3509a286b43c2f9b02cfb46427f84e19e3556c200465f37c50d052"
+    },
+    "LICENSE": {
+      "bytes": 11544,
+      "sha256": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a"
+    },
+    "requirements.txt": {
+      "bytes": 115,
+      "sha256": "58bce3f46d921e6f906833a36a2cc47cd22cf0e61ebd5cf973e62208b60efdd3"
+    },
+    "adapter.safetensors": {
+      "bytes": 2199608424,
+      "sha256": "6e4b7e9578a98d87e3ce60e243bd1428c91ec4fe4a4d0802e7fca9ea7a5d8ed2"
+    },
+    "NOTICE": {
+      "bytes": 422,
+      "sha256": "e9954b5e3ea46a528aeac8643a36aa209d84e9790019307303fc7ed01a794e98"
+    },
+    "README.md": {
+      "bytes": 10754,
+      "sha256": "afc81e0095dcb3b0ddc96a15ea8abe81f7ecbeb60cadffa626d4d6001c1b061d"
+    },
+    "clef_detector.py": {
+      "bytes": 16866,
+      "sha256": "75a8d159c36dd729727a91e889e15743335a74ec6ed975100096dc00cc631da8"
+    },
+    "requirements-b200.txt": {
+      "bytes": 115,
+      "sha256": "df307b3d52e646186b8fccd278f122c61600a749d91feaff2189208ffa116b17"
+    },
+    "assets/benchmark-pdfs.svg": {
+      "bytes": 67755,
+      "sha256": "04da9c77d6c8cbfbc2724be4d9d35cf68a2fc63d756401b9096d327c7e313141"
+    },
+    "assets/benchmark-auroc.svg": {
+      "bytes": 81391,
+      "sha256": "447b8bd7d654bd662e0e52b57e0c9bd79dbd8f018e129e32efb1cbe68541b036"
+    },
+    "assets/benchmark-auroc.png": {
+      "bytes": 148204,
+      "sha256": "cb67d379a9905e1b56e184d11b31c5ff5e8bce1b4658a53e2ad38c1af6d5d8ac"
+    },
+    "assets/benchmark-pdfs.png": {
+      "bytes": 101107,
+      "sha256": "a27ae1c6ec354cf700e2f04a8a3f94e429ea70e54e3243dbef8b4974135cb68b"
+    }
+  },
+  "benchmark_runtime_sources": {
+    "clef_detector.py": "309f766fc9315028d62e2f22d7e8c6fdabaa525136302204d2ea2fcae51f205c",
+    "decoder.py": "1896c1359a8c84eff16ba4e5e8a58dd0bb595f3c22a11cfa0e14bc262d596538",
+    "run.py": "2002809336e0691f0dc563caf87d531cfbb5fe069add9bcec5f639b994036e33",
+    "evaluate.py": "517099c1d1c50af9bc6a1966c591eb7064c68d7e0b975ac570560cb08385c066"
+  }
+}

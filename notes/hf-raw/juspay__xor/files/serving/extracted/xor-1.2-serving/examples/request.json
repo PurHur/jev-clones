@@ -1,0 +1,24 @@
+{
+  "state": "Hi, I was charged twice on order 5521 and nobody has replied for three days.",
+  "model": "xor-1.2",
+  "questions": {
+    "is_urgent": {
+      "type": "noul",
+      "instructions": "Does the user need urgent help?"
+    },
+    "department": {
+      "type": "choice",
+      "instructions": "Which department should handle this?",
+      "criteria": {
+        "billing": "Payments and invoices",
+        "technical": "Bugs and outages",
+        "sales": "Pricing and plans"
+      }
+    },
+    "mood": {
+      "type": "score",
+      "instructions": "How angry is the user?",
+      "criteria": ["Calm", "Frustrated", "Very angry"]
+    }
+  }
+}

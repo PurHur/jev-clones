@@ -1,0 +1,11 @@
+{
+  "checkpoint_id": "89988f08-2a17-4f7e-99b6-6fff923806cf",
+  "dtype": "torch.bfloat16",
+  "tensors": 1022,
+  "tensor_bytes": 67583480546,
+  "shards": 15,
+  "verified_roundtrip": true,
+  "source_sha256": "996f1f8c95c72aa7374e9e610085f8a1cd01af3a4a0260963fb0ef85de68f1c1",
+  "precision_policy": "match_input_model_weight_dtype",
+  "frozen_vision_included": true
+}

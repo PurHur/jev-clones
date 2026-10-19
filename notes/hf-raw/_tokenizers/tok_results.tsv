@@ -1,0 +1,7 @@
+tokenizer	vocab	en	de	pl	tr	ru	ja	th
+Qwen3.5 (JevAlt, Turnike, OpenThai base, johannhartmann)	248078	51	57	81	72	59	59	58
+OpenThai (Qwen3.5 + added tokens, Thai CPT)	248339	51	57	81	72	59	59	121
+Bielik v3 (basal 1.x)	32000	87	107	53	139	442	340	661
+Gemma 4 (basal-omni)	262144	51	64	80	68	65	60	75
+FRIDA / FRED-T5	93651	48	96	138	113	51	155	441
+ModernBERT-ja (sokudan)	102400	58	86	115	110	111	46	382

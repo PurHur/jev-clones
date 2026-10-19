@@ -1,0 +1,540 @@
+{
+  "best_step": 300,
+  "best_dev_selection_ce": 0.768348061442913,
+  "selected_on": "dev only",
+  "stage": "sft",
+  "loss": "ce",
+  "completed_steps": 300,
+  "metrics_by_split": {
+    "dev": {
+      "questions": 895,
+      "selection_ce": 0.768348061442913,
+      "selection_weights": {
+        "maze/policy": 0.3333333333333333,
+        "snake/policy": 0.3333333333333333,
+        "shooting/policy/basic": 0.1556701030927835,
+        "shooting/policy/predict_position": 0.17766323024054984
+      },
+      "missing_selection_cells": [],
+      "by_task_role": {
+        "maze/policy": {
+          "questions": 213,
+          "excluded_questions": 2,
+          "objective": "api_policy_distribution",
+          "ce": 0.8586512628273836,
+          "kl": 0.051272376984547494,
+          "tv": 0.12218760235375502,
+          "brier": 0.03633367460537076,
+          "target_argmax_agreement": 0.7183098591549296
+        },
+        "shooting/policy": {
+          "questions": 522,
+          "excluded_questions": 0,
+          "objective": "mixed_policy_supervision",
+          "ce": 0.6751665438707917,
+          "kl": 0.41838145711492203,
+          "tv": 0.28088536739533787,
+          "brier": 0.234753920124058,
+          "target_argmax_agreement": 0.8180076628352491
+        },
+        "snake/policy": {
+          "questions": 157,
+          "excluded_questions": 1,
+          "objective": "api_policy_distribution",
+          "ce": 0.6508974866023702,
+          "kl": 0.03968017376322264,
+          "tv": 0.08737390050677335,
+          "brier": 0.021746081067941795,
+          "target_argmax_agreement": 0.9044585987261147
+        }
+      },
+      "by_role_macro_task": {
+        "policy": {
+          "tasks_present": 3,
+          "questions": 892,
+          "ce": 0.7282384311001818,
+          "kl": 0.16977800262089737,
+          "tv": 0.16348229008528875,
+          "brier": 0.09761122526579018,
+          "target_argmax_agreement": 0.8135920402387645
+        }
+      },
+      "by_selection_pool": {
+        "maze/policy": {
+          "questions": 213,
+          "ce": 0.8586512628273836,
+          "kl": 0.051272376984547494,
+          "tv": 0.12218760235375502,
+          "brier": 0.03633367460537076,
+          "target_argmax_agreement": 0.7183098591549296
+        },
+        "snake/policy": {
+          "questions": 157,
+          "ce": 0.6508974866023702,
+          "kl": 0.03968017376322264,
+          "tv": 0.08737390050677335,
+          "brier": 0.021746081067941795,
+          "target_argmax_agreement": 0.9044585987261147
+        },
+        "shooting/policy/predict_position": {
+          "questions": 138,
+          "ce": 1.0046922201260415,
+          "kl": 0.03337471804949119,
+          "tv": 0.09523188281426646,
+          "brier": 0.017212267481975678,
+          "target_argmax_agreement": 0.8333333333333334
+        },
+        "shooting/policy/basic": {
+          "questions": 384,
+          "ce": 0.5567432539665612,
+          "kl": 0.5567432539665612,
+          "tv": 0.34760458841666037,
+          "brier": 0.3129329515423063,
+          "target_argmax_agreement": 0.8125
+        }
+      },
+      "by_task_role_target_source": {
+        "maze/policy/api_policy_distribution": {
+          "questions": 213,
+          "ce": 0.8586512628273836,
+          "kl": 0.051272376984547494,
+          "tv": 0.12218760235375502,
+          "brier": 0.03633367460537076,
+          "target_argmax_agreement": 0.7183098591549296
+        },
+        "snake/policy/api_policy_distribution": {
+          "questions": 157,
+          "ce": 0.6508974866023702,
+          "kl": 0.03968017376322264,
+          "tv": 0.08737390050677335,
+          "brier": 0.021746081067941795,
+          "target_argmax_agreement": 0.9044585987261147
+        },
+        "shooting/policy/api_policy_distribution": {
+          "questions": 138,
+          "ce": 1.0046922201260415,
+          "kl": 0.03337471804949119,
+          "tv": 0.09523188281426646,
+          "brier": 0.017212267481975678,
+          "target_argmax_agreement": 0.8333333333333334
+        },
+        "shooting/policy/expert_action": {
+          "questions": 384,
+          "ce": 0.5567432539665612,
+          "kl": 0.5567432539665612,
+          "tv": 0.34760458841666037,
+          "brier": 0.3129329515423063,
+          "target_argmax_agreement": 0.8125
+        }
+      },
+      "excluded_by_selection_pool": {
+        "maze/policy": 2,
+        "snake/policy": 1
+      },
+      "notes": "Selection CE uses the explicitly declared population pools. Other task/role metrics are question means within each task. Policy CE/TV/KL measure API or expert target matching, not observed success; target sources are reported separately. Observed Boolean CE/Brier measure event prediction. Binary Brier sums both classes."
+    },
+    "calibration": {
+      "questions": 829,
+      "selection_ce": 0.7873890376268821,
+      "selection_weights": {
+        "maze/policy": 0.3333333333333333,
+        "snake/policy": 0.3333333333333333,
+        "shooting/policy/basic": 0.1556701030927835,
+        "shooting/policy/predict_position": 0.17766323024054984
+      },
+      "missing_selection_cells": [],
+      "by_task_role": {
+        "maze/policy": {
+          "questions": 188,
+          "excluded_questions": 0,
+          "objective": "api_policy_distribution",
+          "ce": 0.8557721273005748,
+          "kl": 0.049116758996135636,
+          "tv": 0.1178015623817113,
+          "brier": 0.03488752145795607,
+          "target_argmax_agreement": 0.7127659574468085
+        },
+        "shooting/policy": {
+          "questions": 503,
+          "excluded_questions": 0,
+          "objective": "mixed_policy_supervision",
+          "ce": 0.7098983267980059,
+          "kl": 0.45050097122273264,
+          "tv": 0.29333462310554453,
+          "brier": 0.2526518407243916,
+          "target_argmax_agreement": 0.8071570576540755
+        },
+        "snake/policy": {
+          "questions": 137,
+          "excluded_questions": 1,
+          "objective": "api_policy_distribution",
+          "ce": 0.6635669223565426,
+          "kl": 0.03503055143570352,
+          "tv": 0.08288389443723143,
+          "brier": 0.0177465026428542,
+          "target_argmax_agreement": 0.8467153284671532
+        }
+      },
+      "by_role_macro_task": {
+        "policy": {
+          "tasks_present": 3,
+          "questions": 828,
+          "ce": 0.7430791254850412,
+          "kl": 0.17821609388485726,
+          "tv": 0.1646733599748291,
+          "brier": 0.10176195494173396,
+          "target_argmax_agreement": 0.7888794478560124
+        }
+      },
+      "by_selection_pool": {
+        "maze/policy": {
+          "questions": 188,
+          "ce": 0.8557721273005748,
+          "kl": 0.049116758996135636,
+          "tv": 0.1178015623817113,
+          "brier": 0.03488752145795607,
+          "target_argmax_agreement": 0.7127659574468085
+        },
+        "snake/policy": {
+          "questions": 137,
+          "ce": 0.6635669223565426,
+          "kl": 0.03503055143570352,
+          "tv": 0.08288389443723143,
+          "brier": 0.0177465026428542,
+          "target_argmax_agreement": 0.8467153284671532
+        },
+        "shooting/policy/predict_position": {
+          "questions": 126,
+          "ce": 1.062584408401197,
+          "kl": 0.027053695271336352,
+          "tv": 0.0825563326068135,
+          "brier": 0.01327429250676614,
+          "target_argmax_agreement": 0.8174603174603174
+        },
+        "shooting/policy/basic": {
+          "questions": 377,
+          "ce": 0.5920244639810243,
+          "kl": 0.5920244639810243,
+          "tv": 0.3637804178080382,
+          "brier": 0.33265600803320017,
+          "target_argmax_agreement": 0.8037135278514589
+        }
+      },
+      "by_task_role_target_source": {
+        "maze/policy/api_policy_distribution": {
+          "questions": 188,
+          "ce": 0.8557721273005748,
+          "kl": 0.049116758996135636,
+          "tv": 0.1178015623817113,
+          "brier": 0.03488752145795607,
+          "target_argmax_agreement": 0.7127659574468085
+        },
+        "snake/policy/api_policy_distribution": {
+          "questions": 137,
+          "ce": 0.6635669223565426,
+          "kl": 0.03503055143570352,
+          "tv": 0.08288389443723143,
+          "brier": 0.0177465026428542,
+          "target_argmax_agreement": 0.8467153284671532
+        },
+        "shooting/policy/api_policy_distribution": {
+          "questions": 126,
+          "ce": 1.062584408401197,
+          "kl": 0.027053695271336352,
+          "tv": 0.0825563326068135,
+          "brier": 0.01327429250676614,
+          "target_argmax_agreement": 0.8174603174603174
+        },
+        "shooting/policy/expert_action": {
+          "questions": 377,
+          "ce": 0.5920244639810243,
+          "kl": 0.5920244639810243,
+          "tv": 0.3637804178080382,
+          "brier": 0.33265600803320017,
+          "target_argmax_agreement": 0.8037135278514589
+        }
+      },
+      "excluded_by_selection_pool": {
+        "snake/policy": 1
+      },
+      "notes": "Selection CE uses the explicitly declared population pools. Other task/role metrics are question means within each task. Policy CE/TV/KL measure API or expert target matching, not observed success; target sources are reported separately. Observed Boolean CE/Brier measure event prediction. Binary Brier sums both classes."
+    },
+    "test": {
+      "questions": 1222,
+      "selection_ce": 0.8010331335011466,
+      "selection_weights": {
+        "maze/policy": 0.3333333333333333,
+        "snake/policy": 0.3333333333333333,
+        "shooting/policy/basic": 0.1556701030927835,
+        "shooting/policy/predict_position": 0.17766323024054984
+      },
+      "missing_selection_cells": [],
+      "by_task_role": {
+        "maze/policy": {
+          "questions": 211,
+          "excluded_questions": 0,
+          "objective": "api_policy_distribution",
+          "ce": 0.8259242010118525,
+          "kl": 0.0512703377492425,
+          "tv": 0.12187708382354649,
+          "brier": 0.0353808629987452,
+          "target_argmax_agreement": 0.7109004739336493
+        },
+        "shooting/policy": {
+          "questions": 895,
+          "excluded_questions": 0,
+          "objective": "mixed_policy_supervision",
+          "ce": 0.6838506166237334,
+          "kl": 0.5231952973801718,
+          "tv": 0.3340690186488179,
+          "brier": 0.2923913738122801,
+          "target_argmax_agreement": 0.8201117318435754
+        },
+        "snake/policy": {
+          "questions": 116,
+          "excluded_questions": 0,
+          "objective": "api_policy_distribution",
+          "ce": 0.7184771101331556,
+          "kl": 0.03106495699993995,
+          "tv": 0.07785939005087449,
+          "brier": 0.017003446389262544,
+          "target_argmax_agreement": 0.8879310344827587
+        }
+      },
+      "by_role_macro_task": {
+        "policy": {
+          "tasks_present": 3,
+          "questions": 1222,
+          "ce": 0.7427506425895806,
+          "kl": 0.20184353070978475,
+          "tv": 0.17793516417441294,
+          "brier": 0.11492522773342928,
+          "target_argmax_agreement": 0.8063144134199945
+        }
+      },
+      "by_selection_pool": {
+        "maze/policy": {
+          "questions": 211,
+          "ce": 0.8259242010118525,
+          "kl": 0.0512703377492425,
+          "tv": 0.12187708382354649,
+          "brier": 0.0353808629987452,
+          "target_argmax_agreement": 0.7109004739336493
+        },
+        "snake/policy": {
+          "questions": 116,
+          "ce": 0.7184771101331556,
+          "kl": 0.03106495699993995,
+          "tv": 0.07785939005087449,
+          "brier": 0.017003446389262544,
+          "target_argmax_agreement": 0.8879310344827587
+        },
+        "shooting/policy/predict_position": {
+          "questions": 139,
+          "ce": 1.07489976100609,
+          "kl": 0.04046443206373267,
+          "tv": 0.10568520338309749,
+          "brier": 0.020831237825591608,
+          "target_argmax_agreement": 0.841726618705036
+        },
+        "shooting/policy/basic": {
+          "questions": 756,
+          "ce": 0.611951369177771,
+          "kl": 0.611951369177771,
+          "tv": 0.3760602227783617,
+          "brier": 0.34232108135480616,
+          "target_argmax_agreement": 0.8161375661375662
+        }
+      },
+      "by_task_role_target_source": {
+        "maze/policy/api_policy_distribution": {
+          "questions": 211,
+          "ce": 0.8259242010118525,
+          "kl": 0.0512703377492425,
+          "tv": 0.12187708382354649,
+          "brier": 0.0353808629987452,
+          "target_argmax_agreement": 0.7109004739336493
+        },
+        "snake/policy/api_policy_distribution": {
+          "questions": 116,
+          "ce": 0.7184771101331556,
+          "kl": 0.03106495699993995,
+          "tv": 0.07785939005087449,
+          "brier": 0.017003446389262544,
+          "target_argmax_agreement": 0.8879310344827587
+        },
+        "shooting/policy/api_policy_distribution": {
+          "questions": 139,
+          "ce": 1.07489976100609,
+          "kl": 0.04046443206373267,
+          "tv": 0.10568520338309749,
+          "brier": 0.020831237825591608,
+          "target_argmax_agreement": 0.841726618705036
+        },
+        "shooting/policy/expert_action": {
+          "questions": 756,
+          "ce": 0.611951369177771,
+          "kl": 0.611951369177771,
+          "tv": 0.3760602227783617,
+          "brier": 0.34232108135480616,
+          "target_argmax_agreement": 0.8161375661375662
+        }
+      },
+      "excluded_by_selection_pool": {},
+      "notes": "Selection CE uses the explicitly declared population pools. Other task/role metrics are question means within each task. Policy CE/TV/KL measure API or expert target matching, not observed success; target sources are reported separately. Observed Boolean CE/Brier measure event prediction. Binary Brier sums both classes."
+    },
+    "ood": {
+      "questions": 1034,
+      "selection_ce": 0.8316777569993143,
+      "selection_weights": {
+        "maze/policy": 0.3333333333333333,
+        "snake/policy": 0.3333333333333333,
+        "shooting/policy/basic": 0.1556701030927835,
+        "shooting/policy/predict_position": 0.17766323024054984
+      },
+      "missing_selection_cells": [],
+      "by_task_role": {
+        "maze/policy": {
+          "questions": 202,
+          "excluded_questions": 0,
+          "objective": "api_policy_distribution",
+          "ce": 0.8944500277474043,
+          "kl": 0.05899293970612548,
+          "tv": 0.13182221707821157,
+          "brier": 0.043880809340294834,
+          "target_argmax_agreement": 0.6138613861386139
+        },
+        "shooting/policy": {
+          "questions": 688,
+          "excluded_questions": 1,
+          "objective": "mixed_policy_supervision",
+          "ce": 0.711776172345522,
+          "kl": 0.5716331508554026,
+          "tv": 0.38142726603535343,
+          "brier": 0.3145144078339017,
+          "target_argmax_agreement": 0.8677325581395349
+        },
+        "snake/policy": {
+          "questions": 141,
+          "excluded_questions": 2,
+          "objective": "api_policy_distribution",
+          "ce": 0.7445295586165792,
+          "kl": 0.06641817329521485,
+          "tv": 0.11807409310477461,
+          "brier": 0.0363388908442046,
+          "target_argmax_agreement": 0.8439716312056738
+        }
+      },
+      "by_role_macro_task": {
+        "policy": {
+          "tasks_present": 3,
+          "questions": 1031,
+          "ce": 0.7835852529031685,
+          "kl": 0.23234808795224762,
+          "tv": 0.21044119207277986,
+          "brier": 0.13157803600613371,
+          "target_argmax_agreement": 0.7751885251612741
+        }
+      },
+      "by_selection_pool": {
+        "maze/policy": {
+          "questions": 202,
+          "ce": 0.8944500277474043,
+          "kl": 0.05899293970612548,
+          "tv": 0.13182221707821157,
+          "brier": 0.043880809340294834,
+          "target_argmax_agreement": 0.6138613861386139
+        },
+        "snake/policy": {
+          "questions": 141,
+          "ce": 0.7445295586165792,
+          "kl": 0.06641817329521485,
+          "tv": 0.11807409310477461,
+          "brier": 0.0363388908442046,
+          "target_argmax_agreement": 0.8439716312056738
+        },
+        "shooting/policy/predict_position": {
+          "questions": 99,
+          "ce": 1.029222704027579,
+          "kl": 0.05529948397503138,
+          "tv": 0.13637101541295324,
+          "brier": 0.03019218594976505,
+          "target_argmax_agreement": 0.9090909090909091
+        },
+        "shooting/policy/basic": {
+          "questions": 589,
+          "ce": 0.658419285016959,
+          "kl": 0.658419285016959,
+          "tv": 0.4226166867681508,
+          "brier": 0.36230371168199943,
+          "target_argmax_agreement": 0.8607809847198642
+        }
+      },
+      "by_task_role_target_source": {
+        "maze/policy/api_policy_distribution": {
+          "questions": 202,
+          "ce": 0.8944500277474043,
+          "kl": 0.05899293970612548,
+          "tv": 0.13182221707821157,
+          "brier": 0.043880809340294834,
+          "target_argmax_agreement": 0.6138613861386139
+        },
+        "snake/policy/api_policy_distribution": {
+          "questions": 141,
+          "ce": 0.7445295586165792,
+          "kl": 0.06641817329521485,
+          "tv": 0.11807409310477461,
+          "brier": 0.0363388908442046,
+          "target_argmax_agreement": 0.8439716312056738
+        },
+        "shooting/policy/api_policy_distribution": {
+          "questions": 99,
+          "ce": 1.029222704027579,
+          "kl": 0.05529948397503138,
+          "tv": 0.13637101541295324,
+          "brier": 0.03019218594976505,
+          "target_argmax_agreement": 0.9090909090909091
+        },
+        "shooting/policy/expert_action": {
+          "questions": 589,
+          "ce": 0.658419285016959,
+          "kl": 0.658419285016959,
+          "tv": 0.4226166867681508,
+          "brier": 0.36230371168199943,
+          "target_argmax_agreement": 0.8607809847198642
+        }
+      },
+      "excluded_by_selection_pool": {
+        "shooting/policy/predict_position": 1,
+        "snake/policy": 2
+      },
+      "notes": "Selection CE uses the explicitly declared population pools. Other task/role metrics are question means within each task. Policy CE/TV/KL measure API or expert target matching, not observed success; target sources are reported separately. Observed Boolean CE/Brier measure event prediction. Binary Brier sums both classes."
+    }
+  },
+  "training_seconds": 1716.403577774763,
+  "max_gpu_allocated_gb": 16.85609728,
+  "weights_sha256": "38116340795de1c82369b7fe15819d92d79600a7b4dc7a3cd0d4390cb6782639",
+  "continuation_policy_id": null,
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "online_compute": {
+    "forward_calls": 1130,
+    "question_instances": 7200,
+    "leaf_paths": 23349,
+    "padded_tokens": 23040228
+  },
+  "td": {
+    "enabled": false,
+    "n_step": 3,
+    "weight": 0.0,
+    "target_update_every": 25,
+    "target_refresh_steps": [],
+    "target_forward_calls": 0,
+    "target_question_predictions": 0,
+    "target_leaf_paths": 0,
+    "target_padded_tokens": 0,
+    "target_forward_seconds": 0,
+    "terminal_target_instances": 0,
+    "bootstrap_target_instances": 0
+  }
+}

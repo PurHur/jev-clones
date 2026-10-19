@@ -1,0 +1,26 @@
+{
+ "engine": "nimble.evaluation.decision_index_engine:NimbleEngine",
+ "engine_options": {
+  "adapter": "Bespoke-Nimble-9B-v3",
+  "shared_prefix": true
+ },
+ "model_source": {
+  "adapter": "Bespoke-Nimble-9B-v3",
+  "adapter_sha256": "070d80aca59ab5f36cf5ab0e0f86003d28da97496702865a8eaa59586b646bc4",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "contract_task": "schema_candidate_classification_v2",
+  "max_tokens": 32768
+ },
+ "torch": "2.8.0+cu128",
+ "gpu": "NVIDIA H100 80GB HBM3",
+ "loaded_seconds": 29.849962243,
+ "frozen_corpus_sha256": null,
+ "rows_path": [
+  "/training/decision-index/suite-0.2/selected-rows.jsonl.gz",
+  "/training/decision-index/suite-0.2/added-rows.jsonl.gz"
+ ],
+ "runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d",
+ "latency": "In-process request wall time on one GPU: prompt construction and batched forward passes.",
+ "note": "Run as 16 processes on 8 H100 80GB GPUs (2 per GPU), requests split by a hash of their run id; results merged here. The adapter path is shown as the published snapshot name; the results are untouched."
+}

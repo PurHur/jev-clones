@@ -1,0 +1,160 @@
+{
+  "best_step": 100,
+  "best_dev_target_ce": 0.6079203053015539,
+  "selected_on": "dev target CE",
+  "objective": "gold_distribution",
+  "metrics_by_split": {
+    "dev": {
+      "questions": 504,
+      "objective": "gold_distribution",
+      "eligible_questions": 504,
+      "target_ce": 0.6079203053015539,
+      "target_kl": 0.566194151555302,
+      "target_tv": 0.33998366396415136,
+      "by_target_kind": {
+        "deterministic_truth": {
+          "n": 423,
+          "ce": 0.5475351556056708,
+          "kl": 0.5475351556056708,
+          "tv": 0.3248628333506329
+        },
+        "optimal_action_policy": {
+          "n": 81,
+          "ce": 0.9232649759356132,
+          "kl": 0.6636355748478214,
+          "tv": 0.41894800161253004
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 504,
+          "ce": 0.6079203053015539,
+          "kl": 0.566194151555302,
+          "tv": 0.33998366396415136
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "calibration": {
+      "questions": 500,
+      "objective": "gold_distribution",
+      "eligible_questions": 500,
+      "target_ce": 0.6601248196618281,
+      "target_kl": 0.6225635378425565,
+      "target_tv": 0.35279715502465236,
+      "by_target_kind": {
+        "deterministic_truth": {
+          "n": 420,
+          "ce": 0.6192864014688629,
+          "kl": 0.6192864014688629,
+          "tv": 0.34447223537915905
+        },
+        "optimal_action_policy": {
+          "n": 80,
+          "ce": 0.8745265151748954,
+          "kl": 0.6397685038044467,
+          "tv": 0.39650298316349475
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 500,
+          "ce": 0.6601248196618281,
+          "kl": 0.6225635378425565,
+          "tv": 0.35279715502465236
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "test": {
+      "questions": 487,
+      "objective": "gold_distribution",
+      "eligible_questions": 487,
+      "target_ce": 0.6302541688123193,
+      "target_kl": 0.5895691869564941,
+      "target_tv": 0.33474409936735405,
+      "by_target_kind": {
+        "optimal_action_policy": {
+          "n": 82,
+          "ce": 0.904787119991967,
+          "kl": 0.6631580204335937,
+          "tv": 0.40845001808807946
+        },
+        "deterministic_truth": {
+          "n": 405,
+          "ce": 0.5746697194376736,
+          "kl": 0.5746697194376736,
+          "tv": 0.3198209257004425
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 487,
+          "ce": 0.6302541688123193,
+          "kl": 0.5895691869564941,
+          "tv": 0.33474409936735405
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    },
+    "ood": {
+      "questions": 173,
+      "objective": "gold_distribution",
+      "eligible_questions": 173,
+      "target_ce": 0.5910269532386467,
+      "target_kl": 0.5486169132750188,
+      "target_tv": 0.3325766694434778,
+      "by_target_kind": {
+        "deterministic_truth": {
+          "n": 144,
+          "ce": 0.5162414440562704,
+          "kl": 0.5162414440562704,
+          "tv": 0.31279073019126086
+        },
+        "optimal_action_policy": {
+          "n": 29,
+          "ce": 0.9623756884890643,
+          "kl": 0.7093778638784569,
+          "tv": 0.43082409193724464
+        }
+      },
+      "independent_targets": {
+        "teacher": {
+          "n": 0,
+          "ce": 0.0,
+          "kl": 0.0,
+          "tv": 0.0
+        },
+        "gold_distribution": {
+          "n": 173,
+          "ce": 0.5910269532386467,
+          "kl": 0.5486169132750188,
+          "tv": 0.3325766694434778
+        }
+      },
+      "note": "question-mean distribution recovery; policy targets and reference argmax labels are not observed outcomes"
+    }
+  },
+  "temperature": 1.0,
+  "temperature_fitted": false,
+  "training_seconds": 186.51977808214724,
+  "max_gpu_allocated_gb": 12.369258496
+}

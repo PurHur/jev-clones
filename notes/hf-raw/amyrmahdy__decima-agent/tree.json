@@ -1,0 +1,260 @@
+[
+ {
+  "type": "directory",
+  "oid": "c9f5274a514992c4314278a5f5325b5766d541f1",
+  "size": 0,
+  "path": "onnx"
+ },
+ {
+  "type": "directory",
+  "oid": "c6a5e74c4e643d39dc009f60357636fbed9792d0",
+  "size": 0,
+  "path": "onnx/fp32"
+ },
+ {
+  "type": "directory",
+  "oid": "53bf7ff96651aa9ae59a3eff43614a8b79be3359",
+  "size": 0,
+  "path": "onnx/fp32/tokenizer"
+ },
+ {
+  "type": "directory",
+  "oid": "61c07aaa0a82184a705f2a55465bbf2b808c8d7d",
+  "size": 0,
+  "path": "onnx/int8"
+ },
+ {
+  "type": "directory",
+  "oid": "53bf7ff96651aa9ae59a3eff43614a8b79be3359",
+  "size": 0,
+  "path": "onnx/int8/tokenizer"
+ },
+ {
+  "type": "directory",
+  "oid": "b7726d300f07d3c2f85808796ef801e992d56c5f",
+  "size": 0,
+  "path": "pytorch"
+ },
+ {
+  "type": "directory",
+  "oid": "3dc5d17e8ec9be297f4f632302afb875282608e8",
+  "size": 0,
+  "path": "pytorch/encoder"
+ },
+ {
+  "type": "file",
+  "oid": "8dd757c79aa5c25ffba0f467bfe080c8058483d7",
+  "size": 1891,
+  "path": ".gitattributes"
+ },
+ {
+  "type": "file",
+  "oid": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+  "size": 11358,
+  "path": "LICENSE"
+ },
+ {
+  "type": "file",
+  "oid": "74adacd28d9324958af16d0ffb57fe075a76dd62",
+  "size": 8991,
+  "path": "README.md"
+ },
+ {
+  "type": "file",
+  "oid": "37355762c26b9a1f326e88fcc8d7625fb96a451a",
+  "size": 320,
+  "path": "config.json"
+ },
+ {
+  "type": "file",
+  "oid": "e044b45cabd01e8b3e3b08784b52fe690bace523",
+  "size": 286796,
+  "lfs": {
+   "oid": "1bee6ab5d5ac7aa5e66a39a76fb3c6b58b0d8a5707a81b806b6c4e8d96d9627d",
+   "size": 286796,
+   "pointerSize": 131
+  },
+  "xetHash": "07a98c41d2ef86e5d6b0b9b28996daa4a4b09aa9b22cb74fe7df1d78a5e4e094",
+  "path": "decima-cli.gif"
+ },
+ {
+  "type": "file",
+  "oid": "531801c98834d360f628eabf5617745545bcf73c",
+  "size": 40245,
+  "path": "onnx/fp32/decima.json"
+ },
+ {
+  "type": "file",
+  "oid": "1d235badf314794ed66407ab6bb53e410405ab11",
+  "size": 1228335478,
+  "lfs": {
+   "oid": "0e9ebe0553114bc843e7e00328158c02ead5306e1532fb77dea9076cb77b3461",
+   "size": 1228335478,
+   "pointerSize": 135
+  },
+  "xetHash": "5c787d801a49d4b93d9a08c60b3e8636bc6686427da06a1efc3b78b54a9c59ba",
+  "path": "onnx/fp32/encoder.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "98a258bea1133f6f1f9b908fb3e85d6666397c41",
+  "size": 56781623,
+  "lfs": {
+   "oid": "ab025823f165b82ec5589614bac29abf0a2804b64648028e2a41d7d50f185100",
+   "size": 56781623,
+   "pointerSize": 133
+  },
+  "xetHash": "d8d09f2b411526af3e2d64a27471b4d11749701a9148b35dc9e58133304ace2d",
+  "path": "onnx/fp32/scorer.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "bd6bf8f75cdf795989b25ba727d7a9a9155fcaea",
+  "size": 34363440,
+  "lfs": {
+   "oid": "d941237f7b665542273cd22102ae14fdacf54d3aaf0bd45da55022c46b4cc006",
+   "size": 34363440,
+   "pointerSize": 133
+  },
+  "xetHash": "8f3f6aa0d5570d4debce848f3e3066b61e048b9c70906622a524c3310db75cca",
+  "path": "onnx/fp32/tokenizer/tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "4d3e656d27bdb7355350d84f22bdd5929d3591ae",
+  "size": 735,
+  "path": "onnx/fp32/tokenizer/tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "531801c98834d360f628eabf5617745545bcf73c",
+  "size": 40245,
+  "path": "onnx/int8/decima.json"
+ },
+ {
+  "type": "file",
+  "oid": "61bfe71f8fca36b990634ddcc2a0518a6f3f566b",
+  "size": 322447126,
+  "lfs": {
+   "oid": "fc4996f13640f3b43f27c073e4ac66ff58b544ae4599b425866ab2a66b647435",
+   "size": 322447126,
+   "pointerSize": 134
+  },
+  "xetHash": "f110144c47a993826ad59aa4b4bb69ec895c26f7a0b0e1aa6abdcc95231b1bbc",
+  "path": "onnx/int8/encoder.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "5993724c6b0ed27e2a63ac116b8984b97e5a08cb",
+  "size": 419,
+  "path": "onnx/int8/quantize.txt"
+ },
+ {
+  "type": "file",
+  "oid": "b8ca51b4ee3508ef8e9e8723579ea36b9e13fee4",
+  "size": 14436752,
+  "lfs": {
+   "oid": "a5832dd643cfa55c5750cf2fd21590232cbef5ac20b95caf51cc99a354dafc71",
+   "size": 14436752,
+   "pointerSize": 133
+  },
+  "xetHash": "b9fc3973bd0d660944b48ecab7dd152f41c5ef3a1510a942b4ec7d20ded2b627",
+  "path": "onnx/int8/scorer.onnx"
+ },
+ {
+  "type": "file",
+  "oid": "bd6bf8f75cdf795989b25ba727d7a9a9155fcaea",
+  "size": 34363440,
+  "lfs": {
+   "oid": "d941237f7b665542273cd22102ae14fdacf54d3aaf0bd45da55022c46b4cc006",
+   "size": 34363440,
+   "pointerSize": 133
+  },
+  "xetHash": "8f3f6aa0d5570d4debce848f3e3066b61e048b9c70906622a524c3310db75cca",
+  "path": "onnx/int8/tokenizer/tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "4d3e656d27bdb7355350d84f22bdd5929d3591ae",
+  "size": 735,
+  "path": "onnx/int8/tokenizer/tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "2cb6ac8c727f0eb15a43ed712c9a069dd42939d7",
+  "size": 315,
+  "path": "pytorch/decima.json"
+ },
+ {
+  "type": "file",
+  "oid": "6b7d8ae772f994fb1cb413755d6a896005fbc0a8",
+  "size": 1898,
+  "path": "pytorch/encoder/config.json"
+ },
+ {
+  "type": "file",
+  "oid": "1fdbd0f59163583f7355b9594e1e1e78e69d99ff",
+  "size": 1227771776,
+  "lfs": {
+   "oid": "c86fb570cd37a4909bf57f81afbde282bc8d31a9f51db3850a43511432bf439c",
+   "size": 1227771776,
+   "pointerSize": 135
+  },
+  "xetHash": "343c61bc27aeb2e69f48f45c405e7e33cc58c53ca10b6bec2c33f8a6fa19bf2b",
+  "path": "pytorch/encoder/model.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "bd6bf8f75cdf795989b25ba727d7a9a9155fcaea",
+  "size": 34363440,
+  "lfs": {
+   "oid": "d941237f7b665542273cd22102ae14fdacf54d3aaf0bd45da55022c46b4cc006",
+   "size": 34363440,
+   "pointerSize": 133
+  },
+  "xetHash": "8f3f6aa0d5570d4debce848f3e3066b61e048b9c70906622a524c3310db75cca",
+  "path": "pytorch/encoder/tokenizer.json"
+ },
+ {
+  "type": "file",
+  "oid": "4d3e656d27bdb7355350d84f22bdd5929d3591ae",
+  "size": 735,
+  "path": "pytorch/encoder/tokenizer_config.json"
+ },
+ {
+  "type": "file",
+  "oid": "2c6c5c79dacbb5e6063f6f4eba9a044121e50a43",
+  "size": 56748532,
+  "lfs": {
+   "oid": "98fc67d8969c9009b5ced9f81a02e6d4d39891cc391ed883d578311f9e26b594",
+   "size": 56748532,
+   "pointerSize": 133
+  },
+  "xetHash": "95e8a61264c0f54287c91674cbcdd61f778f5137c6bade917ea786d664cfdd97",
+  "path": "pytorch/head.safetensors"
+ },
+ {
+  "type": "file",
+  "oid": "86b336577b5ef4e76a4fe1fe38f3f65179601cb9",
+  "size": 1573807,
+  "lfs": {
+   "oid": "d6df47d2ae69f836f42067eb205b354ce1a8aae41dd5e6edcd7e8f0d54b82847",
+   "size": 1573807,
+   "pointerSize": 132
+  },
+  "xetHash": "7ffd587971e0502811d57e8f455fc88e2599da3bb5daf66cbed0f35c29dfcf48",
+  "path": "snake-agent-2.1.gif"
+ },
+ {
+  "type": "file",
+  "oid": "379beda954819098c54a41369a1981ea9860d981",
+  "size": 2795465,
+  "lfs": {
+   "oid": "9312c007ab108789167644c895d99c3473d6e7e7b8a98695f523547fddc4406c",
+   "size": 2795465,
+   "pointerSize": 132
+  },
+  "xetHash": "86df1cc62f0e07985ca31dbdf8c742939e8366baa62e73572333dadf5e416536",
+  "path": "snake-agent-2.2.gif"
+ }
+]

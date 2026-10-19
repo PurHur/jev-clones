@@ -1,0 +1,49 @@
+{
+ "_id": "6ad4a764a150e48c9728e766",
+ "id": "amyrmahdy/decima-guard",
+ "config": {
+  "model_type": "decima",
+  "architectures": [
+   "Decima"
+  ]
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "language": [
+   "en",
+   "ar",
+   "fa",
+   "multilingual"
+  ],
+  "library_name": "onnx",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "guardrails",
+   "prompt-injection",
+   "jailbreak",
+   "owasp",
+   "owasp-llm-top-10",
+   "llm-security",
+   "indirect-prompt-injection",
+   "waf",
+   "sql-injection",
+   "xss",
+   "arabic",
+   "persian",
+   "finglish",
+   "arabizi",
+   "onnx",
+   "int8",
+   "cpu",
+   "local-first",
+   "decision-model"
+  ],
+  "base_model": "amyrmahdy/decima-base-clean"
+ },
+ "lastModified": "2026-10-19T11:42:05.000Z",
+ "downloads": 32,
+ "likes": 0,
+ "gated": false,
+ "sha": "3c23c6d41c206cad3fddc0eea5d8d60455faa86e",
+ "createdAt": "2026-10-18T11:03:00.000Z"
+}

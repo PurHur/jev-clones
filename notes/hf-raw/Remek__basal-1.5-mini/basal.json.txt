@@ -1,0 +1,19 @@
+{
+ "name": "basal-1.5-mini",
+ "version": "1.5",
+ "parameters": "1.5B",
+ "readout": {
+  "kind": "letter logits",
+  "letters": "ABCDEFGHIJ",
+  "prefill": "{\"answer\": \"",
+  "templates": "basal-1.0 (unchanged prompt contract)",
+  "order_policy": "probabilities averaged over original and reversed option order",
+  "eval_dtype": "float32"
+ },
+ "calibration": "CALIBRATION.json (per-type temperatures, certified confidence thresholds)",
+ "serving": "basal-serve --mode fast (no exit heads for these weights)",
+ "test_metrics": {
+  "acc": 0.8320093457943926,
+  "n_items": 8560
+ }
+}

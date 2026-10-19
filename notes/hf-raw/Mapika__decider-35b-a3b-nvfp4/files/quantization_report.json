@@ -1,0 +1,545 @@
+{
+ "config": "NVFP4_DEFAULT_CFG",
+ "calibration_prompts": 512,
+ "eval_limit_per_task": 150,
+ "bf16": {
+  "in_task": {
+   "acc": 0.8609087893864014,
+   "nll": 0.3528091052786878,
+   "brier": 0.1940373842391175,
+   "ece": 0.05303316337077771,
+   "aurc": 0.06681307700298869,
+   "acc_at_80": 0.9049253731343283,
+   "chance": 0.32540278764905634
+  },
+  "heldout": {
+   "acc": 0.818316326530612,
+   "nll": 0.4924945922102779,
+   "brier": 0.25888958097701625,
+   "ece": 0.08855473946982705,
+   "aurc": 0.08901265866200106,
+   "acc_at_80": 0.8688492063492064,
+   "chance": 0.2876210317460317
+  },
+  "n_in": 67,
+  "n_heldout": 28
+ },
+ "calibration_seconds": 370.6152937412262,
+ "nvfp4_fake_quant": {
+  "in_task": {
+   "acc": 0.8569850746268657,
+   "nll": 0.3597476924595826,
+   "brier": 0.19966554634208764,
+   "ece": 0.05316929627087579,
+   "aurc": 0.06933453246273688,
+   "acc_at_80": 0.9012728026533997,
+   "chance": 0.32540278764905634
+  },
+  "heldout": {
+   "acc": 0.8091836734693877,
+   "nll": 0.5021133321071309,
+   "brier": 0.26491087729976115,
+   "ece": 0.09327989718363598,
+   "aurc": 0.09235152912304556,
+   "acc_at_80": 0.860515873015873,
+   "chance": 0.2876210317460317
+  },
+  "n_in": 67,
+  "n_heldout": 28
+ },
+ "per_task": {
+  "clinc_oos": {
+   "bf16": 0.9733333333333334,
+   "nvfp4": 0.9733333333333334,
+   "heldout": false
+  },
+  "banking77": {
+   "bf16": 0.9933333333333333,
+   "nvfp4": 0.9933333333333333,
+   "heldout": false
+  },
+  "massive_intent": {
+   "bf16": 0.9733333333333334,
+   "nvfp4": 0.98,
+   "heldout": false
+  },
+  "massive_scenario": {
+   "bf16": 0.84,
+   "nvfp4": 0.84,
+   "heldout": true
+  },
+  "bitext_support": {
+   "bf16": 0.9966666666666667,
+   "nvfp4": 0.9966666666666667,
+   "heldout": false
+  },
+  "support_tickets": {
+   "bf16": 0.6155555555555555,
+   "nvfp4": 0.6066666666666667,
+   "heldout": false
+  },
+  "ag_news": {
+   "bf16": 0.9533333333333334,
+   "nvfp4": 0.9466666666666667,
+   "heldout": false
+  },
+  "dbpedia": {
+   "bf16": 1.0,
+   "nvfp4": 1.0,
+   "heldout": false
+  },
+  "yahoo_topics": {
+   "bf16": 0.86,
+   "nvfp4": 0.8533333333333334,
+   "heldout": false
+  },
+  "newsgroups": {
+   "bf16": 0.82,
+   "nvfp4": 0.8266666666666667,
+   "heldout": false
+  },
+  "bbc_news": {
+   "bf16": 0.9466666666666667,
+   "nvfp4": 0.94,
+   "heldout": true
+  },
+  "trec": {
+   "bf16": 0.84,
+   "nvfp4": 0.8333333333333334,
+   "heldout": true
+  },
+  "student_questions": {
+   "bf16": 0.9466666666666667,
+   "nvfp4": 0.94,
+   "heldout": true
+  },
+  "dolly_category": {
+   "bf16": 0.32666666666666666,
+   "nvfp4": 0.32666666666666666,
+   "heldout": true
+  },
+  "imdb": {
+   "bf16": 0.9733333333333334,
+   "nvfp4": 0.98,
+   "heldout": false
+  },
+  "sst2": {
+   "bf16": 0.9733333333333334,
+   "nvfp4": 0.9666666666666667,
+   "heldout": false
+  },
+  "sst5": {
+   "bf16": 0.6266666666666667,
+   "nvfp4": 0.6,
+   "heldout": false
+  },
+  "yelp": {
+   "bf16": 0.78,
+   "nvfp4": 0.7533333333333333,
+   "heldout": false
+  },
+  "amazon_stars": {
+   "bf16": 0.68,
+   "nvfp4": 0.6533333333333333,
+   "heldout": false
+  },
+  "emotion": {
+   "bf16": 0.9066666666666666,
+   "nvfp4": 0.8933333333333333,
+   "heldout": false
+  },
+  "go_emotions": {
+   "bf16": 0.7933333333333333,
+   "nvfp4": 0.7933333333333333,
+   "heldout": false
+  },
+  "tweet_sentiment": {
+   "bf16": 0.7466666666666667,
+   "nvfp4": 0.78,
+   "heldout": false
+  },
+  "tweet_emotion": {
+   "bf16": 0.8466666666666667,
+   "nvfp4": 0.8333333333333334,
+   "heldout": false
+  },
+  "tweet_irony": {
+   "bf16": 0.9066666666666666,
+   "nvfp4": 0.8866666666666667,
+   "heldout": true
+  },
+  "fin_sentiment": {
+   "bf16": 0.88,
+   "nvfp4": 0.8866666666666667,
+   "heldout": true
+  },
+  "cr_reviews": {
+   "bf16": 0.8933333333333333,
+   "nvfp4": 0.8933333333333333,
+   "heldout": true
+  },
+  "counterfactual": {
+   "bf16": 0.9333333333333333,
+   "nvfp4": 0.92,
+   "heldout": false
+  },
+  "subjectivity": {
+   "bf16": 0.9666666666666667,
+   "nvfp4": 0.96,
+   "heldout": false
+  },
+  "tweet_offensive": {
+   "bf16": 0.8733333333333333,
+   "nvfp4": 0.8733333333333333,
+   "heldout": false
+  },
+  "tweet_hate": {
+   "bf16": 0.5266666666666666,
+   "nvfp4": 0.5333333333333333,
+   "heldout": false
+  },
+  "hate_offensive": {
+   "bf16": 0.9133333333333333,
+   "nvfp4": 0.9133333333333333,
+   "heldout": false
+  },
+  "civil_comments": {
+   "bf16": 0.9373333333333334,
+   "nvfp4": 0.9346666666666666,
+   "heldout": false
+  },
+  "toxic_chat": {
+   "bf16": 0.9933333333333333,
+   "nvfp4": 0.9866666666666667,
+   "heldout": false
+  },
+  "sms_spam": {
+   "bf16": 0.9933333333333333,
+   "nvfp4": 0.9933333333333333,
+   "heldout": false
+  },
+  "enron_spam": {
+   "bf16": 1.0,
+   "nvfp4": 1.0,
+   "heldout": false
+  },
+  "insincere_questions": {
+   "bf16": 0.9666666666666667,
+   "nvfp4": 0.96,
+   "heldout": false
+  },
+  "ade": {
+   "bf16": 0.84,
+   "nvfp4": 0.8333333333333334,
+   "heldout": true
+  },
+  "snli": {
+   "bf16": 0.98,
+   "nvfp4": 0.9733333333333334,
+   "heldout": false
+  },
+  "mnli": {
+   "bf16": 0.96,
+   "nvfp4": 0.96,
+   "heldout": false
+  },
+  "rte": {
+   "bf16": 0.9333333333333333,
+   "nvfp4": 0.9266666666666666,
+   "heldout": false
+  },
+  "qnli": {
+   "bf16": 0.9866666666666667,
+   "nvfp4": 0.98,
+   "heldout": false
+  },
+  "qqp": {
+   "bf16": 0.8333333333333334,
+   "nvfp4": 0.8466666666666667,
+   "heldout": false
+  },
+  "mrpc": {
+   "bf16": 0.9,
+   "nvfp4": 0.8933333333333333,
+   "heldout": false
+  },
+  "paws": {
+   "bf16": 0.7333333333333333,
+   "nvfp4": 0.72,
+   "heldout": true
+  },
+  "cola": {
+   "bf16": 0.8466666666666667,
+   "nvfp4": 0.8533333333333334,
+   "heldout": false
+  },
+  "boolq": {
+   "bf16": 0.9466666666666667,
+   "nvfp4": 0.9266666666666666,
+   "heldout": false
+  },
+  "strategyqa": {
+   "bf16": 0.74,
+   "nvfp4": 0.6866666666666666,
+   "heldout": true
+  },
+  "pubmedqa": {
+   "bf16": 0.82,
+   "nvfp4": 0.8466666666666667,
+   "heldout": true
+  },
+  "arc": {
+   "bf16": 0.98,
+   "nvfp4": 0.9733333333333334,
+   "heldout": false
+  },
+  "commonsense_qa": {
+   "bf16": 0.88,
+   "nvfp4": 0.88,
+   "heldout": false
+  },
+  "qasc": {
+   "bf16": 0.88,
+   "nvfp4": 0.8933333333333333,
+   "heldout": false
+  },
+  "openbookqa": {
+   "bf16": 0.9666666666666667,
+   "nvfp4": 0.9666666666666667,
+   "heldout": false
+  },
+  "sciq": {
+   "bf16": 0.9933333333333333,
+   "nvfp4": 0.9933333333333333,
+   "heldout": true
+  },
+  "hellaswag": {
+   "bf16": 0.9666666666666667,
+   "nvfp4": 0.98,
+   "heldout": false
+  },
+  "piqa": {
+   "bf16": 0.9333333333333333,
+   "nvfp4": 0.92,
+   "heldout": false
+  },
+  "social_iqa": {
+   "bf16": 0.7733333333333333,
+   "nvfp4": 0.7266666666666667,
+   "heldout": true
+  },
+  "winogrande": {
+   "bf16": 0.92,
+   "nvfp4": 0.8933333333333333,
+   "heldout": false
+  },
+  "race": {
+   "bf16": 0.9533333333333334,
+   "nvfp4": 0.9666666666666667,
+   "heldout": false
+  },
+  "mmlu": {
+   "bf16": 0.8133333333333334,
+   "nvfp4": 0.8133333333333334,
+   "heldout": false
+  },
+  "medqa": {
+   "bf16": 0.8733333333333333,
+   "nvfp4": 0.8466666666666667,
+   "heldout": false
+  },
+  "truthfulqa": {
+   "bf16": 0.7266666666666667,
+   "nvfp4": 0.7333333333333333,
+   "heldout": true
+  },
+  "fin_phrasebank": {
+   "bf16": 0.74,
+   "nvfp4": 0.7266666666666667,
+   "heldout": true
+  },
+  "bias_in_bios": {
+   "bf16": 0.95,
+   "nvfp4": 0.9433333333333334,
+   "heldout": false
+  },
+  "helpsteer2": {
+   "bf16": 0.6106666666666667,
+   "nvfp4": 0.5986666666666667,
+   "heldout": false
+  },
+  "helpsteer3_pref": {
+   "bf16": 0.5533333333333333,
+   "nvfp4": 0.5266666666666666,
+   "heldout": false
+  },
+  "hate_speech_scales": {
+   "bf16": 0.564,
+   "nvfp4": 0.5613333333333334,
+   "heldout": false
+  },
+  "liar2": {
+   "bf16": 0.4533333333333333,
+   "nvfp4": 0.41333333333333333,
+   "heldout": false
+  },
+  "prosocial_safety": {
+   "bf16": 0.5466666666666666,
+   "nvfp4": 0.5533333333333333,
+   "heldout": false
+  },
+  "ultrafeedback_pref": {
+   "bf16": 0.82,
+   "nvfp4": 0.8266666666666667,
+   "heldout": false
+  },
+  "shp": {
+   "bf16": 0.7866666666666666,
+   "nvfp4": 0.8066666666666666,
+   "heldout": false
+  },
+  "hh_rlhf": {
+   "bf16": 0.7133333333333334,
+   "nvfp4": 0.7,
+   "heldout": false
+  },
+  "arena_pref": {
+   "bf16": 0.5733333333333334,
+   "nvfp4": 0.5666666666666667,
+   "heldout": true
+  },
+  "reward_bench": {
+   "bf16": 0.88,
+   "nvfp4": 0.8733333333333333,
+   "heldout": true
+  },
+  "glaive_tools": {
+   "bf16": 0.9466666666666667,
+   "nvfp4": 0.9466666666666667,
+   "heldout": false
+  },
+  "toolace": {
+   "bf16": 0.9,
+   "nvfp4": 0.9133333333333333,
+   "heldout": false
+  },
+  "hermes_tools": {
+   "bf16": 0.98,
+   "nvfp4": 0.98,
+   "heldout": true
+  },
+  "copa": {
+   "bf16": 1.0,
+   "nvfp4": 1.0,
+   "heldout": false
+  },
+  "wic": {
+   "bf16": 0.76,
+   "nvfp4": 0.7933333333333333,
+   "heldout": false
+  },
+  "multirc": {
+   "bf16": 0.9266666666666666,
+   "nvfp4": 0.9266666666666666,
+   "heldout": false
+  },
+  "cb": {
+   "bf16": 0.8928571428571429,
+   "nvfp4": 0.8571428571428571,
+   "heldout": true
+  },
+  "fever": {
+   "bf16": 0.9,
+   "nvfp4": 0.8866666666666667,
+   "heldout": false
+  },
+  "wiki_qa": {
+   "bf16": 0.9133333333333333,
+   "nvfp4": 0.9266666666666666,
+   "heldout": false
+  },
+  "msmarco_rel": {
+   "bf16": 0.68,
+   "nvfp4": 0.6666666666666666,
+   "heldout": false
+  },
+  "medmcqa": {
+   "bf16": 0.76,
+   "nvfp4": 0.7333333333333333,
+   "heldout": false
+  },
+  "quality": {
+   "bf16": 0.66,
+   "nvfp4": 0.6666666666666666,
+   "heldout": true
+  },
+  "xstory_cloze": {
+   "bf16": 1.0,
+   "nvfp4": 1.0,
+   "heldout": true
+  },
+  "abstain_probe": {
+   "bf16": 0.64,
+   "nvfp4": 0.58,
+   "heldout": true
+  },
+  "agenttraj": {
+   "bf16": 0.96,
+   "nvfp4": 0.9533333333333334,
+   "heldout": false
+  },
+  "mind2web": {
+   "bf16": 0.92,
+   "nvfp4": 0.9,
+   "heldout": false
+  },
+  "synth": {
+   "bf16": 0.8466666666666667,
+   "nvfp4": 0.8433333333333334,
+   "heldout": false
+  },
+  "offtopic_probe": {
+   "bf16": 0.82,
+   "nvfp4": 0.8066666666666666,
+   "heldout": true
+  },
+  "hwu64": {
+   "bf16": 0.9733333333333334,
+   "nvfp4": 0.98,
+   "heldout": true
+  },
+  "dbpedia_l2": {
+   "bf16": 0.9666666666666667,
+   "nvfp4": 0.9733333333333334,
+   "heldout": true
+  },
+  "dbpedia_l3": {
+   "bf16": 0.9933333333333333,
+   "nvfp4": 0.9933333333333333,
+   "heldout": true
+  },
+  "quality_full": {
+   "bf16": 0.5866666666666667,
+   "nvfp4": 0.5666666666666667,
+   "heldout": true
+  }
+ },
+ "export_dir": "/mnt/data/mark/projects/decider/runs/moe_optimizer_ab_v1/muon/model_nvfp4",
+ "export_files": [
+  "chat_template.jinja",
+  "config.json",
+  "decider_config.json",
+  "generation_config.json",
+  "hf_quant_config.json",
+  "model-00001-of-00005.safetensors",
+  "model-00002-of-00005.safetensors",
+  "model-00003-of-00005.safetensors",
+  "model-00004-of-00005.safetensors",
+  "model-00005-of-00005.safetensors",
+  "model.safetensors.index.json",
+  "tokenizer.json",
+  "tokenizer_config.json"
+ ],
+ "export_gb": 19.601492702029645,
+ "seconds": 2637.9610896110535
+}

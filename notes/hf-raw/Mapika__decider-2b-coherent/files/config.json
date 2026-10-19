@@ -1,0 +1,17 @@
+{
+ "model_type": "decider-coherent",
+ "version": "1.1.0",
+ "base": "Mapika/decider-2b",
+ "base_revision": "533964dae8be954c5b5e19fa4948e48408094c1e",
+ "M": 8,
+ "d": 256,
+ "d_a": 128,
+ "temperature": 1.145,
+ "max_ctx": 1536,
+ "adapter": true,
+ "gate_threshold": 0.5,
+ "ipf_tol": 1e-12,
+ "train_steps": 3000,
+ "leaderboard_temperature_factor": 1.0332024243144116,
+ "library": "decider_coherent (in this repo)"
+}

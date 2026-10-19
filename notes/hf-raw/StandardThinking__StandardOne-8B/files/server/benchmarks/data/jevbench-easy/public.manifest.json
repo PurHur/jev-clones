@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "suite": "jevbench-easy",
+  "split": "public",
+  "description": "Public easy tier: 48 explicit facts, intents and tool selections.",
+  "data_file": "public.jsonl",
+  "data_sha256": "e186c6dd90b3a7a177ef15f2fd3673d7bbfce95340bfdc6062dc15bfa0e01a6a",
+  "upstream": {
+    "repository": "https://github.com/fstandhartinger/jevbench",
+    "commit": "fd51755eb0c0b546ca206d764faf3302feca913e",
+    "path": "datasets/public/easy.jsonl",
+    "url": "https://raw.githubusercontent.com/fstandhartinger/jevbench/fd51755eb0c0b546ca206d764faf3302feca913e/datasets/public/easy.jsonl",
+    "sha256": "231df3c2c8e88a1a8c137ebe85de96ba70fabd330849098ac7b3c52c70b7172b",
+    "notice_sha256": {
+      "LICENSE": "3e5beed774bb0bcbfb2fcf24ba9554212c6ae112937d308040989465ab0c5784",
+      "THIRD-PARTY.md": "396422e29055bba4073f4a9e5a7163cc724f13e970a34ef58e8ea1fb439b9b38"
+    }
+  },
+  "full_partition": {
+    "records": 48,
+    "questions": 48,
+    "clean_records": 48,
+    "clean_questions": 48,
+    "headline_questions": 48,
+    "variants": {
+      "clean": 48
+    },
+    "clean_sources": {
+      "intent": 12,
+      "fact": 12,
+      "extraction": 12,
+      "tool_selection": 12
+    },
+    "question_types": {
+      "choice": 36,
+      "noul": 12
+    },
+    "maximum_options": 5
+  },
+  "selected": {
+    "records": 48,
+    "questions": 48,
+    "clean_records": 48,
+    "clean_questions": 48,
+    "headline_questions": 48,
+    "variants": {
+      "clean": 48
+    },
+    "clean_sources": {
+      "intent": 12,
+      "fact": 12,
+      "extraction": 12,
+      "tool_selection": 12
+    },
+    "question_types": {
+      "choice": 36,
+      "noul": 12
+    },
+    "maximum_options": 5
+  },
+  "selection": {
+    "method": "full",
+    "requested_limit": null,
+    "is_full_partition": true,
+    "note": "Full frozen public tier; not the complete published leaderboard."
+  },
+  "protocol": {
+    "calibration_applied": false,
+    "training_data_downloaded": false,
+    "gold_labels_sent_to_model": false,
+    "headline_variant": "clean",
+    "exclude_from_headline_sources": [],
+    "locked_test": false,
+    "notes": [
+      "Community benchmark; not an official TypeSafe dataset release.",
+      "Public original/easy/hard have 72/48/111 questions; report separately.",
+      "The 534-item leaderboard contains private/untracked data not downloaded here.",
+      "Choice request criteria retain their native order; scoring labels retain canonical order.",
+      "Native accuracy uses argmax with lexicographic label tie-break, including Score.",
+      "Score also supports expected-value MAE; original has 36 paraphrase groups.",
+      "One-hot labels and ten explicit mathematical probability references are separate targets.",
+      "Provenance, rationale and gold probabilities are never sent in requests."
+    ]
+  },
+  "provenance": {
+    "dataset_license": "MIT",
+    "license_url": "https://github.com/fstandhartinger/jevbench/blob/fd51755eb0c0b546ca206d764faf3302feca913e/LICENSE",
+    "notices": [
+      "LICENSE",
+      "THIRD-PARTY.md"
+    ],
+    "reference_probability_questions": 0,
+    "gold_policy": "Authored rubric labels reviewed before inference; hard items retain author and review metadata. Explicit mathematical distributions are not teacher model confidence or population frequency estimates."
+  }
+}

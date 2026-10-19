@@ -1,0 +1,69 @@
+{
+  "input": "data/scaled_games_v4/events",
+  "output_dir": "runs/events_brier_seed17",
+  "model": "Qwen/Qwen3-0.6B",
+  "revision": "main",
+  "init_checkpoint": "/home/rwang/openjev_codex_20260917/runs/v3_teacher_coords_multi_seed17",
+  "objective": "observed_outcome",
+  "loss": "brier",
+  "reward_samples": 32,
+  "gradient_checkpointing": true,
+  "set_head": "attention",
+  "steps": 100,
+  "head_steps": 0,
+  "batch_questions": 16,
+  "microbatch_questions": 4,
+  "max_microbatch_tokens": 16384,
+  "eval_every": 50,
+  "max_length": 8192,
+  "seed": 17,
+  "backbone_lr": 2e-05,
+  "head_lr": 0.0002,
+  "head_warmup_lr": 0.001,
+  "precision": "bf16",
+  "disable_native_triton": true,
+  "validate_only": false,
+  "self_check": false,
+  "schema_version": "openjev-decision-pipeline-v1",
+  "resolved_model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "initialization": "local DecisionModel warm start, fresh optimizer",
+  "data_sha256": {
+    "data/scaled_games_v4/events/train.jsonl": "4cebf698e4b71dc37d4d0e985b6577dd565ac370ac82b6f47f375aa6af69f8c9",
+    "data/scaled_games_v4/events/dev.jsonl": "0c352ee1064a5fb5d2aacad59cbea57afb897886d3d09e5ca108c866a5f893db",
+    "data/scaled_games_v4/events/calibration.jsonl": "4a8a8a2b81c3c46df6bb4c8690e97374dd0165cbef40566bb7f87c1f425d5562",
+    "data/scaled_games_v4/events/test.jsonl": "884bec71891668199925809d8708347f56f7bf06e8363e4a436347967b1423e3",
+    "data/scaled_games_v4/events/ood.jsonl": "3c00d845524634ca3b34559761cdaf0c52b7b7633d5517d1e7ee7f31697cea48"
+  },
+  "deps": {
+    "torch": "2.14.0",
+    "transformers": "5.17.0",
+    "safetensors": "0.8.0"
+  },
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "parameter_storage": "float32",
+  "forward_autocast": "bfloat16",
+  "parameter_count": 596250498,
+  "train_questions": 1124,
+  "all_train_questions": 1124,
+  "schema_counts": {
+    "records": 2356,
+    "questions_by_split": {
+      "train": 1124,
+      "dev": 372,
+      "calibration": 368,
+      "test": 364,
+      "ood": 128
+    },
+    "eligible_by_split_objective": {
+      "calibration/gold_distribution": 368,
+      "dev/gold_distribution": 372,
+      "ood/gold_distribution": 128,
+      "test/gold_distribution": 364,
+      "train/gold_distribution": 1124
+    }
+  },
+  "loss_description": "per-question proper loss; complete candidate normalization",
+  "rlcd_candidate": null,
+  "selection": "minimum dev target CE; held-out test first evaluated after training and checkpoint selection",
+  "parallelism": "complete candidate paths batched in one backbone call per microbatch; no prefix sharing"
+}

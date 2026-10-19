@@ -1,0 +1,57 @@
+{
+ "_id": "6aac147ba2cd8f95a024ecda",
+ "id": "heman10x/rlcd-modernbert-151m",
+ "config": {
+  "architectures": [
+   "GLiClassModel"
+  ],
+  "model_type": "GLiClass",
+  "tokenizer_config": {
+   "cls_token": "[CLS]",
+   "mask_token": "[MASK]",
+   "pad_token": "[PAD]",
+   "sep_token": "[SEP]",
+   "unk_token": "[UNK]"
+  }
+ },
+ "cardData": {
+  "license": "apache-2.0",
+  "base_model": "knowledgator/gliclass-modern-base-v2.0",
+  "library_name": "transformers",
+  "pipeline_tag": "text-classification",
+  "tags": [
+   "rlcd",
+   "typesafe-ai",
+   "jev",
+   "decision-engine",
+   "system-1",
+   "modernbert",
+   "gliclass",
+   "non-autoregressive",
+   "zero-token-generation",
+   "structured-outputs",
+   "calibration",
+   "expected-calibration-error",
+   "ece",
+   "brier-score",
+   "proper-scoring-rules",
+   "onnx",
+   "webgpu",
+   "edge-ai",
+   "fast-inference",
+   "banking77"
+  ]
+ },
+ "lastModified": "2026-09-20T14:35:41.000Z",
+ "downloads": 40980,
+ "likes": 38,
+ "gated": false,
+ "sha": "8af2496eb63c7fa66d7d234e1f62629380030eb4",
+ "createdAt": "2026-09-17T16:25:31.000Z",
+ "safetensors": {
+  "parameters": {
+   "F32": 151378176
+  },
+  "total": 151378176
+ }
+}

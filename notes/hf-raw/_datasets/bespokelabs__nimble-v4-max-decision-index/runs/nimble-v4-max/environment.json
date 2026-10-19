@@ -1,0 +1,30 @@
+{
+ "engine": "nimble.evaluation.decision_index_engine:NimbleEngine",
+ "engine_options": {
+  "adapter": "Nimble-v4-max",
+  "shared_prefix": true,
+  "max_tails": 48
+ },
+ "model_source": {
+  "adapter": "Nimble-v4-max",
+  "weights": "full_model",
+  "weights_sha256": "be73bacdb187146a5b8dc4ff48e711f0dd4851186d3ac0d9d333a9051bd3e3cd",
+  "base_model": "Qwen/Qwen3.8-27B",
+  "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "contract_task": "schema_candidate_classification_compact_v1",
+  "max_tokens": 32768,
+  "prefix_attention": "bidirectional_v1"
+ },
+ "torch": "2.8.0+cu128",
+ "gpu": "NVIDIA H200",
+ "loaded_seconds": 43.409222089,
+ "frozen_corpus_sha256": null,
+ "rows_path": [
+  "/training/decision-index/suite-0.2/selected-rows.jsonl.gz",
+  "/training/decision-index/suite-0.2/added-rows.jsonl.gz",
+  "/training/decision-index/gsm8k-rows-0.3.jsonl.gz"
+ ],
+ "runner_sha256": "f4c9f36c4c557f537f1d8184db7bf00c5a84d9f4f0aa67f8c06198cead25818d",
+ "latency": "In-process request wall time on one GPU: prompt construction and batched forward passes.",
+ "note": "Run as 32 processes on 32 NVIDIA H200 GPUs (one per GPU) for the 150,317 requests of the 0.2.1 run list, then 4 more for the 2,638 rebuilt GSM8K requests of 0.3, requests split by a hash of their run id; results merged here and scored with --edition 0.3. The model path is shown as the published snapshot name; the results are untouched."
+}

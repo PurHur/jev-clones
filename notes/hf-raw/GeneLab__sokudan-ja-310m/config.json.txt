@@ -1,0 +1,47 @@
+{
+  "model_type": "sokudan",
+  "architectures": [
+    "SokudanJointModel"
+  ],
+  "backbone": "sbintuitions/modernbert-ja-310m",
+  "encoding": "joint",
+  "input_order": "question_first",
+  "local_attention": null,
+  "n_parameters": 314614274,
+  "question_types": [
+    "choice",
+    "score",
+    "bool"
+  ],
+  "bool_aliases": [
+    "noul"
+  ],
+  "license": "apache-2.0",
+  "version": "0.2",
+  "soup": {
+    "rule": "plain average of every floating tensor of the members (float32 mean, cast back); integer tensors and config from the first member",
+    "members": [
+      "v0.1 seed 0",
+      "v0.1 seed 1",
+      "v0.1 seed 2",
+      "v0.1 seed 3",
+      "v0.1 seed 4",
+      "v0.1 seed 5",
+      "v0.1 seed 6",
+      "v0.1 seed 7"
+    ],
+    "member_sha256": {
+      "v01_seed0": "bfd6506656ae34e4e98143ffdda8304c412acadfb5f4c5a8b68a3c72ae7f053e",
+      "v01_seed1": "82758cf6d14518f274f7b2030cb0c5f78110227504d0991f8990488b120b1dde",
+      "v01_seed2": "34b9c3a33b1689433e98605c6c1fd6659a687df3a98b3480ded682929db48e0e",
+      "v01_seed3": "da84566b06b70cf678276a8e9ef69238234e7a13f66ae15c89a8903283b2b957",
+      "v01_seed4": "dee1fbadbdacb494a9ef098584607469253c07e573ce7bcbc59e648a5d6d1f6a",
+      "v01_seed5": "b0b5e1987e0626fb31c74637a70d90a229833be9ef8db4a914b8e492676bee01",
+      "v01_seed6": "ff0ae8e48c866b799af2b558e8205503f5383d7b36dfcaac4a353c3775934312",
+      "v01_seed7": "d50e2044602d8b070d150b2b7f8d131d2dd9213e3045d35ee25b915c752f9bf2"
+    },
+    "soup_checkpoint_sha256": "c301449145c97f9e317fb6eec716df17275fceef32e8a4baac2c9071d93504fe",
+    "rebuild": "scripts/make_soup.py"
+  },
+  "note": "Custom architecture, the v0.1 joint encoding: [CLS] instructions [SEP] options+markers [SEP] state [SEP] through the backbone, marker hidden states through a scorer (choice / bool) or the ordinal head (score). Not an AutoModel -- load with `sokudan.load`."
+}

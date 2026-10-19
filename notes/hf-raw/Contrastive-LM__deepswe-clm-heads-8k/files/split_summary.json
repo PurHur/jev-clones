@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "stratification": [
+    "candidate_count",
+    "pass_count"
+  ],
+  "train_tasks": 75,
+  "test_tasks": 38,
+  "train_tasks_with_successes": 66,
+  "training_pairs": 22576,
+  "test_mixed_tasks": 13
+}

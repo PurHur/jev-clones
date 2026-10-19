@@ -1,0 +1,35 @@
+{
+ "temperature_per_prim": {
+  "choice": 1.1387886347566916,
+  "noul": 1.3939382634489992,
+  "score": 1.5422108254079405
+ },
+ "thresholds": {
+  "0.01": {
+   "confidence": 0.9546241492914076,
+   "method": "bound-controlled (one-sided 95% Clopper-Pearson on FIT)",
+   "cert_coverage": 0.49265381083562904,
+   "cert_error": 0.009319664492078328,
+   "cert_upper95": 0.015756935615729575,
+   "test_coverage": 0.4649532710280374,
+   "test_error": 0.009045226130653283,
+   "test_pl_coverage": 0.5283152097161418,
+   "test_pl_error": 0.007751937984496138
+  },
+  "0.05": {
+   "confidence": 0.7629656203142733,
+   "method": "bound-controlled (one-sided 95% Clopper-Pearson on FIT)",
+   "cert_coverage": 0.7112029384756657,
+   "cert_error": 0.046481601032924424,
+   "cert_upper95": 0.05626481588712098,
+   "test_coverage": 0.704088785046729,
+   "test_error": 0.05292848846855813,
+   "test_pl_coverage": 0.7709363084310126,
+   "test_pl_error": 0.0426818098552848
+  }
+ },
+ "fitted_on": "calib FIT split (70% by twin group)",
+ "certified_on": "calib CERT split (30%)",
+ "evaluated_on": "test (frozen)",
+ "eval_dtype": "float32"
+}

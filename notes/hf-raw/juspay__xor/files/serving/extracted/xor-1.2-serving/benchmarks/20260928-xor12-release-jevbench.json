@@ -1,0 +1,45 @@
+{
+  "model": "xor-1.2",
+  "evaluated_wrapper_sha256": "a44d9dcde4d2e48b43d6b367dae03a0d4e62edd05e639d1a483481435420ec21",
+  "engine_model_index_sha256": "f8448aa8b2fbf3519723b0c2965fc94ed64cafdd463381636a1df351952b3f1a",
+  "model_shard_00001_sha256": "953b595b4bcfb712d84b14120a37cd3b0072fe7175ff1ec24c3499356e7f03af",
+  "sglang_image": "prakhar1611/xor-sglang@sha256:94c48d2a6cc98dc456cf93f723707ea7dd81dddfe1061e823b348d68bbe8158f",
+  "hardware": "1 x NVIDIA H200 NVL 143 GB",
+  "tensor_parallel_size": 1,
+  "data_parallel_size": 1,
+  "cache_enabled": false,
+  "temperature_map": {
+    "noul": 1.4,
+    "choice": 1.1,
+    "score": 1.0
+  },
+  "jevbench_public": {
+    "runner_commit": "1bcc55eb6c8cffde2306b3db03ede39b61c6152a",
+    "n": 231,
+    "valid": 231,
+    "correct": 208,
+    "accuracy": 0.9004329004329005,
+    "macro_accuracy": 0.9070187724212491,
+    "brier": 0.17900663922077922,
+    "ece": 0.07327402597402612,
+    "ordinal_mae": 0.19542222222222222,
+    "schema_validity_strict": 1.0,
+    "operational_success": 1.0,
+    "latency_p50_ms": 69.05156001448631,
+    "latency_p95_ms": 161.58005874603987,
+    "tiers": {
+      "easy": {
+        "n": 48,
+        "correct": 48
+      },
+      "original": {
+        "n": 72,
+        "correct": 69
+      },
+      "hard": {
+        "n": 111,
+        "correct": 91
+      }
+    }
+  }
+}

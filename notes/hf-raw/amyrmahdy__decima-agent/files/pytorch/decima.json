@@ -1,0 +1,15 @@
+{
+ "backbone": "jhu-clsp/mmBERT-base",
+ "scorer_layers": 2,
+ "heads": 6,
+ "ffn": 1536,
+ "dropout": 0.1,
+ "max_state_tokens": 8192,
+ "max_choice_tokens": 64,
+ "temperature": 0.6124814821077146,
+ "question_in_state": true,
+ "question_in_choices": true,
+ "choice_fit": true,
+ "state_prefix": "",
+ "choice_prefix": ""
+}
