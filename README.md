@@ -11,6 +11,8 @@ PurHur/laya-browser.
 
 Layout:
 - `clones/<name>.md` – one profile per clone, same template, every claim with a source link
-- `COMPARISON.md` – the cross-clone architecture table and the differences that matter
+- `COMPARISON.md` – **start here**: the cross-clone architecture comparison (32 profiles, 197 families)
 - `sources/` – pinned upstream checkouts (gitignored, data only, never executed)
 - `notes/` – raw research notes
+- `notes/discovery.md` – all candidates found (HF + GitHub), `notes/hf-sweep.md` – big-lab HF sweep,
+  `notes/arch/arch_table.tsv` – config fields of 479 HF repos (`scripts/hf_arch.py`)
